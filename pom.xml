@@ -84,54 +84,82 @@
             <id>clinton.begin</id>
             <name>Clinton Begin</name>
             <email>clinton.begin@gmail.com</email>
+            <roles>
+                <role>Owner</role>
+                <role>Committer</role>
+            </roles>
         </developer>
 
         <developer>
             <id>brandon.goodin</id>
             <name>Brandon Goodin</name>
             <email>brandon.goodin@gmail.com</email>
+            <roles>
+                <role>Committer</role>
+            </roles>
         </developer>
 
         <developer>
             <id>christian.poitras@ircm.qc.ca</id>
             <name>Christian Poitras</name>
             <email>christian.poitras@ircm.qc.ca</email>
+            <roles>
+                <role>Committer</role>
+            </roles>
         </developer>
 
         <developer>
             <id>jeffgbutler</id>
             <name>Jeff Butler</name>
             <email>jeffgbutler@gmail.com</email>
+            <roles>
+                <role>Committer</role>
+            </roles>
         </developer>
 
         <developer>
             <id>nospam@kaigrabfelder.de</id>
             <name>Kai Grabfelder</name>
             <email>nospam@kaigrabfelder.de</email>
+            <roles>
+                <role>Committer</role>
+            </roles>
         </developer>
 
         <developer>
             <id>larry.meadors</id>
             <name>Larry Meadors</name>
             <email>larry.meadors@gmail.com</email>
+            <roles>
+                <role>Committer</role>
+            </roles>
         </developer>
 
         <developer>
             <id>marco.speranza79</id>
             <name>Marco Speranza</name>
             <email>marco.speranza79@gmail.com</email>
+            <roles>
+                <role>Committer</role>
+            </roles>
         </developer>
 
         <developer>
             <id>nathan.maves</id>
             <name>Nathan Maves</name>
             <email>nathan.maves@gmail.com</email>
+            <roles>
+                <role>Committer</role>
+            </roles>
         </developer>
 
         <developer>
             <id>simone.tripodi</id>
             <name>Simone Tripodi</name>
             <email>simone.tripodi@gmail.com</email>
+            <roles>
+                <role>Committer</role>
+            </roles>
         </developer>
     </developers>
 
