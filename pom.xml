@@ -22,9 +22,9 @@
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
-	    <artifactId>oss-parent</artifactId>
-	    <version>5</version>
-	</parent>
+        <artifactId>oss-parent</artifactId>
+        <version>5</version>
+    </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.mybatis</groupId>
@@ -99,10 +99,10 @@
             <email>larry.meadors@gmail.com</email>
         </developer>
 
-	    <developer>
-	        <id>marco.speranza79</id>
-	        <name>Marco Speranza</name>
-	        <email>marco.speranza79@gmail.com</email>
+        <developer>
+            <id>marco.speranza79</id>
+            <name>Marco Speranza</name>
+            <email>marco.speranza79@gmail.com</email>
         </developer>
 
         <developer>
