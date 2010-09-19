@@ -139,6 +139,7 @@
             <id>marco.speranza79</id>
             <name>Marco Speranza</name>
             <email>marco.speranza79@gmail.com</email>
+            <timezone>+1</timezone>
             <roles>
                 <role>Committer</role>
             </roles>
@@ -157,6 +158,7 @@
             <id>simone.tripodi</id>
             <name>Simone Tripodi</name>
             <email>simone.tripodi@gmail.com</email>
+            <timezone>+1</timezone>
             <roles>
                 <role>Committer</role>
             </roles>
