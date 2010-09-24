@@ -434,6 +434,44 @@
                 </plugins>
             </build>
         </profile>
+
+        <profile>
+            <id>base-gcu</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.googlecode.maven-gcu-plugin</groupId>
+                        <artifactId>maven-gcu-plugin</artifactId>
+                        <version>1.0</version>
+                        <executions>
+                            <execution>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>upload</goal>
+                                </goals>
+                                <configuration>
+                                    <failsOnError>true</failsOnError>
+                                    <projectName>mybatis</projectName>
+                                    <uploads>
+                                         <upload>
+                                            <file>${project.build.directory}/${project.artifactId}-${project.version}-bundle.zip</file>
+                                            <summary>${project.description} ${project.version} release</summary>
+                                            <labels>
+                                                <label>Featured</label>
+                                                <label>Type-Archive</label>
+                                            </labels>
+                                        </upload>
+                                    </uploads>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 
     <properties>
