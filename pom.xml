@@ -106,6 +106,7 @@
             <roles>
                 <role>Committer</role>
             </roles>
+            <timezone>-5</timezone>
         </developer>
 
         <developer>
