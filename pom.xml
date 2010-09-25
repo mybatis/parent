@@ -415,13 +415,12 @@
                                 <configuration>
                                     <includes>index.xml</includes>
                                     <xincludeSupported>true</xincludeSupported>
+                                    <paperType>A4</paperType>
                                     <sourceDirectory>${basedir}/src/docbkx</sourceDirectory>
                                     <foCustomization>${basedir}/src/docbkx/xsl/fopdf.xsl</foCustomization>
-                                    <!-- use extensions -->
                                     <useExtensions>1</useExtensions>
                                     <highlightSource>1</highlightSource>
                                     <highlightDefaultLanguage />
-                                    <!-- callouts -->
                                     <calloutsExtension>1</calloutsExtension>
                                     <postProcess>
                                         <move file="target/docbkx/pdf/index.pdf"
