@@ -104,10 +104,10 @@
             <id>christian.poitras@ircm.qc.ca</id>
             <name>Christian Poitras</name>
             <email>christian.poitras@ircm.qc.ca</email>
+            <timezone>-5</timezone>
             <roles>
                 <role>Committer</role>
             </roles>
-            <timezone>-5</timezone>
         </developer>
 
         <developer>
@@ -299,6 +299,27 @@
             </plugin>
 
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-remote-resources-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                        <configuration>
+                            <attached>false</attached>
+                            <outputDirectory>${project.build.directory}/docbkx</outputDirectory>
+                            <resourceBundles>
+                                <resourceBundle>${project.groupId}:mybatis-docbook:1.0.0</resourceBundle>
+                            </resourceBundles>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.3.1</version>
                 <configuration>
@@ -375,7 +396,7 @@
                 <plugin>
                     <groupId>com.agilejava.docbkx</groupId>
                     <artifactId>docbkx-maven-plugin</artifactId>
-                    <version>2.0.11</version>
+                    <version>2.0.7</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.docbook</groupId>
@@ -388,6 +409,7 @@
                         <xincludeSupported>true</xincludeSupported>
                         <paperType>A4</paperType>
                         <sourceDirectory>${basedir}/src/docbkx</sourceDirectory>
+                        <foCustomization>${project.build.directory}/docbkx/xsl/fopdf.xsl</foCustomization>
                         <useExtensions>1</useExtensions>
                         <highlightSource>1</highlightSource>
                         <highlightDefaultLanguage />
@@ -434,7 +456,7 @@
 
     <profiles>
         <profile>
-            <id>dockbook</id>
+            <id>docbook</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -450,7 +472,7 @@
                                 </goals>
                                 <phase>package</phase>
                                 <configuration>
-                                    <foCustomization>${basedir}/src/docbkx/xsl/fopdf.xsl</foCustomization>
+                                    <includes>index.xml</includes>
                                     <postProcess>
                                         <move file="target/docbkx/pdf/index.pdf"
                                             tofile="target/docbkx/pdf/${project.artifactId}-${project.version}-reference.pdf"
