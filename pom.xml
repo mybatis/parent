@@ -370,6 +370,36 @@
             </plugin>
         </plugins>
 
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.agilejava.docbkx</groupId>
+                    <artifactId>docbkx-maven-plugin</artifactId>
+                    <version>2.0.11</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.docbook</groupId>
+                            <artifactId>docbook-xml</artifactId>
+                            <version>4.4</version>
+                            <scope>runtime</scope>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>2.2-beta-5</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.googlecode.maven-gcu-plugin</groupId>
+                    <artifactId>maven-gcu-plugin</artifactId>
+                    <version>1.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -397,15 +427,6 @@
                     <plugin>
                         <groupId>com.agilejava.docbkx</groupId>
                         <artifactId>docbkx-maven-plugin</artifactId>
-                        <version>2.0.11</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.docbook</groupId>
-                                <artifactId>docbook-xml</artifactId>
-                                <version>4.4</version>
-                                <scope>runtime</scope>
-                            </dependency>
-                        </dependencies>
                         <executions>
                             <execution>
                                 <goals>
@@ -444,7 +465,6 @@
                 <plugins>
                     <plugin>
                         <artifactId>maven-assembly-plugin</artifactId>
-                        <version>2.2-beta-5</version>
                         <dependencies>
                             <dependency>
                                 <groupId>org.mybatis</groupId>
@@ -481,7 +501,6 @@
                     <plugin>
                         <groupId>com.googlecode.maven-gcu-plugin</groupId>
                         <artifactId>maven-gcu-plugin</artifactId>
-                        <version>1.0</version>
                         <executions>
                             <execution>
                                 <phase>deploy</phase>
