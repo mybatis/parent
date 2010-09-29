@@ -31,7 +31,7 @@
     <artifactId>mybatis-parent</artifactId>
     <name>MyBatis parent POM</name>
     <description>The MyBatis parent POM.</description>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
     <url>http://www.mybatis.org/</url>
     <inceptionYear>2010</inceptionYear>
@@ -168,9 +168,9 @@
     </developers>
 
     <scm>
-        <url>scm:svn:http://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</url>
-        <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</connection>
-        <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</developerConnection>
+        <url>scm:svn:http://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/tags/1.0.0</url>
+        <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/tags/1.0.0</connection>
+        <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/tags/1.0.0</developerConnection>
     </scm>
 
     <reporting>
@@ -474,9 +474,7 @@
                                 <configuration>
                                     <includes>index.xml</includes>
                                     <postProcess>
-                                        <move file="target/docbkx/pdf/index.pdf"
-                                            tofile="target/docbkx/pdf/${project.artifactId}-${project.version}-reference.pdf"
-                                            failonerror="false" />
+                                        <move file="target/docbkx/pdf/index.pdf" tofile="target/docbkx/pdf/${project.artifactId}-${project.version}-reference.pdf" failonerror="false" />
                                     </postProcess>
                                 </configuration>
                             </execution>
