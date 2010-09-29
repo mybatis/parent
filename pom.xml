@@ -408,7 +408,7 @@
                     <configuration>
                         <xincludeSupported>true</xincludeSupported>
                         <paperType>A4</paperType>
-                        <sourceDirectory>${project.build.sourceDirectory}/docbkx</sourceDirectory>
+                        <sourceDirectory>${basedir}/src/docbkx</sourceDirectory>
                         <foCustomization>${project.build.directory}/docbkx/xsl/fopdf.xsl</foCustomization>
                         <useExtensions>1</useExtensions>
                         <highlightSource>1</highlightSource>
@@ -440,7 +440,7 @@
 
         <resources>
             <resource>
-                <directory>${project.build.sourceDirectory}/main/resources</directory>
+                <directory>src/main/resources</directory>
             </resource>
 
             <resource>
