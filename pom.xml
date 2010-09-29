@@ -474,7 +474,10 @@
                                 <configuration>
                                     <includes>index.xml</includes>
                                     <postProcess>
-                                        <move file="target/docbkx/pdf/index.pdf" tofile="target/docbkx/pdf/${project.artifactId}-${project.version}-reference.pdf" failonerror="false" />
+                                        <move
+                                            file="${project.build.directory}/docbkx/pdf/index.pdf"
+                                            tofile="${project.build.directory}/docbkx/pdf/${project.artifactId}-${project.version}-reference.pdf"
+                                            failonerror="false" />
                                     </postProcess>
                                 </configuration>
                             </execution>
