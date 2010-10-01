@@ -330,7 +330,7 @@
                             <attached>false</attached>
                             <outputDirectory>${project.build.directory}/docbkx</outputDirectory>
                             <resourceBundles>
-                                <resourceBundle>${project.groupId}:mybatis-docbook:1.0.0</resourceBundle>
+                                <resourceBundle>org.mybatis:mybatis-docbook:1.0.0</resourceBundle>
                             </resourceBundles>
                         </configuration>
                     </execution>
