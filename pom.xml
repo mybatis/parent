@@ -482,6 +482,16 @@
 
     <profiles>
         <profile>
+            <id>parent-release</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <enforcer.skip>true</enforcer.skip>
+            </properties>
+        </profile>
+
+        <profile>
             <id>sonatype-oss-release</id>
             <build>
                 <plugins>
