@@ -111,6 +111,15 @@
         </developer>
 
         <developer>
+            <id>eduardo.macarron</id>
+            <name>Eduardo Macarron</name>
+            <email>eduardo.macarron@gmail.com</email>
+            <roles>
+                <role>Committer</role>
+            </roles>
+        </developer>
+
+        <developer>
             <id>jeffgbutler</id>
             <name>Jeff Butler</name>
             <email>jeffgbutler@gmail.com</email>
@@ -151,6 +160,15 @@
             <id>nathan.maves</id>
             <name>Nathan Maves</name>
             <email>nathan.maves@gmail.com</email>
+            <roles>
+                <role>Committer</role>
+            </roles>
+        </developer>
+
+        <developer>
+            <id>putthibongb</id>
+            <name>Putthibong Boonbong</name>
+            <email>putthibongb@gmail.com</email>
             <roles>
                 <role>Committer</role>
             </roles>
