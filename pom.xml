@@ -31,7 +31,7 @@
     <artifactId>mybatis-parent</artifactId>
     <name>MyBatis parent POM</name>
     <description>The MyBatis parent POM.</description>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <url>http://www.mybatis.org/</url>
     <inceptionYear>2010</inceptionYear>
@@ -347,7 +347,9 @@
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                         </manifest>
                         <manifestEntries>
-                            <Implementation-Build>${buildNumber}</Implementation-Build>
+                            <Implementation-Build>r${buildNumber}</Implementation-Build>
+                            <X-Compile-Source-JDK>${javac.src.version}</X-Compile-Source-JDK>
+                            <X-Compile-Target-JDK>${javac.target.version}</X-Compile-Target-JDK>
                         </manifestEntries>
                     </archive>
                 </configuration>
@@ -394,8 +396,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.1</version>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>${javac.src.version}</source>
+                    <target>${javac.target.version}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
@@ -617,6 +619,8 @@
 
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <javac.src.version>1.5</javac.src.version>
+        <javac.target.version>1.5</javac.target.version>
     </properties>
 
 </project>
