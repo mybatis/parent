@@ -120,6 +120,15 @@
         </developer>
 
         <developer>
+            <id>hpresnall</id>
+            <name>Hunter Presnall</name> 
+            <email>hpresnall@gmail.com</email>
+            <roles>
+                <role>Committer</role>
+            </roles>
+        </developer>
+
+        <developer>
             <id>jeffgbutler</id>
             <name>Jeff Butler</name>
             <email>jeffgbutler@gmail.com</email>
