@@ -217,7 +217,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
-                <version>2.1</version>
+                <version>2.2</version>
             </plugin>
 
             <plugin>
@@ -268,7 +268,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>2.3</version>
+                <version>2.5</version>
                 <configuration>
                     <linkXref>true</linkXref>
                     <minimumTokens>100</minimumTokens>
@@ -317,7 +317,7 @@
 
             <plugin>
                 <artifactId>maven-install-plugin</artifactId>
-                <version>2.3</version>
+                <version>2.3.1</version>
             </plugin>
 
             <plugin>
@@ -424,7 +424,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>2.1.1</version>
+                <version>3.0-beta-2</version>
                 <configuration>
                     <outputEncoding>${project.reporting.outputEncoding}</outputEncoding>
                 </configuration>
