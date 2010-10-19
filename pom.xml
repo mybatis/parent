@@ -550,6 +550,7 @@
                     <artifactId>nexus-maven-plugin</artifactId>
                     <version>1.5.1</version>
                     <configuration>
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                         <serverAuthId>sonatype-nexus-staging</serverAuthId>
                     </configuration>
                 </plugin>
