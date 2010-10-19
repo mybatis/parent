@@ -544,6 +544,15 @@
                         <projectName>mybatis</projectName>
                     </configuration>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-maven-plugin</artifactId>
+                    <version>1.5.1</version>
+                    <configuration>
+                        <serverAuthId>sonatype-nexus-staging</serverAuthId>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
 
