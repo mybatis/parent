@@ -663,7 +663,7 @@
                         <executions>
                             <execution>
                                 <goals>
-                                    <goal>assembly</goal>
+                                    <goal>single</goal>
                                 </goals>
                                 <phase>package</phase>
                                 <configuration>
