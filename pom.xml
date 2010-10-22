@@ -55,6 +55,9 @@
             <subscribe>http://groups.google.com/group/mybatis-dev/subscribe</subscribe>
             <unsubscribe>http://groups.google.com/group/mybatis-dev/subscribe</unsubscribe>
             <post>mybatis-dev@googlegroups.com</post>
+            <otherArchives>
+                <otherArchive>http://mybatis-user.963551.n3.nabble.com/</otherArchive>
+            </otherArchives>
         </mailingList>
 
         <mailingList>
