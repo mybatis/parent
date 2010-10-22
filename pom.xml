@@ -598,7 +598,7 @@
             </resource>
 
             <resource>
-                <directory>.</directory>
+                <directory>${basedir}</directory>
                 <targetPath>META-INF</targetPath>
                 <includes>
                     <include>LICENSE</include>
