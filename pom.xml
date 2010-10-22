@@ -322,6 +322,15 @@
                     </tagListOptions>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>clirr-maven-plugin</artifactId>
+                <version>2.2.2</version>
+                <configuration>
+                    <comparisonVersion>${clirr.comparisonVersion}</comparisonVersion>
+                </configuration>
+            </plugin>
         </plugins>
     </reporting>
 
@@ -477,6 +486,17 @@
                 <version>3.0-beta-3</version>
                 <configuration>
                     <outputEncoding>${project.reporting.outputEncoding}</outputEncoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>clirr-maven-plugin</artifactId>
+                <version>2.2.2</version>
+                <configuration>
+                    <comparisonVersion>${clirr.comparisonVersion}</comparisonVersion>
+                    <failOnError>false</failOnError>
+                    <failOnWarning>false</failOnWarning>
                 </configuration>
             </plugin>
         </plugins>
@@ -736,6 +756,7 @@
         <javac.src.version>1.5</javac.src.version>
         <javac.target.version>1.5</javac.target.version>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
+        <clirr.comparisonVersion>${project.version}</clirr.comparisonVersion>
     </properties>
 
 </project>
