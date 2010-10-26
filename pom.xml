@@ -736,9 +736,9 @@
                                 </goals>
                                 <phase>package</phase>
                                 <configuration>
-                                    <descriptors>
-                                        <descriptor>base-bundle.xml</descriptor>
-                                    </descriptors>
+                                    <descriptorRefs>
+                                        <descriptorRef>base-bundle</descriptorRef>
+                                    </descriptorRefs>
                                 </configuration>
                             </execution>
                         </executions>
