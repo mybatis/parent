@@ -767,10 +767,17 @@
                                     <uploads>
                                          <upload>
                                             <file>${project.build.directory}/${project.artifactId}-${project.version}-bundle.zip</file>
-                                            <summary>${project.description} ${project.version} release</summary>
+                                            <summary>${project.name} ${project.version} release</summary>
                                             <labels>
                                                 <label>Featured</label>
                                                 <label>Type-Archive</label>
+                                            </labels>
+                                        </upload>
+                                        <upload>
+                                            <file>${project.build.directory}/docbkx/pdf/${project.artifactId}-${project.version}-reference.pdf</file>
+                                            <labels>
+                                                <label>Featured</label>
+                                                <label>Type-Docs</label>
                                             </labels>
                                         </upload>
                                     </uploads>
