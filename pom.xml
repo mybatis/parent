@@ -771,8 +771,8 @@
                                             <labels>
                                                 <label>Featured</label>
                                                 <label>Type-Archive</label>
-                                                <label>${project.name}</label>
-                                                <label>${project.version}</label>
+                                                <label>Project-${project.artifactId}</label>
+                                                <label>Version-${project.version}</label>
                                             </labels>
                                         </upload>
                                         <upload>
@@ -780,8 +780,8 @@
                                             <labels>
                                                 <label>Featured</label>
                                                 <label>Type-Docs</label>
-                                                <label>${project.name}</label>
-                                                <label>${project.version}</label>
+                                                <label>Project-${project.artifactId}</label>
+                                                <label>Version-${project.version}</label>
                                             </labels>
                                         </upload>
                                     </uploads>
