@@ -777,7 +777,7 @@
                                         </upload>
                                         <upload>
                                             <file>${project.build.directory}/docbkx/pdf/${project.artifactId}-${project.version}-reference.pdf</file>
-                                            <summary>${project.name} ${project.version} Refererence Guide - English</summary>
+                                            <summary>${project.name} ${project.version} Reference Guide - English</summary>
                                             <labels>
                                                 <label>Featured</label>
                                                 <label>Type-Docs</label>
