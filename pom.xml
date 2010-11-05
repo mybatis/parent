@@ -770,6 +770,7 @@
                                                 <label>Type-Archive</label>
                                                 <label>Project-${project.artifactId}</label>
                                                 <label>Version-${project.version}</label>
+                                                <label>Build-${implementation.build}</label>
                                             </labels>
                                         </upload>
                                         <upload>
@@ -780,6 +781,7 @@
                                                 <label>Type-Docs</label>
                                                 <label>Project-${project.artifactId}</label>
                                                 <label>Version-${project.version}</label>
+                                                <label>Build-${implementation.build}</label>
                                             </labels>
                                         </upload>
                                     </uploads>
