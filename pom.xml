@@ -802,6 +802,7 @@
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
         <implementation.build>r${buildNumber}; ${maven.build.timestamp}</implementation.build>
         <clirr.comparisonVersion>${project.version}</clirr.comparisonVersion>
+        <gcu.product>${project.name}</gcu.product>
     </properties>
 
 </project>
