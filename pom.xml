@@ -769,6 +769,7 @@
                                                 <label>Featured</label>
                                                 <label>Type-Archive</label>
                                                 <label>Product-${gcu.product}</label>
+                                                <label>Project-${project.artifactId}</label>
                                                 <label>Version-${project.version}</label>
                                                 <label>Build-${implementation.build}</label>
                                             </labels>
@@ -780,6 +781,7 @@
                                                 <label>Featured</label>
                                                 <label>Type-Docs</label>
                                                 <label>Product-${gcu.product}</label>
+                                                <label>Project-${project.artifactId}</label>
                                                 <label>Version-${project.version}</label>
                                                 <label>Build-${implementation.build}</label>
                                             </labels>
