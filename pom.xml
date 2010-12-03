@@ -560,6 +560,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <quiet>true</quiet>
                     <bootclasspath>${sun.boot.class.path}</bootclasspath>
                     <docletArtifact>
                         <groupId>com.google.doclava</groupId>
