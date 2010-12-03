@@ -559,6 +559,20 @@
                         </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <bootclasspath>${sun.boot.class.path}</bootclasspath>
+                    <docletArtifact>
+                        <groupId>com.google.doclava</groupId>
+                        <artifactId>doclava</artifactId>
+                        <version>1.0.2</version>
+                    </docletArtifact>
+                    <doclet>com.google.doclava.Doclava</doclet>
+                    <additionalparam>
+                        -hdf project.name "${project.name}"
+                        -d ${project.build.directory}/apidocs
+                    </additionalparam>
+                    <useStandardDocletOptions>false</useStandardDocletOptions>
+                </configuration>
             </plugin>
 
             <plugin>
