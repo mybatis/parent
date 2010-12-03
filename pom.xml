@@ -406,11 +406,47 @@
             </plugin>
 
             <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.1.0</version>
+                <executions>
+                    <execution>
+                        <id>bundle-manifest</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>manifest</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <excludeDependencies>true</excludeDependencies>
+                    <manifestLocation>${project.build.directory}/osgi</manifestLocation>
+                    <instructions>
+                        <!--
+                         | stops the "uses" clauses being added to "Export-Package" manifest entry
+                        -->
+                        <_nouses>true</_nouses>
+                        <!--
+                         | Stop the JAVA_1_n_HOME variables from being treated as headers by Bnd
+                        -->
+                        <_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME</_removeheaders>
+                        <Bundle-SymbolicName>${osgi.symbolicName}</Bundle-SymbolicName>
+                        <Export-Package>${osgi.export}</Export-Package>
+                        <Private-Package>${osgi.private}</Private-Package>
+                        <Import-Package>${osgi.import}</Import-Package>
+                        <DynamicImport-Package>${osgi.dynamicImport}</DynamicImport-Package>
+                        <Bundle-DocURL>${project.url}</Bundle-DocURL>
+                    </instructions>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.3.1</version>
                 <configuration>
                     <archive>
+                        <manifestFile>${project.build.directory}/osgi/MANIFEST.MF</manifestFile>
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
@@ -805,6 +841,14 @@
         <implementation.build>r${buildNumber}; ${maven.build.timestamp}</implementation.build>
         <clirr.comparisonVersion>${project.version}</clirr.comparisonVersion>
         <gcu.product>${project.name}</gcu.product>
+        <!--
+         | OSGi configuration properties
+        -->
+        <osgi.symbolicName>${project.groupId}.${project.artifactId}</osgi.symbolicName>
+        <osgi.export>${project.groupId}.*;version=${project.version};-noimport:=true</osgi.export>
+        <osgi.import>*</osgi.import>
+        <osgi.dynamicImport />
+        <osgi.private />
     </properties>
 
 </project>
