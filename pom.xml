@@ -715,6 +715,7 @@
                             <bootclasspath>${sun.boot.class.path}</bootclasspath>
                             <doclet>com.google.doclava.Doclava</doclet>
                             <useStandardDocletOptions>false</useStandardDocletOptions>
+                            <additionalJOption>-J-Xmx1024m</additionalJOption>
                             <docletArtifact>
                                 <groupId>com.google.doclava</groupId>
                                 <artifactId>doclava</artifactId>
