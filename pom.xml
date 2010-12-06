@@ -699,13 +699,16 @@
             </properties>
         </profile>
 
+        <!--
+         | Doclava requires Java6
+        -->
         <profile>
-            <id>release</id>
+            <id>doclava</id>
+            <activation>
+                <jdk>1.6</jdk>
+            </activation>
             <build>
                 <plugins>
-                    <!--
-                     | WARNING Doclava requires Java6
-                    -->
                     <plugin>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <configuration>
@@ -724,7 +727,14 @@
                             </additionalparam>
                         </configuration>
                     </plugin>
+                </plugins>
+            </build>
+        </profile>
 
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
