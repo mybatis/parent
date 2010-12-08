@@ -654,7 +654,7 @@
                     <artifactId>maven-gcu-plugin</artifactId>
                     <version>1.1</version>
                     <configuration>
-                        <failsOnError>true</failsOnError>
+                        <failsOnError>false</failsOnError>
                         <projectName>mybatis</projectName>
                     </configuration>
                 </plugin>
