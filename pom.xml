@@ -421,6 +421,12 @@
                 <configuration>
                     <excludeDependencies>true</excludeDependencies>
                     <manifestLocation>${project.build.directory}/osgi</manifestLocation>
+                    <supportedProjectTypes>
+                        <supportedProjectType>jar</supportedProjectType>
+                        <supportedProjectType>bundle</supportedProjectType>
+                        <supportedProjectType>war</supportedProjectType>
+                        <supportedProjectType>maven-plugin</supportedProjectType>
+                    </supportedProjectTypes>
                     <instructions>
                         <!--
                          | stops the "uses" clauses being added to "Export-Package" manifest entry
