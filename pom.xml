@@ -105,6 +105,17 @@
         </repository>
     </distributionManagement>
 
+    <ciManagement>
+        <system>Hudson</system>
+        <url>https://mindfreez.ci.cloudbees.com/</url>
+    </ciManagement>
+
+    <scm>
+        <url>scm:svn:http://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</url>
+        <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</connection>
+        <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</developerConnection>
+    </scm>
+
     <developers>
         <developer>
             <id>clinton.begin</id>
@@ -218,12 +229,6 @@
             </roles>
         </developer>
     </developers>
-
-    <scm>
-        <url>scm:svn:http://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</url>
-        <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</connection>
-        <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</developerConnection>
-    </scm>
 
     <reporting>
         <plugins>
