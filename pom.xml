@@ -679,6 +679,18 @@
                         <serverAuthId>sonatype-nexus-staging</serverAuthId>
                     </configuration>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-idea-plugin</artifactId>
+                    <version>2.2</version>
+                    <configuration>
+                        <jdkLevel>${javac.src.version}</jdkLevel>
+                        <overwrite>true</overwrite>
+                        <downloadSources>true</downloadSources>
+                        <downloadJavadocs>true</downloadJavadocs>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
 
