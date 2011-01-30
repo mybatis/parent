@@ -713,16 +713,6 @@
                                 <input>{classes}</input>
                             </configuration>
                         </execution>
-                        <execution>
-                            <id>jarjar-test-classes</id>
-                            <phase>process-test-classes</phase>
-                            <goals>
-                                <goal>jarjar</goal>
-                            </goals>
-                            <configuration>
-                                <input>{test-classes}</input>
-                            </configuration>
-                        </execution>
                     </executions>
                 </plugin>
 
