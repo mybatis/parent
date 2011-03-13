@@ -25,7 +25,7 @@
     <artifactId>mybatis-parent</artifactId>
     <name>MyBatis parent POM</name>
     <description>The MyBatis parent POM.</description>
-    <version>10</version>
+    <version>11-SNAPSHOT</version>
     <packaging>pom</packaging>
     <url>http://www.mybatis.org/</url>
     <inceptionYear>2010</inceptionYear>
@@ -111,9 +111,9 @@
     </ciManagement>
 
     <scm>
-        <url>scm:svn:http://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/tags/mybatis-parent-10</url>
-        <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/tags/mybatis-parent-10</connection>
-        <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/tags/mybatis-parent-10</developerConnection>
+        <url>scm:svn:http://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</url>
+        <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</connection>
+        <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</developerConnection>
     </scm>
 
     <developers>
