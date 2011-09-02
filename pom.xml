@@ -514,7 +514,7 @@
                                     <version>[2.2.0,)</version>
                                 </requireMavenVersion>
                                 <requirePluginVersions>
-                                    <message>Best Practice is to always define plugin versions!</message>
+                                    <message>[ERROR] Best Practice is to always define plugin versions!</message>
                                     <banLatest>true</banLatest>
                                     <banRelease>true</banRelease>
                                     <banSnapshots>true</banSnapshots>
@@ -522,7 +522,7 @@
                                 </requirePluginVersions>
                                 <requireProperty>
                                     <property>findbugs.onlyAnalyze</property>
-                                    <message>You must set the property 'findbugs.onlyAnalyze' in your project pom!</message>
+                                    <message>[ERROR] You must set the property 'findbugs.onlyAnalyze' in your project pom!</message>
                                 </requireProperty>
                             </rules>
                         </configuration>
