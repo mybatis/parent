@@ -785,8 +785,6 @@
     </plugins>
   </reporting>
 
-  
-
   <profiles>
     <profile>
       <id>parent-release</id>
