@@ -350,27 +350,6 @@
       </plugin>
 
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-remote-resources-plugin</artifactId>
-        <version>1.2.1</version>
-        <executions>
-          <execution>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>process</goal>
-            </goals>
-            <configuration>
-              <attached>false</attached>
-              <outputDirectory>${project.build.directory}/docbkx</outputDirectory>
-              <resourceBundles>
-                <resourceBundle>org.mybatis:mybatis-docbook:1.0.0</resourceBundle>
-              </resourceBundles>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
         <version>2.1.0</version>
@@ -576,30 +555,6 @@
             <mavenExecutorId>forked-path</mavenExecutorId>
             <useReleaseProfile>false</useReleaseProfile>
             <arguments>-Prelease</arguments>
-          </configuration>
-        </plugin>
-
-        <plugin>
-          <groupId>com.agilejava.docbkx</groupId>
-          <artifactId>docbkx-maven-plugin</artifactId>
-          <version>2.0.7</version>
-          <dependencies>
-            <dependency>
-              <groupId>org.docbook</groupId>
-              <artifactId>docbook-xml</artifactId>
-              <version>4.4</version>
-              <scope>runtime</scope>
-            </dependency>
-          </dependencies>
-          <configuration>
-            <xincludeSupported>true</xincludeSupported>
-            <paperType>A4</paperType>
-            <sourceDirectory>${basedir}/src/docbkx</sourceDirectory>
-            <foCustomization>${project.build.directory}/docbkx/xsl/fopdf.xsl</foCustomization>
-            <useExtensions>1</useExtensions>
-            <highlightSource>1</highlightSource>
-            <highlightDefaultLanguage />
-            <calloutsExtension>1</calloutsExtension>
           </configuration>
         </plugin>
 
@@ -851,35 +806,6 @@
     </profile>
 
     <profile>
-      <id>docbook</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.agilejava.docbkx</groupId>
-            <artifactId>docbkx-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>generate-pdf</goal>
-                </goals>
-                <phase>package</phase>
-                <configuration>
-                  <includes>index.xml</includes>
-                  <postProcess>
-                    <move file="${project.build.directory}/docbkx/pdf/index.pdf" tofile="${project.build.directory}/docbkx/pdf/${project.artifactId}-${project.version}-reference.pdf" failonerror="false" />
-                  </postProcess>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <profile>
       <id>bundle</id>
       <activation>
         <activeByDefault>false</activeByDefault>
@@ -937,18 +863,6 @@
                       <labels>
                         <label>Featured</label>
                         <label>Type-Archive</label>
-                        <label>Product-${gcu.product}</label>
-                        <label>Project-${project.artifactId}</label>
-                        <label>Version-${project.version}</label>
-                        <label>Build-${implementation.build}</label>
-                      </labels>
-                    </upload>
-                    <upload>
-                      <file>${project.build.directory}/docbkx/pdf/${project.artifactId}-${project.version}-reference.pdf</file>
-                      <summary>${project.name} ${project.version} Reference Guide - English</summary>
-                      <labels>
-                        <label>Featured</label>
-                        <label>Type-Docs</label>
                         <label>Product-${gcu.product}</label>
                         <label>Project-${project.artifactId}</label>
                         <label>Version-${project.version}</label>
