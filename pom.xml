@@ -260,7 +260,7 @@
     <javac.src.version>1.5</javac.src.version>
     <javac.target.version>1.5</javac.target.version>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
-    <implementation.build>r${buildNumber}; ${maven.build.timestamp}</implementation.build>
+    <implementation.build>${scmBranch}@r${buildNumber}; ${maven.build.timestamp}</implementation.build>
     <clirr.comparisonVersion>${project.version}</clirr.comparisonVersion>
     <gcu.product>${project.name}</gcu.product>
     <!--
