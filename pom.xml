@@ -316,6 +316,12 @@
           <doCheck>false</doCheck>
           <doUpdate>false</doUpdate>
           <revisionOnScmFailure>local-dev</revisionOnScmFailure>
+          <!-- Use committed revision so it does not change every time svn update is run -->
+          <useLastCommittedRevision>true</useLastCommittedRevision>
+          <!-- svnjava works even if an svn command-line client is not on the path -->
+          <providerImplementations>
+            <svn>javasvn</svn>
+          </providerImplementations>
         </configuration>
       </plugin>
 
