@@ -736,7 +736,6 @@
           <effort>Max</effort>
           <visitors>FindDeadLocalStores,UnreadFields</visitors>
           <onlyAnalyze>${findbugs.onlyAnalyze}</onlyAnalyze>
-          <debug>true</debug>
           <relaxed>true</relaxed>
         </configuration>
       </plugin>
