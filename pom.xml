@@ -23,7 +23,7 @@
 
   <groupId>org.mybatis</groupId>
   <artifactId>mybatis-parent</artifactId>
-  <version>13-SNAPSHOT</version>
+  <version>14-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>MyBatis parent POM</name>
