@@ -39,8 +39,4 @@
     <version>1.0</version>
   </skin>
 
-  <body>
-    <menu ref="reports" inherit="bottom" />
-  </body>
-
 </project>
