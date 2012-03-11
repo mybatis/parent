@@ -264,6 +264,10 @@
     <clirr.comparisonVersion>${project.version}</clirr.comparisonVersion>
     <gcu.product>${project.name}</gcu.product>
     <!--
+     | plugins configuration
+    -->
+    <surefire.version>2.12</surefire.version>
+    <!--
      | OSGi configuration properties
     -->
     <osgi.symbolicName>${project.groupId}.${project.artifactId}</osgi.symbolicName>
@@ -495,7 +499,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.9</version>
+        <version>${surefire.version}</version>
       </plugin>
 
       <plugin>
@@ -741,7 +745,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>2.9</version>
+        <version>${surefire.version}</version>
       </plugin>
 
       <plugin>
