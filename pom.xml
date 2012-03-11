@@ -536,24 +536,6 @@
           <failOnWarning>false</failOnWarning>
         </configuration>
       </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-pdf-plugin</artifactId>
-        <version>1.1</version>
-        <executions>
-          <execution>
-            <id>pdf</id>
-            <phase>site</phase>
-            <goals>
-              <goal>pdf</goal>
-            </goals>
-            <configuration>
-              <includeReports>false</includeReports>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
 
     <pluginManagement>
@@ -630,6 +612,24 @@
             <failsOnError>false</failsOnError>
             <projectName>mybatis</projectName>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pdf-plugin</artifactId>
+          <version>1.1</version>
+          <executions>
+            <execution>
+              <id>pdf</id>
+              <phase>site</phase>
+              <goals>
+                <goal>pdf</goal>
+              </goals>
+              <configuration>
+                <includeReports>false</includeReports>
+              </configuration>
+            </execution>
+          </executions>
         </plugin>
 
         <plugin>
