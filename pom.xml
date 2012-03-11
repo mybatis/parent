@@ -550,6 +550,7 @@
             </goals>
             <configuration>
               <outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
+              <includeReports>false</includeReports>
             </configuration>
           </execution>
         </executions>
