@@ -771,7 +771,7 @@
         <configuration>
           <linkXref>true</linkXref>
           <minimumTokens>100</minimumTokens>
-          <targetJdk>1.5</targetJdk>
+          <targetJdk>${javac.target.version}</targetJdk>
         </configuration>
       </plugin>
 
