@@ -279,6 +279,42 @@
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.0.1</version>
+        <executions>
+          <execution>
+            <id>enforce-java</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireJavaVersion>
+                  <version>[1.5,)</version>
+                </requireJavaVersion>
+                <requireMavenVersion>
+                  <version>[2.2.0,)</version>
+                </requireMavenVersion>
+                <requirePluginVersions>
+                  <message>[ERROR] Best Practice is to always define plugin versions!</message>
+                  <banLatest>true</banLatest>
+                  <banRelease>true</banRelease>
+                  <banSnapshots>true</banSnapshots>
+                  <phases>clean,deploy,site</phases>
+                </requirePluginVersions>
+                <requireProperty>
+                  <property>findbugs.onlyAnalyze</property>
+                  <message>[ERROR] You must set the property 'findbugs.onlyAnalyze' in your project pom!</message>
+                </requireProperty>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
       <!--
        | Make sure we only use Java5 methods
       -->
@@ -396,41 +432,6 @@
         <version>2.3.1</version>
       </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>1.0.1</version>
-        <executions>
-          <execution>
-            <id>enforce-java</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <requireJavaVersion>
-                  <version>[1.5,)</version>
-                </requireJavaVersion>
-                <requireMavenVersion>
-                  <version>[2.2.0,)</version>
-                </requireMavenVersion>
-                <requirePluginVersions>
-                  <message>[ERROR] Best Practice is to always define plugin versions!</message>
-                  <banLatest>true</banLatest>
-                  <banRelease>true</banRelease>
-                  <banSnapshots>true</banSnapshots>
-                  <phases>clean,deploy,site</phases>
-                </requirePluginVersions>
-                <requireProperty>
-                  <property>findbugs.onlyAnalyze</property>
-                  <message>[ERROR] You must set the property 'findbugs.onlyAnalyze' in your project pom!</message>
-                </requireProperty>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
