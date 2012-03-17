@@ -92,7 +92,7 @@
 
     <developer>
       <id>hpresnall</id>
-      <name>Hunter Presnall</name> 
+      <name>Hunter Presnall</name>
       <email>hpresnall@gmail.com</email>
       <roles>
         <role>Committer</role>
@@ -101,7 +101,7 @@
 
     <developer>
       <id>harawata</id>
-      <name>Iwao Ave</name> 
+      <name>Iwao Ave</name>
       <email>harawata@gmail.com</email>
       <roles>
         <role>Committer</role>
@@ -644,6 +644,10 @@
     </pluginManagement>
 
     <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
       <resource>
         <directory>${basedir}</directory>
         <targetPath>META-INF</targetPath>
