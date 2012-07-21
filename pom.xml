@@ -23,7 +23,7 @@
 
   <groupId>org.mybatis</groupId>
   <artifactId>mybatis-parent</artifactId>
-  <version>16-SNAPSHOT</version>
+  <version>16</version>
   <packaging>pom</packaging>
 
   <name>MyBatis parent POM</name>
@@ -227,9 +227,9 @@
   </repositories>
 
   <scm>
-    <url>scm:svn:http://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</url>
-    <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</connection>
-    <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</developerConnection>
+    <url>scm:svn:http://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/tags/mybatis-parent-16</url>
+    <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/tags/mybatis-parent-16</connection>
+    <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/tags/mybatis-parent-16</developerConnection>
   </scm>
   <issueManagement>
     <system>Google-Code Issue Management</system>
