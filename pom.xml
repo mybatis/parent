@@ -91,6 +91,24 @@
     </developer>
 
     <developer>
+      <id>mnesarco</id>
+      <name>Frank Martinez</name>
+      <email>mnesarco@gmail.com</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <id>gus4000</id>
+      <name>Andrew Gustafson</name>
+      <email>gus4000@gmail.com</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+
+    <developer>
       <id>hpresnall</id>
       <name>Hunter Presnall</name>
       <email>hpresnall@gmail.com</email>
