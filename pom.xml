@@ -266,8 +266,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <javac.src.version>1.6</javac.src.version>
-    <javac.target.version>1.6</javac.target.version>
+    <javac.src.version>1.5</javac.src.version>
+    <javac.target.version>1.5</javac.target.version>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
     <implementation.build>${scmBranch}@r${buildNumber}; ${maven.build.timestamp}</implementation.build>
     <clirr.comparisonVersion>${project.version}</clirr.comparisonVersion>
@@ -326,22 +326,22 @@
       </plugin>
 
       <!--
-       | Make sure we only use Java6 methods
+       | Make sure we only use Java5 methods
       -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>animal-sniffer-maven-plugin</artifactId>
-        <version>1.9</version>
+        <version>1.8</version>
         <configuration>
           <signature>
             <groupId>org.codehaus.mojo.signature</groupId>
-            <artifactId>java16</artifactId>
+            <artifactId>java15</artifactId>
             <version>1.0</version>
           </signature>
         </configuration>
         <executions>
           <execution>
-            <id>check-java-1.6-compat</id>
+            <id>check-java-1.5-compat</id>
             <phase>process-classes</phase>
             <goals>
               <goal>check</goal>
