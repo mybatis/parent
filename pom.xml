@@ -272,7 +272,7 @@
      | plugins configuration
     -->
     <javadoc.version>2.9</javadoc.version>
-    <surefire.version>2.12</surefire.version>
+    <surefire.version>2.13</surefire.version>
     <!--
      | OSGi configuration properties
     -->
