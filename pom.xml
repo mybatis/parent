@@ -266,7 +266,6 @@
     <javac.src.version>1.5</javac.src.version>
     <javac.target.version>1.5</javac.target.version>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
-    <implementation.build>${maven.build.timestamp}</implementation.build>
     <clirr.comparisonVersion>${project.version}</clirr.comparisonVersion>
     <gcu.product>${project.name}</gcu.product>
     <!--
@@ -400,7 +399,7 @@
               <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
             </manifest>
             <manifestEntries>
-              <Implementation-Build>${implementation.build}</Implementation-Build>
+              <Implementation-Build-Date>${maven.build.timestamp}</Implementation-Build-Date>
               <X-Compile-Source-JDK>${javac.src.version}</X-Compile-Source-JDK>
               <X-Compile-Target-JDK>${javac.target.version}</X-Compile-Target-JDK>
             </manifestEntries>
@@ -795,7 +794,7 @@
                       <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                     </manifest>
                     <manifestEntries>
-                      <Implementation-Build>${implementation.build}</Implementation-Build>
+                      <Implementation-Build-Date>${maven.build.timestamp}</Implementation-Build-Date>
                       <X-Compile-Source-JDK>${javac.src.version}</X-Compile-Source-JDK>
                       <X-Compile-Target-JDK>${javac.target.version}</X-Compile-Target-JDK>
                     </manifestEntries>
@@ -822,7 +821,7 @@
                       <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                     </manifest>
                     <manifestEntries>
-                      <Implementation-Build>${implementation.build}</Implementation-Build>
+                      <Implementation-Build-Date>${maven.build.timestamp}</Implementation-Build-Date>
                       <X-Compile-Source-JDK>${javac.src.version}</X-Compile-Source-JDK>
                       <X-Compile-Target-JDK>${javac.target.version}</X-Compile-Target-JDK>
                     </manifestEntries>
