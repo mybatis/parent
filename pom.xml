@@ -232,9 +232,10 @@
   </repositories>
 
   <scm>
-    <url>scm:svn:http://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</url>
-    <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</connection>
-    <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/mybatis-parent/trunk</developerConnection>
+    <url>http://github.com/mybatis/parent</url>
+    <connection>scm:git:ssh://github.com/mybatis/parent.git</connection>
+    <developerConnection>scm:git:git+ssh://git@github.com/mybatis/parent.git</developerConnection>
+    <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>Google-Code Issue Management</system>
