@@ -271,7 +271,7 @@
     <!--
      | plugins configuration
     -->
-    <javadoc.version>2.8.1</javadoc.version>
+    <javadoc.version>2.9</javadoc.version>
     <surefire.version>2.12</surefire.version>
     <!--
      | OSGi configuration properties
