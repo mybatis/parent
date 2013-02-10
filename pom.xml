@@ -284,164 +284,6 @@
   </properties>
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>1.2</version>
-        <executions>
-          <execution>
-            <id>enforce-java</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <requireJavaVersion>
-                  <version>[1.5,)</version>
-                </requireJavaVersion>
-                <requireMavenVersion>
-                  <version>[2.2.0,)</version>
-                </requireMavenVersion>
-                <requirePluginVersions>
-                  <message>[ERROR] Best Practice is to always define plugin versions!</message>
-                  <banLatest>true</banLatest>
-                  <banRelease>true</banRelease>
-                  <banSnapshots>true</banSnapshots>
-                  <phases>clean,deploy,site</phases>
-                </requirePluginVersions>
-                <requireProperty>
-                  <property>findbugs.onlyAnalyze</property>
-                  <message>[ERROR] You must set the property 'findbugs.onlyAnalyze' in your project pom!</message>
-                </requireProperty>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!--
-       | Make sure we only use Java5 methods
-      -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>animal-sniffer-maven-plugin</artifactId>
-        <version>1.9</version>
-        <configuration>
-          <signature>
-            <groupId>org.codehaus.mojo.signature</groupId>
-            <artifactId>java15</artifactId>
-            <version>1.0</version>
-          </signature>
-        </configuration>
-        <executions>
-          <execution>
-            <id>check-java-1.5-compat</id>
-            <phase>process-classes</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <version>2.3.7</version>
-        <executions>
-          <execution>
-            <id>bundle-manifest</id>
-            <phase>process-classes</phase>
-            <goals>
-              <goal>manifest</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <excludeDependencies>true</excludeDependencies>
-          <manifestLocation>${project.build.directory}/osgi</manifestLocation>
-          <supportedProjectTypes>
-            <supportedProjectType>jar</supportedProjectType>
-            <supportedProjectType>bundle</supportedProjectType>
-            <supportedProjectType>war</supportedProjectType>
-            <supportedProjectType>maven-plugin</supportedProjectType>
-          </supportedProjectTypes>
-          <instructions>
-            <!--
-             | stops the "uses" clauses being added to "Export-Package" manifest entry
-            -->
-            <_nouses>true</_nouses>
-            <!--
-             | Stop the JAVA_1_n_HOME variables from being treated as headers by Bnd
-            -->
-            <_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME</_removeheaders>
-            <Bundle-SymbolicName>${osgi.symbolicName}</Bundle-SymbolicName>
-            <Export-Package>${osgi.export}</Export-Package>
-            <Private-Package>${osgi.private}</Private-Package>
-            <Import-Package>${osgi.import}</Import-Package>
-            <DynamicImport-Package>${osgi.dynamicImport}</DynamicImport-Package>
-            <Bundle-DocURL>${project.url}</Bundle-DocURL>
-          </instructions>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.4</version>
-        <configuration>
-          <archive>
-            <manifestFile>${project.build.directory}/osgi/MANIFEST.MF</manifestFile>
-            <manifest>
-              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-            </manifest>
-            <manifestEntries>
-              <Implementation-Build-Date>${maven.build.timestamp}</Implementation-Build-Date>
-              <X-Compile-Source-JDK>${javac.src.version}</X-Compile-Source-JDK>
-              <X-Compile-Target-JDK>${javac.target.version}</X-Compile-Target-JDK>
-            </manifestEntries>
-          </archive>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.0</version>
-        <configuration>
-          <source>${javac.src.version}</source>
-          <target>${javac.target.version}</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
-          <optimize>true</optimize>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire.version}</version>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-      </plugin>
-
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>clirr-maven-plugin</artifactId>
-        <version>2.3</version>
-        <configuration>
-          <comparisonVersion>${clirr.comparisonVersion}</comparisonVersion>
-          <failOnError>false</failOnError>
-          <failOnWarning>false</failOnWarning>
-        </configuration>
-      </plugin>
-    </plugins>
-
     <pluginManagement>
       <plugins>
         <plugin>
@@ -601,6 +443,166 @@
         </plugin>
       </plugins>
     </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.2</version>
+        <executions>
+          <execution>
+            <id>enforce-java</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireJavaVersion>
+                  <version>[1.5,)</version>
+                </requireJavaVersion>
+                <requireMavenVersion>
+                  <version>[2.2.0,)</version>
+                </requireMavenVersion>
+                <requirePluginVersions>
+                  <message>[ERROR] Best Practice is to always define plugin versions!</message>
+                  <banLatest>true</banLatest>
+                  <banRelease>true</banRelease>
+                  <banSnapshots>true</banSnapshots>
+                  <phases>clean,deploy,site</phases>
+                </requirePluginVersions>
+                <requireProperty>
+                  <property>findbugs.onlyAnalyze</property>
+                  <message>[ERROR] You must set the property 'findbugs.onlyAnalyze' in your project pom!</message>
+                </requireProperty>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!--
+       | Make sure we only use Java5 methods
+      -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>animal-sniffer-maven-plugin</artifactId>
+        <version>1.9</version>
+        <configuration>
+          <signature>
+            <groupId>org.codehaus.mojo.signature</groupId>
+            <artifactId>java15</artifactId>
+            <version>1.0</version>
+          </signature>
+        </configuration>
+        <executions>
+          <execution>
+            <id>check-java-1.5-compat</id>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>2.3.7</version>
+        <executions>
+          <execution>
+            <id>bundle-manifest</id>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>manifest</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <excludeDependencies>true</excludeDependencies>
+          <manifestLocation>${project.build.directory}/osgi</manifestLocation>
+          <supportedProjectTypes>
+            <supportedProjectType>jar</supportedProjectType>
+            <supportedProjectType>bundle</supportedProjectType>
+            <supportedProjectType>war</supportedProjectType>
+            <supportedProjectType>maven-plugin</supportedProjectType>
+          </supportedProjectTypes>
+          <instructions>
+            <!--
+             | stops the "uses" clauses being added to "Export-Package" manifest entry
+            -->
+            <_nouses>true</_nouses>
+            <!--
+             | Stop the JAVA_1_n_HOME variables from being treated as headers by Bnd
+            -->
+            <_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME</_removeheaders>
+            <Bundle-SymbolicName>${osgi.symbolicName}</Bundle-SymbolicName>
+            <Export-Package>${osgi.export}</Export-Package>
+            <Private-Package>${osgi.private}</Private-Package>
+            <Import-Package>${osgi.import}</Import-Package>
+            <DynamicImport-Package>${osgi.dynamicImport}</DynamicImport-Package>
+            <Bundle-DocURL>${project.url}</Bundle-DocURL>
+          </instructions>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <archive>
+            <manifestFile>${project.build.directory}/osgi/MANIFEST.MF</manifestFile>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+            </manifest>
+            <manifestEntries>
+              <Implementation-Build-Date>${maven.build.timestamp}</Implementation-Build-Date>
+              <X-Compile-Source-JDK>${javac.src.version}</X-Compile-Source-JDK>
+              <X-Compile-Target-JDK>${javac.target.version}</X-Compile-Target-JDK>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>${javac.src.version}</source>
+          <target>${javac.target.version}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <optimize>true</optimize>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>clirr-maven-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <comparisonVersion>${clirr.comparisonVersion}</comparisonVersion>
+          <failOnError>false</failOnError>
+          <failOnWarning>false</failOnWarning>
+        </configuration>
+      </plugin>
+    </plugins>
+
+    
 
     <extensions>
       <extension>
