@@ -238,8 +238,8 @@
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
-    <system>Google-Code Issue Management</system>
-    <url>http://code.google.com/p/mybatis/issues/</url>
+    <system>GitHub Issue Management</system>
+    <url>https://github.com/mybatis/parent/issues</url>
   </issueManagement>
   <ciManagement>
     <system>Hudson</system>
