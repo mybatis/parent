@@ -266,7 +266,7 @@
     <javac.src.version>1.5</javac.src.version>
     <javac.target.version>1.5</javac.target.version>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
-    <implementation.build>${scmBranch}@r${buildNumber}; ${maven.build.timestamp}</implementation.build>
+    <implementation.build>${maven.build.timestamp}</implementation.build>
     <clirr.comparisonVersion>${project.version}</clirr.comparisonVersion>
     <gcu.product>${project.name}</gcu.product>
     <!--
@@ -345,31 +345,6 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>buildnumber-maven-plugin</artifactId>
-        <version>1.1</version>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>create</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <doCheck>false</doCheck>
-          <doUpdate>false</doUpdate>
-          <revisionOnScmFailure>local-dev</revisionOnScmFailure>
-          <!-- Use committed revision so it does not change every time svn update is run -->
-          <useLastCommittedRevision>true</useLastCommittedRevision>
-          <!-- svnjava works even if an svn command-line client is not on the path -->
-          <providerImplementations>
-            <svn>javasvn</svn>
-          </providerImplementations>
-        </configuration>
       </plugin>
 
       <plugin>
