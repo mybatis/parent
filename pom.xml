@@ -244,8 +244,8 @@
     <url>https://github.com/mybatis/parent/issues</url>
   </issueManagement>
   <ciManagement>
-    <system>Hudson</system>
-    <url>https://mindfreez.ci.cloudbees.com/</url>
+    <system>Travis CI</system>
+    <url>https://travis-ci.org/mybatis/parent</url>
   </ciManagement>
   <distributionManagement>
     <snapshotRepository>
