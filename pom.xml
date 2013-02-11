@@ -885,7 +885,7 @@
               <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>base-bundle-descriptor</artifactId>
-                <version>4</version>
+                <version>5-SNAPSHOT</version>
               </dependency>
             </dependencies>
             <executions>
