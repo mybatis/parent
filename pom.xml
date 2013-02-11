@@ -39,12 +39,14 @@
   </licenses>
 
   <developers>
+    <!-- committers are enlisted by name ASC, except Clinton who is the founder -->
     <developer>
-      <id>clinton.begin</id>
+      <id>cbegin</id>
       <name>Clinton Begin</name>
       <email>clinton.begin@gmail.com</email>
       <roles>
         <role>Owner</role>
+        <role>Founder</role>
         <role>Committer</role>
       </roles>
     </developer>
@@ -69,7 +71,7 @@
     </developer>
 
     <developer>
-      <id>eduardo.macarron</id>
+      <id>emacarron</id>
       <name>Eduardo Macarron</name>
       <email>eduardo.macarron@gmail.com</email>
       <roles>
@@ -87,7 +89,7 @@
     </developer>
 
     <developer>
-      <id>gus4000</id>
+      <id>agustafson</id>
       <name>Andrew Gustafson</name>
       <email>gus4000@gmail.com</email>
       <roles>
@@ -132,7 +134,7 @@
     </developer>
 
     <developer>
-      <id>larry.meadors</id>
+      <id>lmeadors</id>
       <name>Larry Meadors</name>
       <email>larry.meadors@gmail.com</email>
       <roles>
@@ -141,7 +143,7 @@
     </developer>
 
     <developer>
-      <id>marco.speranza79</id>
+      <id>marcosperanza</id>
       <name>Marco Speranza</name>
       <email>marco.speranza79@gmail.com</email>
       <timezone>+1</timezone>
@@ -151,7 +153,7 @@
     </developer>
 
     <developer>
-      <id>nathan.maves</id>
+      <id>nmaves</id>
       <name>Nathan Maves</name>
       <email>nathan.maves@gmail.com</email>
       <roles>
@@ -169,7 +171,7 @@
     </developer>
 
     <developer>
-      <id>simone.tripodi</id>
+      <id>simonetripodi</id>
       <name>Simone Tripodi</name>
       <email>simone.tripodi@gmail.com</email>
       <timezone>+1</timezone>
@@ -179,7 +181,7 @@
     </developer>
 
     <developer>
-      <id>chengt</id>
+      <id>h3adache</id>
       <name>Tim Chen</name>
       <email>chengt@gmail.com</email>
       <roles>
