@@ -275,6 +275,7 @@
     -->
     <javadoc.version>2.9</javadoc.version>
     <surefire.version>2.13</surefire.version>
+    <findbugs.onlyAnalyze />
     <!--
      | OSGi configuration properties
     -->
@@ -473,10 +474,6 @@
                   <banSnapshots>true</banSnapshots>
                   <phases>clean,deploy,site</phases>
                 </requirePluginVersions>
-                <requireProperty>
-                  <property>findbugs.onlyAnalyze</property>
-                  <message>[ERROR] You must set the property 'findbugs.onlyAnalyze' in your project pom!</message>
-                </requireProperty>
               </rules>
             </configuration>
           </execution>
@@ -788,16 +785,6 @@
   </reporting>
 
   <profiles>
-    <profile>
-      <id>parent-release</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <properties>
-        <enforcer.skip>true</enforcer.skip>
-      </properties>
-    </profile>
-
     <profile>
       <id>release</id>
       <build>
