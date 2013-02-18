@@ -353,33 +353,6 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.4</version>
-          <executions>
-            <execution>
-              <phase>package</phase>
-              <goals>
-                <goal>single</goal>
-              </goals>
-              <configuration>
-                <attach>false</attach>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-
-        <plugin>
-          <groupId>com.googlecode.maven-gcu-plugin</groupId>
-          <artifactId>maven-gcu-plugin</artifactId>
-          <version>1.1</version>
-          <configuration>
-            <failsOnError>false</failsOnError>
-            <projectName>mybatis</projectName>
-          </configuration>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pdf-plugin</artifactId>
           <version>1.2</version>
           <executions>
@@ -832,31 +805,8 @@
 
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.4</version>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <profile>
-      <id>bundle</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
             <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.4</version>
             <dependencies>
               <dependency>
                 <groupId>org.mybatis</groupId>
@@ -866,11 +816,13 @@
             </dependencies>
             <executions>
               <execution>
+                <phase>package</phase>
                 <goals>
                   <goal>single</goal>
                 </goals>
-                <phase>package</phase>
                 <configuration>
+                  <attach>true</attach>
+                  <appendAssemblyId>false</appendAssemblyId>
                   <descriptorRefs>
                     <descriptorRef>base-bundle</descriptorRef>
                   </descriptorRefs>
@@ -878,42 +830,18 @@
               </execution>
             </executions>
           </plugin>
-        </plugins>
-      </build>
-    </profile>
 
-    <profile>
-      <id>gupload</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <build>
-        <plugins>
           <plugin>
-            <groupId>com.googlecode.maven-gcu-plugin</groupId>
-            <artifactId>maven-gcu-plugin</artifactId>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.4</version>
             <executions>
               <execution>
-                <phase>deploy</phase>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
                 <goals>
-                  <goal>upload</goal>
+                  <goal>sign</goal>
                 </goals>
-                <configuration>
-                  <uploads>
-                     <upload>
-                      <file>${project.build.directory}/${project.artifactId}-${project.version}-bundle.zip</file>
-                      <summary>${project.name} ${project.version} release</summary>
-                      <labels>
-                        <label>Featured</label>
-                        <label>Type-Archive</label>
-                        <label>Product-${gcu.product}</label>
-                        <label>Project-${project.artifactId}</label>
-                        <label>Version-${project.version}</label>
-                        <label>Build-${implementation.build}</label>
-                      </labels>
-                    </upload>
-                  </uploads>
-                </configuration>
               </execution>
             </executions>
           </plugin>
