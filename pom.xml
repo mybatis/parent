@@ -811,7 +811,7 @@
               <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>base-bundle-descriptor</artifactId>
-                <version>5</version>
+                <version>6</version>
               </dependency>
             </dependencies>
             <executions>
