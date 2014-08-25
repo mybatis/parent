@@ -14,7 +14,8 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.mybatis</groupId>
@@ -22,7 +23,7 @@
   <version>22-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>MyBatis parent POM</name>
+  <name>mybatis-parent</name>
   <description>The MyBatis parent POM.</description>
   <url>http://www.mybatis.org/</url>
   <inceptionYear>2010</inceptionYear>
