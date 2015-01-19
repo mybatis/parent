@@ -468,6 +468,23 @@
                                 <ignore></ignore>
                             </action>
                         </pluginExecution>
+                        <pluginExecution>
+                        	<pluginExecutionFilter>
+                        		<groupId>org.jacoco</groupId>
+                        		<artifactId>
+                        			jacoco-maven-plugin
+                        		</artifactId>
+                        		<versionRange>
+                        			[0.7.2.201409121644,)
+                        		</versionRange>
+                        		<goals>
+                        			<goal>prepare-agent</goal>
+                        		</goals>
+                        	</pluginExecutionFilter>
+                        	<action>
+                        		<ignore></ignore>
+                        	</action>
+                        </pluginExecution>
                     </pluginExecutions>
                 </lifecycleMappingMetadata>
             </configuration>
