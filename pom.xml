@@ -931,6 +931,32 @@
     </profile>
 
     <profile>
+      <id>license</id>
+      <activation>
+        <file>
+          <!-- project.basedir is invalid in this locatino, use basedir -->
+          <exists>${basedir}/license.txt</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.mycila</groupId>
+            <artifactId>license-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>compile</phase>
+                <goals>
+                  <goal>format</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
       <id>eclipse</id>
       <activation>
         <property>
