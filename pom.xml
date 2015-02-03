@@ -443,6 +443,30 @@
         </plugin>
 
         <plugin>
+          <groupId>com.mycila</groupId>
+          <artifactId>license-maven-plugin</artifactId>
+          <version>2.9</version>
+          <configuration>
+            <header>${project.basedir}/license.txt</header>
+            <excludes>
+              <exclude>target/**</exclude>
+              <exclude>**/.gitignore</exclude>
+              <exclude>**/*.txt</exclude>
+              <exclude>**/*.xml</exclude>
+              <exclude>**/*.properties</exclude>
+              <exclude>**/*.html</exclude>
+              <exclude>**/*.css</exclude>
+            </excludes>
+            <includes>
+              <include>**/*.java</include>
+            </includes>
+            <mapping>
+              <java>JAVADOC_STYLE</java>
+            </mapping>
+          </configuration>
+        </plugin>
+
+        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
           <version>2.1</version>
