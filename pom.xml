@@ -989,6 +989,19 @@
                     </pluginExecution>
                     <pluginExecution>
                       <pluginExecutionFilter>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>jarjar-maven-plugin</artifactId>
+                        <versionRange>[1.9,)</versionRange>
+                        <goals>
+                          <goal>jarjar</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <ignore></ignore>
+                      </action>
+                    </pluginExecution>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>
                         <versionRange>[0.7.2.201409121644,)</versionRange>
