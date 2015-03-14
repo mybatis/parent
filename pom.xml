@@ -237,7 +237,7 @@
   <scm>
     <url>http://github.com/mybatis/parent</url>
     <connection>scm:git:ssh://github.com/mybatis/parent.git</connection>
-    <developerConnection>scm:git:git+ssh://git@github.com/mybatis/parent.git</developerConnection>
+    <developerConnection>scm:git:ssh://git@github.com/mybatis/parent.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
