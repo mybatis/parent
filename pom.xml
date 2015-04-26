@@ -273,7 +273,7 @@
     <!--
      | plugins configuration
     -->
-    <javadoc.version>2.10.2</javadoc.version>
+    <javadoc.version>2.10.3</javadoc.version>
     <surefire.version>2.18.1</surefire.version>
     <findbugs.onlyAnalyze />
     <!--
@@ -384,7 +384,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.1</version>
+          <version>2.5.2</version>
           <configuration>
             <mavenExecutorId>forked-path</mavenExecutorId>
             <useReleaseProfile>false</useReleaseProfile>
@@ -444,7 +444,7 @@
         <plugin>
           <groupId>com.mycila</groupId>
           <artifactId>license-maven-plugin</artifactId>
-          <version>2.10</version>
+          <version>2.11</version>
           <configuration>
             <header>${project.basedir}/license.txt</header>
             <excludes>
@@ -615,7 +615,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-scm-plugin</artifactId>
-        <version>1.9.2</version>
+        <version>1.9.4</version>
       </plugin>
 
       <plugin>
@@ -934,7 +934,7 @@
       <id>license</id>
       <activation>
         <file>
-          <!-- project.basedir is invalid in this locatino, use basedir -->
+          <!-- project.basedir is invalid in this location, use basedir -->
           <exists>${basedir}/license.txt</exists>
         </file>
       </activation>
