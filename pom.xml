@@ -934,7 +934,7 @@
       <id>license</id>
       <activation>
         <file>
-          <!-- project.basedir is invalid in this locatino, use basedir -->
+          <!-- project.basedir is invalid in this location, use basedir -->
           <exists>${basedir}/license.txt</exists>
         </file>
       </activation>
