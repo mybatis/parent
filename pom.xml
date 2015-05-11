@@ -125,6 +125,16 @@
     </developer>
 
     <developer>
+      <id>hazendaz</id>
+      <name>Jeremy Landis</name>
+      <email>jeremylandis@hotmail.com</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+      <timezone>-5</timezone>
+    </developer>
+
+    <developer>
       <id>nospam@kaigrabfelder.de</id>
       <name>Kai Grabfelder</name>
       <email>nospam@kaigrabfelder.de</email>
@@ -189,6 +199,12 @@
       </roles>
     </developer>
   </developers>
+  <contributors>
+    <contributor>
+      <name>Jeremy Landis</name>
+      <email>jeremylandis@hotmail.com</email>
+    </contributor>
+  </contributors>
 
   <mailingLists>
     <mailingList>
