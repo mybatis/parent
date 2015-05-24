@@ -454,10 +454,18 @@
           <version>${surefire.version}</version>
         </plugin>
 
+        <!-- Eventually remove this in favor of jacoco -->
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>cobertura-maven-plugin</artifactId>
           <version>2.7</version>
+        </plugin>
+
+        <!--  Introducing jacoco for sonarqube usage initially -->
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>0.7.4.201502262128</version>
         </plugin>
 
         <plugin>
@@ -615,6 +623,24 @@
         <version>1.9.4</version>
       </plugin>
 
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
 
     <resources>
@@ -783,6 +809,12 @@
             <format>xml</format>
           </formats>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.7.4.201502262128</version>
       </plugin>
 
     </plugins>
@@ -954,6 +986,19 @@
                         <versionRange>[2.5.3,)</versionRange>
                         <goals>
                           <goal>manifest</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <ignore />
+                      </action>
+                    </pluginExecution>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <versionRange>[0.7.4.201502262128,)</versionRange>
+                        <goals>
+                          <goal>prepare-agent</goal>
                         </goals>
                       </pluginExecutionFilter>
                       <action>
