@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2010-2014 The MyBatis Team
+  Copyright 2010-2015 The MyBatis Team
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -474,6 +474,7 @@
               <exclude>**/*.properties</exclude>
               <exclude>**/*.html</exclude>
               <exclude>**/*.css</exclude>
+              <exclude>**/*.sql</exclude>
             </excludes>
             <includes>
               <include>**/*.java</include>
