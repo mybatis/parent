@@ -253,7 +253,7 @@
     <site>
       <id>gh-pages</id>
       <name>Mybatis GitHub Pages</name>
-      <url>github:ssh://mybatis.github.io/parent/</url>
+      <url>git:ssh://git@github.com/mybatis/parent.git?gh-pages#</url>
     </site>
     <snapshotRepository>
       <id>ossrh</id>
