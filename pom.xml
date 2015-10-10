@@ -253,7 +253,7 @@
     <site>
       <id>gh-pages</id>
       <name>Mybatis GitHub Pages</name>
-      <url>git:ssh://git@github.com/mybatis/parent.git?gh-pages#</url>
+      <url>github:ssh://mybatis.github.io/parent/</url>
     </site>
     <snapshotRepository>
       <id>ossrh</id>
@@ -349,6 +349,12 @@
             <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
             <useIncrementalCompilation>false</useIncrementalCompilation>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eluder.coveralls</groupId>
+          <artifactId>coveralls-maven-plugin</artifactId>
+          <version>3.2.0</version>
         </plugin>
 
         <plugin>
