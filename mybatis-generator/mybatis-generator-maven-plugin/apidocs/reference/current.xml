@@ -1,0 +1,319 @@
+<api>
+<package name="org.mybatis.generator.maven"
+>
+<class name="HelpMojo"
+ extends="org.apache.maven.plugin.AbstractMojo"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="HelpMojo"
+ type="org.mybatis.generator.maven.HelpMojo"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="execute"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<exception name="MojoExecutionException" type="org.apache.maven.plugin.MojoExecutionException">
+</exception>
+</method>
+</class>
+<class name="MavenLogFactory"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="getLog"
+ return="org.mybatis.generator.logging.Log"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="aClass" type="java.lang.Class&lt;?&gt;">
+</parameter>
+</method>
+</class>
+<class name="MavenLogImpl"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="org.mybatis.generator.logging.Log">
+</implements>
+<method name="debug"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+</method>
+<method name="error"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+<parameter name="e" type="java.lang.Throwable">
+</parameter>
+</method>
+<method name="error"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+</method>
+<method name="isDebugEnabled"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="warn"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+</method>
+</class>
+<class name="MavenProgressCallback"
+ extends="org.mybatis.generator.internal.NullProgressCallback"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="MavenProgressCallback"
+ type="org.mybatis.generator.maven.MavenProgressCallback"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="log" type="org.apache.maven.plugin.logging.Log">
+</parameter>
+<parameter name="verbose" type="boolean">
+</parameter>
+</constructor>
+</class>
+<class name="MavenShellCallback"
+ extends="org.mybatis.generator.internal.DefaultShellCallback"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="MavenShellCallback"
+ type="org.mybatis.generator.maven.MavenShellCallback"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mybatisGeneratorMojo" type="org.mybatis.generator.maven.MyBatisGeneratorMojo">
+</parameter>
+<parameter name="overwrite" type="boolean">
+</parameter>
+</constructor>
+</class>
+<class name="MyBatisGeneratorMojo"
+ extends="org.apache.maven.plugin.AbstractMojo"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="MyBatisGeneratorMojo"
+ type="org.mybatis.generator.maven.MyBatisGeneratorMojo"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="execute"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<exception name="MojoExecutionException" type="org.apache.maven.plugin.MojoExecutionException">
+</exception>
+</method>
+<method name="getOutputDirectory"
+ return="java.io.File"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="SqlScriptRunner"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="SqlScriptRunner"
+ type="org.mybatis.generator.maven.SqlScriptRunner"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="sourceFile" type="java.lang.String">
+</parameter>
+<parameter name="driver" type="java.lang.String">
+</parameter>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="userId" type="java.lang.String">
+</parameter>
+<parameter name="password" type="java.lang.String">
+</parameter>
+<exception name="MojoExecutionException" type="org.apache.maven.plugin.MojoExecutionException">
+</exception>
+</constructor>
+<method name="executeScript"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<exception name="MojoExecutionException" type="org.apache.maven.plugin.MojoExecutionException">
+</exception>
+</method>
+<method name="getDriver"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getPassword"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="setDriver"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="driver" type="java.lang.String">
+</parameter>
+</method>
+<method name="setLog"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="log" type="org.apache.maven.plugin.logging.Log">
+</parameter>
+</method>
+<method name="setPassword"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="password" type="java.lang.String">
+</parameter>
+</method>
+</class>
+</package>
+</api>
