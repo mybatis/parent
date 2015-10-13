@@ -1,0 +1,863 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>UpdateByExampleTest xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../testapidocs/mbg/test/ib2j5/hierarchical/UpdateByExampleTest.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_javadoccomment"> *    Copyright 2006-2015 the original author or authors.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_javadoccomment"> *    Licensed under the Apache License, Version 2.0 (the "License");</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_javadoccomment"> *    you may not use this file except in compliance with the License.</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_javadoccomment"> *    You may obtain a copy of the License at</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> *       <a href="http://www.apache.org/licenses/LICENSE-2." target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.</a>0</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment"> *    Unless required by applicable law or agreed to in writing, software</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> *    distributed under the License is distributed on an "AS IS" BASIS,</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_javadoccomment"> *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment"> *    See the License for the specific language governing permissions and</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_javadoccomment"> *    limitations under the License.</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">package</strong> mbg.test.ib2j5.hierarchical;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> mbg.test.common.util.TestUtilities.blobsAreEqual;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> mbg.test.common.util.TestUtilities.generateRandomBlob;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertEquals;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertNull;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertTrue;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.fail;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.dao.AwfulTableDAO;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.dao.FieldsblobsDAO;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.dao.PkblobsDAO;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.dao.PkfieldsDAO;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.dao.PkfieldsblobsDAO;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.dao.PkonlyDAO;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.dao.subpackage.FieldsonlyDAO;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.AwfulTable;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.AwfulTableExample;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.Fieldsblobs;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.FieldsblobsExample;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.FieldsblobsWithBLOBs;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.PkblobsExample;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.PkblobsKey;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.PkblobsWithBLOBs;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.Pkfields;
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.PkfieldsExample;
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.Pkfieldsblobs;
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.PkfieldsblobsExample;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.PkfieldsblobsWithBLOBs;
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.PkonlyExample;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.PkonlyKey;
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.subpackage.Fieldsonly;
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <strong class="jxr_keyword">import</strong> mbg.test.ib2j5.generated.hierarchical.model.subpackage.FieldsonlyExample;
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_javadoccomment"> * </em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_javadoccomment"> * @author Jeff Butler</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../mbg/test/ib2j5/hierarchical/UpdateByExampleTest.html">UpdateByExampleTest</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../mbg/test/ib2j5/hierarchical/AbstractHierarchicalJava5Test.html">AbstractHierarchicalJava5Test</a> {
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>      @Test
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testFieldsOnlyUpdateByExampleSelective() {
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          FieldsonlyDAO dao = getFieldsonlyDAO();
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>              Fieldsonly record = <strong class="jxr_keyword">new</strong> Fieldsonly();
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>              record.setDoublefield(11.22);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>              record.setFloatfield(33.44);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>              record.setIntegerfield(5);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>              dao.insert(record);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>              record = <strong class="jxr_keyword">new</strong> Fieldsonly();
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>              record.setDoublefield(44.55);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>              record.setFloatfield(66.77);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>              record.setIntegerfield(8);
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>              dao.insert(record);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>              record = <strong class="jxr_keyword">new</strong> Fieldsonly();
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>              record.setDoublefield(88.99);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>              record.setFloatfield(100.111);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>              record.setIntegerfield(9);
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>              dao.insert(record);
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>              record = <strong class="jxr_keyword">new</strong> Fieldsonly();
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>              record.setDoublefield(99d);
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>              FieldsonlyExample example = <strong class="jxr_keyword">new</strong> FieldsonlyExample();
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>              example.createCriteria().andIntegerfieldGreaterThan(5);
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>              
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>              <strong class="jxr_keyword">int</strong> rows = dao.updateByExampleSelective(record, example);
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>              assertEquals(2, rows);
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>              example.clear();
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>              example.createCriteria().andIntegerfieldEqualTo(5);
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>              List&lt;Fieldsonly&gt; answer = dao.selectByExample(example);
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>              assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>              record = answer.get(0);
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>              assertEquals(record.getDoublefield(), 11.22, 0.001);
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>              assertEquals(record.getFloatfield(), 33.44, 0.001);
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              assertEquals(record.getIntegerfield().intValue(), 5);
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>             
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>             example.clear();
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>             example.createCriteria().andIntegerfieldEqualTo(8);
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>             answer = dao.selectByExample(example);
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>             record = answer.get(0);
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             assertEquals(record.getDoublefield(), 99, 0.001);
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>             assertEquals(record.getFloatfield(), 66.77, 0.001);
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>             assertEquals(record.getIntegerfield().intValue(), 8);
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>             
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>             example.clear();
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>             example.createCriteria().andIntegerfieldEqualTo(9);
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>             answer = dao.selectByExample(example);
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>             record = answer.get(0);
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>             assertEquals(record.getDoublefield(), 99, 0.001);
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>             assertEquals(record.getFloatfield(), 100.111, 0.001);
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>             assertEquals(record.getIntegerfield().intValue(), 9);
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>         }
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>     }
+<a class="jxr_linenumber" name="L122" href="#L122">122</a> 
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>     @Test
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testFieldsOnlyUpdateByExample() {
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>         FieldsonlyDAO dao = getFieldsonlyDAO();
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> 
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>             Fieldsonly record = <strong class="jxr_keyword">new</strong> Fieldsonly();
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>             record.setDoublefield(11.22);
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>             record.setFloatfield(33.44);
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>             record.setIntegerfield(5);
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L133" href="#L133">133</a> 
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>             record = <strong class="jxr_keyword">new</strong> Fieldsonly();
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>             record.setDoublefield(44.55);
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>             record.setFloatfield(66.77);
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>             record.setIntegerfield(8);
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L139" href="#L139">139</a> 
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>             record = <strong class="jxr_keyword">new</strong> Fieldsonly();
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>             record.setDoublefield(88.99);
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>             record.setFloatfield(100.111);
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>             record.setIntegerfield(9);
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> 
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>             record = <strong class="jxr_keyword">new</strong> Fieldsonly();
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>             record.setIntegerfield(22);
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>             FieldsonlyExample example = <strong class="jxr_keyword">new</strong> FieldsonlyExample();
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>             example.createCriteria().andIntegerfieldEqualTo(5);
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>             
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExample(record, example);
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L153" href="#L153">153</a> 
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>             example.clear();
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>             example.createCriteria().andIntegerfieldEqualTo(22);
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>             List&lt;Fieldsonly&gt; answer = dao.selectByExample(example);
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>             record = answer.get(0);
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>             assertNull(record.getDoublefield());
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>             assertNull(record.getFloatfield());
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>             assertEquals(record.getIntegerfield().intValue(), 22);
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>         }
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>     }
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> 
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>     @Test
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPKOnlyUpdateByExampleSelective() {
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>         PkonlyDAO dao = getPkonlyDAO();
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> 
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>             PkonlyKey key = <strong class="jxr_keyword">new</strong> PkonlyKey();
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>             key.setId(1);
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>             key.setSeqNum(3);
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>             dao.insert(key);
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> 
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>             key = <strong class="jxr_keyword">new</strong> PkonlyKey();
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>             key.setId(5);
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>             key.setSeqNum(6);
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>             dao.insert(key);
+<a class="jxr_linenumber" name="L181" href="#L181">181</a> 
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>             key = <strong class="jxr_keyword">new</strong> PkonlyKey();
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>             key.setId(7);
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>             key.setSeqNum(8);
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>             dao.insert(key);
+<a class="jxr_linenumber" name="L186" href="#L186">186</a> 
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>             PkonlyExample example = <strong class="jxr_keyword">new</strong> PkonlyExample();
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>             example.createCriteria().andIdGreaterThan(4);
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>             key = <strong class="jxr_keyword">new</strong> PkonlyKey();
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>             key.setSeqNum(3);
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExampleSelective(key, example);
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>             assertEquals(2, rows);
+<a class="jxr_linenumber" name="L193" href="#L193">193</a> 
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>             example.clear();
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>             example.createCriteria()
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>                 .andIdEqualTo(5)
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>                 .andSeqNumEqualTo(3);
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>             
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>             rows = dao.countByExample(example);
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>             
+<a class="jxr_linenumber" name="L202" href="#L202">202</a>             example.clear();
+<a class="jxr_linenumber" name="L203" href="#L203">203</a>             example.createCriteria()
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>                 .andIdEqualTo(7)
+<a class="jxr_linenumber" name="L205" href="#L205">205</a>                 .andSeqNumEqualTo(3);
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>             
+<a class="jxr_linenumber" name="L207" href="#L207">207</a>             rows = dao.countByExample(example);
+<a class="jxr_linenumber" name="L208" href="#L208">208</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L209" href="#L209">209</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>         }
+<a class="jxr_linenumber" name="L212" href="#L212">212</a>     }
+<a class="jxr_linenumber" name="L213" href="#L213">213</a> 
+<a class="jxr_linenumber" name="L214" href="#L214">214</a>     @Test
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPKOnlyUpdateByExample() {
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>         PkonlyDAO dao = getPkonlyDAO();
+<a class="jxr_linenumber" name="L217" href="#L217">217</a> 
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L219" href="#L219">219</a>             PkonlyKey key = <strong class="jxr_keyword">new</strong> PkonlyKey();
+<a class="jxr_linenumber" name="L220" href="#L220">220</a>             key.setId(1);
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>             key.setSeqNum(3);
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>             dao.insert(key);
+<a class="jxr_linenumber" name="L223" href="#L223">223</a> 
+<a class="jxr_linenumber" name="L224" href="#L224">224</a>             key = <strong class="jxr_keyword">new</strong> PkonlyKey();
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>             key.setId(5);
+<a class="jxr_linenumber" name="L226" href="#L226">226</a>             key.setSeqNum(6);
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>             dao.insert(key);
+<a class="jxr_linenumber" name="L228" href="#L228">228</a> 
+<a class="jxr_linenumber" name="L229" href="#L229">229</a>             key = <strong class="jxr_keyword">new</strong> PkonlyKey();
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>             key.setId(7);
+<a class="jxr_linenumber" name="L231" href="#L231">231</a>             key.setSeqNum(8);
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>             dao.insert(key);
+<a class="jxr_linenumber" name="L233" href="#L233">233</a> 
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>             PkonlyExample example = <strong class="jxr_keyword">new</strong> PkonlyExample();
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>             example.createCriteria()
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>                 .andIdEqualTo(7);
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>             key = <strong class="jxr_keyword">new</strong> PkonlyKey();
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>             key.setSeqNum(3);
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>             key.setId(22);
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExample(key, example);
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L242" href="#L242">242</a> 
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>             example.clear();
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>             example.createCriteria()
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>                 .andIdEqualTo(22)
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>                 .andSeqNumEqualTo(3);
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>             
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>             rows = dao.countByExample(example);
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>         }
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>     }
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> 
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>     @Test
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPKFieldsUpdateByExampleSelective() {
+<a class="jxr_linenumber" name="L257" href="#L257">257</a>         PkfieldsDAO dao = getPkfieldsDAO();
+<a class="jxr_linenumber" name="L258" href="#L258">258</a>     
+<a class="jxr_linenumber" name="L259" href="#L259">259</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L260" href="#L260">260</a>             Pkfields record = <strong class="jxr_keyword">new</strong> Pkfields();
+<a class="jxr_linenumber" name="L261" href="#L261">261</a>             record.setFirstname(<span class="jxr_string">"Jeff"</span>);
+<a class="jxr_linenumber" name="L262" href="#L262">262</a>             record.setLastname(<span class="jxr_string">"Smith"</span>);
+<a class="jxr_linenumber" name="L263" href="#L263">263</a>             record.setId1(1);
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>             record.setId2(2);
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L266" href="#L266">266</a>     
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>             record = <strong class="jxr_keyword">new</strong> Pkfields();
+<a class="jxr_linenumber" name="L268" href="#L268">268</a>             record.setFirstname(<span class="jxr_string">"Bob"</span>);
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>             record.setLastname(<span class="jxr_string">"Jones"</span>);
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>             record.setId1(3);
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>             record.setId2(4);
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>     
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L274" href="#L274">274</a> 
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>             record = <strong class="jxr_keyword">new</strong> Pkfields();
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>             record.setFirstname(<span class="jxr_string">"Fred"</span>);
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>             PkfieldsExample example = <strong class="jxr_keyword">new</strong> PkfieldsExample();
+<a class="jxr_linenumber" name="L278" href="#L278">278</a>             example.createCriteria().andLastnameLike(<span class="jxr_string">"J%"</span>);
+<a class="jxr_linenumber" name="L279" href="#L279">279</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExampleSelective(record, example);
+<a class="jxr_linenumber" name="L280" href="#L280">280</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L281" href="#L281">281</a>             
+<a class="jxr_linenumber" name="L282" href="#L282">282</a>             example.clear();
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>             example.createCriteria()
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>                 .andFirstnameEqualTo(<span class="jxr_string">"Fred"</span>)
+<a class="jxr_linenumber" name="L285" href="#L285">285</a>                 .andLastnameEqualTo(<span class="jxr_string">"Jones"</span>)
+<a class="jxr_linenumber" name="L286" href="#L286">286</a>                 .andId1EqualTo(3)
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>                 .andId2EqualTo(4);
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>     
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>             rows = dao.countByExample(example);
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L291" href="#L291">291</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L292" href="#L292">292</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L293" href="#L293">293</a>         }
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>     }
+<a class="jxr_linenumber" name="L295" href="#L295">295</a> 
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>     @Test
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPKFieldsUpdateByExample() {
+<a class="jxr_linenumber" name="L298" href="#L298">298</a>         PkfieldsDAO dao = getPkfieldsDAO();
+<a class="jxr_linenumber" name="L299" href="#L299">299</a>     
+<a class="jxr_linenumber" name="L300" href="#L300">300</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L301" href="#L301">301</a>             Pkfields record = <strong class="jxr_keyword">new</strong> Pkfields();
+<a class="jxr_linenumber" name="L302" href="#L302">302</a>             record.setFirstname(<span class="jxr_string">"Jeff"</span>);
+<a class="jxr_linenumber" name="L303" href="#L303">303</a>             record.setLastname(<span class="jxr_string">"Smith"</span>);
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>             record.setId1(1);
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>             record.setId2(2);
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>     
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>             record = <strong class="jxr_keyword">new</strong> Pkfields();
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>             record.setFirstname(<span class="jxr_string">"Bob"</span>);
+<a class="jxr_linenumber" name="L310" href="#L310">310</a>             record.setLastname(<span class="jxr_string">"Jones"</span>);
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>             record.setId1(3);
+<a class="jxr_linenumber" name="L312" href="#L312">312</a>             record.setId2(4);
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>     
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L315" href="#L315">315</a> 
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>             record = <strong class="jxr_keyword">new</strong> Pkfields();
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>             record.setFirstname(<span class="jxr_string">"Fred"</span>);
+<a class="jxr_linenumber" name="L318" href="#L318">318</a>             record.setId1(3);
+<a class="jxr_linenumber" name="L319" href="#L319">319</a>             record.setId2(4);
+<a class="jxr_linenumber" name="L320" href="#L320">320</a>             PkfieldsExample example = <strong class="jxr_keyword">new</strong> PkfieldsExample();
+<a class="jxr_linenumber" name="L321" href="#L321">321</a>             example.createCriteria()
+<a class="jxr_linenumber" name="L322" href="#L322">322</a>                 .andId1EqualTo(3)
+<a class="jxr_linenumber" name="L323" href="#L323">323</a>                 .andId2EqualTo(4);
+<a class="jxr_linenumber" name="L324" href="#L324">324</a>             
+<a class="jxr_linenumber" name="L325" href="#L325">325</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExample(record, example);
+<a class="jxr_linenumber" name="L326" href="#L326">326</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L327" href="#L327">327</a>             
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>             example.clear();
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>             example.createCriteria()
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>                 .andFirstnameEqualTo(<span class="jxr_string">"Fred"</span>)
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>                 .andLastnameIsNull()
+<a class="jxr_linenumber" name="L332" href="#L332">332</a>                 .andId1EqualTo(3)
+<a class="jxr_linenumber" name="L333" href="#L333">333</a>                 .andId2EqualTo(4);
+<a class="jxr_linenumber" name="L334" href="#L334">334</a>     
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>             rows = dao.countByExample(example);
+<a class="jxr_linenumber" name="L336" href="#L336">336</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L339" href="#L339">339</a>         }
+<a class="jxr_linenumber" name="L340" href="#L340">340</a>     }
+<a class="jxr_linenumber" name="L341" href="#L341">341</a> 
+<a class="jxr_linenumber" name="L342" href="#L342">342</a>     @Test
+<a class="jxr_linenumber" name="L343" href="#L343">343</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPKBlobsUpdateByExampleSelective() {
+<a class="jxr_linenumber" name="L344" href="#L344">344</a>         PkblobsDAO dao = getPkblobsDAO();
+<a class="jxr_linenumber" name="L345" href="#L345">345</a>     
+<a class="jxr_linenumber" name="L346" href="#L346">346</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L347" href="#L347">347</a>             PkblobsWithBLOBs record = <strong class="jxr_keyword">new</strong> PkblobsWithBLOBs();
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>             record.setId(3);
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L350" href="#L350">350</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L351" href="#L351">351</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L352" href="#L352">352</a>     
+<a class="jxr_linenumber" name="L353" href="#L353">353</a>             record = <strong class="jxr_keyword">new</strong> PkblobsWithBLOBs();
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>             record.setId(6);
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>     
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>             PkblobsWithBLOBs newRecord = <strong class="jxr_keyword">new</strong> PkblobsWithBLOBs();
+<a class="jxr_linenumber" name="L360" href="#L360">360</a>             newRecord.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L361" href="#L361">361</a>             
+<a class="jxr_linenumber" name="L362" href="#L362">362</a>             PkblobsExample example = <strong class="jxr_keyword">new</strong> PkblobsExample();
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>             example.createCriteria().andIdGreaterThan(4);
+<a class="jxr_linenumber" name="L364" href="#L364">364</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExampleSelective(newRecord, example);
+<a class="jxr_linenumber" name="L365" href="#L365">365</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L366" href="#L366">366</a>             
+<a class="jxr_linenumber" name="L367" href="#L367">367</a>             List&lt;PkblobsWithBLOBs&gt; answer = dao.selectByExampleWithBLOBs(example);
+<a class="jxr_linenumber" name="L368" href="#L368">368</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>             
+<a class="jxr_linenumber" name="L370" href="#L370">370</a>             PkblobsWithBLOBs returnedRecord = answer.get(0);
+<a class="jxr_linenumber" name="L371" href="#L371">371</a>             
+<a class="jxr_linenumber" name="L372" href="#L372">372</a>             assertEquals(6, returnedRecord.getId().intValue());
+<a class="jxr_linenumber" name="L373" href="#L373">373</a>             assertTrue(blobsAreEqual(newRecord.getBlob1(), returnedRecord.getBlob1()));
+<a class="jxr_linenumber" name="L374" href="#L374">374</a>             assertTrue(blobsAreEqual(record.getBlob2(), returnedRecord.getBlob2()));
+<a class="jxr_linenumber" name="L375" href="#L375">375</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L376" href="#L376">376</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L377" href="#L377">377</a>         }
+<a class="jxr_linenumber" name="L378" href="#L378">378</a>     }
+<a class="jxr_linenumber" name="L379" href="#L379">379</a> 
+<a class="jxr_linenumber" name="L380" href="#L380">380</a>     @Test
+<a class="jxr_linenumber" name="L381" href="#L381">381</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPKBlobsUpdateByExampleWithoutBLOBs() {
+<a class="jxr_linenumber" name="L382" href="#L382">382</a>         PkblobsDAO dao = getPkblobsDAO();
+<a class="jxr_linenumber" name="L383" href="#L383">383</a>     
+<a class="jxr_linenumber" name="L384" href="#L384">384</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>             PkblobsWithBLOBs record = <strong class="jxr_keyword">new</strong> PkblobsWithBLOBs();
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>             record.setId(3);
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L389" href="#L389">389</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>     
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>             record = <strong class="jxr_keyword">new</strong> PkblobsWithBLOBs();
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>             record.setId(6);
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L396" href="#L396">396</a>     
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>             PkblobsKey newRecord = <strong class="jxr_keyword">new</strong> PkblobsKey();
+<a class="jxr_linenumber" name="L398" href="#L398">398</a>             newRecord.setId(8);
+<a class="jxr_linenumber" name="L399" href="#L399">399</a>             
+<a class="jxr_linenumber" name="L400" href="#L400">400</a>             PkblobsExample example = <strong class="jxr_keyword">new</strong> PkblobsExample();
+<a class="jxr_linenumber" name="L401" href="#L401">401</a>             example.createCriteria().andIdGreaterThan(4);
+<a class="jxr_linenumber" name="L402" href="#L402">402</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExample(newRecord, example);
+<a class="jxr_linenumber" name="L403" href="#L403">403</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L404" href="#L404">404</a>             
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>             List&lt;PkblobsWithBLOBs&gt; answer = dao.selectByExampleWithBLOBs(example);
+<a class="jxr_linenumber" name="L406" href="#L406">406</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>             
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>             PkblobsWithBLOBs returnedRecord = answer.get(0);
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>             
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>             assertEquals(8, returnedRecord.getId().intValue());
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>             assertTrue(blobsAreEqual(record.getBlob1(), returnedRecord.getBlob1()));
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>             assertTrue(blobsAreEqual(record.getBlob2(), returnedRecord.getBlob2()));
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L414" href="#L414">414</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>         }
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>     }
+<a class="jxr_linenumber" name="L417" href="#L417">417</a> 
+<a class="jxr_linenumber" name="L418" href="#L418">418</a>     @Test
+<a class="jxr_linenumber" name="L419" href="#L419">419</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPKBlobsUpdateByExampleWithBLOBs() {
+<a class="jxr_linenumber" name="L420" href="#L420">420</a>         PkblobsDAO dao = getPkblobsDAO();
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>     
+<a class="jxr_linenumber" name="L422" href="#L422">422</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>             PkblobsWithBLOBs record = <strong class="jxr_keyword">new</strong> PkblobsWithBLOBs();
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>             record.setId(3);
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>     
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>             record = <strong class="jxr_keyword">new</strong> PkblobsWithBLOBs();
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>             record.setId(6);
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L432" href="#L432">432</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L433" href="#L433">433</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L434" href="#L434">434</a>     
+<a class="jxr_linenumber" name="L435" href="#L435">435</a>             PkblobsWithBLOBs newRecord = <strong class="jxr_keyword">new</strong> PkblobsWithBLOBs();
+<a class="jxr_linenumber" name="L436" href="#L436">436</a>             newRecord.setId(8);
+<a class="jxr_linenumber" name="L437" href="#L437">437</a>             
+<a class="jxr_linenumber" name="L438" href="#L438">438</a>             PkblobsExample example = <strong class="jxr_keyword">new</strong> PkblobsExample();
+<a class="jxr_linenumber" name="L439" href="#L439">439</a>             example.createCriteria().andIdGreaterThan(4);
+<a class="jxr_linenumber" name="L440" href="#L440">440</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExample(newRecord, example);
+<a class="jxr_linenumber" name="L441" href="#L441">441</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L442" href="#L442">442</a>             
+<a class="jxr_linenumber" name="L443" href="#L443">443</a>             List&lt;PkblobsWithBLOBs&gt; answer = dao.selectByExampleWithBLOBs(example);
+<a class="jxr_linenumber" name="L444" href="#L444">444</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L445" href="#L445">445</a>             
+<a class="jxr_linenumber" name="L446" href="#L446">446</a>             PkblobsWithBLOBs returnedRecord = answer.get(0);
+<a class="jxr_linenumber" name="L447" href="#L447">447</a>             
+<a class="jxr_linenumber" name="L448" href="#L448">448</a>             assertEquals(8, returnedRecord.getId().intValue());
+<a class="jxr_linenumber" name="L449" href="#L449">449</a>             assertNull(returnedRecord.getBlob1());
+<a class="jxr_linenumber" name="L450" href="#L450">450</a>             assertNull(returnedRecord.getBlob2());
+<a class="jxr_linenumber" name="L451" href="#L451">451</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L452" href="#L452">452</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L453" href="#L453">453</a>         }
+<a class="jxr_linenumber" name="L454" href="#L454">454</a>     }
+<a class="jxr_linenumber" name="L455" href="#L455">455</a> 
+<a class="jxr_linenumber" name="L456" href="#L456">456</a>     @Test
+<a class="jxr_linenumber" name="L457" href="#L457">457</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPKFieldsBlobsUpdateByExampleSelective() {
+<a class="jxr_linenumber" name="L458" href="#L458">458</a>         PkfieldsblobsDAO dao = getPkfieldsblobsDAO();
+<a class="jxr_linenumber" name="L459" href="#L459">459</a>     
+<a class="jxr_linenumber" name="L460" href="#L460">460</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L461" href="#L461">461</a>             PkfieldsblobsWithBLOBs record = <strong class="jxr_keyword">new</strong> PkfieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L462" href="#L462">462</a>             record.setId1(3);
+<a class="jxr_linenumber" name="L463" href="#L463">463</a>             record.setId2(4);
+<a class="jxr_linenumber" name="L464" href="#L464">464</a>             record.setFirstname(<span class="jxr_string">"Jeff"</span>);
+<a class="jxr_linenumber" name="L465" href="#L465">465</a>             record.setLastname(<span class="jxr_string">"Smith"</span>);
+<a class="jxr_linenumber" name="L466" href="#L466">466</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L467" href="#L467">467</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L468" href="#L468">468</a>     
+<a class="jxr_linenumber" name="L469" href="#L469">469</a>             record = <strong class="jxr_keyword">new</strong> PkfieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L470" href="#L470">470</a>             record.setId1(5);
+<a class="jxr_linenumber" name="L471" href="#L471">471</a>             record.setId2(6);
+<a class="jxr_linenumber" name="L472" href="#L472">472</a>             record.setFirstname(<span class="jxr_string">"Scott"</span>);
+<a class="jxr_linenumber" name="L473" href="#L473">473</a>             record.setLastname(<span class="jxr_string">"Jones"</span>);
+<a class="jxr_linenumber" name="L474" href="#L474">474</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L475" href="#L475">475</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L476" href="#L476">476</a> 
+<a class="jxr_linenumber" name="L477" href="#L477">477</a>             PkfieldsblobsWithBLOBs newRecord = <strong class="jxr_keyword">new</strong> PkfieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L478" href="#L478">478</a>             newRecord.setFirstname(<span class="jxr_string">"Fred"</span>);
+<a class="jxr_linenumber" name="L479" href="#L479">479</a>             PkfieldsblobsExample example = <strong class="jxr_keyword">new</strong> PkfieldsblobsExample();
+<a class="jxr_linenumber" name="L480" href="#L480">480</a>             example.createCriteria().andId1NotEqualTo(3);
+<a class="jxr_linenumber" name="L481" href="#L481">481</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExampleSelective(newRecord, example);
+<a class="jxr_linenumber" name="L482" href="#L482">482</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L483" href="#L483">483</a>     
+<a class="jxr_linenumber" name="L484" href="#L484">484</a>             List&lt;PkfieldsblobsWithBLOBs&gt; answer = dao.selectByExampleWithBLOBs(example);
+<a class="jxr_linenumber" name="L485" href="#L485">485</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L486" href="#L486">486</a>             
+<a class="jxr_linenumber" name="L487" href="#L487">487</a>             PkfieldsblobsWithBLOBs returnedRecord = answer.get(0);
+<a class="jxr_linenumber" name="L488" href="#L488">488</a>             
+<a class="jxr_linenumber" name="L489" href="#L489">489</a>             assertEquals(record.getId1(), returnedRecord.getId1());
+<a class="jxr_linenumber" name="L490" href="#L490">490</a>             assertEquals(record.getId2(), returnedRecord.getId2());
+<a class="jxr_linenumber" name="L491" href="#L491">491</a>             assertEquals(newRecord.getFirstname(), returnedRecord.getFirstname());
+<a class="jxr_linenumber" name="L492" href="#L492">492</a>             assertEquals(record.getLastname(), returnedRecord.getLastname());
+<a class="jxr_linenumber" name="L493" href="#L493">493</a>             assertTrue(blobsAreEqual(record.getBlob1(), returnedRecord.getBlob1()));
+<a class="jxr_linenumber" name="L494" href="#L494">494</a>             
+<a class="jxr_linenumber" name="L495" href="#L495">495</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L496" href="#L496">496</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L497" href="#L497">497</a>         }
+<a class="jxr_linenumber" name="L498" href="#L498">498</a>     }
+<a class="jxr_linenumber" name="L499" href="#L499">499</a> 
+<a class="jxr_linenumber" name="L500" href="#L500">500</a>     @Test
+<a class="jxr_linenumber" name="L501" href="#L501">501</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPKFieldsBlobsUpdateByExampleWithoutBLOBs() {
+<a class="jxr_linenumber" name="L502" href="#L502">502</a>         PkfieldsblobsDAO dao = getPkfieldsblobsDAO();
+<a class="jxr_linenumber" name="L503" href="#L503">503</a>     
+<a class="jxr_linenumber" name="L504" href="#L504">504</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L505" href="#L505">505</a>             PkfieldsblobsWithBLOBs record = <strong class="jxr_keyword">new</strong> PkfieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L506" href="#L506">506</a>             record.setId1(3);
+<a class="jxr_linenumber" name="L507" href="#L507">507</a>             record.setId2(4);
+<a class="jxr_linenumber" name="L508" href="#L508">508</a>             record.setFirstname(<span class="jxr_string">"Jeff"</span>);
+<a class="jxr_linenumber" name="L509" href="#L509">509</a>             record.setLastname(<span class="jxr_string">"Smith"</span>);
+<a class="jxr_linenumber" name="L510" href="#L510">510</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L511" href="#L511">511</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L512" href="#L512">512</a>     
+<a class="jxr_linenumber" name="L513" href="#L513">513</a>             record = <strong class="jxr_keyword">new</strong> PkfieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L514" href="#L514">514</a>             record.setId1(5);
+<a class="jxr_linenumber" name="L515" href="#L515">515</a>             record.setId2(6);
+<a class="jxr_linenumber" name="L516" href="#L516">516</a>             record.setFirstname(<span class="jxr_string">"Scott"</span>);
+<a class="jxr_linenumber" name="L517" href="#L517">517</a>             record.setLastname(<span class="jxr_string">"Jones"</span>);
+<a class="jxr_linenumber" name="L518" href="#L518">518</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L519" href="#L519">519</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L520" href="#L520">520</a> 
+<a class="jxr_linenumber" name="L521" href="#L521">521</a>             Pkfieldsblobs newRecord = <strong class="jxr_keyword">new</strong> Pkfieldsblobs();
+<a class="jxr_linenumber" name="L522" href="#L522">522</a>             newRecord.setId1(5);
+<a class="jxr_linenumber" name="L523" href="#L523">523</a>             newRecord.setId2(8);
+<a class="jxr_linenumber" name="L524" href="#L524">524</a>             newRecord.setFirstname(<span class="jxr_string">"Fred"</span>);
+<a class="jxr_linenumber" name="L525" href="#L525">525</a>             PkfieldsblobsExample example = <strong class="jxr_keyword">new</strong> PkfieldsblobsExample();
+<a class="jxr_linenumber" name="L526" href="#L526">526</a>             example.createCriteria().andId1EqualTo(5);
+<a class="jxr_linenumber" name="L527" href="#L527">527</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExample(newRecord, example);
+<a class="jxr_linenumber" name="L528" href="#L528">528</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L529" href="#L529">529</a>     
+<a class="jxr_linenumber" name="L530" href="#L530">530</a>             List&lt;PkfieldsblobsWithBLOBs&gt; answer = dao.selectByExampleWithBLOBs(example);
+<a class="jxr_linenumber" name="L531" href="#L531">531</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L532" href="#L532">532</a>             
+<a class="jxr_linenumber" name="L533" href="#L533">533</a>             PkfieldsblobsWithBLOBs returnedRecord = answer.get(0);
+<a class="jxr_linenumber" name="L534" href="#L534">534</a>             
+<a class="jxr_linenumber" name="L535" href="#L535">535</a>             assertEquals(newRecord.getId1(), returnedRecord.getId1());
+<a class="jxr_linenumber" name="L536" href="#L536">536</a>             assertEquals(newRecord.getId2(), returnedRecord.getId2());
+<a class="jxr_linenumber" name="L537" href="#L537">537</a>             assertEquals(newRecord.getFirstname(), returnedRecord.getFirstname());
+<a class="jxr_linenumber" name="L538" href="#L538">538</a>             assertNull(returnedRecord.getLastname());
+<a class="jxr_linenumber" name="L539" href="#L539">539</a>             assertTrue(blobsAreEqual(record.getBlob1(), returnedRecord.getBlob1()));
+<a class="jxr_linenumber" name="L540" href="#L540">540</a>             
+<a class="jxr_linenumber" name="L541" href="#L541">541</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L542" href="#L542">542</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L543" href="#L543">543</a>         }
+<a class="jxr_linenumber" name="L544" href="#L544">544</a>     }
+<a class="jxr_linenumber" name="L545" href="#L545">545</a> 
+<a class="jxr_linenumber" name="L546" href="#L546">546</a>     @Test
+<a class="jxr_linenumber" name="L547" href="#L547">547</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPKFieldsBlobsUpdateByExampleWithBLOBs() {
+<a class="jxr_linenumber" name="L548" href="#L548">548</a>         PkfieldsblobsDAO dao = getPkfieldsblobsDAO();
+<a class="jxr_linenumber" name="L549" href="#L549">549</a>     
+<a class="jxr_linenumber" name="L550" href="#L550">550</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L551" href="#L551">551</a>             PkfieldsblobsWithBLOBs record = <strong class="jxr_keyword">new</strong> PkfieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L552" href="#L552">552</a>             record.setId1(3);
+<a class="jxr_linenumber" name="L553" href="#L553">553</a>             record.setId2(4);
+<a class="jxr_linenumber" name="L554" href="#L554">554</a>             record.setFirstname(<span class="jxr_string">"Jeff"</span>);
+<a class="jxr_linenumber" name="L555" href="#L555">555</a>             record.setLastname(<span class="jxr_string">"Smith"</span>);
+<a class="jxr_linenumber" name="L556" href="#L556">556</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L557" href="#L557">557</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L558" href="#L558">558</a>     
+<a class="jxr_linenumber" name="L559" href="#L559">559</a>             record = <strong class="jxr_keyword">new</strong> PkfieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L560" href="#L560">560</a>             record.setId1(5);
+<a class="jxr_linenumber" name="L561" href="#L561">561</a>             record.setId2(6);
+<a class="jxr_linenumber" name="L562" href="#L562">562</a>             record.setFirstname(<span class="jxr_string">"Scott"</span>);
+<a class="jxr_linenumber" name="L563" href="#L563">563</a>             record.setLastname(<span class="jxr_string">"Jones"</span>);
+<a class="jxr_linenumber" name="L564" href="#L564">564</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L565" href="#L565">565</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L566" href="#L566">566</a> 
+<a class="jxr_linenumber" name="L567" href="#L567">567</a>             PkfieldsblobsWithBLOBs newRecord = <strong class="jxr_keyword">new</strong> PkfieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L568" href="#L568">568</a>             newRecord.setId1(3);
+<a class="jxr_linenumber" name="L569" href="#L569">569</a>             newRecord.setId2(8);
+<a class="jxr_linenumber" name="L570" href="#L570">570</a>             newRecord.setFirstname(<span class="jxr_string">"Fred"</span>);
+<a class="jxr_linenumber" name="L571" href="#L571">571</a>             PkfieldsblobsExample example = <strong class="jxr_keyword">new</strong> PkfieldsblobsExample();
+<a class="jxr_linenumber" name="L572" href="#L572">572</a>             example.createCriteria().andId1EqualTo(3);
+<a class="jxr_linenumber" name="L573" href="#L573">573</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExample(newRecord, example);
+<a class="jxr_linenumber" name="L574" href="#L574">574</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L575" href="#L575">575</a>     
+<a class="jxr_linenumber" name="L576" href="#L576">576</a>             List&lt;PkfieldsblobsWithBLOBs&gt; answer = dao.selectByExampleWithBLOBs(example);
+<a class="jxr_linenumber" name="L577" href="#L577">577</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L578" href="#L578">578</a>             
+<a class="jxr_linenumber" name="L579" href="#L579">579</a>             PkfieldsblobsWithBLOBs returnedRecord = answer.get(0);
+<a class="jxr_linenumber" name="L580" href="#L580">580</a>             
+<a class="jxr_linenumber" name="L581" href="#L581">581</a>             assertEquals(newRecord.getId1(), returnedRecord.getId1());
+<a class="jxr_linenumber" name="L582" href="#L582">582</a>             assertEquals(newRecord.getId2(), returnedRecord.getId2());
+<a class="jxr_linenumber" name="L583" href="#L583">583</a>             assertEquals(newRecord.getFirstname(), returnedRecord.getFirstname());
+<a class="jxr_linenumber" name="L584" href="#L584">584</a>             assertNull(returnedRecord.getLastname());
+<a class="jxr_linenumber" name="L585" href="#L585">585</a>             assertNull(returnedRecord.getBlob1());
+<a class="jxr_linenumber" name="L586" href="#L586">586</a>             
+<a class="jxr_linenumber" name="L587" href="#L587">587</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L588" href="#L588">588</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L589" href="#L589">589</a>         }
+<a class="jxr_linenumber" name="L590" href="#L590">590</a>     }
+<a class="jxr_linenumber" name="L591" href="#L591">591</a> 
+<a class="jxr_linenumber" name="L592" href="#L592">592</a>     @Test
+<a class="jxr_linenumber" name="L593" href="#L593">593</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testFieldsBlobsUpdateByExampleSelective() {
+<a class="jxr_linenumber" name="L594" href="#L594">594</a>         FieldsblobsDAO dao = getFieldsblobsDAO();
+<a class="jxr_linenumber" name="L595" href="#L595">595</a>     
+<a class="jxr_linenumber" name="L596" href="#L596">596</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L597" href="#L597">597</a>             FieldsblobsWithBLOBs record = <strong class="jxr_keyword">new</strong> FieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L598" href="#L598">598</a>             record.setFirstname(<span class="jxr_string">"Jeff"</span>);
+<a class="jxr_linenumber" name="L599" href="#L599">599</a>             record.setLastname(<span class="jxr_string">"Smith"</span>);
+<a class="jxr_linenumber" name="L600" href="#L600">600</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L601" href="#L601">601</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L602" href="#L602">602</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L603" href="#L603">603</a>     
+<a class="jxr_linenumber" name="L604" href="#L604">604</a>             record = <strong class="jxr_keyword">new</strong> FieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L605" href="#L605">605</a>             record.setFirstname(<span class="jxr_string">"Scott"</span>);
+<a class="jxr_linenumber" name="L606" href="#L606">606</a>             record.setLastname(<span class="jxr_string">"Jones"</span>);
+<a class="jxr_linenumber" name="L607" href="#L607">607</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L608" href="#L608">608</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L609" href="#L609">609</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L610" href="#L610">610</a> 
+<a class="jxr_linenumber" name="L611" href="#L611">611</a>             FieldsblobsWithBLOBs newRecord = <strong class="jxr_keyword">new</strong> FieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L612" href="#L612">612</a>             newRecord.setLastname(<span class="jxr_string">"Doe"</span>);
+<a class="jxr_linenumber" name="L613" href="#L613">613</a>             FieldsblobsExample example = <strong class="jxr_keyword">new</strong> FieldsblobsExample();
+<a class="jxr_linenumber" name="L614" href="#L614">614</a>             example.createCriteria().andFirstnameLike(<span class="jxr_string">"S%"</span>);
+<a class="jxr_linenumber" name="L615" href="#L615">615</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExampleSelective(newRecord, example);
+<a class="jxr_linenumber" name="L616" href="#L616">616</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L617" href="#L617">617</a>             
+<a class="jxr_linenumber" name="L618" href="#L618">618</a>             List&lt;FieldsblobsWithBLOBs&gt; answer = dao.selectByExampleWithBLOBs(example);
+<a class="jxr_linenumber" name="L619" href="#L619">619</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L620" href="#L620">620</a>             
+<a class="jxr_linenumber" name="L621" href="#L621">621</a>             FieldsblobsWithBLOBs returnedRecord = answer.get(0);
+<a class="jxr_linenumber" name="L622" href="#L622">622</a>             
+<a class="jxr_linenumber" name="L623" href="#L623">623</a>             assertEquals(record.getFirstname(), returnedRecord.getFirstname());
+<a class="jxr_linenumber" name="L624" href="#L624">624</a>             assertEquals(newRecord.getLastname(), returnedRecord.getLastname());
+<a class="jxr_linenumber" name="L625" href="#L625">625</a>             assertTrue(blobsAreEqual(record.getBlob1(), returnedRecord.getBlob1()));
+<a class="jxr_linenumber" name="L626" href="#L626">626</a>             assertTrue(blobsAreEqual(record.getBlob2(), returnedRecord.getBlob2()));
+<a class="jxr_linenumber" name="L627" href="#L627">627</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L628" href="#L628">628</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L629" href="#L629">629</a>         }
+<a class="jxr_linenumber" name="L630" href="#L630">630</a>     }
+<a class="jxr_linenumber" name="L631" href="#L631">631</a> 
+<a class="jxr_linenumber" name="L632" href="#L632">632</a>     @Test
+<a class="jxr_linenumber" name="L633" href="#L633">633</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testFieldsBlobsUpdateByExampleWithoutBLOBs() {
+<a class="jxr_linenumber" name="L634" href="#L634">634</a>         FieldsblobsDAO dao = getFieldsblobsDAO();
+<a class="jxr_linenumber" name="L635" href="#L635">635</a>     
+<a class="jxr_linenumber" name="L636" href="#L636">636</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L637" href="#L637">637</a>             FieldsblobsWithBLOBs record = <strong class="jxr_keyword">new</strong> FieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L638" href="#L638">638</a>             record.setFirstname(<span class="jxr_string">"Jeff"</span>);
+<a class="jxr_linenumber" name="L639" href="#L639">639</a>             record.setLastname(<span class="jxr_string">"Smith"</span>);
+<a class="jxr_linenumber" name="L640" href="#L640">640</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L641" href="#L641">641</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L642" href="#L642">642</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L643" href="#L643">643</a>     
+<a class="jxr_linenumber" name="L644" href="#L644">644</a>             record = <strong class="jxr_keyword">new</strong> FieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L645" href="#L645">645</a>             record.setFirstname(<span class="jxr_string">"Scott"</span>);
+<a class="jxr_linenumber" name="L646" href="#L646">646</a>             record.setLastname(<span class="jxr_string">"Jones"</span>);
+<a class="jxr_linenumber" name="L647" href="#L647">647</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L648" href="#L648">648</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L649" href="#L649">649</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L650" href="#L650">650</a> 
+<a class="jxr_linenumber" name="L651" href="#L651">651</a>             Fieldsblobs newRecord = <strong class="jxr_keyword">new</strong> Fieldsblobs();
+<a class="jxr_linenumber" name="L652" href="#L652">652</a>             newRecord.setFirstname(<span class="jxr_string">"Scott"</span>);
+<a class="jxr_linenumber" name="L653" href="#L653">653</a>             newRecord.setLastname(<span class="jxr_string">"Doe"</span>);
+<a class="jxr_linenumber" name="L654" href="#L654">654</a>             FieldsblobsExample example = <strong class="jxr_keyword">new</strong> FieldsblobsExample();
+<a class="jxr_linenumber" name="L655" href="#L655">655</a>             example.createCriteria().andFirstnameLike(<span class="jxr_string">"S%"</span>);
+<a class="jxr_linenumber" name="L656" href="#L656">656</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExample(newRecord, example);
+<a class="jxr_linenumber" name="L657" href="#L657">657</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L658" href="#L658">658</a>             
+<a class="jxr_linenumber" name="L659" href="#L659">659</a>             List&lt;FieldsblobsWithBLOBs&gt; answer = dao.selectByExampleWithBLOBs(example);
+<a class="jxr_linenumber" name="L660" href="#L660">660</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L661" href="#L661">661</a>             
+<a class="jxr_linenumber" name="L662" href="#L662">662</a>             FieldsblobsWithBLOBs returnedRecord = answer.get(0);
+<a class="jxr_linenumber" name="L663" href="#L663">663</a>             
+<a class="jxr_linenumber" name="L664" href="#L664">664</a>             assertEquals(newRecord.getFirstname(), returnedRecord.getFirstname());
+<a class="jxr_linenumber" name="L665" href="#L665">665</a>             assertEquals(newRecord.getLastname(), returnedRecord.getLastname());
+<a class="jxr_linenumber" name="L666" href="#L666">666</a>             assertTrue(blobsAreEqual(record.getBlob1(), returnedRecord.getBlob1()));
+<a class="jxr_linenumber" name="L667" href="#L667">667</a>             assertTrue(blobsAreEqual(record.getBlob2(), returnedRecord.getBlob2()));
+<a class="jxr_linenumber" name="L668" href="#L668">668</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L669" href="#L669">669</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L670" href="#L670">670</a>         }
+<a class="jxr_linenumber" name="L671" href="#L671">671</a>     }
+<a class="jxr_linenumber" name="L672" href="#L672">672</a> 
+<a class="jxr_linenumber" name="L673" href="#L673">673</a>     @Test
+<a class="jxr_linenumber" name="L674" href="#L674">674</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testFieldsBlobsUpdateByExampleWithBLOBs() {
+<a class="jxr_linenumber" name="L675" href="#L675">675</a>         FieldsblobsDAO dao = getFieldsblobsDAO();
+<a class="jxr_linenumber" name="L676" href="#L676">676</a>     
+<a class="jxr_linenumber" name="L677" href="#L677">677</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L678" href="#L678">678</a>             FieldsblobsWithBLOBs record = <strong class="jxr_keyword">new</strong> FieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L679" href="#L679">679</a>             record.setFirstname(<span class="jxr_string">"Jeff"</span>);
+<a class="jxr_linenumber" name="L680" href="#L680">680</a>             record.setLastname(<span class="jxr_string">"Smith"</span>);
+<a class="jxr_linenumber" name="L681" href="#L681">681</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L682" href="#L682">682</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L683" href="#L683">683</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L684" href="#L684">684</a>     
+<a class="jxr_linenumber" name="L685" href="#L685">685</a>             record = <strong class="jxr_keyword">new</strong> FieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L686" href="#L686">686</a>             record.setFirstname(<span class="jxr_string">"Scott"</span>);
+<a class="jxr_linenumber" name="L687" href="#L687">687</a>             record.setLastname(<span class="jxr_string">"Jones"</span>);
+<a class="jxr_linenumber" name="L688" href="#L688">688</a>             record.setBlob1(generateRandomBlob());
+<a class="jxr_linenumber" name="L689" href="#L689">689</a>             record.setBlob2(generateRandomBlob());
+<a class="jxr_linenumber" name="L690" href="#L690">690</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L691" href="#L691">691</a> 
+<a class="jxr_linenumber" name="L692" href="#L692">692</a>             FieldsblobsWithBLOBs newRecord = <strong class="jxr_keyword">new</strong> FieldsblobsWithBLOBs();
+<a class="jxr_linenumber" name="L693" href="#L693">693</a>             newRecord.setFirstname(<span class="jxr_string">"Scott"</span>);
+<a class="jxr_linenumber" name="L694" href="#L694">694</a>             newRecord.setLastname(<span class="jxr_string">"Doe"</span>);
+<a class="jxr_linenumber" name="L695" href="#L695">695</a>             FieldsblobsExample example = <strong class="jxr_keyword">new</strong> FieldsblobsExample();
+<a class="jxr_linenumber" name="L696" href="#L696">696</a>             example.createCriteria().andFirstnameLike(<span class="jxr_string">"S%"</span>);
+<a class="jxr_linenumber" name="L697" href="#L697">697</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExample(newRecord, example);
+<a class="jxr_linenumber" name="L698" href="#L698">698</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L699" href="#L699">699</a>             
+<a class="jxr_linenumber" name="L700" href="#L700">700</a>             List&lt;FieldsblobsWithBLOBs&gt; answer = dao.selectByExampleWithBLOBs(example);
+<a class="jxr_linenumber" name="L701" href="#L701">701</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L702" href="#L702">702</a>             
+<a class="jxr_linenumber" name="L703" href="#L703">703</a>             FieldsblobsWithBLOBs returnedRecord = answer.get(0);
+<a class="jxr_linenumber" name="L704" href="#L704">704</a>             
+<a class="jxr_linenumber" name="L705" href="#L705">705</a>             assertEquals(newRecord.getFirstname(), returnedRecord.getFirstname());
+<a class="jxr_linenumber" name="L706" href="#L706">706</a>             assertEquals(newRecord.getLastname(), returnedRecord.getLastname());
+<a class="jxr_linenumber" name="L707" href="#L707">707</a>             assertNull(returnedRecord.getBlob1());
+<a class="jxr_linenumber" name="L708" href="#L708">708</a>             assertNull(returnedRecord.getBlob2());
+<a class="jxr_linenumber" name="L709" href="#L709">709</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L710" href="#L710">710</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L711" href="#L711">711</a>         }
+<a class="jxr_linenumber" name="L712" href="#L712">712</a>     }
+<a class="jxr_linenumber" name="L713" href="#L713">713</a> 
+<a class="jxr_linenumber" name="L714" href="#L714">714</a>     @Test
+<a class="jxr_linenumber" name="L715" href="#L715">715</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAwfulTableUpdateByExampleSelective() {
+<a class="jxr_linenumber" name="L716" href="#L716">716</a>         AwfulTableDAO dao = getAwfulTableDAO();
+<a class="jxr_linenumber" name="L717" href="#L717">717</a>     
+<a class="jxr_linenumber" name="L718" href="#L718">718</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L719" href="#L719">719</a>             AwfulTable record = <strong class="jxr_keyword">new</strong> AwfulTable();
+<a class="jxr_linenumber" name="L720" href="#L720">720</a>             record.seteMail(<span class="jxr_string">"fred@fred.com"</span>);
+<a class="jxr_linenumber" name="L721" href="#L721">721</a>             record.setEmailaddress(<span class="jxr_string">"alsofred@fred.com"</span>);
+<a class="jxr_linenumber" name="L722" href="#L722">722</a>             record.setFirstFirstName(<span class="jxr_string">"fred1"</span>);
+<a class="jxr_linenumber" name="L723" href="#L723">723</a>             record.setFrom(<span class="jxr_string">"from field"</span>);
+<a class="jxr_linenumber" name="L724" href="#L724">724</a>             record.setId1(1);
+<a class="jxr_linenumber" name="L725" href="#L725">725</a>             record.setId2(2);
+<a class="jxr_linenumber" name="L726" href="#L726">726</a>             record.setId5(5);
+<a class="jxr_linenumber" name="L727" href="#L727">727</a>             record.setId6(6);
+<a class="jxr_linenumber" name="L728" href="#L728">728</a>             record.setId7(7);
+<a class="jxr_linenumber" name="L729" href="#L729">729</a>             record.setSecondFirstName(<span class="jxr_string">"fred2"</span>);
+<a class="jxr_linenumber" name="L730" href="#L730">730</a>             record.setThirdFirstName(<span class="jxr_string">"fred3"</span>);
+<a class="jxr_linenumber" name="L731" href="#L731">731</a>     
+<a class="jxr_linenumber" name="L732" href="#L732">732</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L733" href="#L733">733</a>     
+<a class="jxr_linenumber" name="L734" href="#L734">734</a>             record = <strong class="jxr_keyword">new</strong> AwfulTable();
+<a class="jxr_linenumber" name="L735" href="#L735">735</a>             record.seteMail(<span class="jxr_string">"fred2@fred.com"</span>);
+<a class="jxr_linenumber" name="L736" href="#L736">736</a>             record.setEmailaddress(<span class="jxr_string">"alsofred2@fred.com"</span>);
+<a class="jxr_linenumber" name="L737" href="#L737">737</a>             record.setFirstFirstName(<span class="jxr_string">"fred11"</span>);
+<a class="jxr_linenumber" name="L738" href="#L738">738</a>             record.setFrom(<span class="jxr_string">"from from field"</span>);
+<a class="jxr_linenumber" name="L739" href="#L739">739</a>             record.setId1(11);
+<a class="jxr_linenumber" name="L740" href="#L740">740</a>             record.setId2(22);
+<a class="jxr_linenumber" name="L741" href="#L741">741</a>             record.setId5(55);
+<a class="jxr_linenumber" name="L742" href="#L742">742</a>             record.setId6(66);
+<a class="jxr_linenumber" name="L743" href="#L743">743</a>             record.setId7(77);
+<a class="jxr_linenumber" name="L744" href="#L744">744</a>             record.setSecondFirstName(<span class="jxr_string">"fred22"</span>);
+<a class="jxr_linenumber" name="L745" href="#L745">745</a>             record.setThirdFirstName(<span class="jxr_string">"fred33"</span>);
+<a class="jxr_linenumber" name="L746" href="#L746">746</a>     
+<a class="jxr_linenumber" name="L747" href="#L747">747</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L748" href="#L748">748</a>     
+<a class="jxr_linenumber" name="L749" href="#L749">749</a>             AwfulTable newRecord = <strong class="jxr_keyword">new</strong> AwfulTable();
+<a class="jxr_linenumber" name="L750" href="#L750">750</a>             newRecord.setFirstFirstName(<span class="jxr_string">"Alonzo"</span>);
+<a class="jxr_linenumber" name="L751" href="#L751">751</a>             AwfulTableExample example = <strong class="jxr_keyword">new</strong> AwfulTableExample();
+<a class="jxr_linenumber" name="L752" href="#L752">752</a>             example.createCriteria().andEMailLike(<span class="jxr_string">"fred2@%"</span>);
+<a class="jxr_linenumber" name="L753" href="#L753">753</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExampleSelective(newRecord, example);
+<a class="jxr_linenumber" name="L754" href="#L754">754</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L755" href="#L755">755</a>     
+<a class="jxr_linenumber" name="L756" href="#L756">756</a>             List&lt;AwfulTable&gt; answer = dao.selectByExample(example);
+<a class="jxr_linenumber" name="L757" href="#L757">757</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L758" href="#L758">758</a> 
+<a class="jxr_linenumber" name="L759" href="#L759">759</a>             AwfulTable returnedRecord = answer.get(0);
+<a class="jxr_linenumber" name="L760" href="#L760">760</a>             
+<a class="jxr_linenumber" name="L761" href="#L761">761</a>             assertEquals(record.getCustomerId(), returnedRecord.getCustomerId());
+<a class="jxr_linenumber" name="L762" href="#L762">762</a>             assertEquals(record.geteMail(), returnedRecord.geteMail());
+<a class="jxr_linenumber" name="L763" href="#L763">763</a>             assertEquals(record.getEmailaddress(), returnedRecord.getEmailaddress());
+<a class="jxr_linenumber" name="L764" href="#L764">764</a>             assertEquals(newRecord.getFirstFirstName(), returnedRecord.getFirstFirstName());
+<a class="jxr_linenumber" name="L765" href="#L765">765</a>             assertEquals(record.getFrom(), returnedRecord.getFrom());
+<a class="jxr_linenumber" name="L766" href="#L766">766</a>             assertEquals(record.getId1(), returnedRecord.getId1());
+<a class="jxr_linenumber" name="L767" href="#L767">767</a>             assertEquals(record.getId2(), returnedRecord.getId2());
+<a class="jxr_linenumber" name="L768" href="#L768">768</a>             assertEquals(record.getId5(), returnedRecord.getId5());
+<a class="jxr_linenumber" name="L769" href="#L769">769</a>             assertEquals(record.getId6(), returnedRecord.getId6());
+<a class="jxr_linenumber" name="L770" href="#L770">770</a>             assertEquals(record.getId7(), returnedRecord.getId7());
+<a class="jxr_linenumber" name="L771" href="#L771">771</a>             assertEquals(record.getSecondFirstName(), returnedRecord.getSecondFirstName());
+<a class="jxr_linenumber" name="L772" href="#L772">772</a>             assertEquals(record.getThirdFirstName(), returnedRecord.getThirdFirstName());
+<a class="jxr_linenumber" name="L773" href="#L773">773</a>             
+<a class="jxr_linenumber" name="L774" href="#L774">774</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L775" href="#L775">775</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L776" href="#L776">776</a>         }
+<a class="jxr_linenumber" name="L777" href="#L777">777</a>     }
+<a class="jxr_linenumber" name="L778" href="#L778">778</a> 
+<a class="jxr_linenumber" name="L779" href="#L779">779</a>     @Test
+<a class="jxr_linenumber" name="L780" href="#L780">780</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAwfulTableUpdateByExample() {
+<a class="jxr_linenumber" name="L781" href="#L781">781</a>         AwfulTableDAO dao = getAwfulTableDAO();
+<a class="jxr_linenumber" name="L782" href="#L782">782</a>     
+<a class="jxr_linenumber" name="L783" href="#L783">783</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L784" href="#L784">784</a>             AwfulTable record = <strong class="jxr_keyword">new</strong> AwfulTable();
+<a class="jxr_linenumber" name="L785" href="#L785">785</a>             record.seteMail(<span class="jxr_string">"fred@fred.com"</span>);
+<a class="jxr_linenumber" name="L786" href="#L786">786</a>             record.setEmailaddress(<span class="jxr_string">"alsofred@fred.com"</span>);
+<a class="jxr_linenumber" name="L787" href="#L787">787</a>             record.setFirstFirstName(<span class="jxr_string">"fred1"</span>);
+<a class="jxr_linenumber" name="L788" href="#L788">788</a>             record.setFrom(<span class="jxr_string">"from field"</span>);
+<a class="jxr_linenumber" name="L789" href="#L789">789</a>             record.setId1(1);
+<a class="jxr_linenumber" name="L790" href="#L790">790</a>             record.setId2(2);
+<a class="jxr_linenumber" name="L791" href="#L791">791</a>             record.setId5(5);
+<a class="jxr_linenumber" name="L792" href="#L792">792</a>             record.setId6(6);
+<a class="jxr_linenumber" name="L793" href="#L793">793</a>             record.setId7(7);
+<a class="jxr_linenumber" name="L794" href="#L794">794</a>             record.setSecondFirstName(<span class="jxr_string">"fred2"</span>);
+<a class="jxr_linenumber" name="L795" href="#L795">795</a>             record.setThirdFirstName(<span class="jxr_string">"fred3"</span>);
+<a class="jxr_linenumber" name="L796" href="#L796">796</a>     
+<a class="jxr_linenumber" name="L797" href="#L797">797</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L798" href="#L798">798</a>     
+<a class="jxr_linenumber" name="L799" href="#L799">799</a>             record = <strong class="jxr_keyword">new</strong> AwfulTable();
+<a class="jxr_linenumber" name="L800" href="#L800">800</a>             record.seteMail(<span class="jxr_string">"fred2@fred.com"</span>);
+<a class="jxr_linenumber" name="L801" href="#L801">801</a>             record.setEmailaddress(<span class="jxr_string">"alsofred2@fred.com"</span>);
+<a class="jxr_linenumber" name="L802" href="#L802">802</a>             record.setFirstFirstName(<span class="jxr_string">"fred11"</span>);
+<a class="jxr_linenumber" name="L803" href="#L803">803</a>             record.setFrom(<span class="jxr_string">"from from field"</span>);
+<a class="jxr_linenumber" name="L804" href="#L804">804</a>             record.setId1(11);
+<a class="jxr_linenumber" name="L805" href="#L805">805</a>             record.setId2(22);
+<a class="jxr_linenumber" name="L806" href="#L806">806</a>             record.setId5(55);
+<a class="jxr_linenumber" name="L807" href="#L807">807</a>             record.setId6(66);
+<a class="jxr_linenumber" name="L808" href="#L808">808</a>             record.setId7(77);
+<a class="jxr_linenumber" name="L809" href="#L809">809</a>             record.setSecondFirstName(<span class="jxr_string">"fred22"</span>);
+<a class="jxr_linenumber" name="L810" href="#L810">810</a>             record.setThirdFirstName(<span class="jxr_string">"fred33"</span>);
+<a class="jxr_linenumber" name="L811" href="#L811">811</a>     
+<a class="jxr_linenumber" name="L812" href="#L812">812</a>             dao.insert(record);
+<a class="jxr_linenumber" name="L813" href="#L813">813</a>     
+<a class="jxr_linenumber" name="L814" href="#L814">814</a>             AwfulTable newRecord = <strong class="jxr_keyword">new</strong> AwfulTable();
+<a class="jxr_linenumber" name="L815" href="#L815">815</a>             newRecord.setFirstFirstName(<span class="jxr_string">"Alonzo"</span>);
+<a class="jxr_linenumber" name="L816" href="#L816">816</a>             newRecord.setCustomerId(58);
+<a class="jxr_linenumber" name="L817" href="#L817">817</a>             newRecord.setId1(111);
+<a class="jxr_linenumber" name="L818" href="#L818">818</a>             newRecord.setId2(222);
+<a class="jxr_linenumber" name="L819" href="#L819">819</a>             newRecord.setId5(555);
+<a class="jxr_linenumber" name="L820" href="#L820">820</a>             newRecord.setId6(666);
+<a class="jxr_linenumber" name="L821" href="#L821">821</a>             newRecord.setId7(777);
+<a class="jxr_linenumber" name="L822" href="#L822">822</a>             AwfulTableExample example = <strong class="jxr_keyword">new</strong> AwfulTableExample();
+<a class="jxr_linenumber" name="L823" href="#L823">823</a>             example.createCriteria().andEMailLike(<span class="jxr_string">"fred2@%"</span>);
+<a class="jxr_linenumber" name="L824" href="#L824">824</a>             <strong class="jxr_keyword">int</strong> rows = dao.updateByExample(newRecord, example);
+<a class="jxr_linenumber" name="L825" href="#L825">825</a>             assertEquals(1, rows);
+<a class="jxr_linenumber" name="L826" href="#L826">826</a> 
+<a class="jxr_linenumber" name="L827" href="#L827">827</a>             example.clear();
+<a class="jxr_linenumber" name="L828" href="#L828">828</a>             example.createCriteria().andCustomerIdEqualTo(58);
+<a class="jxr_linenumber" name="L829" href="#L829">829</a>             List&lt;AwfulTable&gt; answer = dao.selectByExample(example);
+<a class="jxr_linenumber" name="L830" href="#L830">830</a>             assertEquals(1, answer.size());
+<a class="jxr_linenumber" name="L831" href="#L831">831</a> 
+<a class="jxr_linenumber" name="L832" href="#L832">832</a>             AwfulTable returnedRecord = answer.get(0);
+<a class="jxr_linenumber" name="L833" href="#L833">833</a>             
+<a class="jxr_linenumber" name="L834" href="#L834">834</a>             assertEquals(newRecord.getCustomerId(), returnedRecord.getCustomerId());
+<a class="jxr_linenumber" name="L835" href="#L835">835</a>             assertNull(returnedRecord.geteMail());
+<a class="jxr_linenumber" name="L836" href="#L836">836</a>             assertNull(returnedRecord.getEmailaddress());
+<a class="jxr_linenumber" name="L837" href="#L837">837</a>             assertEquals(newRecord.getFirstFirstName(), returnedRecord.getFirstFirstName());
+<a class="jxr_linenumber" name="L838" href="#L838">838</a>             assertNull(returnedRecord.getFrom());
+<a class="jxr_linenumber" name="L839" href="#L839">839</a>             assertEquals(newRecord.getId1(), returnedRecord.getId1());
+<a class="jxr_linenumber" name="L840" href="#L840">840</a>             assertEquals(newRecord.getId2(), returnedRecord.getId2());
+<a class="jxr_linenumber" name="L841" href="#L841">841</a>             assertEquals(newRecord.getId5(), returnedRecord.getId5());
+<a class="jxr_linenumber" name="L842" href="#L842">842</a>             assertEquals(newRecord.getId6(), returnedRecord.getId6());
+<a class="jxr_linenumber" name="L843" href="#L843">843</a>             assertEquals(newRecord.getId7(), returnedRecord.getId7());
+<a class="jxr_linenumber" name="L844" href="#L844">844</a>             assertNull(returnedRecord.getSecondFirstName());
+<a class="jxr_linenumber" name="L845" href="#L845">845</a>             assertNull(returnedRecord.getThirdFirstName());
+<a class="jxr_linenumber" name="L846" href="#L846">846</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L847" href="#L847">847</a>             fail(e.getMessage());
+<a class="jxr_linenumber" name="L848" href="#L848">848</a>         }
+<a class="jxr_linenumber" name="L849" href="#L849">849</a>     }
+<a class="jxr_linenumber" name="L850" href="#L850">850</a> }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2010&#x2013;2015 <a href="http://www.mybatis.org/">MyBatis.org</a>. All rights reserved.</div>
+</body>
+</html>

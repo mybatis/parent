@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MyTimeTypeHandler.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyBatis Generator Tests (iBATIS2 - Java5)</a> &gt; <a href="index.source.html" class="el_package">mbg.test.ib2j5.common</a> &gt; <span class="el_source">MyTimeTypeHandler.java</span></div><h1>MyTimeTypeHandler.java</h1><pre class="source lang-java linenums">/**
+ *    Copyright 2006-2015 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package mbg.test.ib2j5.common;
+
+import java.sql.SQLException;
+import java.sql.Time;
+import java.sql.Types;
+import java.util.Calendar;
+
+import mbg.test.common.MyTime;
+
+import com.ibatis.sqlmap.client.extensions.ParameterSetter;
+import com.ibatis.sqlmap.client.extensions.ResultGetter;
+import com.ibatis.sqlmap.client.extensions.TypeHandlerCallback;
+
+/**
+ * @author Jeff Butler
+ * 
+ */
+public class MyTimeTypeHandler implements TypeHandlerCallback {
+
+    /**
+     * 
+     */
+    public MyTimeTypeHandler() {
+<span class="fc" id="L39">        super();</span>
+<span class="fc" id="L40">    }</span>
+
+    public Object getResult(ResultGetter resultGetter) throws SQLException {
+<span class="fc" id="L43">        Time time = resultGetter.getTime();</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (time == null) {</span>
+<span class="fc" id="L45">            return null;</span>
+        } else {
+
+<span class="fc" id="L48">            MyTime answer = new MyTime();</span>
+
+<span class="fc" id="L50">            Calendar c = Calendar.getInstance();</span>
+<span class="fc" id="L51">            c.setTime(time);</span>
+
+<span class="fc" id="L53">            answer.setHours(c.get(Calendar.HOUR_OF_DAY));</span>
+<span class="fc" id="L54">            answer.setMinutes(c.get(Calendar.MINUTE));</span>
+<span class="fc" id="L55">            answer.setSeconds(c.get(Calendar.SECOND));</span>
+
+<span class="fc" id="L57">            return answer;</span>
+        }
+    }
+
+    public void setParameter(ParameterSetter parameterSetter, Object value)
+            throws SQLException {
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        if (value == null) {</span>
+<span class="fc" id="L64">            parameterSetter.setNull(Types.TIME);</span>
+        } else {
+<span class="fc" id="L66">            MyTime myTime = (MyTime) value;</span>
+
+<span class="fc" id="L68">            Calendar c = Calendar.getInstance();</span>
+<span class="fc" id="L69">            c.set(Calendar.HOUR_OF_DAY, myTime.getHours());</span>
+<span class="fc" id="L70">            c.set(Calendar.MINUTE, myTime.getMinutes());</span>
+<span class="fc" id="L71">            c.set(Calendar.SECOND, myTime.getSeconds());</span>
+
+<span class="fc" id="L73">            Time time = new Time(c.getTime().getTime());</span>
+
+<span class="fc" id="L75">            parameterSetter.setTime(time);</span>
+        }
+<span class="fc" id="L77">    }</span>
+
+    public Object valueOf(String arg0) {
+<span class="nc" id="L80">        return arg0;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
