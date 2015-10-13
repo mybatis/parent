@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MyBatisGenerator.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyBatis Generator Core</a> &gt; <a href="index.source.html" class="el_package">org.mybatis.generator.api</a> &gt; <span class="el_source">MyBatisGenerator.java</span></div><h1>MyBatisGenerator.java</h1><pre class="source lang-java linenums">/**
+ *    Copyright 2006-2015 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package org.mybatis.generator.api;
+
+import static org.mybatis.generator.internal.util.ClassloaderUtility.getCustomClassloader;
+import static org.mybatis.generator.internal.util.messages.Messages.getString;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.mybatis.generator.config.Configuration;
+import org.mybatis.generator.config.Context;
+import org.mybatis.generator.config.MergeConstants;
+import org.mybatis.generator.exception.InvalidConfigurationException;
+import org.mybatis.generator.exception.ShellException;
+import org.mybatis.generator.internal.DefaultShellCallback;
+import org.mybatis.generator.internal.ObjectFactory;
+import org.mybatis.generator.internal.NullProgressCallback;
+import org.mybatis.generator.internal.XmlFileMergerJaxp;
+
+/**
+ * This class is the main interface to MyBatis generator. A typical execution of the tool involves these steps:
+ * 
+ * &lt;ol&gt;
+ * &lt;li&gt;Create a Configuration object. The Configuration can be the result of a parsing the XML configuration file, or it
+ * can be created solely in Java.&lt;/li&gt;
+ * &lt;li&gt;Create a MyBatisGenerator object&lt;/li&gt;
+ * &lt;li&gt;Call one of the generate() methods&lt;/li&gt;
+ * &lt;/ol&gt;
+ *
+ * @author Jeff Butler
+ * @see org.mybatis.generator.config.xml.ConfigurationParser
+ */
+public class MyBatisGenerator {
+
+    /** The configuration. */
+    private Configuration configuration;
+
+    /** The shell callback. */
+    private ShellCallback shellCallback;
+
+    /** The generated java files. */
+    private List&lt;GeneratedJavaFile&gt; generatedJavaFiles;
+
+    /** The generated xml files. */
+    private List&lt;GeneratedXmlFile&gt; generatedXmlFiles;
+
+    /** The warnings. */
+    private List&lt;String&gt; warnings;
+
+    /** The projects. */
+    private Set&lt;String&gt; projects;
+
+    /**
+     * Constructs a MyBatisGenerator object.
+     * 
+     * @param configuration
+     *            The configuration for this invocation
+     * @param shellCallback
+     *            an instance of a ShellCallback interface. You may specify
+     *            &lt;code&gt;null&lt;/code&gt; in which case the DefaultShellCallback will
+     *            be used.
+     * @param warnings
+     *            Any warnings generated during execution will be added to this
+     *            list. Warnings do not affect the running of the tool, but they
+     *            may affect the results. A typical warning is an unsupported
+     *            data type. In that case, the column will be ignored and
+     *            generation will continue. You may specify &lt;code&gt;null&lt;/code&gt; if
+     *            you do not want warnings returned.
+     * @throws InvalidConfigurationException
+     *             if the specified configuration is invalid
+     */
+    public MyBatisGenerator(Configuration configuration, ShellCallback shellCallback,
+            List&lt;String&gt; warnings) throws InvalidConfigurationException {
+<span class="fc" id="L96">        super();</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">        if (configuration == null) {</span>
+<span class="nc" id="L98">            throw new IllegalArgumentException(getString(&quot;RuntimeError.2&quot;)); //$NON-NLS-1$</span>
+        } else {
+<span class="fc" id="L100">            this.configuration = configuration;</span>
+        }
+
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">        if (shellCallback == null) {</span>
+<span class="nc" id="L104">            this.shellCallback = new DefaultShellCallback(false);</span>
+        } else {
+<span class="fc" id="L106">            this.shellCallback = shellCallback;</span>
+        }
+
+<span class="pc bpc" id="L109" title="1 of 2 branches missed.">        if (warnings == null) {</span>
+<span class="nc" id="L110">            this.warnings = new ArrayList&lt;String&gt;();</span>
+        } else {
+<span class="fc" id="L112">            this.warnings = warnings;</span>
+        }
+<span class="fc" id="L114">        generatedJavaFiles = new ArrayList&lt;GeneratedJavaFile&gt;();</span>
+<span class="fc" id="L115">        generatedXmlFiles = new ArrayList&lt;GeneratedXmlFile&gt;();</span>
+<span class="fc" id="L116">        projects = new HashSet&lt;String&gt;();</span>
+
+<span class="nc" id="L118">        this.configuration.validate();</span>
+<span class="nc" id="L119">    }</span>
+
+    /**
+     * This is the main method for generating code. This method is long running, but progress can be provided and the
+     * method can be canceled through the ProgressCallback interface. This version of the method runs all configured
+     * contexts.
+     *
+     * @param callback
+     *            an instance of the ProgressCallback interface, or &lt;code&gt;null&lt;/code&gt; if you do not require progress
+     *            information
+     * @throws SQLException
+     *             the SQL exception
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     * @throws InterruptedException
+     *             if the method is canceled through the ProgressCallback
+     */
+    public void generate(ProgressCallback callback) throws SQLException,
+            IOException, InterruptedException {
+<span class="nc" id="L138">        generate(callback, null, null);</span>
+<span class="nc" id="L139">    }</span>
+
+    /**
+     * This is the main method for generating code. This method is long running, but progress can be provided and the
+     * method can be canceled through the ProgressCallback interface.
+     *
+     * @param callback
+     *            an instance of the ProgressCallback interface, or &lt;code&gt;null&lt;/code&gt; if you do not require progress
+     *            information
+     * @param contextIds
+     *            a set of Strings containing context ids to run. Only the contexts with an id specified in this list
+     *            will be run. If the list is null or empty, than all contexts are run.
+     * @throws SQLException
+     *             the SQL exception
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     * @throws InterruptedException
+     *             if the method is canceled through the ProgressCallback
+     */
+    public void generate(ProgressCallback callback, Set&lt;String&gt; contextIds)
+            throws SQLException, IOException, InterruptedException {
+<span class="nc" id="L160">        generate(callback, contextIds, null);</span>
+<span class="nc" id="L161">    }</span>
+
+    /**
+     * This is the main method for generating code. This method is long running, but progress can be provided and the
+     * method can be cancelled through the ProgressCallback interface.
+     *
+     * @param callback
+     *            an instance of the ProgressCallback interface, or &lt;code&gt;null&lt;/code&gt; if you do not require progress
+     *            information
+     * @param contextIds
+     *            a set of Strings containing context ids to run. Only the contexts with an id specified in this list
+     *            will be run. If the list is null or empty, than all contexts are run.
+     * @param fullyQualifiedTableNames
+     *            a set of table names to generate. The elements of the set must be Strings that exactly match what's
+     *            specified in the configuration. For example, if table name = &quot;foo&quot; and schema = &quot;bar&quot;, then the fully
+     *            qualified table name is &quot;foo.bar&quot;. If the Set is null or empty, then all tables in the configuration
+     *            will be used for code generation.
+     * @throws SQLException
+     *             the SQL exception
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     * @throws InterruptedException
+     *             if the method is canceled through the ProgressCallback
+     */
+    public void generate(ProgressCallback callback, Set&lt;String&gt; contextIds,
+            Set&lt;String&gt; fullyQualifiedTableNames) throws SQLException,
+            IOException, InterruptedException {
+
+<span class="nc bnc" id="L189" title="All 2 branches missed.">        if (callback == null) {</span>
+<span class="nc" id="L190">            callback = new NullProgressCallback();</span>
+        }
+
+<span class="nc" id="L193">        generatedJavaFiles.clear();</span>
+<span class="nc" id="L194">        generatedXmlFiles.clear();</span>
+
+        // calculate the contexts to run
+        List&lt;Context&gt; contextsToRun;
+<span class="nc bnc" id="L198" title="All 4 branches missed.">        if (contextIds == null || contextIds.size() == 0) {</span>
+<span class="nc" id="L199">            contextsToRun = configuration.getContexts();</span>
+        } else {
+<span class="nc" id="L201">            contextsToRun = new ArrayList&lt;Context&gt;();</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">            for (Context context : configuration.getContexts()) {</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">                if (contextIds.contains(context.getId())) {</span>
+<span class="nc" id="L204">                    contextsToRun.add(context);</span>
+                }
+<span class="nc" id="L206">            }</span>
+        }
+
+        // setup custom classloader if required
+<span class="nc bnc" id="L210" title="All 2 branches missed.">        if (configuration.getClassPathEntries().size() &gt; 0) {</span>
+<span class="nc" id="L211">            ClassLoader classLoader = getCustomClassloader(configuration.getClassPathEntries());</span>
+<span class="nc" id="L212">            ObjectFactory.addExternalClassLoader(classLoader);</span>
+        }
+
+        // now run the introspections...
+<span class="nc" id="L216">        int totalSteps = 0;</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">        for (Context context : contextsToRun) {</span>
+<span class="nc" id="L218">            totalSteps += context.getIntrospectionSteps();</span>
+<span class="nc" id="L219">        }</span>
+<span class="nc" id="L220">        callback.introspectionStarted(totalSteps);</span>
+
+<span class="nc bnc" id="L222" title="All 2 branches missed.">        for (Context context : contextsToRun) {</span>
+<span class="nc" id="L223">            context.introspectTables(callback, warnings,</span>
+                    fullyQualifiedTableNames);
+<span class="nc" id="L225">        }</span>
+
+        // now run the generates
+<span class="nc" id="L228">        totalSteps = 0;</span>
+<span class="nc bnc" id="L229" title="All 2 branches missed.">        for (Context context : contextsToRun) {</span>
+<span class="nc" id="L230">            totalSteps += context.getGenerationSteps();</span>
+<span class="nc" id="L231">        }</span>
+<span class="nc" id="L232">        callback.generationStarted(totalSteps);</span>
+
+<span class="nc bnc" id="L234" title="All 2 branches missed.">        for (Context context : contextsToRun) {</span>
+<span class="nc" id="L235">            context.generateFiles(callback, generatedJavaFiles,</span>
+                    generatedXmlFiles, warnings);
+<span class="nc" id="L237">        }</span>
+
+        // now save the files
+<span class="nc" id="L240">        callback.saveStarted(generatedXmlFiles.size()</span>
+                + generatedJavaFiles.size());
+
+<span class="nc bnc" id="L243" title="All 2 branches missed.">        for (GeneratedXmlFile gxf : generatedXmlFiles) {</span>
+<span class="nc" id="L244">            projects.add(gxf.getTargetProject());</span>
+
+            File targetFile;
+            String source;
+            try {
+<span class="nc" id="L249">                File directory = shellCallback.getDirectory(gxf</span>
+                        .getTargetProject(), gxf.getTargetPackage());
+<span class="nc" id="L251">                targetFile = new File(directory, gxf.getFileName());</span>
+<span class="nc bnc" id="L252" title="All 2 branches missed.">                if (targetFile.exists()) {</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">                    if (gxf.isMergeable()) {</span>
+<span class="nc" id="L254">                        source = XmlFileMergerJaxp.getMergedSource(gxf,</span>
+                                targetFile);
+<span class="nc bnc" id="L256" title="All 2 branches missed.">                    } else if (shellCallback.isOverwriteEnabled()) {</span>
+<span class="nc" id="L257">                        source = gxf.getFormattedContent();</span>
+<span class="nc" id="L258">                        warnings.add(getString(&quot;Warning.11&quot;, //$NON-NLS-1$</span>
+                                targetFile.getAbsolutePath()));
+                    } else {
+<span class="nc" id="L261">                        source = gxf.getFormattedContent();</span>
+<span class="nc" id="L262">                        targetFile = getUniqueFileName(directory, gxf</span>
+                                .getFileName());
+<span class="nc" id="L264">                        warnings.add(getString(</span>
+                                &quot;Warning.2&quot;, targetFile.getAbsolutePath())); //$NON-NLS-1$
+                    }
+                } else {
+<span class="nc" id="L268">                    source = gxf.getFormattedContent();</span>
+                }
+<span class="nc" id="L270">            } catch (ShellException e) {</span>
+<span class="nc" id="L271">                warnings.add(e.getMessage());</span>
+<span class="nc" id="L272">                continue;</span>
+<span class="nc" id="L273">            }</span>
+
+<span class="nc" id="L275">            callback.checkCancel();</span>
+<span class="nc" id="L276">            callback.startTask(getString(</span>
+                    &quot;Progress.15&quot;, targetFile.getName())); //$NON-NLS-1$
+<span class="nc" id="L278">            writeFile(targetFile, source, &quot;UTF-8&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L279">        }</span>
+
+<span class="nc bnc" id="L281" title="All 2 branches missed.">        for (GeneratedJavaFile gjf : generatedJavaFiles) {</span>
+<span class="nc" id="L282">            projects.add(gjf.getTargetProject());</span>
+
+            File targetFile;
+            String source;
+            try {
+<span class="nc" id="L287">                File directory = shellCallback.getDirectory(gjf</span>
+                        .getTargetProject(), gjf.getTargetPackage());
+<span class="nc" id="L289">                targetFile = new File(directory, gjf.getFileName());</span>
+<span class="nc bnc" id="L290" title="All 2 branches missed.">                if (targetFile.exists()) {</span>
+<span class="nc bnc" id="L291" title="All 2 branches missed.">                    if (shellCallback.isMergeSupported()) {</span>
+<span class="nc" id="L292">                        source = shellCallback.mergeJavaFile(gjf</span>
+                                .getFormattedContent(), targetFile
+                                .getAbsolutePath(),
+                                MergeConstants.OLD_ELEMENT_TAGS,
+                                gjf.getFileEncoding());
+<span class="nc bnc" id="L297" title="All 2 branches missed.">                    } else if (shellCallback.isOverwriteEnabled()) {</span>
+<span class="nc" id="L298">                        source = gjf.getFormattedContent();</span>
+<span class="nc" id="L299">                        warnings.add(getString(&quot;Warning.11&quot;, //$NON-NLS-1$</span>
+                                targetFile.getAbsolutePath()));
+                    } else {
+<span class="nc" id="L302">                        source = gjf.getFormattedContent();</span>
+<span class="nc" id="L303">                        targetFile = getUniqueFileName(directory, gjf</span>
+                                .getFileName());
+<span class="nc" id="L305">                        warnings.add(getString(</span>
+                                &quot;Warning.2&quot;, targetFile.getAbsolutePath())); //$NON-NLS-1$
+                    }
+                } else {
+<span class="nc" id="L309">                    source = gjf.getFormattedContent();</span>
+                }
+
+<span class="nc" id="L312">                callback.checkCancel();</span>
+<span class="nc" id="L313">                callback.startTask(getString(</span>
+                        &quot;Progress.15&quot;, targetFile.getName())); //$NON-NLS-1$
+<span class="nc" id="L315">                writeFile(targetFile, source, gjf.getFileEncoding());</span>
+<span class="nc" id="L316">            } catch (ShellException e) {</span>
+<span class="nc" id="L317">                warnings.add(e.getMessage());</span>
+<span class="nc" id="L318">            }</span>
+<span class="nc" id="L319">        }</span>
+
+<span class="nc bnc" id="L321" title="All 2 branches missed.">        for (String project : projects) {</span>
+<span class="nc" id="L322">            shellCallback.refreshProject(project);</span>
+<span class="nc" id="L323">        }</span>
+
+<span class="nc" id="L325">        callback.done();</span>
+<span class="nc" id="L326">    }</span>
+
+    /**
+     * Writes, or overwrites, the contents of the specified file.
+     *
+     * @param file
+     *            the file
+     * @param content
+     *            the content
+     * @param fileEncoding
+     *            the file encoding
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     */
+    private void writeFile(File file, String content, String fileEncoding) throws IOException {
+<span class="nc" id="L341">        FileOutputStream fos = new FileOutputStream(file, false);</span>
+        OutputStreamWriter osw;
+<span class="nc bnc" id="L343" title="All 2 branches missed.">        if (fileEncoding == null) {</span>
+<span class="nc" id="L344">            osw = new OutputStreamWriter(fos);</span>
+        } else {
+<span class="nc" id="L346">            osw = new OutputStreamWriter(fos, fileEncoding);</span>
+        }
+        
+<span class="nc" id="L349">        BufferedWriter bw = new BufferedWriter(osw);</span>
+<span class="nc" id="L350">        bw.write(content);</span>
+<span class="nc" id="L351">        bw.close();</span>
+<span class="nc" id="L352">    }</span>
+
+    /**
+     * Gets the unique file name.
+     *
+     * @param directory
+     *            the directory
+     * @param fileName
+     *            the file name
+     * @return the unique file name
+     */
+    private File getUniqueFileName(File directory, String fileName) {
+<span class="nc" id="L364">        File answer = null;</span>
+
+        // try up to 1000 times to generate a unique file name
+<span class="nc" id="L367">        StringBuilder sb = new StringBuilder();</span>
+<span class="nc bnc" id="L368" title="All 2 branches missed.">        for (int i = 1; i &lt; 1000; i++) {</span>
+<span class="nc" id="L369">            sb.setLength(0);</span>
+<span class="nc" id="L370">            sb.append(fileName);</span>
+<span class="nc" id="L371">            sb.append('.');</span>
+<span class="nc" id="L372">            sb.append(i);</span>
+
+<span class="nc" id="L374">            File testFile = new File(directory, sb.toString());</span>
+<span class="nc bnc" id="L375" title="All 2 branches missed.">            if (!testFile.exists()) {</span>
+<span class="nc" id="L376">                answer = testFile;</span>
+<span class="nc" id="L377">                break;</span>
+            }
+        }
+
+<span class="nc bnc" id="L381" title="All 2 branches missed.">        if (answer == null) {</span>
+<span class="nc" id="L382">            throw new RuntimeException(getString(</span>
+                    &quot;RuntimeError.3&quot;, directory.getAbsolutePath())); //$NON-NLS-1$
+        }
+
+<span class="nc" id="L386">        return answer;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

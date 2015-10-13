@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ToStringPlugin.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyBatis Generator Core</a> &gt; <a href="index.source.html" class="el_package">org.mybatis.generator.plugins</a> &gt; <span class="el_source">ToStringPlugin.java</span></div><h1>ToStringPlugin.java</h1><pre class="source lang-java linenums">/**
+ *    Copyright 2006-2015 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package org.mybatis.generator.plugins;
+
+import java.util.List;
+
+import org.mybatis.generator.api.IntrospectedTable;
+import org.mybatis.generator.api.PluginAdapter;
+import org.mybatis.generator.api.dom.java.Field;
+import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
+import org.mybatis.generator.api.dom.java.JavaVisibility;
+import org.mybatis.generator.api.dom.java.Method;
+import org.mybatis.generator.api.dom.java.TopLevelClass;
+
+<span class="nc" id="L28">public class ToStringPlugin extends PluginAdapter {</span>
+    public boolean validate(List&lt;String&gt; warnings) {
+<span class="nc" id="L30">        return true;</span>
+    }
+
+    @Override
+    public boolean modelBaseRecordClassGenerated(TopLevelClass topLevelClass,
+            IntrospectedTable introspectedTable) {
+<span class="nc" id="L36">        generateToString(introspectedTable, topLevelClass);</span>
+<span class="nc" id="L37">        return true;</span>
+    }
+
+    @Override
+    public boolean modelRecordWithBLOBsClassGenerated(
+            TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
+<span class="nc" id="L43">        generateToString(introspectedTable, topLevelClass);</span>
+<span class="nc" id="L44">        return true;</span>
+    }
+    
+    @Override
+    public boolean modelPrimaryKeyClassGenerated(TopLevelClass topLevelClass,
+            IntrospectedTable introspectedTable) {
+<span class="nc" id="L50">        generateToString(introspectedTable, topLevelClass);</span>
+<span class="nc" id="L51">        return true;</span>
+    }
+
+    private void generateToString(IntrospectedTable introspectedTable,
+            TopLevelClass topLevelClass) {
+<span class="nc" id="L56">        Method method = new Method();</span>
+<span class="nc" id="L57">        method.setVisibility(JavaVisibility.PUBLIC);</span>
+<span class="nc" id="L58">        method.setReturnType(FullyQualifiedJavaType.getStringInstance());</span>
+<span class="nc" id="L59">        method.setName(&quot;toString&quot;); //$NON-NLS-1$</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        if (introspectedTable.isJava5Targeted()) {</span>
+<span class="nc" id="L61">            method.addAnnotation(&quot;@Override&quot;); //$NON-NLS-1$</span>
+        }
+
+<span class="nc" id="L64">        context.getCommentGenerator().addGeneralMethodComment(method,</span>
+                introspectedTable);
+
+<span class="nc" id="L67">        method.addBodyLine(&quot;StringBuilder sb = new StringBuilder();&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L68">        method.addBodyLine(&quot;sb.append(getClass().getSimpleName());&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L69">        method.addBodyLine(&quot;sb.append(\&quot; [\&quot;);&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L70">        method.addBodyLine(&quot;sb.append(\&quot;Hash = \&quot;).append(hashCode());&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L71">        StringBuilder sb = new StringBuilder();</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        for (Field field : topLevelClass.getFields()) {</span>
+<span class="nc" id="L73">            String property = field.getName();</span>
+<span class="nc" id="L74">            sb.setLength(0);</span>
+<span class="nc" id="L75">            sb.append(&quot;sb.append(\&quot;&quot;).append(&quot;, &quot;).append(property) //$NON-NLS-1$ //$NON-NLS-2$</span>
+                    .append(&quot;=\&quot;)&quot;).append(&quot;.append(&quot;).append(property) //$NON-NLS-1$ //$NON-NLS-2$
+                    .append(&quot;);&quot;); //$NON-NLS-1$
+<span class="nc" id="L78">            method.addBodyLine(sb.toString());</span>
+<span class="nc" id="L79">        }</span>
+
+<span class="nc" id="L81">        method.addBodyLine(&quot;sb.append(\&quot;]\&quot;);&quot;); //$NON-NLS-1$</span>
+<span class="nc" id="L82">        method.addBodyLine(&quot;return sb.toString();&quot;); //$NON-NLS-1$</span>
+
+<span class="nc" id="L84">        topLevelClass.addMethod(method);</span>
+<span class="nc" id="L85">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
