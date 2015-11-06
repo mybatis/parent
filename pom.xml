@@ -460,6 +460,19 @@
           <version>2.2</version>
         </plugin>
 
+        <plugin>
+          <groupId>net.revelc.code</groupId>
+          <artifactId>formatter-maven-plugin</artifactId>
+          <version>0.5.2</version>
+          <dependencies>
+            <dependency>
+              <groupId>com.github.hazendaz</groupId>
+              <artifactId>build-tools</artifactId>
+              <version>1.1.2</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
       </plugins>
     </pluginManagement>
 
@@ -793,6 +806,32 @@
 
   <profiles>
     <profile>
+      <id>format</id>
+      <activation>
+        <file>
+          <exists>format.xml</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>net.revelc.code</groupId>
+            <artifactId>formatter-maven-plugin</artifactId>
+            <configuration>
+              <configFile>eclipse-formatter-config-2space.xml</configFile>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>format</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
       <id>release</id>
       <build>
         <plugins>
@@ -994,6 +1033,19 @@
                         <groupId>com.mycila</groupId>
                         <artifactId>license-maven-plugin</artifactId>
                         <versionRange>[2.11,)</versionRange>
+                        <goals>
+                          <goal>format</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <ignore />
+                      </action>
+                    </pluginExecution>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>net.revelc.code</groupId>
+                        <artifactId>formatter-maven-plugin</artifactId>
+                        <versionRange>[0.5.2,)</versionRange>
                         <goals>
                           <goal>format</goal>
                         </goals>
