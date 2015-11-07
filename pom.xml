@@ -199,12 +199,6 @@
       </roles>
     </developer>
   </developers>
-  <contributors>
-    <contributor>
-      <name>Jeremy Landis</name>
-      <email>jeremylandis@hotmail.com</email>
-    </contributor>
-  </contributors>
 
   <mailingLists>
     <mailingList>
@@ -266,7 +260,7 @@
   </distributionManagement>
 
   <properties>
-    <clirr.comparisonVersion>${project.version}</clirr.comparisonVersion>
+    <clirr.comparisonVersion>25</clirr.comparisonVersion>
     <gcu.product>${project.name}</gcu.product>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
     <maven.compiler.source>1.6</maven.compiler.source>
@@ -337,7 +331,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>2.6.1</version>
+          <version>3.0.0</version>
         </plugin>
 
         <plugin>
@@ -413,7 +407,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
-          <version>2.4.1</version>
+          <version>2.4.2</version>
         </plugin>
 
         <plugin>
@@ -464,6 +458,19 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
           <version>2.2</version>
+        </plugin>
+
+        <plugin>
+          <groupId>net.revelc.code</groupId>
+          <artifactId>formatter-maven-plugin</artifactId>
+          <version>0.5.2</version>
+          <dependencies>
+            <dependency>
+              <groupId>com.github.hazendaz</groupId>
+              <artifactId>build-tools</artifactId>
+              <version>1.1.2</version>
+            </dependency>
+          </dependencies>
         </plugin>
 
       </plugins>
@@ -799,6 +806,32 @@
 
   <profiles>
     <profile>
+      <id>format</id>
+      <activation>
+        <file>
+          <exists>format.xml</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>net.revelc.code</groupId>
+            <artifactId>formatter-maven-plugin</artifactId>
+            <configuration>
+              <configFile>eclipse-formatter-config-2space.xml</configFile>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>format</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
       <id>release</id>
       <build>
         <plugins>
@@ -1000,6 +1033,19 @@
                         <groupId>com.mycila</groupId>
                         <artifactId>license-maven-plugin</artifactId>
                         <versionRange>[2.11,)</versionRange>
+                        <goals>
+                          <goal>format</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <ignore />
+                      </action>
+                    </pluginExecution>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>net.revelc.code</groupId>
+                        <artifactId>formatter-maven-plugin</artifactId>
+                        <versionRange>[0.5.2,)</versionRange>
                         <goals>
                           <goal>format</goal>
                         </goals>
