@@ -30,7 +30,7 @@ if [ "$mybatis_repo" == "https://github.com/mybatis/parent.git" ] && [ "$TRAVIS_
   if [ $VER == "16" ]; then
     mvn clean deploy -q --settings ./travis/settings.xml
     echo -e "Successfully deployed SNAPSHOT artifacts to Sonatype under Travis job ${TRAVIS_JOB_NUMBER}"
-  elif [ $VER == "17" ]; then
+  # elif [ $VER == "17" ]; then
 	# various issues exist currently in building this so comment for now
 	# mvn site site:deploy -q
 	# echo -e "Successfully deploy site under Travis job ${TRAVIS_JOB_NUMBER}"
