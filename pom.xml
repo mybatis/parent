@@ -283,6 +283,11 @@
     <osgi.import>*</osgi.import>
     <osgi.dynamicImport />
     <osgi.private />
+
+    <!-- Animal Sniffer Signature -->
+    <signature.group>org.codehaus.mojo.signature</signature.group>
+    <signature.artifact>java16</signature.artifact>
+    <signature.version>1.1</signature.version>
   </properties>
 
   <build>
@@ -518,9 +523,9 @@
         <version>1.15</version>
         <configuration>
           <signature>
-            <groupId>org.codehaus.mojo.signature</groupId>
-            <artifactId>java16</artifactId>
-            <version>1.1</version>
+            <groupId>${signature.group}</groupId>
+            <artifactId>${signature.artifact}</artifactId>
+            <version>${signature.version}</version>
           </signature>
         </configuration>
         <executions>
