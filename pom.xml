@@ -942,6 +942,27 @@
     </profile>
 
     <profile>
+      <id>javadoc.java8</id>
+      <activation>
+        <jdk>[1.8,)</jdk>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>${javadoc.version}</version>
+              <configuration>
+                <additionalparam>-Xdoclint:-missing</additionalparam>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+
+    <profile>
       <id>license</id>
       <activation>
         <file>
