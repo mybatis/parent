@@ -314,6 +314,9 @@
               <exclude>KEYS</exclude>
               <exclude>NOTICE</exclude>
             </excludes>
+            <mapping>
+              <xml.vm>XML_STYLE</xml.vm>
+            </mapping>
           </configuration>
           <dependencies>
             <dependency>
