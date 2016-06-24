@@ -1,7 +1,7 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,PkblobsExample.Criteria,0,3,0,0,0,2,0,1,0,1
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,Pkblobs,111,34,27,1,15,13,16,9,2,9
-MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,AwfulTable,415,142,125,13,26,46,66,36,2,31
+MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,AwfulTable,455,156,135,13,28,52,71,40,2,35
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,PkfieldsblobsExample.GeneratedCriteria,500,101,14,6,120,23,61,11,52,10
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,AwfulTableExample.Criteria,0,3,0,0,0,2,0,1,0,1
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,Fieldsonly,107,24,30,0,14,10,17,7,2,7
@@ -12,7 +12,7 @@ MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.m
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,FieldsonlyExample.Criteria,0,3,0,0,0,2,0,1,0,1
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,PkonlyExample,24,62,1,1,9,21,5,8,4,8
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,PkfieldsKey,81,17,22,0,13,7,13,5,2,5
-MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,AwfulTableExample.GeneratedCriteria,1566,195,8,12,385,46,197,19,190,16
+MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,AwfulTableExample.GeneratedCriteria,1754,195,8,12,433,46,221,19,214,16
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,Fieldsblobs,85,23,24,2,13,7,15,5,2,5
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,PkblobsExample,24,62,1,1,9,21,5,8,4,8
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.conditional.model,PkblobsExample.GeneratedCriteria,194,93,14,6,42,21,22,10,13,9
@@ -38,10 +38,10 @@ MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model.subpackage,FieldsonlyExample.Criteria,0,3,0,0,0,2,0,1,0,1
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model.subpackage,FieldsonlyExample,24,62,1,1,9,21,5,8,4,8
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model.subpackage,Fieldsonly,107,24,30,0,14,10,17,7,2,7
-MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model,AwfulTableExample.GeneratedCriteria,1566,195,8,12,385,46,197,19,190,16
+MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model,AwfulTableExample.GeneratedCriteria,1754,195,8,12,433,46,221,19,214,16
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model,PkfieldsblobsExample.GeneratedCriteria,500,101,14,6,120,23,61,11,52,10
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model,AwfulTableExample.Criteria,0,3,0,0,0,2,0,1,0,1
-MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model,AwfulTable,415,135,125,13,26,43,66,34,2,29
+MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model,AwfulTable,455,149,135,13,28,49,71,38,2,33
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model,FieldsblobsExample,24,62,1,1,9,21,5,8,4,8
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model,Fieldsblobs,85,23,24,2,13,7,15,5,2,5
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.hierarchical.model,PkfieldsExample.Criteria,0,3,0,0,0,2,0,1,0,1
@@ -116,7 +116,7 @@ MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,Fi
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,AwfulTableExample,14,72,0,2,5,25,2,11,2,10
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,FieldsonlyExample,20,66,1,1,7,23,4,9,3,9
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,FieldsonlyExample.GeneratedCriteria,382,93,14,6,90,21,46,10,37,9
-MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,AwfulTableExample.GeneratedCriteria,1566,195,8,12,385,46,197,19,190,16
+MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,AwfulTableExample.GeneratedCriteria,1754,195,8,12,433,46,221,19,214,16
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,Pkfields,387,107,116,2,25,43,61,29,2,29
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,PkonlyExample.GeneratedCriteria,280,101,14,6,64,23,33,11,24,10
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,FieldsonlyExample.Criteria,0,3,0,0,0,2,0,1,0,1
@@ -130,7 +130,7 @@ MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,Pk
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,PkfieldsblobsExample.GeneratedCriteria,500,101,14,6,120,23,61,11,52,10
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,PkfieldsblobsExample,34,52,1,1,13,17,6,7,5,7
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,PkblobsExample.Criteria,0,3,0,0,0,2,0,1,0,1
-MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,AwfulTable,415,142,125,13,26,46,66,36,2,31
+MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,AwfulTable,455,156,135,13,28,52,71,40,2,35
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,Pkonly,81,17,22,0,13,7,13,5,2,5
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,AwfulTableExample.Criteria,0,3,0,0,0,2,0,1,0,1
 MyBatis Generator Tests (iBATIS2 - Java2),mbg.test.ib2j2.generated.flat.model,Fieldsonly,107,24,30,0,14,10,17,7,2,7
