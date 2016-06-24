@@ -7,7 +7,7 @@
 <body>
 <div id="overview"><a href="../../../../../../../apidocs/org/mybatis/generator/codegen/ibatis2/model/ExampleGenerator.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_javadoccomment"> *    Copyright 2006-2015 the original author or authors.</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_javadoccomment"> *    Copyright 2006-2016 the original author or authors.</em>
 <a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_javadoccomment"> *    Licensed under the Apache License, Version 2.0 (the "License");</em>
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_javadoccomment"> *    you may not use this file except in compliance with the License.</em>
@@ -235,7 +235,7 @@
 <a class="jxr_linenumber" name="L227" href="#L227">227</a>         topLevelClass
 <a class="jxr_linenumber" name="L228" href="#L228">228</a>                 .addInnerClass(getGeneratedCriteriaInnerClass(topLevelClass));
 <a class="jxr_linenumber" name="L229" href="#L229">229</a> 
-<a class="jxr_linenumber" name="L230" href="#L230">230</a>         topLevelClass.addInnerClass(getCriteriaInnerClass(topLevelClass));
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>         topLevelClass.addInnerClass(getCriteriaInnerClass());
 <a class="jxr_linenumber" name="L231" href="#L231">231</a> 
 <a class="jxr_linenumber" name="L232" href="#L232">232</a>         List&lt;CompilationUnit&gt; answer = <strong class="jxr_keyword">new</strong> ArrayList&lt;CompilationUnit&gt;();
 <a class="jxr_linenumber" name="L233" href="#L233">233</a>         <strong class="jxr_keyword">if</strong> (context.getPlugins().modelExampleClassGenerated(
@@ -245,7 +245,7 @@
 <a class="jxr_linenumber" name="L237" href="#L237">237</a>         <strong class="jxr_keyword">return</strong> answer;
 <a class="jxr_linenumber" name="L238" href="#L238">238</a>     }
 <a class="jxr_linenumber" name="L239" href="#L239">239</a> 
-<a class="jxr_linenumber" name="L240" href="#L240">240</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../../../org/mybatis/generator/api/dom/java/InnerClass.html">InnerClass</a> getCriteriaInnerClass(<a href="../../../../../../org/mybatis/generator/api/dom/java/TopLevelClass.html">TopLevelClass</a> topLevelClass) {
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../../../org/mybatis/generator/api/dom/java/InnerClass.html">InnerClass</a> getCriteriaInnerClass() {
 <a class="jxr_linenumber" name="L241" href="#L241">241</a>         <a href="../../../../../../org/mybatis/generator/api/dom/java/Method.html">Method</a> method;
 <a class="jxr_linenumber" name="L242" href="#L242">242</a> 
 <a class="jxr_linenumber" name="L243" href="#L243">243</a>         <a href="../../../../../../org/mybatis/generator/api/dom/java/InnerClass.html">InnerClass</a> answer = <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/mybatis/generator/api/dom/java/InnerClass.html">InnerClass</a>(<a href="../../../../../../org/mybatis/generator/api/dom/java/FullyQualifiedJavaType.html">FullyQualifiedJavaType</a>
@@ -1259,6 +1259,6 @@
 <a class="jxr_linenumber" name="L1251" href="#L1251">1251</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2010&#x2013;2015 <a href="http://www.mybatis.org/">MyBatis.org</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2006&#x2013;2016 <a href="http://www.mybatis.org/">MyBatis.org</a>. All rights reserved.</div>
 </body>
 </html>
