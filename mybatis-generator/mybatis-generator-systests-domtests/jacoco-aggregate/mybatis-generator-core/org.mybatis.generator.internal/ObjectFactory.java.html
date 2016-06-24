@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ObjectFactory.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">MyBatis Generator Tests (Java DOM Tests)</a> &gt; <a href="../index.html" class="el_bundle">mybatis-generator-core</a> &gt; <a href="index.source.html" class="el_package">org.mybatis.generator.internal</a> &gt; <span class="el_source">ObjectFactory.java</span></div><h1>ObjectFactory.java</h1><pre class="source lang-java linenums">/**
+ *    Copyright 2006-2016 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package org.mybatis.generator.internal;
+
+import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
+import static org.mybatis.generator.internal.util.messages.Messages.getString;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.mybatis.generator.api.CommentGenerator;
+import org.mybatis.generator.api.FullyQualifiedTable;
+import org.mybatis.generator.api.JavaFormatter;
+import org.mybatis.generator.api.Plugin;
+import org.mybatis.generator.api.IntrospectedColumn;
+import org.mybatis.generator.api.IntrospectedTable;
+import org.mybatis.generator.api.JavaTypeResolver;
+import org.mybatis.generator.api.XmlFormatter;
+import org.mybatis.generator.api.dom.DefaultJavaFormatter;
+import org.mybatis.generator.api.dom.DefaultXmlFormatter;
+import org.mybatis.generator.codegen.ibatis2.IntrospectedTableIbatis2Java2Impl;
+import org.mybatis.generator.codegen.ibatis2.IntrospectedTableIbatis2Java5Impl;
+import org.mybatis.generator.codegen.mybatis3.IntrospectedTableMyBatis3Impl;
+import org.mybatis.generator.codegen.mybatis3.IntrospectedTableMyBatis3SimpleImpl;
+import org.mybatis.generator.config.CommentGeneratorConfiguration;
+import org.mybatis.generator.config.Context;
+import org.mybatis.generator.config.PluginConfiguration;
+import org.mybatis.generator.config.JavaTypeResolverConfiguration;
+import org.mybatis.generator.config.PropertyRegistry;
+import org.mybatis.generator.config.TableConfiguration;
+import org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl;
+
+/**
+ * This class creates the different objects needed by the generator.
+ *
+ * @author Jeff Butler
+ */
+public class ObjectFactory {
+    
+    /** The external class loaders. */
+    private static List&lt;ClassLoader&gt; externalClassLoaders;
+    
+    /** The resource class loaders. */
+    private static List&lt;ClassLoader&gt; resourceClassLoaders;
+    
+    static {
+<span class="fc" id="L61">    	externalClassLoaders = new ArrayList&lt;ClassLoader&gt;();</span>
+<span class="fc" id="L62">        resourceClassLoaders = new ArrayList&lt;ClassLoader&gt;();</span>
+<span class="fc" id="L63">    }</span>
+
+    /**
+     * Utility class. No instances allowed
+     */
+    private ObjectFactory() {
+<span class="nc" id="L69">        super();</span>
+<span class="nc" id="L70">    }</span>
+
+    /**
+     * Adds a custom classloader to the collection of classloaders searched for resources. Currently, this is only used
+     * when searching for properties files that may be referenced in the configuration file.
+     *
+     * @param classLoader
+     *            the class loader
+     */
+    public static synchronized void addResourceClassLoader(
+            ClassLoader classLoader) {
+<span class="nc" id="L81">        ObjectFactory.resourceClassLoaders.add(classLoader);</span>
+<span class="nc" id="L82">    }</span>
+
+    /**
+     * Adds a custom classloader to the collection of classloaders searched for &quot;external&quot; classes. These are classes
+     * that do not depend on any of the generator's classes or interfaces. Examples are JDBC drivers, root classes, root
+     * interfaces, etc.
+     *
+     * @param classLoader
+     *            the class loader
+     */
+    public static synchronized void addExternalClassLoader(
+            ClassLoader classLoader) {
+<span class="nc" id="L94">        ObjectFactory.externalClassLoaders.add(classLoader);</span>
+<span class="nc" id="L95">    }</span>
+    
+    /**
+     * This method returns a class loaded from the context classloader, or the classloader supplied by a client. This is
+     * appropriate for JDBC drivers, model root classes, etc. It is not appropriate for any class that extends one of
+     * the supplied classes or interfaces.
+     *
+     * @param type
+     *            the type
+     * @return the Class loaded from the external classloader
+     * @throws ClassNotFoundException
+     *             the class not found exception
+     */
+    public static Class&lt;?&gt; externalClassForName(String type)
+            throws ClassNotFoundException {
+
+        Class&lt;?&gt; clazz;
+
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">        for (ClassLoader classLoader : externalClassLoaders) {</span>
+            try {
+<span class="nc" id="L115">                clazz = Class.forName(type, true, classLoader);</span>
+<span class="nc" id="L116">                return clazz;</span>
+<span class="nc" id="L117">            } catch (Throwable e) {</span>
+                // ignore - fail safe below
+            }
+<span class="nc" id="L120">        }</span>
+        
+<span class="fc" id="L122">        return internalClassForName(type);</span>
+    }
+
+    /**
+     * Creates a new Object object.
+     *
+     * @param type
+     *            the type
+     * @return the object
+     */
+    public static Object createExternalObject(String type) {
+        Object answer;
+
+        try {
+<span class="nc" id="L136">            Class&lt;?&gt; clazz = externalClassForName(type);</span>
+<span class="nc" id="L137">            answer = clazz.newInstance();</span>
+<span class="nc" id="L138">        } catch (Exception e) {</span>
+<span class="nc" id="L139">            throw new RuntimeException(getString(</span>
+                    &quot;RuntimeError.6&quot;, type), e); //$NON-NLS-1$
+<span class="nc" id="L141">        }</span>
+
+<span class="nc" id="L143">        return answer;</span>
+    }
+
+    /**
+     * Internal class for name.
+     *
+     * @param type
+     *            the type
+     * @return the class
+     * @throws ClassNotFoundException
+     *             the class not found exception
+     */
+    public static Class&lt;?&gt; internalClassForName(String type)
+            throws ClassNotFoundException {
+<span class="fc" id="L157">        Class&lt;?&gt; clazz = null;</span>
+
+        try {
+<span class="fc" id="L160">            ClassLoader cl = Thread.currentThread().getContextClassLoader();</span>
+<span class="fc" id="L161">            clazz = Class.forName(type, true, cl);</span>
+<span class="fc" id="L162">        } catch (Exception e) {</span>
+            // ignore - failsafe below
+<span class="fc" id="L164">        }</span>
+
+<span class="fc bfc" id="L166" title="All 2 branches covered.">        if (clazz == null) {</span>
+<span class="nc" id="L167">            clazz = Class.forName(type, true, ObjectFactory.class.getClassLoader());</span>
+        }
+
+<span class="fc" id="L170">        return clazz;</span>
+    }
+
+    /**
+     * Gets the resource.
+     *
+     * @param resource
+     *            the resource
+     * @return the resource
+     */
+    public static URL getResource(String resource) {
+        URL url;
+
+<span class="pc bpc" id="L183" title="1 of 2 branches missed.">        for (ClassLoader classLoader : resourceClassLoaders) {</span>
+<span class="nc" id="L184">            url = classLoader.getResource(resource);</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">            if (url != null) {</span>
+<span class="nc" id="L186">              return url;</span>
+            }
+<span class="nc" id="L188">        }</span>
+        
+<span class="fc" id="L190">        ClassLoader cl = Thread.currentThread().getContextClassLoader();</span>
+<span class="fc" id="L191">        url = cl.getResource(resource);</span>
+
+<span class="pc bpc" id="L193" title="1 of 2 branches missed.">        if (url == null) {</span>
+<span class="nc" id="L194">            url = ObjectFactory.class.getClassLoader().getResource(resource);</span>
+        }
+
+<span class="fc" id="L197">        return url;</span>
+    }
+
+    /**
+     * Creates a new Object object.
+     *
+     * @param type
+     *            the type
+     * @return the object
+     */
+    public static Object createInternalObject(String type) {
+        Object answer;
+
+        try {
+<span class="fc" id="L211">            Class&lt;?&gt; clazz = internalClassForName(type);</span>
+
+<span class="fc" id="L213">            answer = clazz.newInstance();</span>
+<span class="nc" id="L214">        } catch (Exception e) {</span>
+<span class="nc" id="L215">            throw new RuntimeException(getString(</span>
+                    &quot;RuntimeError.6&quot;, type), e); //$NON-NLS-1$
+
+<span class="fc" id="L218">        }</span>
+
+<span class="fc" id="L220">        return answer;</span>
+    }
+
+    /**
+     * Creates a new Object object.
+     *
+     * @param context
+     *            the context
+     * @param warnings
+     *            the warnings
+     * @return the java type resolver
+     */
+    public static JavaTypeResolver createJavaTypeResolver(Context context,
+            List&lt;String&gt; warnings) {
+<span class="fc" id="L234">        JavaTypeResolverConfiguration config = context</span>
+                .getJavaTypeResolverConfiguration();
+        String type;
+
+<span class="pc bpc" id="L238" title="3 of 4 branches missed.">        if (config != null &amp;&amp; config.getConfigurationType() != null) {</span>
+<span class="nc" id="L239">            type = config.getConfigurationType();</span>
+<span class="nc bnc" id="L240" title="All 2 branches missed.">            if (&quot;DEFAULT&quot;.equalsIgnoreCase(type)) { //$NON-NLS-1$</span>
+<span class="nc" id="L241">                type = JavaTypeResolverDefaultImpl.class.getName();</span>
+            }
+        } else {
+<span class="fc" id="L244">            type = JavaTypeResolverDefaultImpl.class.getName();</span>
+        }
+
+<span class="fc" id="L247">        JavaTypeResolver answer = (JavaTypeResolver) createInternalObject(type);</span>
+<span class="fc" id="L248">        answer.setWarnings(warnings);</span>
+
+<span class="pc bpc" id="L250" title="1 of 2 branches missed.">        if (config != null) {</span>
+<span class="nc" id="L251">            answer.addConfigurationProperties(config.getProperties());</span>
+        }
+
+<span class="fc" id="L254">        answer.setContext(context);</span>
+
+<span class="fc" id="L256">        return answer;</span>
+    }
+
+    /**
+     * Creates a new Object object.
+     *
+     * @param context
+     *            the context
+     * @param pluginConfiguration
+     *            the plugin configuration
+     * @return the plugin
+     */
+    public static Plugin createPlugin(Context context,
+            PluginConfiguration pluginConfiguration) {
+<span class="fc" id="L270">        Plugin plugin = (Plugin) createInternalObject(pluginConfiguration</span>
+                .getConfigurationType());
+<span class="fc" id="L272">        plugin.setContext(context);</span>
+<span class="fc" id="L273">        plugin.setProperties(pluginConfiguration.getProperties());</span>
+<span class="fc" id="L274">        return plugin;</span>
+    }
+
+    /**
+     * Creates a new Object object.
+     *
+     * @param context
+     *            the context
+     * @return the comment generator
+     */
+    public static CommentGenerator createCommentGenerator(Context context) {
+
+<span class="fc" id="L286">        CommentGeneratorConfiguration config = context</span>
+                .getCommentGeneratorConfiguration();
+        CommentGenerator answer;
+
+        String type;
+<span class="pc bpc" id="L291" title="1 of 4 branches missed.">        if (config == null || config.getConfigurationType() == null) {</span>
+<span class="fc" id="L292">            type = DefaultCommentGenerator.class.getName();</span>
+        } else {
+<span class="nc" id="L294">            type = config.getConfigurationType();</span>
+        }
+
+<span class="fc" id="L297">        answer = (CommentGenerator) createInternalObject(type);</span>
+
+<span class="fc bfc" id="L299" title="All 2 branches covered.">        if (config != null) {</span>
+<span class="fc" id="L300">            answer.addConfigurationProperties(config.getProperties());</span>
+        }
+
+<span class="fc" id="L303">        return answer;</span>
+    }
+
+    /**
+     * Creates a new Object object.
+     *
+     * @param context
+     *            the context
+     * @return the java formatter
+     */
+    public static JavaFormatter createJavaFormatter(Context context) {
+<span class="fc" id="L314">        String type = context.getProperty(PropertyRegistry.CONTEXT_JAVA_FORMATTER);</span>
+<span class="pc bpc" id="L315" title="1 of 2 branches missed.">        if (!stringHasValue(type)) {</span>
+<span class="fc" id="L316">            type = DefaultJavaFormatter.class.getName();</span>
+        }
+
+<span class="fc" id="L319">        JavaFormatter answer = (JavaFormatter) createInternalObject(type);</span>
+
+<span class="fc" id="L321">        answer.setContext(context);</span>
+
+<span class="fc" id="L323">        return answer;</span>
+    }
+    
+    /**
+     * Creates a new Object object.
+     *
+     * @param context
+     *            the context
+     * @return the xml formatter
+     */
+    public static XmlFormatter createXmlFormatter(Context context) {
+<span class="fc" id="L334">        String type = context.getProperty(PropertyRegistry.CONTEXT_XML_FORMATTER);</span>
+<span class="pc bpc" id="L335" title="1 of 2 branches missed.">        if (!stringHasValue(type)) {</span>
+<span class="fc" id="L336">            type = DefaultXmlFormatter.class.getName();</span>
+        }
+
+<span class="fc" id="L339">        XmlFormatter answer = (XmlFormatter) createInternalObject(type);</span>
+
+<span class="fc" id="L341">        answer.setContext(context);</span>
+
+<span class="fc" id="L343">        return answer;</span>
+    }
+    
+    /**
+     * Creates a new Object object.
+     *
+     * @param tableConfiguration
+     *            the table configuration
+     * @param table
+     *            the table
+     * @param context
+     *            the context
+     * @return the introspected table
+     */
+    public static IntrospectedTable createIntrospectedTable(
+            TableConfiguration tableConfiguration, FullyQualifiedTable table,
+            Context context) {
+
+<span class="fc" id="L361">        IntrospectedTable answer = createIntrospectedTableForValidation(context);</span>
+<span class="fc" id="L362">        answer.setFullyQualifiedTable(table);</span>
+<span class="fc" id="L363">        answer.setTableConfiguration(tableConfiguration);</span>
+
+<span class="fc" id="L365">        return answer;</span>
+    }
+
+    /**
+     * This method creates an introspected table implementation that is only usable for validation (i.e. for a context
+     * to determine if the target is ibatis2 or mybatis3).
+     * 
+     *
+     * @param context
+     *            the context
+     * @return the introspected table
+     */
+    public static IntrospectedTable createIntrospectedTableForValidation(Context context) {
+<span class="fc" id="L378">        String type = context.getTargetRuntime();</span>
+<span class="fc bfc" id="L379" title="All 2 branches covered.">        if (!stringHasValue(type)) {</span>
+<span class="fc" id="L380">            type = IntrospectedTableMyBatis3Impl.class.getName();</span>
+<span class="pc bpc" id="L381" title="1 of 2 branches missed.">        } else if (&quot;Ibatis2Java2&quot;.equalsIgnoreCase(type)) { //$NON-NLS-1$</span>
+<span class="nc" id="L382">            type = IntrospectedTableIbatis2Java2Impl.class.getName();</span>
+<span class="fc bfc" id="L383" title="All 2 branches covered.">        } else if (&quot;Ibatis2Java5&quot;.equalsIgnoreCase(type)) { //$NON-NLS-1$</span>
+<span class="fc" id="L384">            type = IntrospectedTableIbatis2Java5Impl.class.getName();</span>
+<span class="pc bpc" id="L385" title="1 of 2 branches missed.">        } else if (&quot;Ibatis3&quot;.equalsIgnoreCase(type)) { //$NON-NLS-1$</span>
+<span class="nc" id="L386">            type = IntrospectedTableMyBatis3Impl.class.getName();</span>
+<span class="fc bfc" id="L387" title="All 2 branches covered.">        } else if (&quot;MyBatis3&quot;.equalsIgnoreCase(type)) { //$NON-NLS-1$</span>
+<span class="fc" id="L388">            type = IntrospectedTableMyBatis3Impl.class.getName();</span>
+<span class="pc bpc" id="L389" title="1 of 2 branches missed.">        } else if (&quot;MyBatis3Simple&quot;.equalsIgnoreCase(type)) { //$NON-NLS-1$</span>
+<span class="fc" id="L390">            type = IntrospectedTableMyBatis3SimpleImpl.class.getName();</span>
+        }
+
+<span class="fc" id="L393">        IntrospectedTable answer = (IntrospectedTable) createInternalObject(type);</span>
+<span class="fc" id="L394">        answer.setContext(context);</span>
+
+<span class="fc" id="L396">        return answer;</span>
+    }
+    
+    /**
+     * Creates a new Object object.
+     *
+     * @param context
+     *            the context
+     * @return the introspected column
+     */
+    public static IntrospectedColumn createIntrospectedColumn(Context context) {
+<span class="fc" id="L407">        String type = context.getIntrospectedColumnImpl();</span>
+<span class="pc bpc" id="L408" title="1 of 2 branches missed.">        if (!stringHasValue(type)) {</span>
+<span class="fc" id="L409">            type = IntrospectedColumn.class.getName();</span>
+        }
+
+<span class="fc" id="L412">        IntrospectedColumn answer = (IntrospectedColumn) createInternalObject(type);</span>
+<span class="fc" id="L413">        answer.setContext(context);</span>
+
+<span class="fc" id="L415">        return answer;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
