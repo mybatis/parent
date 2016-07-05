@@ -274,7 +274,7 @@
     <!--
      | plugins configuration
     -->
-    <javadoc.version>2.10.3</javadoc.version>
+    <javadoc.version>2.10.4</javadoc.version>
     <surefire.version>2.19.1</surefire.version>
     <findbugs.onlyAnalyze />
     <!--
@@ -361,7 +361,7 @@
         <plugin>
           <groupId>org.eluder.coveralls</groupId>
           <artifactId>coveralls-maven-plugin</artifactId>
-          <version>4.1.0</version>
+          <version>4.2.0</version>
         </plugin>
 
         <plugin>
@@ -415,7 +415,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>3.0.1</version>
         </plugin>
 
         <plugin>
@@ -465,7 +465,7 @@
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.7.6.201602180812</version>
+          <version>0.7.7.201606060606</version>
         </plugin>
 
         <plugin>
@@ -592,7 +592,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.0.2</version>
         <configuration>
           <archive>
             <manifestFile>${project.build.directory}/osgi/MANIFEST.MF</manifestFile>
@@ -797,7 +797,7 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.7.6.201602180812</version>
+        <version>0.7.7.201606060606</version>
       </plugin>
 
     </plugins>
@@ -837,7 +837,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.1</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
@@ -1026,7 +1026,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>
-                        <versionRange>[0.7.6.201602180812,)</versionRange>
+                        <versionRange>[0.7.7.201606060606,)</versionRange>
                         <goals>
                           <goal>prepare-agent</goal>
                         </goals>
