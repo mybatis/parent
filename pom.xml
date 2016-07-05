@@ -274,7 +274,7 @@
     <!--
      | plugins configuration
     -->
-    <javadoc.version>2.10.3</javadoc.version>
+    <javadoc.version>2.10.4</javadoc.version>
     <surefire.version>2.19.1</surefire.version>
     <findbugs.onlyAnalyze />
     <!--
