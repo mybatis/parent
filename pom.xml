@@ -538,6 +538,10 @@
             <artifactId>${signature.artifact}</artifactId>
             <version>${signature.version}</version>
           </signature>
+          <annotations>
+            <annotation>org.apache.ibatis.lang.UsesJava7</annotation>
+            <annotation>org.apache.ibatis.lang.UsesJava8</annotation>
+          </annotations>
         </configuration>
         <executions>
           <execution>
