@@ -642,12 +642,6 @@
               <goal>prepare-agent</goal>
             </goals>
           </execution>
-          <execution>
-            <id>report</id>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
         </executions>
       </plugin>
     </plugins>
