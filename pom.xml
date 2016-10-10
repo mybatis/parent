@@ -262,7 +262,7 @@
   </distributionManagement>
 
   <properties>
-    <clirr.comparisonVersion>26</clirr.comparisonVersion>
+    <clirr.comparisonVersion>27</clirr.comparisonVersion>
     <gcu.product>${project.name}</gcu.product>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
     <maven.compiler.source>1.6</maven.compiler.source>
