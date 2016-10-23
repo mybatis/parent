@@ -262,7 +262,7 @@
   </distributionManagement>
 
   <properties>
-    <clirr.comparisonVersion>26</clirr.comparisonVersion>
+    <clirr.comparisonVersion>27</clirr.comparisonVersion>
     <gcu.product>${project.name}</gcu.product>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
     <maven.compiler.source>1.6</maven.compiler.source>
@@ -744,7 +744,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>3.6</version>
+        <version>3.7</version>
         <configuration>
           <linkXref>true</linkXref>
           <minimumTokens>100</minimumTokens>
