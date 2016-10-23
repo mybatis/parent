@@ -744,7 +744,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>3.6</version>
+        <version>3.7</version>
         <configuration>
           <linkXref>true</linkXref>
           <minimumTokens>100</minimumTokens>
