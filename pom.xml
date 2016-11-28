@@ -21,7 +21,7 @@
 
   <groupId>org.mybatis</groupId>
   <artifactId>mybatis-parent</artifactId>
-  <version>28-SNAPSHOT</version>
+  <version>28</version>
   <packaging>pom</packaging>
 
   <name>mybatis-parent</name>
@@ -235,7 +235,7 @@
     <url>http://github.com/mybatis/parent</url>
     <connection>scm:git:ssh://github.com/mybatis/parent.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/mybatis/parent.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>mybatis-parent-28</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issue Management</system>
