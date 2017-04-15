@@ -277,7 +277,7 @@
      | plugins configuration
     -->
     <javadoc.version>2.10.4</javadoc.version>
-    <surefire.version>2.19.1</surefire.version>
+    <surefire.version>2.20</surefire.version>
     <findbugs.onlyAnalyze />
     <!--
      | OSGi configuration properties
