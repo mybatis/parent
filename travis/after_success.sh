@@ -23,23 +23,23 @@ echo "Current commit detected: ${commit_message}"
 # Some actions, like analyzing the code (Coveralls) and uploading
 # artifacts on a Maven repository, should only be made for one version.
  
-# If the version is 1.6, then perform the following actions.
+# If the version is 1.8, then perform the following actions.
 # 1. Upload artifacts to Sonatype.
 # 2. Use -q option to only display Maven errors and warnings.
 # 3. Use --settings to force the usage of our "settings.xml" file.
-
-# If the version is 1.7, then perform the following actions.
-# 1. Notify Coveralls.
-# 2. Deploy site
-# 3. Use -q option to only display Maven errors and warnings.
+# 4. Deploy site
 
 if [ $TRAVIS_REPO_SLUG == "mybatis/parent" ] && [ $TRAVIS_PULL_REQUEST == "false" ] && [ $TRAVIS_BRANCH == "master" ] && [[ "$commit_message" != *"[maven-release-plugin]"* ]]; then
+
   if [ $TRAVIS_JDK_VERSION == "oraclejdk8" ]; then
-    mvn deploy -q --settings ./travis/settings.xml
+
+    # Deploy to sonatype
+    ./mvnw deploy -q --settings ./travis/settings.xml
     echo -e "Successfully deployed SNAPSHOT artifacts to Sonatype under Travis job ${TRAVIS_JOB_NUMBER}"
 
-	# various issues exist currently in building this so comment for now
-	# mvn site site:deploy -q
+    # Deploy to site
+	# Cannot currently run site this way
+	# ./mvnw site site:deploy -q --settings ./travis/settings.xml
 	# echo -e "Successfully deploy site under Travis job ${TRAVIS_JOB_NUMBER}"
   fi
 else
