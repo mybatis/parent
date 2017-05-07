@@ -528,7 +528,7 @@
                   <version>[1.6,)</version>
                 </requireJavaVersion>
                 <requireMavenVersion>
-                  <version>[3.0.5,)</version>
+                  <version>[3.2.5,)</version>
                 </requireMavenVersion>
                 <requirePluginVersions>
                   <message>[ERROR] Best Practice is to always define plugin versions!</message>
