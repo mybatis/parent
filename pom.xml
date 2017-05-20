@@ -309,8 +309,10 @@
               <exclude>**/*.dat</exclude>
               <exclude>**/*.lck</exclude>
               <exclude>**/*.log</exclude>
+              <exclude>**/*maven-wrapper.properties</exclude>
               <exclude>.factorypath</exclude>
               <exclude>.gitattributes</exclude>
+              <exclude>mvnw.bat</exclude>
               <exclude>ICLA</exclude>
               <exclude>LICENSE</exclude>
               <exclude>KEYS</exclude>
