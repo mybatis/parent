@@ -312,7 +312,8 @@
               <exclude>**/*maven-wrapper.properties</exclude>
               <exclude>.factorypath</exclude>
               <exclude>.gitattributes</exclude>
-              <exclude>mvnw.bat</exclude>
+              <exclude>mvnw</exclude>
+              <exclude>mvnw.cmd</exclude>
               <exclude>ICLA</exclude>
               <exclude>LICENSE</exclude>
               <exclude>KEYS</exclude>
