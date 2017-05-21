@@ -35,7 +35,7 @@
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -205,17 +205,17 @@
   <mailingLists>
     <mailingList>
       <name>mybatis-dev</name>
-      <archive>http://groups.google.com/group/mybatis-dev/topics</archive>
-      <subscribe>http://groups.google.com/group/mybatis-dev/subscribe</subscribe>
-      <unsubscribe>http://groups.google.com/group/mybatis-dev/subscribe</unsubscribe>
+      <archive>https://groups.google.com/forum/#!forum/mybatis-dev</archive>
+      <subscribe>https://groups.google.com/forum/#!forum/mybatis-dev/join</subscribe>
+      <unsubscribe>https://groups.google.com/forum/#!forum/mybatis-dev/join</unsubscribe>
       <post>mybatis-dev@googlegroups.com</post>
     </mailingList>
 
     <mailingList>
       <name>mybatis-user</name>
-      <archive>http://groups.google.com/group/mybatis-user/topics</archive>
-      <subscribe>http://groups.google.com/group/mybatis-user/subscribe</subscribe>
-      <unsubscribe>http://groups.google.com/group/mybatis-user/subscribe</unsubscribe>
+      <archive>https://groups.google.com/forum/#!forum/mybatis-user</archive>
+      <subscribe>https://groups.google.com/forum/#!forum/mybatis-user/join</subscribe>
+      <unsubscribe>https://groups.google.com/forum/#!forum/mybatis-user/join</unsubscribe>
       <post>mybatis-user@googlegroups.com</post>
       <otherArchives>
         <otherArchive>http://mybatis-user.963551.n3.nabble.com/</otherArchive>
@@ -224,15 +224,15 @@
 
     <mailingList>
       <name>mybatis-commits</name>
-      <archive>http://groups.google.com/group/mybatis-commits/topics</archive>
-      <subscribe>http://groups.google.com/group/mybatis-commits/subscribe</subscribe>
-      <unsubscribe>http://groups.google.com/group/mybatis-commits/subscribe</unsubscribe>
+      <archive>https://groups.google.com/forum/#!forum/mybatis-commits</archive>
+      <subscribe>https://groups.google.com/forum/#!forum/mybatis-commits/join</subscribe>
+      <unsubscribe>https://groups.google.com/forum/#!forum/mybatis-commits/join</unsubscribe>
       <post>mybatis-commits@googlegroups.com</post>
     </mailingList>
   </mailingLists>
 
   <scm>
-    <url>http://github.com/mybatis/parent</url>
+    <url>https://github.com/mybatis/parent</url>
     <connection>scm:git:ssh://github.com/mybatis/parent.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/mybatis/parent.git</developerConnection>
     <tag>HEAD</tag>
