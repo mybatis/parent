@@ -833,7 +833,7 @@
             </reports>
           </reportSet>
         </reportSets>
-    </plugin>
+      </plugin>
 
     </plugins>
   </reporting>
@@ -865,6 +865,7 @@
         </plugins>
       </build>
     </profile>
+
     <profile>
       <id>release</id>
       <build>
