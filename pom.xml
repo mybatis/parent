@@ -506,7 +506,7 @@
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>7.7</version>
+            <version>7.8</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -528,7 +528,7 @@
                   <version>[1.6,)</version>
                 </requireJavaVersion>
                 <requireMavenVersion>
-                  <version>[3.0.5,)</version>
+                  <version>[3.2.5,)</version>
                 </requireMavenVersion>
                 <requirePluginVersions>
                   <message>[ERROR] Best Practice is to always define plugin versions!</message>
@@ -825,6 +825,14 @@
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>0.7.9</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <!-- select non-aggregate reports -->
+              <report>report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
       </plugin>
 
     </plugins>
@@ -857,6 +865,7 @@
         </plugins>
       </build>
     </profile>
+
     <profile>
       <id>release</id>
       <build>
