@@ -727,8 +727,8 @@
         <version>3.0.4</version>
         <configuration>
           <xmlOutput>true</xmlOutput>
-          <xmlOutputDirectory>${project.build.directory}/target/findbugs-reports</xmlOutputDirectory>
-          <findbugsXmlOutput>${project.build.directory}/target/findbugs-reports</findbugsXmlOutput>
+          <xmlOutputDirectory>${project.build.directory}/findbugs-reports</xmlOutputDirectory>
+          <findbugsXmlOutputDirectory>${project.build.directory}/findbugs-reports</findbugsXmlOutputDirectory>
           <threshold>High</threshold>
           <effort>Max</effort>
           <visitors>FindDeadLocalStores,UnreadFields</visitors>
