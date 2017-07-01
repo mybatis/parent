@@ -724,7 +724,7 @@
       <plugin>
         <groupId>com.github.hazendaz.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>3.0.5-SNAPSHOT</version>
+        <version>3.0.6</version>
         <configuration>
           <xmlOutput>true</xmlOutput>
           <xmlOutputDirectory>${project.build.directory}/findbugs-reports</xmlOutputDirectory>
