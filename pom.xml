@@ -488,7 +488,7 @@
             <dependency>
               <groupId>com.github.hazendaz</groupId>
               <artifactId>build-tools</artifactId>
-              <version>1.1.4</version>
+              <version>1.1.5</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -507,6 +507,11 @@
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
             <version>7.8.2</version>
+          </dependency>
+          <dependency>
+            <groupId>com.github.hazendaz</groupId>
+            <artifactId>build-tools</artifactId>
+            <version>1.1.5</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -764,7 +769,7 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>${checkstyle.plugin}</version>
         <configuration>
-            <configLocation>google_checks.xml</configLocation>
+            <configLocation>checkstyle.xml</configLocation>
         </configuration>
       </plugin>
 
