@@ -506,7 +506,7 @@
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>8.2</version>
+            <version>8.0</version> <!-- Need changes on build-tools to move to 8.2 -->
           </dependency>
           <dependency>
             <groupId>com.github.hazendaz</groupId>
