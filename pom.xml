@@ -278,7 +278,7 @@
     -->
     <checkstyle.plugin>2.17</checkstyle.plugin>
     <javadoc.version>2.10.4</javadoc.version>
-    <surefire.version>2.20</surefire.version>
+    <surefire.version>2.20.1</surefire.version>
     <findbugs.onlyAnalyze />
     <!--
      | OSGi configuration properties
@@ -373,7 +373,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>3.0.1</version>
+          <version>3.0.2</version>
         </plugin>
 
         <plugin>
@@ -477,7 +477,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
-          <version>2.4</version>
+          <version>2.5</version>
         </plugin>
 
         <plugin>
@@ -506,7 +506,7 @@
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>8.0</version> <!-- Need changes on build-tools to move to 8.2 -->
+            <version>8.1</version> <!-- Need changes on build-tools to move to 8.2 -->
           </dependency>
           <dependency>
             <groupId>com.github.hazendaz</groupId>
@@ -957,7 +957,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
-            <version>3.0.0</version>
+            <version>3.1.0</version>
             <dependencies>
               <dependency>
                 <groupId>org.mybatis</groupId>
