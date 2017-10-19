@@ -278,7 +278,7 @@
     -->
     <checkstyle.plugin>2.17</checkstyle.plugin>
     <javadoc.version>2.10.4</javadoc.version>
-    <surefire.version>2.20</surefire.version>
+    <surefire.version>2.20.1</surefire.version>
     <findbugs.onlyAnalyze />
     <!--
      | OSGi configuration properties
