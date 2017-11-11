@@ -483,12 +483,12 @@
         <plugin>
           <groupId>net.revelc.code.formatter</groupId>
           <artifactId>formatter-maven-plugin</artifactId>
-          <version>2.0.1</version>
+          <version>2.0.1</version> <!-- Version 2.7.0 requires java 8 -->
           <dependencies>
             <dependency>
               <groupId>com.github.hazendaz</groupId>
               <artifactId>build-tools</artifactId>
-              <version>1.1.5</version>
+              <version>1.1.6</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -506,12 +506,12 @@
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>8.1</version> <!-- Need changes on build-tools to move to 8.2 -->
+            <version>8.4</version>
           </dependency>
           <dependency>
             <groupId>com.github.hazendaz</groupId>
             <artifactId>build-tools</artifactId>
-            <version>1.1.5</version>
+            <version>1.1.6</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -727,9 +727,9 @@
       </plugin>
 
       <plugin>
-        <groupId>com.github.hazendaz.spotbugs</groupId>
+        <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>3.0.6</version>
+        <version>3.1.0-RC8</version>
         <configuration>
           <xmlOutput>true</xmlOutput>
           <xmlOutputDirectory>${project.build.directory}/findbugs-reports</xmlOutputDirectory>
@@ -823,7 +823,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
-        <version>2.4</version>
+        <version>2.5</version>
       </plugin>
 
       <plugin>
