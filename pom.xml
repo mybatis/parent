@@ -277,7 +277,7 @@
      | plugins configuration
     -->
     <checkstyle.plugin>2.17</checkstyle.plugin>
-    <javadoc.version>2.10.4</javadoc.version>
+    <javadoc.version>3.0.0</javadoc.version>
     <surefire.version>2.20.1</surefire.version>
     <findbugs.onlyAnalyze />
     <!--
