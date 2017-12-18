@@ -277,7 +277,7 @@
      | plugins configuration
     -->
     <checkstyle.plugin>2.17</checkstyle.plugin>
-    <javadoc.version>2.10.4</javadoc.version>
+    <javadoc.version>3.0.0</javadoc.version>
     <surefire.version>2.20.1</surefire.version>
     <findbugs.onlyAnalyze />
     <!--
@@ -506,7 +506,7 @@
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>8.4</version>
+            <version>8.5</version>
           </dependency>
           <dependency>
             <groupId>com.github.hazendaz</groupId>
@@ -729,7 +729,7 @@
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>3.1.0-RC8</version>
+        <version>3.1.0</version>
         <configuration>
           <xmlOutput>true</xmlOutput>
           <xmlOutputDirectory>${project.build.directory}/findbugs-reports</xmlOutputDirectory>
@@ -1080,7 +1080,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-enforcer-plugin</artifactId>
-                        <versionRange>[1.4.1,)</versionRange>
+                        <versionRange>[3.0.0-M1,)</versionRange>
                         <goals>
                           <goal>enforce</goal>
                         </goals>
