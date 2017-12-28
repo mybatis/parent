@@ -279,7 +279,7 @@
     <checkstyle.plugin>2.17</checkstyle.plugin>
     <javadoc.version>3.0.0</javadoc.version>
     <surefire.version>2.20.1</surefire.version>
-    <findbugs.onlyAnalyze />
+    <spotbugs.onlyAnalyze />
     <!--
      | OSGi configuration properties
     -->
@@ -732,12 +732,12 @@
         <version>3.1.0</version>
         <configuration>
           <xmlOutput>true</xmlOutput>
-          <xmlOutputDirectory>${project.build.directory}/findbugs-reports</xmlOutputDirectory>
-          <findbugsXmlOutputDirectory>${project.build.directory}/findbugs-reports</findbugsXmlOutputDirectory>
+          <xmlOutputDirectory>${project.build.directory}/spotbugs-reports</xmlOutputDirectory>
+          <spotbugsXmlOutputDirectory>${project.build.directory}/spotbugs-reports</spotbugsXmlOutputDirectory>
           <threshold>High</threshold>
           <effort>Max</effort>
           <visitors>FindDeadLocalStores,UnreadFields</visitors>
-          <onlyAnalyze>${findbugs.onlyAnalyze}</onlyAnalyze>
+          <onlyAnalyze>${spotbugs.onlyAnalyze}</onlyAnalyze>
           <relaxed>true</relaxed>
         </configuration>
       </plugin>
