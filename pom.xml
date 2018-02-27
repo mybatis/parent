@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2017 the original author or authors.
+       Copyright 2010-2018 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -262,6 +262,7 @@
   </distributionManagement>
 
   <properties>
+    <checkstyle.config>checkstyle.xml</checkstyle.config>
     <clirr.comparisonVersion>28</clirr.comparisonVersion>
     <gcu.product>${project.name}</gcu.product>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
@@ -769,7 +770,7 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>${checkstyle.plugin}</version>
         <configuration>
-            <configLocation>checkstyle.xml</configLocation>
+            <configLocation>${checkstyle.config}</configLocation>
         </configuration>
       </plugin>
 
