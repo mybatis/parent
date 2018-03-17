@@ -5,3 +5,4 @@
 /.settings
 /.project
 target
+.mvn/wrapper/maven-wrapper.jar
