@@ -262,25 +262,79 @@
   </distributionManagement>
 
   <properties>
+    <!--
+     | General configuration
+    -->
     <checkstyle.config>checkstyle.xml</checkstyle.config>
-    <clirr.comparisonVersion>28</clirr.comparisonVersion>
+    <clirr.comparisonVersion>30</clirr.comparisonVersion>
     <gcu.product>${project.name}</gcu.product>
+    <maven.min-version>3.2.5</maven.min-version>
+    <spotbugs.onlyAnalyze />
+
+    <!--
+     | Maven confirmation
+    -->
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
-    <maven.compiler.source>1.6</maven.compiler.source>
-    <maven.compiler.target>1.6</maven.compiler.target>
-    <maven.compiler.testTarget>1.6</maven.compiler.testTarget>
-    <maven.compiler.testSource>1.6</maven.compiler.testSource>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
+    <maven.compiler.testSource>1.8</maven.compiler.testSource>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!--
-     | plugins configuration
+     | Dependency versions
     -->
-    <checkstyle.plugin>2.17</checkstyle.plugin>
+    <base-bundle.version>8</base-bundle.version>
+    <checkstyle-core.version>8.8</checkstyle-core.version>
+    <fluido.version>1.7</fluido.version>
+    <junit-engine.version>5.1.0</junit-engine.version>
+    <junit-platform.version>1.1.0</junit-platform.version>
+
+    <!--
+     | Plugins versions
+    -->
+    <animal.version>1.16</animal.version>
+    <antrun.version>1.8</antrun.version>
+    <assembly.version>3.1.0</assembly.version>
+    <build-tools.version>1.1.7</build-tools.version>
+    <bundle.version>3.3.0</bundle.version>
+    <changes.version>2.12.1</changes.version>
+    <checkstyle.plugin>3.0.0</checkstyle.plugin>
+    <clean.version>3.0.0</clean.version>
+    <clirr.version>2.8</clirr.version>
+    <compiler.version>3.7.0</compiler.version>
+    <coveralls.version>4.3.0</coveralls.version>
+    <dependency.version>3.0.2</dependency.version>
+    <deploy.version>2.8.2</deploy.version>
+    <enforcer.version>3.0.0-M1</enforcer.version>
+    <formatter.version>2.7.0</formatter.version> <!-- Do not upgrade to 2.7.1 as it currently has bugs due to eclipse oxygen.2 (fixed in oxygen.3 -->
+    <gpg.version>1.6</gpg.version>
+    <install.version>2.5.2</install.version>
+    <jacoco.version>0.8.0</jacoco.version>
+    <jar.version>3.0.2</jar.version>
     <javadoc.version>3.0.0</javadoc.version>
-    <surefire.version>2.20.1</surefire.version>
-    <spotbugs.onlyAnalyze />
+    <jdepend.version>2.0</jdepend.version>
+    <jxr.version>2.5</jxr.version>
+    <license.version>3.0</license.version>
+    <lifecycle.version>1.0.0</lifecycle.version>
+    <pdf.version>1.3</pdf.version>
+    <pmd.version>3.9.0</pmd.version>
+    <project-info.version>2.9</project-info.version>
+    <release.version>2.5.3</release.version>
+    <resource.version>3.0.2</resource.version>
+    <scm.version>1.9.5</scm.version>
+    <shade.version>3.1.0</shade.version>
+    <site.version>3.7</site.version>
+    <source.version>3.0.1</source.version>
+    <spotbugs.version>3.1.3</spotbugs.version>
+    <surefire.version>2.19.1</surefire.version> <!-- TODO: 2.22.0 is supposed to support junit 5 so we need to stay on 2.19.1 for now -->
+    <taglist.version>2.4</taglist.version>
+    <versions.version>2.5</versions.version>
+    <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
+    <wagon-ssh.version>3.0.0</wagon-ssh.version>
+
     <!--
      | OSGi configuration properties
     -->
@@ -292,8 +346,8 @@
 
     <!-- Animal Sniffer Signature -->
     <signature.group>org.codehaus.mojo.signature</signature.group>
-    <signature.artifact>java16</signature.artifact>
-    <signature.version>1.1</signature.version>
+    <signature.artifact>java18</signature.artifact>
+    <signature.version>1.0</signature.version>
   </properties>
 
   <build>
@@ -303,7 +357,7 @@
         <plugin>
           <groupId>com.mycila</groupId>
           <artifactId>license-maven-plugin</artifactId>
-          <version>3.0</version>
+          <version>${license.version}</version>
           <configuration>
             <header>${project.basedir}/license.txt</header>
             <excludes>
@@ -330,7 +384,7 @@
             <dependency>
               <groupId>com.mycila</groupId>
               <artifactId>license-maven-plugin-git</artifactId>
-              <version>3.0</version>
+              <version>${license.version}</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -339,26 +393,26 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.8</version>
+            <version>${antrun.version}</version>
         </plugin>
 
         <!-- Assembly here only to override eclipse settings -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
-            <version>3.1.0</version>
+            <version>${assembly.version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>${clean.version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.7.0</version>
+          <version>${compiler.version}</version>
           <configuration>
             <optimize>true</optimize>
             <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
@@ -369,31 +423,31 @@
         <plugin>
           <groupId>org.eluder.coveralls</groupId>
           <artifactId>coveralls-maven-plugin</artifactId>
-          <version>4.3.0</version>
+          <version>${coveralls.version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>3.0.2</version>
+          <version>${dependency.version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
+          <version>${deploy.version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
+          <version>${install.version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pdf-plugin</artifactId>
-          <version>1.3</version>
+          <version>${pdf.version}</version>
           <executions>
             <execution>
               <id>pdf</id>
@@ -411,7 +465,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.3</version>
+          <version>${release.version}</version>
           <configuration>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <mavenExecutorId>forked-path</mavenExecutorId>
@@ -423,19 +477,19 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
+          <version>${resource.version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>${shade.version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.6</version>
+          <version>${site.version}</version>
           <executions>
             <execution>
               <id>attach-descriptor</id>
@@ -448,18 +502,18 @@
             <dependency>
               <groupId>net.trajano.wagon</groupId>
               <artifactId>wagon-git</artifactId>
-              <version>2.0.3</version> <!-- 2.0.4 has jgit errors -->
+              <version>${wagon-git.version}</version>
             </dependency>
-            <!-- Fluido here only for version update checks on site page -->
+            <!-- Additional entries for version site tracking only -->
             <dependency>
               <groupId>org.apache.maven.skins</groupId>
               <artifactId>maven-fluido-skin</artifactId>
-              <version>1.6</version>
+              <version>${fluido.version}</version>
             </dependency>
             <dependency>
               <groupId>org.apache.maven.wagon</groupId>
               <artifactId>wagon-ssh</artifactId>
-              <version>3.0.0</version>
+              <version>${wagon-ssh.version}</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -468,29 +522,45 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${surefire.version}</version>
+          <configuration>
+            <!-- In case of jmockit usage with jdk9 -->
+            <argLine>-Djdk.attach.allowAttachSelf</argLine>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.junit.platform</groupId>
+              <artifactId>junit-platform-surefire-provider</artifactId>
+              <version>${junit-platform.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.junit.jupiter</groupId>
+              <artifactId>junit-jupiter-engine</artifactId>
+              <version>${junit-engine.version}</version>
+            </dependency>
+          </dependencies>
         </plugin>
 
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.7.9</version>
+          <version>${jacoco.version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
-          <version>2.5</version>
+          <version>${versions.version}</version>
         </plugin>
 
         <plugin>
           <groupId>net.revelc.code.formatter</groupId>
           <artifactId>formatter-maven-plugin</artifactId>
-          <version>2.0.1</version> <!-- Version 2.7.0 requires java 8 -->
+          <version>${formatter.version}</version>
           <dependencies>
             <dependency>
               <groupId>com.github.hazendaz</groupId>
               <artifactId>build-tools</artifactId>
-              <version>1.1.6</version>
+              <version>${build-tools.version}</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -508,12 +578,12 @@
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>8.5</version>
+            <version>${checkstyle-core.version}</version>
           </dependency>
           <dependency>
             <groupId>com.github.hazendaz</groupId>
             <artifactId>build-tools</artifactId>
-            <version>1.1.6</version>
+            <version>${build-tools.version}</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -521,7 +591,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.0.0-M1</version>
+        <version>${enforcer.version}</version>
         <executions>
           <execution>
             <id>enforce-java</id>
@@ -532,10 +602,10 @@
             <configuration>
               <rules>
                 <requireJavaVersion>
-                  <version>[1.6,)</version>
+                  <version>[${maven.compiler.source},)</version>
                 </requireJavaVersion>
                 <requireMavenVersion>
-                  <version>[3.2.5,)</version>
+                  <version>[${maven.min-version},)</version>
                 </requireMavenVersion>
                 <requirePluginVersions>
                   <message>[ERROR] Best Practice is to always define plugin versions!</message>
@@ -551,18 +621,19 @@
       </plugin>
 
       <!--
-       | Make sure we only use Java6 methods
+       | Make sure we only use defined java version methods
       -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>animal-sniffer-maven-plugin</artifactId>
-        <version>1.16</version>
+        <version>${animal.version}</version>
         <configuration>
           <signature>
             <groupId>${signature.group}</groupId>
             <artifactId>${signature.artifact}</artifactId>
             <version>${signature.version}</version>
           </signature>
+          <!-- TODO: Remove these once confirmed no longer needed -->
           <annotations>
             <annotation>org.apache.ibatis.lang.UsesJava7</annotation>
             <annotation>org.apache.ibatis.lang.UsesJava8</annotation>
@@ -570,7 +641,7 @@
         </configuration>
         <executions>
           <execution>
-            <id>check-java-1.6-compat</id>
+            <id>check-java-compat</id>
             <phase>process-classes</phase>
             <goals>
               <goal>check</goal>
@@ -582,7 +653,7 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
-        <version>3.3.0</version>
+        <version>${bundle.version}</version>
         <executions>
           <execution>
             <id>bundle-manifest</id>
@@ -607,9 +678,9 @@
             -->
             <_nouses>true</_nouses>
             <!--
-             | Stop the JAVA_1_n_HOME variables from being treated as headers by Bnd
+             | Stop the JAVA_1_n_HOME variables from being treated as headers by Bnd (TODO: Review these, added 7, 8, and 9 to match -->
             -->
-            <_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME</_removeheaders>
+            <_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME,JAVA_1_7_HOME,JAVA_1_8_HOME,JAVA_1_9_HOME</_removeheaders>
             <Bundle-SymbolicName>${osgi.symbolicName}</Bundle-SymbolicName>
             <Export-Package>${osgi.export}</Export-Package>
             <Private-Package>${osgi.private}</Private-Package>
@@ -623,7 +694,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>3.0.2</version>
+        <version>${jar.version}</version>
         <configuration>
           <archive>
             <manifestFile>${project.build.directory}/osgi/MANIFEST.MF</manifestFile>
@@ -643,7 +714,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>clirr-maven-plugin</artifactId>
-        <version>2.8</version>
+        <version>${clirr.version}</version>
         <configuration>
           <comparisonVersion>${clirr.comparisonVersion}</comparisonVersion>
           <failOnError>false</failOnError>
@@ -654,7 +725,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-scm-plugin</artifactId>
-        <version>1.9.5</version>
+        <version>${scm.version}</version>
       </plugin>
 
       <plugin>
@@ -689,7 +760,7 @@
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
         <artifactId>wagon-ssh</artifactId>
-        <version>3.0.0</version>
+        <version>${wagon-ssh.version}</version>
       </extension>
     </extensions>
   </build>
@@ -699,7 +770,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.9</version>
+        <version>${project-info.version}</version>
       </plugin>
 
       <plugin>
@@ -719,19 +790,19 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
-        <version>2.5</version>
+        <version>${jxr.version}</version>
       </plugin>
 
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>jdepend-maven-plugin</artifactId>
-        <version>2.0</version>
+        <version>${jdepend.version}</version>
       </plugin>
 
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>${spotbugs.version}</version>
         <configuration>
           <xmlOutput>true</xmlOutput>
           <xmlOutputDirectory>${project.build.directory}/spotbugs-reports</xmlOutputDirectory>
@@ -753,7 +824,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-changes-plugin</artifactId>
-        <version>2.12.1</version>
+        <version>${changes.version}</version>
         <configuration>
           <issueLinkTemplate>%URL%/issues/%ISSUE%</issueLinkTemplate>
         </configuration>
@@ -778,8 +849,9 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>3.8</version>
+        <version>${pmd.version}</version>
         <configuration>
+          <analysisCache>true</analysisCache>
           <linkXRef>true</linkXRef>
           <minimumTokens>100</minimumTokens>
         </configuration>
@@ -788,7 +860,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>taglist-maven-plugin</artifactId>
-        <version>2.4</version>
+        <version>${taglist.version}</version>
         <configuration>
           <tagListOptions>
             <tagClasses>
@@ -813,7 +885,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>clirr-maven-plugin</artifactId>
-        <version>2.8</version>
+        <version>${clirr.version}</version>
         <configuration>
           <comparisonVersion>${clirr.comparisonVersion}</comparisonVersion>
         </configuration>
@@ -825,13 +897,13 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
-        <version>2.5</version>
+        <version>${versions.version}</version>
       </plugin>
 
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.7.9</version>
+        <version>${jacoco.version}</version>
         <reportSets>
           <reportSet>
             <reports>
@@ -880,7 +952,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>3.0.1</version>
+            <version>${source.version}</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
@@ -934,7 +1006,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
+            <version>${gpg.version}</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -959,12 +1031,12 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
-            <version>3.1.0</version>
+            <version>${assembly.version}</version>
             <dependencies>
               <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>base-bundle-descriptor</artifactId>
-                <version>8</version>
+                <version>${base-bundle.version}</version>
               </dependency>
             </dependencies>
             <executions>
@@ -987,6 +1059,7 @@
       </build>
     </profile>
 
+    <!-- TODO: We need to add jdk 9+ support which is indicated differently -->
     <profile>
       <id>javadoc.java8</id>
       <activation>
@@ -1048,7 +1121,7 @@
             <plugin>
               <groupId>org.eclipse.m2e</groupId>
               <artifactId>lifecycle-mapping</artifactId>
-              <version>1.0.0</version>
+              <version>${lifecycle.version}</version>
               <configuration>
                 <lifecycleMappingMetadata>
                   <pluginExecutions>
@@ -1056,7 +1129,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.apache.felix</groupId>
                         <artifactId>maven-bundle-plugin</artifactId>
-                        <versionRange>[3.3.0,)</versionRange>
+                        <versionRange>[${bundle.version},)</versionRange>
                         <goals>
                           <goal>manifest</goal>
                         </goals>
@@ -1069,7 +1142,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>
-                        <versionRange>[0.7.9,)</versionRange>
+                        <versionRange>[${jacoco.version},)</versionRange>
                         <goals>
                           <goal>prepare-agent</goal>
                         </goals>
@@ -1082,7 +1155,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-enforcer-plugin</artifactId>
-                        <versionRange>[3.0.0-M1,)</versionRange>
+                        <versionRange>[${enforcer.version},)</versionRange>
                         <goals>
                           <goal>enforce</goal>
                         </goals>
@@ -1095,7 +1168,7 @@
                       <pluginExecutionFilter>
                         <groupId>com.mycila</groupId>
                         <artifactId>license-maven-plugin</artifactId>
-                        <versionRange>[3.0,)</versionRange>
+                        <versionRange>[${license.version},)</versionRange>
                         <goals>
                           <goal>format</goal>
                         </goals>
@@ -1108,7 +1181,7 @@
                       <pluginExecutionFilter>
                         <groupId>net.revelc.code.formatter</groupId>
                         <artifactId>formatter-maven-plugin</artifactId>
-                        <versionRange>[2.0.1,)</versionRange>
+                        <versionRange>[${formatter.version},)</versionRange>
                         <goals>
                           <goal>format</goal>
                         </goals>
