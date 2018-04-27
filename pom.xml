@@ -312,7 +312,7 @@
     <formatter.version>2.7.0</formatter.version> <!-- Do not upgrade to 2.7.1 as it currently has bugs due to eclipse oxygen.2 (fixed in oxygen.3 -->
     <gpg.version>1.6</gpg.version>
     <install.version>2.5.2</install.version>
-    <jacoco.version>0.8.0</jacoco.version>
+    <jacoco.version>0.8.1</jacoco.version>
     <jar.version>3.0.2</jar.version>
     <javadoc.version>3.0.0</javadoc.version>
     <jdepend.version>2.0</jdepend.version>
