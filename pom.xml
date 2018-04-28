@@ -537,6 +537,11 @@
               <artifactId>junit-jupiter-engine</artifactId>
               <version>${junit-engine.version}</version>
             </dependency>
+            <dependency>
+              <groupId>org.junit.vintage</groupId>
+              <artifactId>junit-vintage-engine</artifactId>
+              <version>${junit-engine.version}</version>
+            </dependency>
           </dependencies>
         </plugin>
 
