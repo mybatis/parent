@@ -298,7 +298,7 @@
     <animal.version>1.17</animal.version>
     <antrun.version>1.8</antrun.version>
     <assembly.version>3.1.0</assembly.version>
-    <build-tools.version>1.1.7</build-tools.version>
+    <build-tools.version>1.1.8</build-tools.version>
     <bundle.version>3.3.0</bundle.version>
     <changes.version>2.12.1</changes.version>
     <checkstyle.plugin>3.0.0</checkstyle.plugin>
