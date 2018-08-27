@@ -309,7 +309,7 @@
     <dependency.version>3.1.1</dependency.version>
     <deploy.version>2.8.2</deploy.version>
     <enforcer.version>3.0.0-M1</enforcer.version>
-    <formatter.version>2.7.0</formatter.version> <!-- Do not upgrade to 2.7.1 as it currently has bugs due to eclipse oxygen.2 (fixed in oxygen.3 -->
+    <formatter.version>2.7.4</formatter.version>
     <gpg.version>1.6</gpg.version>
     <install.version>2.5.2</install.version>
     <jacoco.version>0.8.1</jacoco.version>
