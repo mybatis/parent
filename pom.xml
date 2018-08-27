@@ -312,7 +312,7 @@
     <formatter.version>2.7.4</formatter.version>
     <gpg.version>1.6</gpg.version>
     <install.version>2.5.2</install.version>
-    <jacoco.version>0.8.1</jacoco.version>
+    <jacoco.version>0.8.2</jacoco.version>
     <jar.version>3.0.2</jar.version>
     <javadoc.version>3.0.0</javadoc.version>
     <jdepend.version>2.0</jdepend.version>
