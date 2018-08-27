@@ -321,7 +321,7 @@
     <lifecycle.version>1.0.0</lifecycle.version>
     <pdf.version>1.3</pdf.version>
     <pmd.version>3.10.0</pmd.version>
-    <project-info.version>2.9</project-info.version>
+    <project-info.version>3.0.0</project-info.version>
     <release.version>2.5.3</release.version>
     <resource.version>3.1.0</resource.version>
     <scm.version>1.10.0</scm.version>
