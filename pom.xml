@@ -313,7 +313,7 @@
     <gpg.version>1.6</gpg.version>
     <install.version>2.5.2</install.version>
     <jacoco.version>0.8.2</jacoco.version>
-    <jar.version>3.0.2</jar.version>
+    <jar.version>3.1.0</jar.version>
     <javadoc.version>3.0.0</javadoc.version>
     <jdepend.version>2.0</jdepend.version>
     <jxr.version>2.5</jxr.version>
