@@ -524,7 +524,7 @@
           <version>${surefire.version}</version>
           <configuration>
             <!-- In case of jmockit usage with jdk9 -->
-            <argLine>-Djdk.attach.allowAttachSelf</argLine>
+            <argLine>${argLine} -Djdk.attach.allowAttachSelf</argLine>
           </configuration>
         </plugin>
 
