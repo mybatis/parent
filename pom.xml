@@ -287,18 +287,18 @@
      | Dependency versions
     -->
     <base-bundle.version>8</base-bundle.version>
-    <checkstyle-core.version>8.8</checkstyle-core.version>
+    <checkstyle-core.version>8.12</checkstyle-core.version>
     <fluido.version>1.7</fluido.version>
-    <junit-engine.version>5.1.0</junit-engine.version>
-    <junit-platform.version>1.1.0</junit-platform.version>
+    <junit-engine.version>5.2.0</junit-engine.version>
+    <junit-platform.version>1.2.0</junit-platform.version>
 
     <!--
      | Plugins versions
     -->
-    <animal.version>1.16</animal.version>
+    <animal.version>1.17</animal.version>
     <antrun.version>1.8</antrun.version>
     <assembly.version>3.1.0</assembly.version>
-    <build-tools.version>1.1.7</build-tools.version>
+    <build-tools.version>1.1.8</build-tools.version>
     <bundle.version>3.3.0</bundle.version>
     <changes.version>2.12.1</changes.version>
     <checkstyle.plugin>3.0.0</checkstyle.plugin>
@@ -306,34 +306,34 @@
     <clirr.version>2.8</clirr.version>
     <compiler.version>3.7.0</compiler.version>
     <coveralls.version>4.3.0</coveralls.version>
-    <dependency.version>3.0.2</dependency.version>
+    <dependency.version>3.1.1</dependency.version>
     <deploy.version>2.8.2</deploy.version>
     <enforcer.version>3.0.0-M1</enforcer.version>
-    <formatter.version>2.7.0</formatter.version> <!-- Do not upgrade to 2.7.1 as it currently has bugs due to eclipse oxygen.2 (fixed in oxygen.3 -->
+    <formatter.version>2.7.4</formatter.version>
     <gpg.version>1.6</gpg.version>
     <install.version>2.5.2</install.version>
-    <jacoco.version>0.8.1</jacoco.version>
-    <jar.version>3.0.2</jar.version>
-    <javadoc.version>3.0.0</javadoc.version>
+    <jacoco.version>0.8.2</jacoco.version>
+    <jar.version>3.1.0</jar.version>
+    <javadoc.version>3.0.1</javadoc.version>
     <jdepend.version>2.0</jdepend.version>
     <jxr.version>2.5</jxr.version>
     <license.version>3.0</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
     <pdf.version>1.3</pdf.version>
-    <pmd.version>3.9.0</pmd.version>
-    <project-info.version>2.9</project-info.version>
+    <pmd.version>3.10.0</pmd.version>
+    <project-info.version>3.0.0</project-info.version>
     <release.version>2.5.3</release.version>
-    <resource.version>3.0.2</resource.version>
-    <scm.version>1.9.5</scm.version>
-    <shade.version>3.1.0</shade.version>
-    <site.version>3.7</site.version>
+    <resource.version>3.1.0</resource.version>
+    <scm.version>1.10.0</scm.version>
+    <shade.version>3.1.1</shade.version>
+    <site.version>3.7.1</site.version>
     <source.version>3.0.1</source.version>
-    <spotbugs.version>3.1.3</spotbugs.version>
+    <spotbugs.version>3.1.6</spotbugs.version>
     <surefire.version>2.22.0</surefire.version>
     <taglist.version>2.4</taglist.version>
     <versions.version>2.5</versions.version>
     <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
-    <wagon-ssh.version>3.0.0</wagon-ssh.version>
+    <wagon-ssh.version>3.1.0</wagon-ssh.version>
 
     <!--
      | OSGi configuration properties
