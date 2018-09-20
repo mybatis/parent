@@ -986,6 +986,7 @@
                       <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
                     </manifestEntries>
                   </archive>
+                  <additionalparam>-Xdoclint:-missing</additionalparam>
                 </configuration>
               </execution>
             </executions>
@@ -1044,28 +1045,6 @@
             </executions>
           </plugin>
         </plugins>
-      </build>
-    </profile>
-
-    <!-- TODO: We need to add jdk 9+ support which is indicated differently -->
-    <profile>
-      <id>javadoc.java8</id>
-      <activation>
-        <jdk>[1.8,)</jdk>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-javadoc-plugin</artifactId>
-              <version>${javadoc.version}</version>
-              <configuration>
-                <additionalparam>-Xdoclint:-missing</additionalparam>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
       </build>
     </profile>
 
