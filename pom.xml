@@ -302,7 +302,7 @@
     <bundle.version>3.3.0</bundle.version>
     <changes.version>2.12.1</changes.version>
     <checkstyle.plugin>3.0.0</checkstyle.plugin>
-    <clean.version>3.0.0</clean.version>
+    <clean.version>3.1.0</clean.version>
     <clirr.version>2.8</clirr.version>
     <compiler.version>3.8.0</compiler.version>
     <coveralls.version>4.3.0</coveralls.version>
