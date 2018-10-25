@@ -289,8 +289,6 @@
     <base-bundle.version>8</base-bundle.version>
     <checkstyle-core.version>8.14</checkstyle-core.version>
     <fluido.version>1.7</fluido.version>
-    <junit-engine.version>5.3.1</junit-engine.version>
-    <junit-platform.version>1.3.1</junit-platform.version>
 
     <!--
      | Plugins versions
