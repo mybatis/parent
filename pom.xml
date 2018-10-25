@@ -316,7 +316,7 @@
     <jar.version>3.1.0</jar.version>
     <javadoc.version>3.0.1</javadoc.version>
     <jdepend.version>2.0</jdepend.version>
-    <jxr.version>2.5</jxr.version>
+    <jxr.version>3.0.0</jxr.version>
     <license.version>3.0</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
     <pdf.version>1.3</pdf.version>
