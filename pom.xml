@@ -311,7 +311,7 @@
     <enforcer.version>3.0.0-M1</enforcer.version> <!-- Skip 3.0.0-M2 as it does not work (known bug) -->
     <formatter.version>2.7.5</formatter.version>
     <gpg.version>1.6</gpg.version>
-    <install.version>2.5.2</install.version>
+    <install.version>3.0.0-M1</install.version>
     <jacoco.version>0.8.2</jacoco.version>
     <jar.version>3.1.0</jar.version>
     <javadoc.version>3.0.1</javadoc.version>
