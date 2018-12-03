@@ -287,7 +287,7 @@
      | Dependency versions
     -->
     <base-bundle.version>8</base-bundle.version>
-    <checkstyle-core.version>8.14</checkstyle-core.version>
+    <checkstyle-core.version>8.15</checkstyle-core.version>
     <fluido.version>1.7</fluido.version>
 
     <!--
