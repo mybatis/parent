@@ -323,7 +323,7 @@
     <release.version>2.5.3</release.version>
     <resource.version>3.1.0</resource.version>
     <scm.version>1.11.1</scm.version>
-    <shade.version>3.2.0</shade.version>
+    <shade.version>3.2.1</shade.version>
     <site.version>3.7.1</site.version>
     <source.version>3.0.1</source.version>
     <spotbugs.version>3.1.7</spotbugs.version>
