@@ -918,6 +918,7 @@
             <artifactId>formatter-maven-plugin</artifactId>
             <configuration>
               <configFile>eclipse-formatter-config-2space.xml</configFile>
+              <skipXmlFormatting>true</skipXmlFormatting>
             </configuration>
             <executions>
               <execution>
