@@ -326,8 +326,8 @@
     <shade.version>3.2.1</shade.version>
     <site.version>3.7.1</site.version>
     <source.version>3.0.1</source.version>
-    <surefire.version>3.0.0-M1</surefire.version>
     <spotbugs.version>3.1.10</spotbugs.version>
+    <surefire.version>3.0.0-M2</surefire.version>
     <taglist.version>2.4</taglist.version>
     <versions.version>2.7</versions.version>
     <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
