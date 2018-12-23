@@ -267,6 +267,7 @@
     -->
     <checkstyle.config>checkstyle.xml</checkstyle.config>
     <clirr.comparisonVersion>30</clirr.comparisonVersion>
+    <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
     <maven.min-version>3.2.5</maven.min-version>
     <spotbugs.onlyAnalyze />
@@ -926,7 +927,7 @@
             <groupId>net.revelc.code.formatter</groupId>
             <artifactId>formatter-maven-plugin</artifactId>
             <configuration>
-              <configFile>eclipse-formatter-config-2space.xml</configFile>
+              <configFile>${formatter.config}</configFile>
               <skipXmlFormatting>true</skipXmlFormatting>
             </configuration>
             <executions>
