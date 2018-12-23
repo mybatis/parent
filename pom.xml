@@ -443,6 +443,15 @@
         </plugin>
 
         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>${javadoc.version}</version>
+            <configuration>
+                <quiet>true</quiet>
+            </configuration>
+        </plugin>
+
+        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pdf-plugin</artifactId>
           <version>${pdf.version}</version>
