@@ -288,8 +288,11 @@
      | Dependency versions
     -->
     <base-bundle.version>8</base-bundle.version>
+    <build-tools.version>1.1.8</build-tools.version>
     <checkstyle-core.version>8.15</checkstyle-core.version>
     <fluido.version>1.7</fluido.version>
+    <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
+    <wagon-ssh.version>3.2.0</wagon-ssh.version>
 
     <!--
      | Plugins versions
@@ -297,7 +300,6 @@
     <animal.version>1.17</animal.version>
     <antrun.version>1.8</antrun.version>
     <assembly.version>3.1.0</assembly.version>
-    <build-tools.version>1.1.8</build-tools.version>
     <bundle.version>4.1.0</bundle.version>
     <changes.version>2.12.1</changes.version>
     <checkstyle.plugin>3.0.0</checkstyle.plugin>
@@ -331,8 +333,6 @@
     <surefire.version>3.0.0-M2</surefire.version>
     <taglist.version>2.4</taglist.version>
     <versions.version>2.7</versions.version>
-    <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
-    <wagon-ssh.version>3.2.0</wagon-ssh.version>
 
     <!--
      | OSGi configuration properties
