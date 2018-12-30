@@ -319,6 +319,7 @@
     <jxr.version>3.0.0</jxr.version>
     <license.version>3.0</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
+    <modernizer.plugin>1.7.1</modernizer.plugin>
     <pdf.version>1.4</pdf.version>
     <pmd.version>3.11.0</pmd.version>
     <project-info.version>3.0.0</project-info.version>
@@ -560,6 +561,16 @@
           </dependencies>
         </plugin>
 
+        <plugin>
+          <groupId>org.gaul</groupId>
+          <artifactId>modernizer-maven-plugin</artifactId>
+          <version>${modernizer.plugin}</version>
+          <configuration>
+            <failOnViolations>false</failOnViolations>
+            <javaVersion>${maven.compiler.target}</javaVersion>
+          </configuration>
+        </plugin>
+
       </plugins>
     </pluginManagement>
 
@@ -731,6 +742,20 @@
             <id>prepare-agent</id>
             <goals>
               <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.gaul</groupId>
+        <artifactId>modernizer-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>modernizer</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>modernizer</goal>
             </goals>
           </execution>
         </executions>
