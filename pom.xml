@@ -270,7 +270,7 @@
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
     <maven.min-version>3.2.5</maven.min-version>
-    <module.name>org.mybatis</module.name>
+    <module.name>org.mybatis.parent</module.name>
     <spotbugs.onlyAnalyze />
 
     <!--
