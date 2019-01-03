@@ -269,6 +269,7 @@
     <clirr.comparisonVersion>31</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
+    <html.javadocType>-html5</html.javadocType>
     <maven.min-version>3.2.5</maven.min-version>
     <module.name>org.mybatis.parent</module.name>
     <spotbugs.onlyAnalyze />
@@ -979,6 +980,26 @@
             </executions>
           </plugin>
         </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>jdk9on</id>
+      <activation>
+        <jdk>[9,)</jdk>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <configuration>
+                <additionalOptions>${html.javadocType}</additionalOptions>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
       </build>
     </profile>
 
