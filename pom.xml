@@ -350,6 +350,9 @@
     <signature.group>org.codehaus.mojo.signature</signature.group>
     <signature.artifact>java18</signature.artifact>
     <signature.version>1.0</signature.version>
+
+    <!-- Add slow test groups here and annotate classes similar to @Tag('groupName') which will auto enable on travis-ci only. -->
+    <excludedGroups />
   </properties>
 
   <build>
@@ -1078,6 +1081,19 @@
           </plugin>
         </plugins>
       </build>
+    </profile>
+
+    <profile>
+      <!-- Run slow tests only on travis ci, to force run otherwise use -D"env.TRAVIS" -->
+      <id>travis-ci</id>
+      <activation>
+        <property>
+          <name>env.TRAVIS</name>
+        </property>
+      </activation>
+      <properties>
+        <excludedGroups />
+      </properties>
     </profile>
 
     <profile>
