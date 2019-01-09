@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2018 the original author or authors.
+       Copyright 2010-2019 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -300,7 +300,7 @@
     -->
     <animal.version>1.17</animal.version>
     <antrun.version>1.8</antrun.version>
-    <assembly.version>3.1.0</assembly.version>
+    <assembly.version>3.1.1</assembly.version>
     <bundle.version>4.1.0</bundle.version>
     <changes.version>2.12.1</changes.version>
     <checkstyle.plugin>3.0.0</checkstyle.plugin>
