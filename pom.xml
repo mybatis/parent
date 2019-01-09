@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2018 the original author or authors.
+       Copyright 2010-2019 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -290,17 +290,17 @@
     -->
     <base-bundle.version>8</base-bundle.version>
     <build-tools.version>1.1.8</build-tools.version>
-    <checkstyle-core.version>8.15</checkstyle-core.version>
+    <checkstyle-core.version>8.16</checkstyle-core.version>
     <fluido.version>1.7</fluido.version>
     <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
-    <wagon-ssh.version>3.2.0</wagon-ssh.version>
+    <wagon-ssh.version>3.3.1</wagon-ssh.version>
 
     <!--
      | Plugins versions
     -->
     <animal.version>1.17</animal.version>
     <antrun.version>1.8</antrun.version>
-    <assembly.version>3.1.0</assembly.version>
+    <assembly.version>3.1.1</assembly.version>
     <bundle.version>4.1.0</bundle.version>
     <changes.version>2.12.1</changes.version>
     <checkstyle.plugin>3.0.0</checkstyle.plugin>
@@ -513,16 +513,16 @@
               <artifactId>wagon-git</artifactId>
               <version>${wagon-git.version}</version>
             </dependency>
+            <dependency>
+              <groupId>org.apache.maven.wagon</groupId>
+              <artifactId>wagon-ssh</artifactId>
+              <version>${wagon-ssh.version}</version>
+            </dependency>
             <!-- Additional entries for version site tracking only -->
             <dependency>
               <groupId>org.apache.maven.skins</groupId>
               <artifactId>maven-fluido-skin</artifactId>
               <version>${fluido.version}</version>
-            </dependency>
-            <dependency>
-              <groupId>org.apache.maven.wagon</groupId>
-              <artifactId>wagon-ssh</artifactId>
-              <version>${wagon-ssh.version}</version>
             </dependency>
           </dependencies>
         </plugin>
