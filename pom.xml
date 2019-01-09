@@ -513,16 +513,16 @@
               <artifactId>wagon-git</artifactId>
               <version>${wagon-git.version}</version>
             </dependency>
+            <dependency>
+              <groupId>org.apache.maven.wagon</groupId>
+              <artifactId>wagon-ssh</artifactId>
+              <version>${wagon-ssh.version}</version>
+            </dependency>
             <!-- Additional entries for version site tracking only -->
             <dependency>
               <groupId>org.apache.maven.skins</groupId>
               <artifactId>maven-fluido-skin</artifactId>
               <version>${fluido.version}</version>
-            </dependency>
-            <dependency>
-              <groupId>org.apache.maven.wagon</groupId>
-              <artifactId>wagon-ssh</artifactId>
-              <version>${wagon-ssh.version}</version>
             </dependency>
           </dependencies>
         </plugin>
