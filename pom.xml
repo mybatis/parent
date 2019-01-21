@@ -334,6 +334,7 @@
     <surefire.version>3.0.0-M3</surefire.version>
     <taglist.version>2.4</taglist.version>
     <versions.version>2.7</versions.version>
+    <whitespace.version>1.0.4</whitespace.version>
 
     <!--
      | OSGi configuration properties
@@ -563,6 +564,12 @@
         </plugin>
 
         <plugin>
+          <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+          <artifactId>whitespace-maven-plugin</artifactId>
+          <version>${whitespace.version}</version>
+        </plugin>
+
+        <plugin>
           <groupId>org.gaul</groupId>
           <artifactId>modernizer-maven-plugin</artifactId>
           <version>${modernizer.plugin}</version>
@@ -744,6 +751,19 @@
             <id>prepare-agent</id>
             <goals>
               <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>whitespace-maven-plugin</artifactId>
+        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+        <executions>
+          <execution>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>trim</goal>
             </goals>
           </execution>
         </executions>
