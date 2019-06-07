@@ -314,9 +314,9 @@
     <formatter.version>2.9.0</formatter.version>
     <gpg.version>1.6</gpg.version>
     <install.version>3.0.0-M1</install.version>
-    <jar.version>3.1.1</jar.version>
     <javadoc.version>3.0.1</javadoc.version>
     <jacoco.version>0.8.4</jacoco.version>
+    <jar.version>3.1.2</jar.version>
     <jxr.version>3.0.0</jxr.version>
     <license.version>3.0</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
