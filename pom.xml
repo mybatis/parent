@@ -298,7 +298,7 @@
     <!--
      | Plugins versions
     -->
-    <animal.version>1.17</animal.version>
+    <animal.version>1.18</animal.version>
     <antrun.version>1.8</antrun.version>
     <assembly.version>3.1.1</assembly.version>
     <bundle.version>4.1.0</bundle.version>
