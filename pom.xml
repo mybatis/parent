@@ -290,47 +290,47 @@
     -->
     <base-bundle.version>8</base-bundle.version>
     <build-tools.version>1.1.8</build-tools.version>
-    <checkstyle-core.version>8.16</checkstyle-core.version>
+    <checkstyle-core.version>8.21</checkstyle-core.version>
     <fluido.version>1.7</fluido.version>
     <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
-    <wagon-ssh.version>3.3.1</wagon-ssh.version>
+    <wagon-ssh.version>3.3.2</wagon-ssh.version>
 
     <!--
      | Plugins versions
     -->
-    <animal.version>1.17</animal.version>
+    <animal.version>1.18</animal.version>
     <antrun.version>1.8</antrun.version>
     <assembly.version>3.1.1</assembly.version>
-    <bundle.version>4.1.0</bundle.version>
+    <bundle.version>4.2.0</bundle.version>
     <changes.version>2.12.1</changes.version>
-    <checkstyle.plugin>3.0.0</checkstyle.plugin>
+    <checkstyle.plugin>3.1.0</checkstyle.plugin>
     <clean.version>3.1.0</clean.version>
     <clirr.version>2.8</clirr.version>
-    <compiler.version>3.8.0</compiler.version>
+    <compiler.version>3.8.1</compiler.version>
     <coveralls.version>4.3.0</coveralls.version>
     <dependency.version>3.1.1</dependency.version>
     <deploy.version>3.0.0-M1</deploy.version>
     <enforcer.version>3.0.0-M1</enforcer.version> <!-- Skip 3.0.0-M2 as it does not work (known bug) -->
-    <formatter.version>2.8.1</formatter.version>
+    <formatter.version>2.9.0</formatter.version>
     <gpg.version>1.6</gpg.version>
     <install.version>3.0.0-M1</install.version>
-    <jacoco.version>0.8.2</jacoco.version>
-    <jar.version>3.1.1</jar.version>
-    <javadoc.version>3.0.1</javadoc.version>
+    <jacoco.version>0.8.4</jacoco.version>
+    <jar.version>3.1.2</jar.version>
+    <javadoc.version>3.1.0</javadoc.version>
     <jxr.version>3.0.0</jxr.version>
     <license.version>3.0</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
-    <modernizer.plugin>1.7.1</modernizer.plugin>
+    <modernizer.plugin>1.8.0</modernizer.plugin>
     <pdf.version>1.4</pdf.version>
-    <pmd.version>3.11.0</pmd.version>
+    <pmd.version>3.12.0</pmd.version>
     <project-info.version>3.0.0</project-info.version>
     <release.version>2.5.3</release.version>
     <resource.version>3.1.0</resource.version>
-    <scm.version>1.11.1</scm.version>
+    <scm.version>1.11.2</scm.version>
     <shade.version>3.2.1</shade.version>
     <site.version>3.7.1</site.version>
-    <source.version>3.0.1</source.version>
-    <spotbugs.version>3.1.10</spotbugs.version>
+    <source.version>3.1.0</source.version>
+    <spotbugs.version>3.1.11</spotbugs.version>
     <surefire.version>3.0.0-M3</surefire.version>
     <taglist.version>2.4</taglist.version>
     <versions.version>2.7</versions.version>
