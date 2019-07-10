@@ -290,10 +290,10 @@
     -->
     <base-bundle.version>8</base-bundle.version>
     <build-tools.version>1.1.8</build-tools.version>
-    <checkstyle-core.version>8.21</checkstyle-core.version>
+    <checkstyle-core.version>8.22</checkstyle-core.version>
     <fluido.version>1.7</fluido.version>
     <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
-    <wagon-ssh.version>3.3.2</wagon-ssh.version>
+    <wagon-ssh.version>3.3.3</wagon-ssh.version>
 
     <!--
      | Plugins versions
@@ -311,12 +311,12 @@
     <dependency.version>3.1.1</dependency.version>
     <deploy.version>3.0.0-M1</deploy.version>
     <enforcer.version>3.0.0-M1</enforcer.version> <!-- Skip 3.0.0-M2 as it does not work (known bug) -->
-    <formatter.version>2.9.0</formatter.version>
+    <formatter.version>2.10.0</formatter.version>
     <gpg.version>1.6</gpg.version>
     <install.version>3.0.0-M1</install.version>
     <jacoco.version>0.8.4</jacoco.version>
     <jar.version>3.1.2</jar.version>
-    <javadoc.version>3.1.0</javadoc.version>
+    <javadoc.version>3.1.1</javadoc.version>
     <jxr.version>3.0.0</jxr.version>
     <license.version>3.0</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
@@ -330,7 +330,7 @@
     <shade.version>3.2.1</shade.version>
     <site.version>3.7.1</site.version>
     <source.version>3.1.0</source.version>
-    <spotbugs.version>3.1.11</spotbugs.version>
+    <spotbugs.version>3.1.12</spotbugs.version>
     <surefire.version>3.0.0-M3</surefire.version>
     <taglist.version>2.4</taglist.version>
     <versions.version>2.7</versions.version>
