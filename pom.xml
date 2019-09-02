@@ -290,7 +290,7 @@
     -->
     <base-bundle.version>8</base-bundle.version>
     <build-tools.version>1.2.0</build-tools.version>
-    <checkstyle-core.version>8.22</checkstyle-core.version>
+    <checkstyle-core.version>8.24</checkstyle-core.version>
     <fluido.version>1.7</fluido.version>
     <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
     <wagon-ssh.version>3.3.3</wagon-ssh.version>
