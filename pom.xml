@@ -290,7 +290,7 @@
     -->
     <base-bundle.version>8</base-bundle.version>
     <build-tools.version>1.2.0</build-tools.version>
-    <checkstyle-core.version>8.24</checkstyle-core.version>
+    <checkstyle-core.version>8.26</checkstyle-core.version>
     <fluido.version>1.8</fluido.version>
     <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
     <wagon-ssh.version>3.3.3</wagon-ssh.version>
@@ -320,7 +320,7 @@
     <jxr.version>3.0.0</jxr.version>
     <license.version>3.0</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
-    <modernizer.plugin>1.8.0</modernizer.plugin>
+    <modernizer.plugin>2.0.0</modernizer.plugin>
     <pdf.version>1.4</pdf.version>
     <pmd.version>3.12.0</pmd.version>
     <project-info.version>3.0.0</project-info.version>
