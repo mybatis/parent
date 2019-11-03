@@ -320,7 +320,7 @@
     <jxr.version>3.0.0</jxr.version>
     <license.version>3.0</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
-    <modernizer.plugin>1.8.0</modernizer.plugin>
+    <modernizer.plugin>2.0.0</modernizer.plugin>
     <pdf.version>1.4</pdf.version>
     <pmd.version>3.12.0</pmd.version>
     <project-info.version>3.0.0</project-info.version>
