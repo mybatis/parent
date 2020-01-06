@@ -300,8 +300,8 @@
     -->
     <animal.version>1.18</animal.version>
     <antrun.version>1.8</antrun.version>
-    <assembly.version>3.1.1</assembly.version>
     <bundle.version>4.2.0</bundle.version>
+    <assembly.version>3.2.0</assembly.version>
     <changes.version>2.12.1</changes.version>
     <checkstyle.plugin>3.1.0</checkstyle.plugin>
     <clean.version>3.1.0</clean.version>
