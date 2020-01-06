@@ -324,8 +324,8 @@
     <pdf.version>1.4</pdf.version>
     <pmd.version>3.12.0</pmd.version>
     <project-info.version>3.0.0</project-info.version>
-    <release.version>2.5.3</release.version>
     <resource.version>3.1.0</resource.version>
+    <release.version>3.0.0-M1</release.version>
     <scm.version>1.11.2</scm.version>
     <shade.version>3.2.1</shade.version>
     <site.version>3.8.2</site.version>
