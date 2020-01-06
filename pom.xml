@@ -692,8 +692,8 @@
             -->
             <_nouses>true</_nouses>
             <!--
-             | Stop the JAVA_1_n_HOME variables from being treated as headers by Bnd (TODO: Review these, added 7, 8, and 9 to match -->
-            --&gt;
+             | Stop the JAVA_1_n_HOME variables from being treated as headers by Bnd if found in settings.xml
+            -->
             <_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME,JAVA_1_7_HOME,JAVA_1_8_HOME,JAVA_1_9_HOME</_removeheaders>
             <Bundle-SymbolicName>${osgi.symbolicName}</Bundle-SymbolicName>
             <Export-Package>${osgi.export}</Export-Package>
