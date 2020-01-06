@@ -289,7 +289,7 @@
      | Dependency versions
     -->
     <base-bundle.version>8</base-bundle.version>
-    <build-tools.version>1.2.1</build-tools.version>
+    <build-tools.version>1.2.2-SNAPSHOT</build-tools.version>
     <checkstyle-core.version>8.28</checkstyle-core.version>
     <fluido.version>1.8</fluido.version>
     <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
