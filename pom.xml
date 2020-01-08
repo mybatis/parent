@@ -269,6 +269,7 @@
     <clirr.comparisonVersion>31</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
+    <html.javadocType>-html5</html.javadocType>
     <maven.min-version>3.2.5</maven.min-version>
     <module.name>org.mybatis.parent</module.name>
     <spotbugs.onlyAnalyze />
@@ -349,6 +350,9 @@
     <signature.group>org.codehaus.mojo.signature</signature.group>
     <signature.artifact>java18</signature.artifact>
     <signature.version>1.0</signature.version>
+
+    <!-- Add slow test groups here and annotate classes similar to @Tag('groupName') which will auto enable on travis-ci only. -->
+    <excludedGroups />
   </properties>
 
   <build>
@@ -983,6 +987,26 @@
     </profile>
 
     <profile>
+      <id>jdk9on</id>
+      <activation>
+        <jdk>[9,)</jdk>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <configuration>
+                <additionalOptions>${html.javadocType}</additionalOptions>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+
+    <profile>
       <id>release</id>
       <build>
         <plugins>
@@ -1060,6 +1084,19 @@
     </profile>
 
     <profile>
+      <!-- Run slow tests only on travis ci, to force run otherwise use -D"env.TRAVIS" -->
+      <id>travis-ci</id>
+      <activation>
+        <property>
+          <name>env.TRAVIS</name>
+        </property>
+      </activation>
+      <properties>
+        <excludedGroups />
+      </properties>
+    </profile>
+
+    <profile>
       <id>bundle</id>
       <activation>
         <activeByDefault>false</activeByDefault>
@@ -1090,6 +1127,27 @@
                     <descriptorRef>base-bundle</descriptorRef>
                   </descriptorRefs>
                 </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>sort</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>tidy-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <executions>
+              <execution>
+                <phase>verify</phase>
+                <goals>
+                  <goal>pom</goal>
+                </goals>
               </execution>
             </executions>
           </plugin>
