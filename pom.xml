@@ -311,7 +311,7 @@
     <coveralls.version>4.3.0</coveralls.version>
     <dependency.version>3.1.1</dependency.version>
     <deploy.version>3.0.0-M1</deploy.version>
-    <enforcer.version>3.0.0-M1</enforcer.version> <!-- Skip 3.0.0-M2 as it does not work (known bug) -->
+    <enforcer.version>3.0.0-M1</enforcer.version> <!-- Skip 3.0.0-M2/M3 as it does not work (known bug) -->
     <formatter.version>2.11.0</formatter.version>
     <gpg.version>1.6</gpg.version>
     <install.version>3.0.0-M1</install.version>
@@ -696,9 +696,9 @@
             -->
             <_nouses>true</_nouses>
             <!--
-             | Stop the JAVA_1_n_HOME variables from being treated as headers by Bnd if found in settings.xml
+             | Stop the JAVA_1_n_HOME / JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml
             -->
-            <_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME,JAVA_1_7_HOME,JAVA_1_8_HOME,JAVA_1_9_HOME</_removeheaders>
+            <_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME,JAVA_1_7_HOME,JAVA_1_8_HOME,JAVA_1_9_HOME,JAVA_8_HOME,JAVA_9_HOME,JAVA_10_HOME,JAVA_11_HOME,JAVA_12_HOME,JAVA_13_HOME,JAVA_14_HOME,JAVA_15_HOME</_removeheaders>
             <Bundle-SymbolicName>${osgi.symbolicName}</Bundle-SymbolicName>
             <Export-Package>${osgi.export}</Export-Package>
             <Private-Package>${osgi.private}</Private-Package>
@@ -717,6 +717,7 @@
           <archive>
             <manifestFile>${project.build.directory}/osgi/MANIFEST.MF</manifestFile>
             <manifest>
+              <addBuildEnvironmentEntries>true</addBuildEnvironmentEntries>
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
               <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
             </manifest>
@@ -1023,6 +1024,7 @@
                 <configuration>
                   <archive>
                     <manifest>
+                      <addBuildEnvironmentEntries>true</addBuildEnvironmentEntries>
                       <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                       <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                     </manifest>
