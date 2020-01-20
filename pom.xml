@@ -1266,6 +1266,22 @@
                         <ignore />
                       </action>
                     </pluginExecution>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+                        <artifactId>whitespace-maven-plugin</artifactId>
+                        <versionRange>[${whitespace.plugin},)</versionRange>
+                        <goals>
+                          <goal>trim</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <execute>
+                          <runOnConfiguration>true</runOnConfiguration>
+                          <runOnIncremental>true</runOnIncremental>
+                        </execute>
+                      </action>
+                    </pluginExecution>
                   </pluginExecutions>
                 </lifecycleMappingMetadata>
               </configuration>
