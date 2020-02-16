@@ -270,6 +270,7 @@
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
     <html.javadocType>-html5</html.javadocType>
+    <impsortGroups>au,com,de,java,javassist,javax,lombok,mockit,net,ognl,org</impsortGroups>
     <maven.min-version>3.2.5</maven.min-version>
     <module.name>org.mybatis.parent</module.name>
     <spotbugs.onlyAnalyze />
@@ -574,7 +575,7 @@
           <artifactId>impsort-maven-plugin</artifactId>
           <version>${impsort.version}</version>
           <configuration>
-            <groups>au,com,de,java,javassist,javax,lombok,mockit,net,ognl,org</groups>
+            <groups>${impsortGroups}</groups>
             <staticGroups>java,*</staticGroups>
             <removeUnused>true</removeUnused>
           </configuration>
