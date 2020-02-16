@@ -314,6 +314,7 @@
     <enforcer.version>3.0.0-M1</enforcer.version> <!-- Skip 3.0.0-M2/M3 as it does not work (known bug) -->
     <formatter.version>2.11.0</formatter.version>
     <gpg.version>1.6</gpg.version>
+    <impsort.version>1.3.2</impsort.version>
     <install.version>3.0.0-M1</install.version>
     <jacoco.version>0.8.5</jacoco.version>
     <jar.version>3.2.0</jar.version>
@@ -565,6 +566,17 @@
               <version>${build-tools.version}</version>
             </dependency>
           </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>net.revelc.code</groupId>
+          <artifactId>impsort-maven-plugin</artifactId>
+          <version>${impsort.version}</version>
+          <configuration>
+            <groups>au,com,de,java,javassist,javax,lombok,mockit,net,ognl,org</groups>
+            <staticGroups>java,*</staticGroups>
+            <removeUnused>true</removeUnused>
+          </configuration>
         </plugin>
 
         <plugin>
@@ -983,6 +995,17 @@
               </execution>
             </executions>
           </plugin>
+          <plugin>
+            <groupId>net.revelc.code</groupId>
+            <artifactId>impsort-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>sort</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
       </build>
     </profile>
@@ -1264,6 +1287,22 @@
                       </pluginExecutionFilter>
                       <action>
                         <ignore />
+                      </action>
+                    </pluginExecution>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>net.revelc.code</groupId>
+                        <artifactId>impsort-maven-plugin</artifactId>
+                        <versionRange>[${impsort.plugin},)</versionRange>
+                        <goals>
+                          <goal>sort</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <execute>
+                          <runOnConfiguration>true</runOnConfiguration>
+                          <runOnIncremental>true</runOnIncremental>
+                        </execute>
                       </action>
                     </pluginExecution>
                     <pluginExecution>
