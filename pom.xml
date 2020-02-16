@@ -289,6 +289,7 @@
     <!--
      | Dependency versions
     -->
+    <asm.version>7.3.1</asm.version>
     <base-bundle.version>8</base-bundle.version>
     <build-tools.version>1.2.2</build-tools.version>
     <checkstyle-core.version>8.29</checkstyle-core.version>
@@ -593,6 +594,13 @@
             <failOnViolations>false</failOnViolations>
             <javaVersion>${maven.compiler.target}</javaVersion>
           </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.ow2.asm</groupId>
+              <artifactId>asm</artifactId>
+              <version>${asm.version}</version>
+            </dependency>
+          </dependency>
         </plugin>
 
       </plugins>
