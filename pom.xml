@@ -601,7 +601,7 @@
               <artifactId>asm</artifactId>
               <version>${asm.version}</version>
             </dependency>
-          </dependency>
+          </dependencies>
         </plugin>
 
       </plugins>
