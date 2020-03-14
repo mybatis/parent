@@ -7,7 +7,7 @@
        you may not use this file except in compliance with the License.
        You may obtain a copy of the License at
 
-          http://www.apache.org/licenses/LICENSE-2.0
+          https://www.apache.org/licenses/LICENSE-2.0
 
        Unless required by applicable law or agreed to in writing, software
        distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,7 +16,7 @@
        limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.mybatis</groupId>
@@ -26,11 +26,11 @@
 
   <name>mybatis-parent</name>
   <description>The MyBatis parent POM.</description>
-  <url>http://www.mybatis.org/</url>
+  <url>https://www.mybatis.org/</url>
   <inceptionYear>2010</inceptionYear>
   <organization>
     <name>MyBatis.org</name>
-    <url>http://www.mybatis.org/</url>
+    <url>https://www.mybatis.org/</url>
   </organization>
   <licenses>
     <license>
@@ -293,7 +293,7 @@
     <asm.version>7.3.1</asm.version>
     <base-bundle.version>8</base-bundle.version>
     <build-tools.version>1.2.2</build-tools.version>
-    <checkstyle-core.version>8.29</checkstyle-core.version>
+    <checkstyle-core.version>8.30</checkstyle-core.version>
     <fluido.version>1.8</fluido.version>
     <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
     <wagon-ssh.version>3.3.4</wagon-ssh.version>
@@ -311,7 +311,7 @@
     <clirr.version>2.8</clirr.version>
     <compiler.version>3.8.1</compiler.version>
     <coveralls.version>4.3.0</coveralls.version>
-    <dependency.version>3.1.1</dependency.version>
+    <dependency.version>3.1.2</dependency.version>
     <deploy.version>3.0.0-M1</deploy.version>
     <enforcer.version>3.0.0-M1</enforcer.version> <!-- Skip 3.0.0-M2/M3 as it does not work (known bug) -->
     <formatter.version>2.11.0</formatter.version>
@@ -328,11 +328,11 @@
     <pdf.version>1.4</pdf.version>
     <pmd.version>3.12.0</pmd.version>
     <project-info.version>3.0.0</project-info.version>
-    <release.version>3.0.0-M1</release.version>
+    <release.version>2.5.3</release.version> <!-- Skip 3.0.0-M1 as it has a major defect -->
     <resources.version>3.1.0</resources.version>
     <scm.version>1.11.2</scm.version>
     <shade.version>3.2.2</shade.version>
-    <site.version>3.8.2</site.version>
+    <site.version>3.9.0</site.version>
     <source.version>3.2.1</source.version>
     <spotbugs.version>3.1.12.2</spotbugs.version>
     <surefire.version>3.0.0-M4</surefire.version>
