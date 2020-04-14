@@ -320,7 +320,7 @@
     <install.version>3.0.0-M1</install.version>
     <jacoco.version>0.8.5</jacoco.version>
     <jar.version>3.2.0</jar.version>
-    <javadoc.version>3.1.1</javadoc.version>
+    <javadoc.version>3.2.0</javadoc.version>
     <jxr.version>3.0.0</jxr.version>
     <license.version>3.0</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
