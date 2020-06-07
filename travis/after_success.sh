@@ -31,7 +31,7 @@ echo "Current commit detected: ${commit_message}"
 
 if [ $TRAVIS_REPO_SLUG == "mybatis/parent" ] && [ $TRAVIS_PULL_REQUEST == "false" ] && [ $TRAVIS_BRANCH == "master" ] && [[ "$commit_message" != *"[maven-release-plugin]"* ]]; then
 
-  if [ $TRAVIS_JDK_VERSION == "oraclejdk8" ]; then
+  if [ $TRAVIS_JDK_VERSION == "openjdk8" ]; then
 
     # Deploy to sonatype
     ./mvnw deploy -q --settings ./travis/settings.xml
