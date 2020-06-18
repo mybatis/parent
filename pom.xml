@@ -336,7 +336,7 @@
     <site.version>3.9.0</site.version>
     <source.version>3.2.1</source.version>
     <spotbugs.version>4.0.0</spotbugs.version>
-    <surefire.version>3.0.0-M4</surefire.version>
+    <surefire.version>3.0.0-M5</surefire.version>
     <taglist.version>2.4</taglist.version>
     <versions.version>2.7</versions.version>
     <whitespace.version>1.0.4</whitespace.version>
