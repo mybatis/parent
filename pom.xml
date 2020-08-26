@@ -314,7 +314,7 @@
     <coveralls.version>4.3.0</coveralls.version>
     <dependency.version>3.1.2</dependency.version>
     <deploy.version>3.0.0-M1</deploy.version>
-    <enforcer.version>3.0.0-M1</enforcer.version> <!-- Skip 3.0.0-M2/M3 as it does not work (known bug) -->
+    <enforcer.version>3.0.0-M3</enforcer.version> <!-- Skip 3.0.0-M2/M3 as it does not work (known bug) -->
     <formatter.version>2.12.2</formatter.version>
     <gpg.version>1.6</gpg.version>
     <impsort.version>1.4.1</impsort.version>
