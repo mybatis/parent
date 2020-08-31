@@ -294,7 +294,7 @@
     <base-bundle.version>9</base-bundle.version>
     <bnd.version>5.1.2</bnd.version>
     <build-tools.version>1.2.4</build-tools.version>
-    <checkstyle-core.version>8.35</checkstyle-core.version>
+    <checkstyle-core.version>8.36</checkstyle-core.version>
     <fluido.version>1.9</fluido.version>
     <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
     <wagon-ssh.version>3.4.0</wagon-ssh.version>
