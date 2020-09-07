@@ -328,7 +328,7 @@
     <modernizer.plugin>2.1.0</modernizer.plugin>
     <pdf.version>1.4</pdf.version>
     <pmd.version>3.13.0</pmd.version>
-    <project-info.version>3.1.0</project-info.version>
+    <project-info.version>3.1.1</project-info.version>
     <release.version>2.5.3</release.version> <!-- Skip 3.0.0-M1 as it has a major defect -->
     <resources.version>3.2.0</resources.version>
     <scm.version>1.11.2</scm.version>
