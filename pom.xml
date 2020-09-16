@@ -319,7 +319,7 @@
     <gpg.version>1.6</gpg.version>
     <impsort.version>1.4.1</impsort.version>
     <install.version>3.0.0-M1</install.version>
-    <jacoco.version>0.8.5</jacoco.version>
+    <jacoco.version>0.8.6</jacoco.version>
     <jar.version>3.2.0</jar.version>
     <javadoc.version>3.2.0</javadoc.version>
     <jxr.version>3.0.0</jxr.version>
