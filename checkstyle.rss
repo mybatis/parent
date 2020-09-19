@@ -20,19 +20,19 @@ under the License.
 <rss version="0.91">
   <channel>
     <title>mybatis-parent - Checkstyle report</title>
-    <link>http://www.mybatis.org/</link>
+    <link>https://www.mybatis.org/</link>
     <description>mybatis-parent - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2010 - 2019 MyBatis.org</copyright>
+    <copyright>&#169;2010 - 2020 MyBatis.org</copyright>
     <item>
       <title>File: 1,
              Errors: 0,
              Warnings: 0,
              Infos: 0
       </title>
-            <link>http://www.mybatis.org//checkstyle.html</link>
+            <link>https://www.mybatis.org//checkstyle.html</link>
       <description>
-        <p>Click <a href="http://www.mybatis.org//checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="https://www.mybatis.org//checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://www.mybatis.org//checkstyle.html#.mvn.wrapper.maven-wrapper.properties">.mvn/wrapper/maven-wrapper.properties</a>
+                  <a href="https://www.mybatis.org//checkstyle.html#.mvn.wrapper.maven-wrapper.properties">.mvn/wrapper/maven-wrapper.properties</a>
                 </td>
                 <td>
                   0
