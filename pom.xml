@@ -290,7 +290,7 @@
     <!--
      | Dependency versions
     -->
-    <asm.version>8.0.1</asm.version>
+    <asm.version>9.0</asm.version>
     <base-bundle.version>9</base-bundle.version>
     <bnd.version>5.1.2</bnd.version>
     <build-tools.version>1.2.4</build-tools.version>
