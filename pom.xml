@@ -323,7 +323,7 @@
     <jar.version>3.2.0</jar.version>
     <javadoc.version>3.2.0</javadoc.version>
     <jxr.version>3.0.0</jxr.version>
-    <license.version>3.0</license.version>
+    <license.version>4.0.rc2</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
     <modernizer.plugin>2.1.0</modernizer.plugin>
     <pdf.version>1.4</pdf.version>
@@ -372,16 +372,7 @@
             <excludes>
               <exclude>**/*.ctrl</exclude>
               <exclude>**/*.dat</exclude>
-              <exclude>**/*.lck</exclude>
-              <exclude>**/*.log</exclude>
-              <exclude>**/*maven-wrapper.properties</exclude>
-              <exclude>**/*MavenWrapperDownloader.java</exclude>
-              <exclude>.factorypath</exclude>
-              <exclude>.gitattributes</exclude>
-              <exclude>mvnw</exclude>
-              <exclude>mvnw.cmd</exclude>
               <exclude>ICLA</exclude>
-              <exclude>LICENSE</exclude>
               <exclude>KEYS</exclude>
               <exclude>NOTICE</exclude>
             </excludes>
@@ -785,6 +776,12 @@
             <id>prepare-agent</id>
             <goals>
               <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <goals>
+              <goal>report</goal>
             </goals>
           </execution>
         </executions>
