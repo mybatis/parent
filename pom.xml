@@ -329,8 +329,8 @@
     <modernizer.plugin>2.2.0</modernizer.plugin>
     <pdf.version>1.4</pdf.version>
     <pmd.version>3.14.0</pmd.version>
-    <release.version>2.5.3</release.version> <!-- Skip 3.0.0-M1 as it has a major defect -->
     <project-info.version>3.1.2</project-info.version>
+    <release.version>3.0.0-M4</release.version>
     <resources.version>3.2.0</resources.version>
     <scm.version>1.11.2</scm.version>
     <shade.version>3.2.4</shade.version>
