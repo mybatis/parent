@@ -27,4 +27,4 @@ updates:
     - "> 2.0.3"
   - dependency-name: jakarta.xml.bind:jakarta.xml.bind-api
     versions:
-    - "< 3.0.0"
+    - "> 3.0.0"
