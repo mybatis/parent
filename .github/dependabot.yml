@@ -25,3 +25,6 @@ updates:
   - dependency-name: net.trajano.wagon:wagon-git
     versions:
     - "> 2.0.3"
+  - dependency-name: jakarta.xml.bind:jakarta.xml.bind-api
+    versions:
+    - "< 3.0.0"
