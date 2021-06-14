@@ -313,7 +313,7 @@
     <clirr.version>2.8</clirr.version>
     <compiler.version>3.8.1</compiler.version>
     <coveralls.version>4.3.0</coveralls.version>
-    <dependency.version>3.1.2</dependency.version>
+    <dependency.version>3.2.0</dependency.version>
     <deploy.version>3.0.0-M1</deploy.version>
     <enforcer.version note="Skip 3.0.0-M2/M3 as it does not work (known bug)">3.0.0-M1</enforcer.version>
     <formatter.version>2.15.0</formatter.version>
