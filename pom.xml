@@ -356,7 +356,7 @@
     <signature.artifact>java18</signature.artifact>
     <signature.version>1.0</signature.version>
 
-    <!-- Add slow test groups here and annotate classes similar to @Tag('groupName') which will auto enable on travis-ci only. -->
+    <!-- Add slow test groups here and annotate classes similar to @Tag('groupName') which will auto enable on CI ONLY. -->
     <excludedGroups />
   </properties>
 
@@ -1139,6 +1139,20 @@
       </build>
     </profile>
 
+    <profile>
+      <!-- Run slow tests only on CI ONLY, to force run otherwise use -D"env.CI_ONLY_TEST_GROUPS" -->
+      <id>ci-only</id>
+      <activation>
+        <property>
+          <name>env.CI_ONLY_TEST_GROUPS</name>
+        </property>
+      </activation>
+      <properties>
+        <excludedGroups />
+      </properties>
+    </profile>
+
+    <!-- TODO: Deprecated until usage of travis is removed in full -->
     <profile>
       <!-- Run slow tests only on travis ci, to force run otherwise use -D"env.TRAVIS" -->
       <id>travis-ci</id>
