@@ -242,8 +242,8 @@
     <url>https://github.com/mybatis/parent/issues</url>
   </issueManagement>
   <ciManagement>
-    <system>Travis CI</system>
-    <url>https://travis-ci.org/mybatis/parent</url>
+    <system>Github Actions</system>
+    <url>https://github.com/mybatis/parent/actions</url>
   </ciManagement>
   <distributionManagement>
     <site>
