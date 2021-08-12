@@ -332,7 +332,7 @@
     <project-info.version>3.1.2</project-info.version>
     <release.version>3.0.0-M4</release.version>
     <resources.version>3.2.0</resources.version>
-    <scm.version>1.11.2</scm.version>
+    <scm.version>1.11.3</scm.version>
     <shade.version>3.2.4</shade.version>
     <site.version>3.9.1</site.version>
     <source.version>3.2.1</source.version>
