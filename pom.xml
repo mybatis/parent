@@ -293,7 +293,7 @@
     <asm.version>9.2</asm.version>
     <base-bundle.version>9</base-bundle.version>
     <bind-api.version>2.3.3</bind-api.version>
-    <bnd.version>5.3.0</bnd.version>
+    <bnd.version>6.0.0</bnd.version>
     <build-tools.version>1.2.6</build-tools.version>
     <checkstyle-core.version>9.0.1</checkstyle-core.version>
     <fluido.version>1.9</fluido.version>
