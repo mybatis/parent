@@ -316,7 +316,7 @@
     <dependency.version>3.2.0</dependency.version>
     <deploy.version>3.0.0-M1</deploy.version>
     <enforcer.version note="Skip 3.0.0-M2/M3 as it does not work (known bug)">3.0.0</enforcer.version>
-    <formatter.version>2.16.0</formatter.version>
+    <formatter.version>2.17.0</formatter.version>
     <gpg.version>3.0.1</gpg.version>
     <impsort.version>1.6.2</impsort.version>
     <install.version>3.0.0-M1</install.version>
