@@ -9,5 +9,3 @@ MyBatis Parent
 ![mybatis](http://www.mybatis.org/images/mybatis-logo.png)
 
 MyBatis-Parent is the MyBatis parent POM which has to be inherited by all MyBatis modules.
-
-
