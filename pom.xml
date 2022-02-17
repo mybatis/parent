@@ -314,7 +314,7 @@
     <checkstyle.plugin>3.1.2</checkstyle.plugin>
     <clean.version>3.1.0</clean.version>
     <clirr.version>2.8</clirr.version>
-    <compiler.version>3.9.0</compiler.version>
+    <compiler.version note="Stay with 3.9.0 as 3.10.0 breaks windows package info files">3.9.0</compiler.version>
     <coveralls.version>4.3.0</coveralls.version>
     <dependency.version>3.2.0</dependency.version>
     <deploy.version>3.0.0-M2</deploy.version>
