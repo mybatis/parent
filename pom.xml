@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2021 the original author or authors.
+       Copyright 2010-2022 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -311,7 +311,7 @@
     <checkstyle.plugin>3.1.2</checkstyle.plugin>
     <clean.version>3.1.0</clean.version>
     <clirr.version>2.8</clirr.version>
-    <compiler.version>3.10.0</compiler.version>
+    <compiler.version>3.9.0</compiler.version>
     <coveralls.version>4.3.0</coveralls.version>
     <dependency.version>3.2.0</dependency.version>
     <deploy.version>3.0.0-M2</deploy.version>
@@ -324,7 +324,7 @@
     <jar.version>3.2.2</jar.version>
     <javadoc.version>3.3.2</javadoc.version>
     <jxr.version>3.1.1</jxr.version>
-    <license.version>4.1</license.version>
+    <license.version>4.2.rc2</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
     <modernizer.plugin>2.3.0</modernizer.plugin>
     <pdf.version>1.5.1</pdf.version>
