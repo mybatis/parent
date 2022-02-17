@@ -723,7 +723,7 @@
             <!--
              | Stop the JAVA_1_n_HOME / JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml
             -->
-            <_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME,JAVA_1_7_HOME,JAVA_1_8_HOME,JAVA_1_9_HOME,JAVA_8_HOME,JAVA_9_HOME,JAVA_10_HOME,JAVA_11_HOME,JAVA_12_HOME,JAVA_13_HOME,JAVA_14_HOME,JAVA_15_HOME</_removeheaders>
+            <_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME,JAVA_1_7_HOME,JAVA_1_8_HOME,JAVA_1_9_HOME,JAVA_8_HOME,JAVA_9_HOME,JAVA_10_HOME,JAVA_11_HOME,JAVA_12_HOME,JAVA_13_HOME,JAVA_14_HOME,JAVA_15_HOME,JAVA_16_HOME,JAVA_17_HOME</_removeheaders>
             <Bundle-SymbolicName>${osgi.symbolicName}</Bundle-SymbolicName>
             <Export-Package>${osgi.export}</Export-Package>
             <Private-Package>${osgi.private}</Private-Package>
