@@ -342,7 +342,7 @@
     <spotbugs.version>4.5.3.0</spotbugs.version>
     <surefire.version>3.0.0-M5</surefire.version>
     <taglist.version>3.0.0</taglist.version>
-    <versions.version>2.9.0</versions.version>
+    <versions.version>2.10.0</versions.version>
     <whitespace.version>1.0.4</whitespace.version>
 
     <!--
