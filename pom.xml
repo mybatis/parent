@@ -326,7 +326,7 @@
     <jacoco.version>0.8.7</jacoco.version>
     <jar.version>3.2.2</jar.version>
     <javadoc.version>3.3.2</javadoc.version>
-    <jxr.version>3.1.1</jxr.version>
+    <jxr.version>3.2.0</jxr.version>
     <license.version>4.2.rc2</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
     <modernizer.plugin>2.4.0</modernizer.plugin>
