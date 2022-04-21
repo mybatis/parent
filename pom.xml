@@ -337,7 +337,7 @@
     <resources.version>3.2.0</resources.version>
     <scm.version>1.12.2</scm.version>
     <shade.version>3.3.0</shade.version>
-    <site.version>3.11.0</site.version>
+    <site.version>3.12.0</site.version>
     <source.version>3.2.1</source.version>
     <spotbugs.version>4.6.0.0</spotbugs.version>
     <surefire.version>3.0.0-M6</surefire.version>
