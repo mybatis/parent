@@ -307,7 +307,7 @@
      | Plugins versions
     -->
     <animal.version>1.21</animal.version>
-    <antrun.version>3.0.0</antrun.version>
+    <antrun.version>3.1.0</antrun.version>
     <assembly.version>3.3.0</assembly.version>
     <bundle.version>5.1.4</bundle.version>
     <changes.version>2.12.1</changes.version>
