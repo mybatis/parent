@@ -636,7 +636,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>${jar.version}</version>
+          <version>${jar.plugin}</version>
           <configuration>
             <archive>
               <manifestFile>${project.build.directory}/osgi/MANIFEST.MF</manifestFile>
@@ -786,7 +786,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
-          <version>${source.version}</version>
+          <version>${source.plugin}</version>
           <configuration>
             <archive>
               <manifest>
@@ -838,7 +838,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>taglist-maven-plugin</artifactId>
-          <version>${taglist.version}</version>
+          <version>${taglist.plugin}</version>
         </plugin>
 
         <plugin>
@@ -1157,7 +1157,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>${source.version}</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
