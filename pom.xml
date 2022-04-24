@@ -312,7 +312,6 @@
     <checkstyle.version>10.1</checkstyle.version>
     <extra-enforcer-rules.version>1.5.1</extra-enforcer-rules.version>
     <fluido.version>1.10.0</fluido.version>
-    <coveralls.version>4.3.0</coveralls.version>
     <license.version>4.2.rc3</license.version>
     <wagon-git.version note="Do not upgrade to 2.0.4 as it does not work with ssh properly">2.0.3</wagon-git.version>
     <wagon.version>3.5.1</wagon.version>
@@ -326,6 +325,7 @@
     <clean.plugin>3.2.0</clean.plugin>
     <clirr.plugin>2.8</clirr.plugin>
     <compiler.plugin>3.10.1</compiler.plugin>
+    <coveralls.plugin>4.4.1</coveralls.plugin>
     <dependency.plugin>3.3.0</dependency.plugin>
     <deploy.plugin>3.0.0-M2</deploy.plugin>
     <enforcer.plugin>3.0.0</enforcer.plugin>
@@ -577,9 +577,6 @@
         </plugin>
 
         <plugin>
-          <groupId>org.eluder.coveralls</groupId>
-          <artifactId>coveralls-maven-plugin</artifactId>
-          <version>${coveralls.version}</version>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>${dependency.plugin)</version>
