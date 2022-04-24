@@ -1172,20 +1172,6 @@
       </properties>
     </profile>
 
-    <!-- TODO: Deprecated until usage of travis is removed in full -->
-    <profile>
-      <!-- Run slow tests only on travis ci, to force run otherwise use -D"env.TRAVIS" -->
-      <id>travis-ci</id>
-      <activation>
-        <property>
-          <name>env.TRAVIS</name>
-        </property>
-      </activation>
-      <properties>
-        <excludedGroups />
-      </properties>
-    </profile>
-
     <profile>
       <id>bundle</id>
       <activation>
