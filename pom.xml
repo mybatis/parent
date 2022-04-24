@@ -309,50 +309,55 @@
     <bind-api.version>2.3.3</bind-api.version>
     <bnd.version>6.2.0</bnd.version>
     <build-tools.version>1.2.7</build-tools.version>
-    <checkstyle-core.version>10.1</checkstyle-core.version>
+    <checkstyle.version>10.1</checkstyle.version>
     <fluido.version>1.10.0</fluido.version>
-    <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
-    <wagon-ssh.version>3.5.1</wagon-ssh.version>
-
     <animal.version>1.21</animal.version>
-    <antrun.version>3.1.0</antrun.version>
-    <assembly.version>3.3.0</assembly.version>
-    <bundle.version>5.1.4</bundle.version>
-    <changes.version>2.12.1</changes.version>
-    <checkstyle.plugin>3.1.2</checkstyle.plugin>
-    <clean.version>3.2.0</clean.version>
-    <clirr.version>2.8</clirr.version>
-    <compiler.version note="Stay with 3.9.0 as 3.10.0 breaks windows package info files">3.10.1</compiler.version>
     <coveralls.version>4.3.0</coveralls.version>
-    <dependency.version>3.3.0</dependency.version>
-    <deploy.version>3.0.0-M2</deploy.version>
-    <enforcer.version>3.0.0</enforcer.version>
-    <formatter.version note="Stay with 2.16.0 for jdk 8 support for time being">2.18.0</formatter.version>
-    <gpg.version>3.0.1</gpg.version>
-    <impsort.version>1.6.2</impsort.version>
-    <install.version>3.0.0-M1</install.version>
-    <jacoco.version>0.8.8</jacoco.version>
-    <jar.version>3.2.2</jar.version>
-    <javadoc.version>3.4.0</javadoc.version>
-    <jxr.version>3.2.0</jxr.version>
     <license.version>4.2.rc3</license.version>
-    <lifecycle.version>1.0.0</lifecycle.version>
+    <wagon-git.version note="Do not upgrade to 2.0.4 as it does not work with ssh properly">2.0.3</wagon-git.version>
+    <wagon.version>3.5.1</wagon.version>
+
     <!-- Plugins versions -->
+    <antrun.plugin>3.1.0</antrun.plugin>
+    <assembly.version>3.3.0</assembly.plugin>
+    <bundle.plugin>5.1.4</bundle.plugin>
+    <changes.plugin>2.12.1</changes.plugin>
+    <checkstyle.plugin>3.1.2</checkstyle.plugin>
+    <clean.plugin>3.2.0</clean.plugin>
+    <clirr.plugin>2.8</clirr.plugin>
+    <compiler.plugin>3.10.1</compiler.plugin>
+    <dependency.plugin>3.3.0</dependency.plugin>
+    <deploy.plugin>3.0.0-M2</deploy.plugin>
+    <enforcer.plugin>3.0.0</enforcer.plugin>
+    <formatter.plugin>2.18.0</formatter.plugin>
+    <gpg.plugin>3.0.1</gpg.plugin>
+    <impsort.plugin>1.6.2</impsort.plugin>
+    <install.plugin>3.0.0-M1</install.plugin>
+    <jacoco.plugin>0.8.8</jacoco.plugin>
+    <jar.plugin>3.2.2</jar.plugin>
+    <javadoc.plugin>3.4.0</javadoc.plugin>
+    <jxr.plugin>3.2.0</jxr.plugin>
+    <license.plugin>4.2.rc3</license.plugin>
+    <lifecycle.plugin>1.0.0</lifecycle.plugin>
     <modernizer.plugin>2.4.0</modernizer.plugin>
-    <pdf.version>1.6.0</pdf.version>
-    <pmd.version>3.16.0</pmd.version>
-    <project-info.version>3.2.2</project-info.version>
-    <release.version>3.0.0-M5</release.version>
-    <resources.version>3.2.0</resources.version>
-    <scm.version>1.12.2</scm.version>
-    <shade.version>3.3.0</shade.version>
-    <site.version>3.12.0</site.version>
-    <source.version>3.2.1</source.version>
-    <spotbugs.version>4.6.0.0</spotbugs.version>
-    <surefire.version>3.0.0-M6</surefire.version>
-    <taglist.version>3.0.0</taglist.version>
-    <versions.version>2.10.0</versions.version>
-    <whitespace.version>1.0.4</whitespace.version>
+    <pdf.plugin>1.6.0</pdf.plugin>
+    <pmd.plugin>3.16.0</pmd.plugin>
+    <project-info.plugin>3.2.2</project-info.plugin>
+    <release.plugin>3.0.0-M5</release.plugin>
+    <resources.plugin>3.2.0</resources.plugin>
+    <scm.plugin>1.12.2</scm.plugin>
+    <shade.plugin>3.3.0</shade.plugin>
+    <site.plugin>3.12.0</site.plugin>
+    <sortpom.plugin>3.0.1</sortpom.plugin>
+    <source.plugin>3.2.1</source.plugin>
+    <spotbugs.plugin>4.6.0.0</spotbugs.plugin>
+    <surefire.plugin>3.0.0-M6</surefire.plugin>
+    <taglist.plugin>3.0.0</taglist.plugin>
+    <versions.plugin>2.10.0</versions.plugin>
+    <whitespace.plugin>1.0.4</whitespace.plugin>
+
+    <!-- Surefire Argline -->
+    <argLine>-Djdk.attach.allowAttachSelf</argLine>
 
     <!-- OSGi configuration properties -->
     <osgi.symbolicName>${project.groupId}.${project.artifactId}</osgi.symbolicName>
@@ -374,6 +379,11 @@
     <pluginManagement>
       <plugins>
 
+        <plugin>
+          <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+          <artifactId>whitespace-maven-plugin</artifactId>
+          <version>${whitespace.plugin)</version>
+        </plugin>
 
         <plugin>
           <groupId>com.github.ekryd.sortpom</groupId>
@@ -386,10 +396,27 @@
           </configuration>
         </plugin>
 
+
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>${spotbugs.plugin}</version>
+          <configuration>
+            <xmlOutput>true</xmlOutput>
+            <xmlOutputDirectory>${project.build.directory}/spotbugs-reports</xmlOutputDirectory>
+            <spotbugsXmlOutputDirectory>${project.build.directory}/spotbugs-reports</spotbugsXmlOutputDirectory>
+            <threshold>High</threshold>
+            <effort>Max</effort>
+            <visitors>FindDeadLocalStores,UnreadFields</visitors>
+            <onlyAnalyze>${spotbugs.onlyAnalyze}</onlyAnalyze>
+            <relaxed>true</relaxed>
+          </configuration>
+        </plugin>
+
         <plugin>
           <groupId>com.mycila</groupId>
           <artifactId>license-maven-plugin</artifactId>
-          <version>${license.version}</version>
+          <version>${license.plugin)</version>
           <configuration>
             <header>${project.basedir}/LICENSE_HEADER</header>
             <excludes>
@@ -412,30 +439,128 @@
           </dependencies>
         </plugin>
 
+        <plugin>
+          <groupId>io.jsonwebtoken.coveralls</groupId>
+          <artifactId>coveralls-maven-plugin</artifactId>
+          <version>${coveralls.plugin)</version>
+          <dependencies>
+            <dependency>
+              <groupId>jakarta.xml.bind</groupId>
+              <artifactId>jakarta.xml.bind-api</artifactId>
+              <version>${bind-api.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>net.revelc.code</groupId>
+          <artifactId>impsort-maven-plugin</artifactId>
+          <version>${impsort.plugin)</version>
+          <configuration>
+            <groups>${impsortGroups}</groups>
+            <staticGroups>java,*</staticGroups>
+            <removeUnused>true</removeUnused>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>net.revelc.code.formatter</groupId>
+          <artifactId>formatter-maven-plugin</artifactId>
+          <version>${formatter.plugin)</version>
+          <configuration>
+              <configFile>${formatter.config}</configFile>
+              <skipXmlFormatting>true</skipXmlFormatting>
+            </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>com.github.hazendaz</groupId>
+              <artifactId>build-tools</artifactId>
+              <version>${build-tools.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>${bundle.plugin}</version>
+          <configuration>
+            <excludeDependencies>true</excludeDependencies>
+            <manifestLocation>${project.build.directory}/osgi</manifestLocation>
+            <supportedProjectTypes>
+              <supportedProjectType>jar</supportedProjectType>
+              <supportedProjectType>bundle</supportedProjectType>
+              <supportedProjectType>war</supportedProjectType>
+              <supportedProjectType>maven-plugin</supportedProjectType>
+            </supportedProjectTypes>
+            <instructions>
+              <!-- stops the "uses" clauses being added to "Export-Package" manifest entry -->
+              <_nouses>true</_nouses>
+              <!-- Stop the JAVA_1_n_HOME / JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml (obsolete versions removed, if found, cleanup settings.xml) -->
+              <_removeheaders>JAVA_1_8_HOME,JAVA_8_HOME,JAVA_11_HOME,JAVA_17_HOME,JAVA_18_HOME,JAVA_19_HOME</_removeheaders>
+              <Bundle-SymbolicName>${osgi.symbolicName}</Bundle-SymbolicName>
+              <Export-Package>${osgi.export}</Export-Package>
+              <Private-Package>${osgi.private}</Private-Package>
+              <Import-Package>${osgi.import}</Import-Package>
+              <DynamicImport-Package>${osgi.dynamicImport}</DynamicImport-Package>
+              <Bundle-DocURL>${project.url}</Bundle-DocURL>
+            </instructions>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>biz.aQute.bnd</groupId>
+              <artifactId>biz.aQute.bndlib</artifactId>
+              <version>${bnd.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
         <!-- Antrun here only to override eclipse settings -->
         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>${antrun.version}</version>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>${antrun.plugin)</version>
         </plugin>
 
         <!-- Assembly here only to override eclipse settings -->
         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <version>${assembly.version}</version>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>${assembly.plugin)</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.mybatis</groupId>
+              <artifactId>base-bundle-descriptor</artifactId>
+              <version>${base-bundle.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-changes-plugin</artifactId>
+          <version>${changes.plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>${checkstyle.plugin}</version>
+          <configuration>
+            <failOnViolation>false</failOnViolation>
+          </configuration>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>${clean.version}</version>
+          <version>${clean.plugin)</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>${compiler.version}</version>
+          <version>${compiler.plugin)</version>
           <configuration>
             <optimize>true</optimize>
             <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
@@ -447,6 +572,41 @@
           <groupId>org.eluder.coveralls</groupId>
           <artifactId>coveralls-maven-plugin</artifactId>
           <version>${coveralls.version}</version>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${dependency.plugin)</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${deploy.plugin)</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${enforcer.plugin)</version>
+          <configuration>
+            <rules>
+              <enforceBytecodeVersion>
+                <maxJdkVersion>${java.version}</maxJdkVersion>
+              </enforceBytecodeVersion>
+              <requireJavaVersion>
+                <version>${allowed.build.jdks}</version>
+              </requireJavaVersion>
+              <requireMavenVersion>
+                <version>[${maven.min-version},)</version>
+              </requireMavenVersion>
+              <requirePluginVersions>
+                <message>[ERROR] Best Practice is to always define plugin versions!</message>
+                <banLatest>true</banLatest>
+                <banRelease>true</banRelease>
+                <banSnapshots>true</banSnapshots>
+                <phases>clean,deploy,site</phases>
+              </requirePluginVersions>
+            </rules>
+          </configuration>
           <dependencies>
             <dependency>
               <groupId>jakarta.xml.bind</groupId>
@@ -458,35 +618,78 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-dependency-plugin</artifactId>
-          <version>${dependency.version}</version>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>${deploy.version}</version>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${gpg.plugin}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
-          <version>${install.version}</version>
+          <version>${install.plugin)</version>
         </plugin>
 
         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>${javadoc.version}</version>
-            <configuration>
-                <quiet>true</quiet>
-            </configuration>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${jar.version}</version>
+          <configuration>
+            <archive>
+              <manifestFile>${project.build.directory}/osgi/MANIFEST.MF</manifestFile>
+              <manifest>
+                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+              </manifest>
+              <manifestEntries>
+                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
+                <Copyright>${copyright}</Copyright>
+                <Git-Revision>${git.commit.id}</Git-Revision>
+                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
+              </manifestEntries>
+            </archive>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${javadoc.plugin)</version>
+          <configuration>
+            <additionalOptions>${html.javadocType}</additionalOptions>
+            <archive>
+              <manifest>
+                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+              </manifest>
+              <manifestEntries>
+                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
+                <Copyright>${copyright}</Copyright>
+                <Git-Revision>${git.commit.id}</Git-Revision>
+                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
+              </manifestEntries>
+            </archive>
+            <additionalparam>-Xdoclint:-missing</additionalparam>
+            <notimestamp>true</notimestamp>
+            <quiet>true</quiet>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jxr-plugin</artifactId>
+          <version>${jxr.plugin}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pdf-plugin</artifactId>
-          <version>${pdf.version}</version>
+          <version>${pdf.plugin)</version>
+          <!-- Execution such as this in plugin management requires plugin definition in build to work -->
           <executions>
             <execution>
               <id>pdf</id>
@@ -503,8 +706,25 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>${pmd.plugin}</version>
+          <configuration>
+            <analysisCache>true</analysisCache>
+            <linkXRef>true</linkXRef>
+            <minimumTokens>100</minimumTokens>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>${project-info.plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>${release.version}</version>
+          <version>${release.plugin)</version>
           <configuration>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <mavenExecutorId>forked-path</mavenExecutorId>
@@ -516,19 +736,20 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>${resources.version}</version>
+          <version>${resources.plugin)</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
-          <version>${shade.version}</version>
+          <version>${shade.plugin)</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>${site.version}</version>
+          <version>${site.plugin)</version>
+          <!-- Execution like this will pick up in the normal site cycle -->
           <executions>
             <execution>
               <id>attach-descriptor</id>
@@ -559,54 +780,74 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>${surefire.version}</version>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${source.version}</version>
           <configuration>
             <!-- In case of jmockit usage with jdk9 -->
             <argLine>${argLine} -Djdk.attach.allowAttachSelf</argLine>
+            <archive>
+              <manifest>
+                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+              </manifest>
+              <manifestEntries>
+                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
+                <Copyright>${copyright}</Copyright>
+                <Git-Revision>${git.commit.id}</Git-Revision>
+                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
+              </manifestEntries>
+            </archive>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${surefire.plugin)</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-report-plugin</artifactId>
+          <version>${surefire.plugin}</version>
         </plugin>
 
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
-          <version>${jacoco.version}</version>
+          <version>${jacoco.plugin)</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>clirr-maven-plugin</artifactId>
+          <version>${clirr.plugin}</version>
+          <configuration>
+            <comparisonVersion>${clirr.comparisonVersion}</comparisonVersion>
+            <failOnError>false</failOnError>
+            <failOnWarning>false</failOnWarning>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>taglist-maven-plugin</artifactId>
+          <version>${taglist.version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
-          <version>${versions.version}</version>
+          <version>${versions.plugin)</version>
         </plugin>
 
         <plugin>
-          <groupId>net.revelc.code.formatter</groupId>
-          <artifactId>formatter-maven-plugin</artifactId>
-          <version>${formatter.version}</version>
-          <dependencies>
-            <dependency>
-              <groupId>com.github.hazendaz</groupId>
-              <artifactId>build-tools</artifactId>
-              <version>${build-tools.version}</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-
-        <plugin>
-          <groupId>net.revelc.code</groupId>
-          <artifactId>impsort-maven-plugin</artifactId>
-          <version>${impsort.version}</version>
-          <configuration>
-            <groups>${impsortGroups}</groups>
-            <staticGroups>java,*</staticGroups>
-            <removeUnused>true</removeUnused>
-          </configuration>
-        </plugin>
-
-        <plugin>
-          <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
-          <artifactId>whitespace-maven-plugin</artifactId>
-          <version>${whitespace.version}</version>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>${lifecycle.plugin}</version>
         </plugin>
 
         <plugin>
@@ -634,12 +875,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${checkstyle.plugin}</version>
         <dependencies>
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>${checkstyle-core.version}</version>
+            <version>${checkstyle.version}</version>
           </dependency>
           <dependency>
             <groupId>com.github.hazendaz</groupId>
@@ -652,7 +892,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>${enforcer.version}</version>
         <executions>
           <execution>
             <id>enforce-java</id>
@@ -660,26 +899,6 @@
             <goals>
               <goal>enforce</goal>
             </goals>
-            <configuration>
-              <rules>
-                <requireJavaVersion>
-                  <version>[${maven.compiler.source},)</version>
-                </requireJavaVersion>
-                <requireMavenVersion>
-                  <version>[${maven.min-version},)</version>
-                </requireMavenVersion>
-                <requirePluginVersions>
-                  <message>[ERROR] Best Practice is to always define plugin versions!</message>
-                  <banLatest>true</banLatest>
-                  <banRelease>true</banRelease>
-                  <banSnapshots>true</banSnapshots>
-                  <phases>clean,deploy,site</phases>
-                </requirePluginVersions>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
 
       <!--
        | Make sure we only use defined java version methods
@@ -714,14 +933,6 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
-        <version>${bundle.version}</version>
-        <dependencies>
-            <dependency>
-                <groupId>biz.aQute.bnd</groupId>
-                <artifactId>biz.aQute.bndlib</artifactId>
-                <version>${bnd.version}</version>
-            </dependency>
-        </dependencies>
         <executions>
           <execution>
             <id>bundle-manifest</id>
@@ -731,70 +942,6 @@
             </goals>
           </execution>
         </executions>
-        <configuration>
-          <excludeDependencies>true</excludeDependencies>
-          <manifestLocation>${project.build.directory}/osgi</manifestLocation>
-          <supportedProjectTypes>
-            <supportedProjectType>jar</supportedProjectType>
-            <supportedProjectType>bundle</supportedProjectType>
-            <supportedProjectType>war</supportedProjectType>
-            <supportedProjectType>maven-plugin</supportedProjectType>
-          </supportedProjectTypes>
-          <instructions>
-            <!--
-             | stops the "uses" clauses being added to "Export-Package" manifest entry
-            -->
-            <_nouses>true</_nouses>
-            <!--
-             | Stop the JAVA_1_n_HOME / JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml
-            -->
-            <_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME,JAVA_1_7_HOME,JAVA_1_8_HOME,JAVA_1_9_HOME,JAVA_8_HOME,JAVA_9_HOME,JAVA_10_HOME,JAVA_11_HOME,JAVA_12_HOME,JAVA_13_HOME,JAVA_14_HOME,JAVA_15_HOME,JAVA_16_HOME,JAVA_17_HOME</_removeheaders>
-            <Bundle-SymbolicName>${osgi.symbolicName}</Bundle-SymbolicName>
-            <Export-Package>${osgi.export}</Export-Package>
-            <Private-Package>${osgi.private}</Private-Package>
-            <Import-Package>${osgi.import}</Import-Package>
-            <DynamicImport-Package>${osgi.dynamicImport}</DynamicImport-Package>
-            <Bundle-DocURL>${project.url}</Bundle-DocURL>
-          </instructions>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>${jar.version}</version>
-        <configuration>
-          <archive>
-            <manifestFile>${project.build.directory}/osgi/MANIFEST.MF</manifestFile>
-            <manifest>
-              <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
-              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-            </manifest>
-            <manifestEntries>
-              <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
-              <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
-              <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
-            </manifestEntries>
-          </archive>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>clirr-maven-plugin</artifactId>
-        <version>${clirr.version}</version>
-        <configuration>
-          <comparisonVersion>${clirr.comparisonVersion}</comparisonVersion>
-          <failOnError>false</failOnError>
-          <failOnWarning>false</failOnWarning>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-scm-plugin</artifactId>
-        <version>${scm.version}</version>
       </plugin>
 
       <plugin>
@@ -817,8 +964,8 @@
       </plugin>
 
       <plugin>
-        <artifactId>whitespace-maven-plugin</artifactId>
         <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+        <artifactId>whitespace-maven-plugin</artifactId>
         <executions>
           <execution>
             <phase>process-sources</phase>
@@ -872,13 +1019,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>${project-info.version}</version>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${javadoc.version}</version>
         <reportSets>
           <reportSet>
             <id>default</id>
@@ -892,35 +1037,21 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
-        <version>${jxr.version}</version>
       </plugin>
 
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>${spotbugs.version}</version>
-        <configuration>
-          <xmlOutput>true</xmlOutput>
-          <xmlOutputDirectory>${project.build.directory}/spotbugs-reports</xmlOutputDirectory>
-          <spotbugsXmlOutputDirectory>${project.build.directory}/spotbugs-reports</spotbugsXmlOutputDirectory>
-          <threshold>High</threshold>
-          <effort>Max</effort>
-          <visitors>FindDeadLocalStores,UnreadFields</visitors>
-          <onlyAnalyze>${spotbugs.onlyAnalyze}</onlyAnalyze>
-          <relaxed>true</relaxed>
-        </configuration>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>${surefire.version}</version>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-changes-plugin</artifactId>
-        <version>${changes.version}</version>
         <configuration>
           <issueLinkTemplate>%URL%/issues/%ISSUE%</issueLinkTemplate>
         </configuration>
@@ -936,7 +1067,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${checkstyle.plugin}</version>
         <configuration>
             <configLocation>${checkstyle.config}</configLocation>
         </configuration>
@@ -945,18 +1075,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>${pmd.version}</version>
-        <configuration>
-          <analysisCache>true</analysisCache>
-          <linkXRef>true</linkXRef>
-          <minimumTokens>100</minimumTokens>
-        </configuration>
       </plugin>
 
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>taglist-maven-plugin</artifactId>
-        <version>${taglist.version}</version>
         <configuration>
           <tagListOptions>
             <tagClasses>
@@ -981,10 +1104,6 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>clirr-maven-plugin</artifactId>
-        <version>${clirr.version}</version>
-        <configuration>
-          <comparisonVersion>${clirr.comparisonVersion}</comparisonVersion>
-        </configuration>
       </plugin>
 
       <!-- This plugin will fail if any POM is marked as Byte Order Mark is UTF-8 (BOM).
@@ -993,13 +1112,11 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
-        <version>${versions.version}</version>
       </plugin>
 
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${jacoco.version}</version>
         <reportSets>
           <reportSet>
             <reports>
@@ -1018,7 +1135,8 @@
       <id>format</id>
       <activation>
         <file>
-          <exists>format.xml</exists>
+          <!-- project.basedir is invalid in this location as not resolved by this point, use basedir -->
+          <exists>${basedir}/format.xml</exists>
         </file>
       </activation>
       <build>
@@ -1028,7 +1146,6 @@
             <artifactId>formatter-maven-plugin</artifactId>
             <configuration>
               <configFile>${formatter.config}</configFile>
-              <skipXmlFormatting>true</skipXmlFormatting>
             </configuration>
             <executions>
               <execution>
@@ -1054,26 +1171,6 @@
     </profile>
 
     <profile>
-      <id>jdk9on</id>
-      <activation>
-        <jdk>[9,)</jdk>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-javadoc-plugin</artifactId>
-              <configuration>
-                <additionalOptions>${html.javadocType}</additionalOptions>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-
-    <profile>
       <id>release</id>
       <build>
         <plugins>
@@ -1087,19 +1184,6 @@
                 <goals>
                   <goal>jar-no-fork</goal>
                 </goals>
-                <configuration>
-                  <archive>
-                    <manifest>
-                      <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
-                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                      <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                    </manifest>
-                    <manifestEntries>
-                      <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
-                      <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
-                    </manifestEntries>
-                  </archive>
-                </configuration>
               </execution>
             </executions>
           </plugin>
@@ -1107,28 +1191,12 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>${javadoc.version}</version>
             <executions>
               <execution>
                 <id>attach-javadocs</id>
                 <goals>
                   <goal>jar</goal>
                 </goals>
-                <configuration>
-                  <archive>
-                    <manifest>
-                      <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
-                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                      <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                    </manifest>
-                    <manifestEntries>
-                      <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
-                      <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
-                    </manifestEntries>
-                  </archive>
-                  <additionalparam>-Xdoclint:-missing</additionalparam>
-                  <notimestamp>true</notimestamp>
-                </configuration>
               </execution>
             </executions>
           </plugin>
@@ -1136,7 +1204,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>${gpg.version}</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -1183,14 +1250,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
-            <version>${assembly.version}</version>
-            <dependencies>
-              <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>base-bundle-descriptor</artifactId>
-                <version>${base-bundle.version}</version>
-              </dependency>
-            </dependencies>
             <executions>
               <execution>
                 <phase>package</phase>
@@ -1271,7 +1330,6 @@
             <plugin>
               <groupId>org.eclipse.m2e</groupId>
               <artifactId>lifecycle-mapping</artifactId>
-              <version>${lifecycle.version}</version>
               <configuration>
                 <lifecycleMappingMetadata>
                   <pluginExecutions>
@@ -1376,6 +1434,7 @@
                 </lifecycleMappingMetadata>
               </configuration>
             </plugin>
+            <!-- Force Eclipse to use test side in order to ensure no compilation errors (generally these are same and make no difference) -->
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
