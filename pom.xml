@@ -373,6 +373,18 @@
     <pluginManagement>
       <plugins>
 
+
+        <plugin>
+          <groupId>com.github.ekryd.sortpom</groupId>
+          <artifactId>sortpom-maven-plugin</artifactId>
+          <version>${sortpom.plugin}</version>
+          <configuration>
+            <createBackupFile>false</createBackupFile>
+            <expandEmptyElements>false</expandEmptyElements>
+            <nrOfIndentSpace>2</nrOfIndentSpace>
+          </configuration>
+        </plugin>
+
         <plugin>
           <groupId>com.mycila</groupId>
           <artifactId>license-maven-plugin</artifactId>
@@ -1217,15 +1229,14 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>tidy-maven-plugin</artifactId>
-            <version>1.1.0</version>
+            <groupId>com.github.ekryd.sortpom</groupId>
+            <artifactId>sortpom-maven-plugin</artifactId>
             <executions>
               <execution>
-                <phase>verify</phase>
                 <goals>
-                  <goal>pom</goal>
+                  <goal>sort</goal>
                 </goals>
+                <phase>verify</phase>
               </execution>
             </executions>
           </plugin>
