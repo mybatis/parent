@@ -378,7 +378,7 @@
           <artifactId>license-maven-plugin</artifactId>
           <version>${license.version}</version>
           <configuration>
-            <header>${project.basedir}/license.txt</header>
+            <header>${project.basedir}/LICENSE_HEADER</header>
             <excludes>
               <exclude>**/*.ctrl</exclude>
               <exclude>**/*.dat</exclude>
@@ -1237,8 +1237,8 @@
       <id>license</id>
       <activation>
         <file>
-          <!-- project.basedir is invalid in this location, use basedir -->
-          <exists>${basedir}/license.txt</exists>
+          <!-- project.basedir is invalid in this location as not resolved by this point, use basedir -->
+          <exists>${basedir}/LICENSE_HEADER</exists>
         </file>
       </activation>
       <build>
