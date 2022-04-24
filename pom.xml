@@ -378,7 +378,7 @@
         <plugin>
           <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
           <artifactId>whitespace-maven-plugin</artifactId>
-          <version>${whitespace.plugin)</version>
+          <version>${whitespace.plugin}</version>
         </plugin>
 
         <plugin>
@@ -424,7 +424,7 @@
         <plugin>
           <groupId>com.mycila</groupId>
           <artifactId>license-maven-plugin</artifactId>
-          <version>${license.plugin)</version>
+          <version>${license.plugin}</version>
           <configuration>
             <header>${project.basedir}/LICENSE_HEADER</header>
             <excludes>
@@ -450,7 +450,7 @@
         <plugin>
           <groupId>io.jsonwebtoken.coveralls</groupId>
           <artifactId>coveralls-maven-plugin</artifactId>
-          <version>${coveralls.plugin)</version>
+          <version>${coveralls.plugin}</version>
           <dependencies>
             <dependency>
               <groupId>jakarta.xml.bind</groupId>
@@ -463,7 +463,7 @@
         <plugin>
           <groupId>net.revelc.code</groupId>
           <artifactId>impsort-maven-plugin</artifactId>
-          <version>${impsort.plugin)</version>
+          <version>${impsort.plugin}</version>
           <configuration>
             <groups>${impsortGroups}</groups>
             <staticGroups>java,*</staticGroups>
@@ -474,7 +474,7 @@
         <plugin>
           <groupId>net.revelc.code.formatter</groupId>
           <artifactId>formatter-maven-plugin</artifactId>
-          <version>${formatter.plugin)</version>
+          <version>${formatter.plugin}</version>
           <configuration>
               <configFile>${formatter.config}</configFile>
               <skipXmlFormatting>true</skipXmlFormatting>
@@ -527,14 +527,14 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-antrun-plugin</artifactId>
-          <version>${antrun.plugin)</version>
+          <version>${antrun.plugin}</version>
         </plugin>
 
         <!-- Assembly here only to override eclipse settings -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>${assembly.plugin)</version>
+          <version>${assembly.plugin}</version>
           <dependencies>
             <dependency>
               <groupId>org.mybatis</groupId>
@@ -562,13 +562,13 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>${clean.plugin)</version>
+          <version>${clean.plugin}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>${compiler.plugin)</version>
+          <version>${compiler.plugin}</version>
           <configuration>
             <optimize>true</optimize>
             <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
@@ -579,19 +579,19 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>${dependency.plugin)</version>
+          <version>${dependency.plugin}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>${deploy.plugin)</version>
+          <version>${deploy.plugin}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>${enforcer.plugin)</version>
+          <version>${enforcer.plugin}</version>
           <configuration>
             <rules>
               <enforceBytecodeVersion>
@@ -630,7 +630,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
-          <version>${install.plugin)</version>
+          <version>${install.plugin}</version>
         </plugin>
 
         <plugin>
@@ -660,7 +660,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>${javadoc.plugin)</version>
+          <version>${javadoc.plugin}</version>
           <configuration>
             <additionalOptions>${html.javadocType}</additionalOptions>
             <archive>
@@ -693,7 +693,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pdf-plugin</artifactId>
-          <version>${pdf.plugin)</version>
+          <version>${pdf.plugin}</version>
           <!-- Execution such as this in plugin management requires plugin definition in build to work -->
           <executions>
             <execution>
@@ -729,7 +729,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>${release.plugin)</version>
+          <version>${release.plugin}</version>
           <configuration>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <mavenExecutorId>forked-path</mavenExecutorId>
@@ -741,19 +741,19 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>${resources.plugin)</version>
+          <version>${resources.plugin}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
-          <version>${shade.plugin)</version>
+          <version>${shade.plugin}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>${site.plugin)</version>
+          <version>${site.plugin}</version>
           <!-- Execution like this will pick up in the normal site cycle -->
           <executions>
             <execution>
@@ -809,7 +809,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>${surefire.plugin)</version>
+          <version>${surefire.plugin}</version>
         </plugin>
 
         <plugin>
@@ -821,7 +821,7 @@
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
-          <version>${jacoco.plugin)</version>
+          <version>${jacoco.plugin}</version>
         </plugin>
 
         <plugin>
@@ -844,7 +844,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
-          <version>${versions.plugin)</version>
+          <version>${versions.plugin}</version>
         </plugin>
 
         <plugin>
