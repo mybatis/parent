@@ -310,6 +310,7 @@
     <bnd.version>6.2.0</bnd.version>
     <build-tools.version>1.2.7</build-tools.version>
     <checkstyle.version>10.1</checkstyle.version>
+    <extra-enforcer-rules.version>1.5.1</extra-enforcer-rules.version>
     <fluido.version>1.10.0</fluido.version>
     <animal.version>1.21</animal.version>
     <coveralls.version>4.3.0</coveralls.version>
@@ -609,9 +610,9 @@
           </configuration>
           <dependencies>
             <dependency>
-              <groupId>jakarta.xml.bind</groupId>
-              <artifactId>jakarta.xml.bind-api</artifactId>
-              <version>${bind-api.version}</version>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>extra-enforcer-rules</artifactId>
+              <version>${extra-enforcer-rules.version}</version>
             </dependency>
           </dependencies>
         </plugin>
