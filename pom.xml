@@ -259,6 +259,9 @@
   </distributionManagement>
 
   <properties>
+    <!-- Copyright -->
+    <copyright>2022</copyright>
+
     <!-- General configuration -->
     <checkstyle.config>checkstyle.xml</checkstyle.config>
     <clirr.comparisonVersion>34</clirr.comparisonVersion>
