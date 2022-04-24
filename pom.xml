@@ -788,8 +788,6 @@
           <artifactId>maven-source-plugin</artifactId>
           <version>${source.version}</version>
           <configuration>
-            <!-- In case of jmockit usage with jdk9 -->
-            <argLine>${argLine} -Djdk.attach.allowAttachSelf</argLine>
             <archive>
               <manifest>
                 <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
