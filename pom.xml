@@ -312,7 +312,6 @@
     <checkstyle.version>10.1</checkstyle.version>
     <extra-enforcer-rules.version>1.5.1</extra-enforcer-rules.version>
     <fluido.version>1.10.0</fluido.version>
-    <animal.version>1.21</animal.version>
     <coveralls.version>4.3.0</coveralls.version>
     <license.version>4.2.rc3</license.version>
     <wagon-git.version note="Do not upgrade to 2.0.4 as it does not work with ssh properly">2.0.3</wagon-git.version>
@@ -366,11 +365,6 @@
     <osgi.import>*</osgi.import>
     <osgi.dynamicImport />
     <osgi.private />
-
-    <!-- Animal Sniffer Signature -->
-    <signature.group>org.codehaus.mojo.signature</signature.group>
-    <signature.artifact>java18</signature.artifact>
-    <signature.version>1.0</signature.version>
 
     <!-- Add slow test groups here and annotate classes similar to @Tag('groupName') which will auto enable on CI ONLY. -->
     <excludedGroups />
@@ -899,33 +893,6 @@
             <phase>validate</phase>
             <goals>
               <goal>enforce</goal>
-            </goals>
-
-      <!--
-       | Make sure we only use defined java version methods
-      -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>animal-sniffer-maven-plugin</artifactId>
-        <version>${animal.version}</version>
-        <configuration>
-          <signature>
-            <groupId>${signature.group}</groupId>
-            <artifactId>${signature.artifact}</artifactId>
-            <version>${signature.version}</version>
-          </signature>
-          <!-- TODO: Remove these once confirmed no longer needed -->
-          <annotations>
-            <annotation>org.apache.ibatis.lang.UsesJava7</annotation>
-            <annotation>org.apache.ibatis.lang.UsesJava8</annotation>
-          </annotations>
-        </configuration>
-        <executions>
-          <execution>
-            <id>check-java-compat</id>
-            <phase>process-classes</phase>
-            <goals>
-              <goal>check</goal>
             </goals>
           </execution>
         </executions>
