@@ -330,6 +330,7 @@
     <deploy.plugin>3.0.0-M2</deploy.plugin>
     <enforcer.plugin>3.0.0</enforcer.plugin>
     <formatter.plugin>2.18.0</formatter.plugin>
+    <git-commit.plugin>5.0.0</git-commit.plugin>
     <gpg.plugin>3.0.1</gpg.plugin>
     <impsort.plugin>1.6.2</impsort.plugin>
     <install.plugin>3.0.0-M1</install.plugin>
@@ -391,6 +392,18 @@
           </configuration>
         </plugin>
 
+        <plugin>
+          <groupId>io.github.git-commit-id</groupId>
+          <artifactId>git-commit-id-maven-plugin</artifactId>
+          <version>${git-commit.plugin}</version>
+          <configuration>
+            <failOnNoGitDirectory>false</failOnNoGitDirectory>
+            <!-- Fixes occassional issue in commit id plugin - see https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
+            <gitDescribe>
+              <always>true</always>
+            </gitDescribe>
+          </configuration>
+        </plugin>
 
         <plugin>
           <groupId>com.github.spotbugs</groupId>
