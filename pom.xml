@@ -261,7 +261,7 @@
   <properties>
     <!-- General configuration -->
     <checkstyle.config>checkstyle.xml</checkstyle.config>
-    <clirr.comparisonVersion>32</clirr.comparisonVersion>
+    <clirr.comparisonVersion>34</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
     <html.javadocType>-html5</html.javadocType>
