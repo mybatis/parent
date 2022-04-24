@@ -266,7 +266,7 @@
     <gcu.product>${project.name}</gcu.product>
     <html.javadocType>-html5</html.javadocType>
     <impsortGroups>au,com,de,java,javassist,javax,lombok,mockit,net,ognl,org</impsortGroups>
-    <maven.min-version>3.2.5</maven.min-version>
+    <maven.min-version>3.3.9</maven.min-version>
     <module.name>org.mybatis.parent</module.name>
     <spotbugs.onlyAnalyze />
 
