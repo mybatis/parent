@@ -259,9 +259,7 @@
   </distributionManagement>
 
   <properties>
-    <!--
-     | General configuration
-    -->
+    <!-- General configuration -->
     <checkstyle.config>checkstyle.xml</checkstyle.config>
     <clirr.comparisonVersion>32</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
@@ -272,14 +270,14 @@
     <module.name>org.mybatis.parent</module.name>
     <spotbugs.onlyAnalyze />
 
-    <!--
-     | Maven confirmation
-    -->
+    <!-- Maven date configuration -->
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
     <maven.compiler.testSource>1.8</maven.compiler.testSource>
+    <!-- Maven compiler options -->
+    <!-- Project Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -290,9 +288,7 @@
     <!-- Due to maven bug, fix timestamp -->
     <timestamp>${maven.build.timestamp}</timestamp>
 
-    <!--
-     | Dependency versions
-    -->
+    <!-- Dependency versions -->
     <asm.version>9.3</asm.version>
     <base-bundle.version>9</base-bundle.version>
     <bind-api.version>2.3.3</bind-api.version>
@@ -303,9 +299,6 @@
     <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it does not work with ssh properly -->
     <wagon-ssh.version>3.5.1</wagon-ssh.version>
 
-    <!--
-     | Plugins versions
-    -->
     <animal.version>1.21</animal.version>
     <antrun.version>3.1.0</antrun.version>
     <assembly.version>3.3.0</assembly.version>
@@ -329,6 +322,7 @@
     <jxr.version>3.2.0</jxr.version>
     <license.version>4.2.rc3</license.version>
     <lifecycle.version>1.0.0</lifecycle.version>
+    <!-- Plugins versions -->
     <modernizer.plugin>2.4.0</modernizer.plugin>
     <pdf.version>1.6.0</pdf.version>
     <pmd.version>3.16.0</pmd.version>
@@ -345,9 +339,7 @@
     <versions.version>2.10.0</versions.version>
     <whitespace.version>1.0.4</whitespace.version>
 
-    <!--
-     | OSGi configuration properties
-    -->
+    <!-- OSGi configuration properties -->
     <osgi.symbolicName>${project.groupId}.${project.artifactId}</osgi.symbolicName>
     <osgi.export>${project.groupId}.*;version=${project.version};-noimport:=true</osgi.export>
     <osgi.import>*</osgi.import>
