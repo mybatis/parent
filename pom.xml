@@ -266,7 +266,6 @@
     <gcu.product>${project.name}</gcu.product>
     <html.javadocType>-html5</html.javadocType>
     <impsortGroups>au,com,de,java,javassist,javax,lombok,mockit,net,ognl,org</impsortGroups>
-    <maven.min-version>3.3.9</maven.min-version>
     <module.name>org.mybatis.parent</module.name>
     <spotbugs.onlyAnalyze />
 
@@ -277,6 +276,10 @@
     <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
     <maven.compiler.testSource>1.8</maven.compiler.testSource>
     <!-- Maven compiler options -->
+
+    <!-- Maven minimum version -->
+    <maven.min-version>3.3.9</maven.min-version>
+
     <!-- Project Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
