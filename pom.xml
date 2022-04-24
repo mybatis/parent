@@ -771,8 +771,8 @@
             </dependency>
             <dependency>
               <groupId>org.apache.maven.wagon</groupId>
-              <artifactId>wagon-ssh</artifactId>
-              <version>${wagon-ssh.version}</version>
+              <artifactId>wagon-scm</artifactId>
+              <version>${wagon.version}</version>
             </dependency>
             <!-- Additional entries for version site tracking only -->
             <dependency>
