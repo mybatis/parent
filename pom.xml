@@ -349,7 +349,7 @@
     <scm.plugin>1.12.2</scm.plugin>
     <shade.plugin>3.3.0</shade.plugin>
     <site.plugin>3.12.0</site.plugin>
-    <sortpom.plugin>3.1.2</sortpom.plugin>
+    <sortpom.plugin>3.1.3</sortpom.plugin>
     <source.plugin>3.2.1</source.plugin>
     <spotbugs.plugin>4.7.0.0</spotbugs.plugin>
     <surefire.plugin>3.0.0-M6</surefire.plugin>
