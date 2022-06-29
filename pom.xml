@@ -314,7 +314,7 @@
     <fluido.version>1.11.0</fluido.version>
     <license.version>4.2.rc3</license.version>
     <wagon-git.version note="Do not upgrade to 2.0.4 as it does not work with ssh properly">2.0.3</wagon-git.version>
-    <wagon.version>3.5.1</wagon.version>
+    <wagon.version>3.5.2</wagon.version>
 
     <!-- Plugins versions -->
     <antrun.plugin>3.1.0</antrun.plugin>
