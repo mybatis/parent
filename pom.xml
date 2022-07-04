@@ -263,7 +263,7 @@
     <copyright>2022</copyright>
 
     <!-- General configuration -->
-    <allowed.build.jdks>11,17,18,19</allowed.build.jdks>
+    <allowed.build.jdks>11,17,18,19,20</allowed.build.jdks>
     <checkstyle.config>checkstyle.xml</checkstyle.config>
     <clirr.comparisonVersion>34</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
@@ -530,7 +530,6 @@
           <version>${antrun.plugin}</version>
         </plugin>
 
-        <!-- Assembly here only to override eclipse settings -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
@@ -662,7 +661,9 @@
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${javadoc.plugin}</version>
           <configuration>
-            <additionalOptions>${html.javadocType}</additionalOptions>
+            <additionalOptions>
+                <option>${html.javadocType}</option>
+            </additionalOptions>
             <archive>
               <manifest>
                 <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
