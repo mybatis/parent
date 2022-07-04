@@ -530,7 +530,6 @@
           <version>${antrun.plugin}</version>
         </plugin>
 
-        <!-- Assembly here only to override eclipse settings -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
