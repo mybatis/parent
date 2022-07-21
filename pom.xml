@@ -327,7 +327,7 @@
     <compiler.plugin>3.10.1</compiler.plugin>
     <coveralls.plugin>4.4.1</coveralls.plugin>
     <dependency.plugin>3.3.0</dependency.plugin>
-    <deploy.plugin>3.0.0-M2</deploy.plugin>
+    <deploy.plugin>3.0.0</deploy.plugin>
     <enforcer.plugin>3.1.0</enforcer.plugin>
     <formatter.plugin>2.19.0</formatter.plugin>
     <git-commit.plugin>5.0.0</git-commit.plugin>
