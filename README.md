@@ -24,7 +24,7 @@ Configurations
 - ```checkstyle``` - Uses ```<checkstyle.config>``` property which can be independently overridden as needed
 - ```formatter``` - Uses ```<formatter.config>``` property which can be independently overridden as needed.  Default spacing is 2 character spacing.
 - ```JPMS``` - Uses ```<module.name>``` property which needs overridden in every downstream module.
-- ```endoing`` - Uses UTF-8 by default which can be overridden through ```<project.build.sourceEncoding>```, ```<project.build.resourceEncoding>```, and ```<project.reporting.outputEncoding>```.
+- ```encoding``` - Uses UTF-8 by default which can be overridden through ```<project.build.sourceEncoding>```, ```<project.build.resourceEncoding>```, and ```<project.reporting.outputEncoding>```.
 - ```compiler``` - Controlled through ```<java.version>``` and ```<java.release.version>``` setting source, target, and release with possibilty for split tests.
 - ```reproducable``` - Set ```<project.build.outputTimestamp``` to controll reproducable build timestamp, this will auto update during releases, it not overridden, it will use value from last parent release.
 
