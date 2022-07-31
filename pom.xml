@@ -17,6 +17,7 @@
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.mybatis</groupId>
@@ -428,13 +429,20 @@
           <configuration>
             <header>${project.basedir}/LICENSE_HEADER</header>
             <excludes>
+              <!-- Default excludes located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/Default.java -->
+
+              <!-- Exclude extra items used throughout mybatis -->
               <exclude>**/*.ctrl</exclude>
               <exclude>**/*.dat</exclude>
               <exclude>ICLA</exclude>
               <exclude>KEYS</exclude>
               <exclude>NOTICE</exclude>
+
+              <!-- Exclude special folder to ignore license -->
+              <exclude>**/unlicensed/**</exclude>
             </excludes>
             <mapping>
+              <!-- Default mapping located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/document/DocumentType.java -->
               <xml.vm>XML_STYLE</xml.vm>
             </mapping>
           </configuration>
@@ -743,6 +751,10 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
           <version>${resources.plugin}</version>
+          <configuration>
+            <!-- Defaults to source, use resources as this is a resource -->
+            <propertiesEncoding>${project.build.resourceEncoding}</propertiesEncoding>
+          </configuration>
         </plugin>
 
         <plugin>
