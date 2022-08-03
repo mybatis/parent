@@ -604,6 +604,7 @@
             <rules>
               <enforceBytecodeVersion>
                 <maxJdkVersion>${java.version}</maxJdkVersion>
+                <ignoredScopes>test</ignoredScopes>
               </enforceBytecodeVersion>
               <requireJavaVersion>
                 <version>${allowed.build.jdks}</version>
@@ -740,6 +741,7 @@
           <artifactId>maven-release-plugin</artifactId>
           <version>${release.plugin}</version>
           <configuration>
+            <arguments>-Daether.checksums.algorithms=SHA-512,SHA-256,SHA-1,MD5</arguments>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <mavenExecutorId>forked-path</mavenExecutorId>
             <useReleaseProfile>false</useReleaseProfile>
