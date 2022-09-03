@@ -280,8 +280,8 @@
     <!-- Maven compiler options -->
     <java.version>8</java.version>
     <java.release.version>8</java.release.version>
-    <java.test.version>${java.version}</java.test.version>
-    <java.test.release.version>${java.release.version}</java.test.release.version>
+    <java.test.version>11</java.test.version>
+    <java.test.release.version>11</java.test.release.version>
 
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
