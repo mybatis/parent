@@ -283,10 +283,12 @@
     <java.test.version>11</java.test.version>
     <java.test.release.version>11</java.test.release.version>
 
+    <!-- source/target are deprecated, remove in future release -->
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven.compiler.testSource>${java.test.version}</maven.compiler.testSource>
     <maven.compiler.testTarget>${java.test.version}</maven.compiler.testTarget>
+
     <maven.compiler.release>${java.release.version}</maven.compiler.release>
     <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
 
