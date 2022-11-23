@@ -580,6 +580,7 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${compiler.plugin}</version>
           <configuration>
+            <parameters>true</parameters>
             <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
             <useIncrementalCompilation>false</useIncrementalCompilation>
           </configuration>
