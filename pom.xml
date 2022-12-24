@@ -357,7 +357,7 @@
     <spotbugs.plugin>4.7.3.0</spotbugs.plugin>
     <surefire.plugin>3.0.0-M7</surefire.plugin>
     <taglist.plugin>3.0.0</taglist.plugin>
-    <versions.plugin>2.14.1</versions.plugin>
+    <versions.plugin>2.14.2</versions.plugin>
     <whitespace.plugin>1.0.4</whitespace.plugin>
 
     <!-- Surefire Argline -->
