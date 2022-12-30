@@ -1330,7 +1330,7 @@
               <configuration>
                 <lifecycleMappingMetadata>
                   <pluginExecutions>
-                    <!-- license m2e not in plugin, add ignore here -->
+                    <!-- license m2e not in plugin, add ignore here (while possible to run this, its too slow) -->
                     <pluginExecution>
                       <pluginExecutionFilter>
                         <groupId>com.mycila</groupId>
