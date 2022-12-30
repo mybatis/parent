@@ -1343,6 +1343,7 @@
                         <ignore />
                       </action>
                     </pluginExecution>
+                    <!-- impsort m2e in plugin states to ignore, we will process -->
                     <pluginExecution>
                       <pluginExecutionFilter>
                         <groupId>net.revelc.code</groupId>
