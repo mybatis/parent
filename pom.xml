@@ -442,6 +442,7 @@
 
               <!-- Exclude special folder to ignore license -->
               <exclude>**/unlicensed/**</exclude>
+              <exclude>**/ibderby/**</exclude>
             </excludes>
             <mapping>
               <!-- Default mapping located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/document/DocumentType.java -->
