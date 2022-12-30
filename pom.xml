@@ -1330,6 +1330,7 @@
               <configuration>
                 <lifecycleMappingMetadata>
                   <pluginExecutions>
+                    <!-- license m2e not in plugin, add ignore here -->
                     <pluginExecution>
                       <pluginExecutionFilter>
                         <groupId>com.mycila</groupId>
@@ -1360,6 +1361,7 @@
                         </execute>
                       </action>
                     </pluginExecution>
+                    <!-- whitespace m2e not in plugin, add processing for it -->
                     <pluginExecution>
                       <pluginExecutionFilter>
                         <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
