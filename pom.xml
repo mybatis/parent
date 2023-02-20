@@ -370,7 +370,8 @@
     <osgi.dynamicImport />
     <osgi.private />
 
-    <!-- Add slow test groups here and annotate classes similar to @Tag('groupName') which will auto enable on CI ONLY. -->
+    <!-- Add slow test groups here and annotate classes similar to @Tag('groupName'). -->
+    <!-- Excluded groups are ran on github ci, to force here, pass -D"excludedGroups=" -->
     <excludedGroups />
   </properties>
 
@@ -1216,19 +1217,6 @@
           </plugin>
         </plugins>
       </build>
-    </profile>
-
-    <profile>
-      <!-- Run slow tests only on CI ONLY, to force run otherwise use -D"env.CI_ONLY_TEST_GROUPS" -->
-      <id>ci-only</id>
-      <activation>
-        <property>
-          <name>env.CI_ONLY_TEST_GROUPS</name>
-        </property>
-      </activation>
-      <properties>
-        <excludedGroups />
-      </properties>
     </profile>
 
     <profile>
