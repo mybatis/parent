@@ -748,7 +748,6 @@
             <arguments>-Daether.checksums.algorithms=SHA-512,SHA-256,SHA-1,MD5</arguments>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <mavenExecutorId>forked-path</mavenExecutorId>
-            <useReleaseProfile>false</useReleaseProfile>
             <releaseProfiles>release</releaseProfiles>
           </configuration>
         </plugin>
