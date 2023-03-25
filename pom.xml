@@ -264,7 +264,7 @@
     <copyright>2022</copyright>
 
     <!-- General configuration -->
-    <allowed.build.jdks>[11,12),[17,18),[19,20),[20,21),[21,22)</allowed.build.jdks>
+    <allowed.build.jdks>[11,12),[17,18),[20,21),[21,22)</allowed.build.jdks>
     <checkstyle.config>checkstyle.xml</checkstyle.config>
     <clirr.comparisonVersion>36</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
