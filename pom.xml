@@ -358,7 +358,7 @@
     <surefire.plugin>3.0.0</surefire.plugin>
     <taglist.plugin>3.0.0</taglist.plugin>
     <versions.plugin>2.15.0</versions.plugin>
-    <whitespace.plugin>1.0.4</whitespace.plugin>
+    <whitespace.plugin>1.2.0</whitespace.plugin>
 
     <!-- Surefire Argline -->
     <argLine>-Djdk.attach.allowAttachSelf</argLine>
@@ -380,7 +380,7 @@
       <plugins>
 
         <plugin>
-          <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+          <groupId>com.github.hazendaz.maven</groupId>
           <artifactId>whitespace-maven-plugin</artifactId>
           <version>${whitespace.plugin}</version>
         </plugin>
@@ -952,7 +952,7 @@
       </plugin>
 
       <plugin>
-        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+        <groupId>com.github.hazendaz.maven</groupId>
         <artifactId>whitespace-maven-plugin</artifactId>
         <executions>
           <execution>
@@ -1340,23 +1340,6 @@
                         <versionRange>[${impsort.plugin},)</versionRange>
                         <goals>
                           <goal>sort</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <execute>
-                          <runOnConfiguration>true</runOnConfiguration>
-                          <runOnIncremental>true</runOnIncremental>
-                        </execute>
-                      </action>
-                    </pluginExecution>
-                    <!-- whitespace m2e not in plugin, add processing for it -->
-                    <pluginExecution>
-                      <pluginExecutionFilter>
-                        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
-                        <artifactId>whitespace-maven-plugin</artifactId>
-                        <versionRange>[${whitespace.plugin},)</versionRange>
-                        <goals>
-                          <goal>trim</goal>
                         </goals>
                       </pluginExecutionFilter>
                       <action>
