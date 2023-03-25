@@ -430,21 +430,25 @@
           <artifactId>license-maven-plugin</artifactId>
           <version>${license.plugin}</version>
           <configuration>
-            <header>${project.basedir}/LICENSE_HEADER</header>
-            <excludes>
-              <!-- Default excludes located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/Default.java -->
+            <licenseSets>
+              <licenseSet>
+                <header>${project.basedir}/LICENSE_HEADER</header>
+                <excludes>
+                  <!-- Default excludes located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/Default.java -->
 
-              <!-- Exclude extra items used throughout mybatis -->
-              <exclude>**/*.ctrl</exclude>
-              <exclude>**/*.dat</exclude>
-              <exclude>ICLA</exclude>
-              <exclude>KEYS</exclude>
-              <exclude>NOTICE</exclude>
+                  <!-- Exclude extra items used throughout mybatis -->
+                  <exclude>**/*.ctrl</exclude>
+                  <exclude>**/*.dat</exclude>
+                  <exclude>ICLA</exclude>
+                  <exclude>KEYS</exclude>
+                  <exclude>NOTICE</exclude>
 
-              <!-- Exclude special folder to ignore license -->
-              <exclude>**/unlicensed/**</exclude>
-              <exclude>**/ibderby/**</exclude>
-            </excludes>
+                  <!-- Exclude special folder to ignore license -->
+                  <exclude>**/unlicensed/**</exclude>
+                  <exclude>**/ibderby/**</exclude>
+                </excludes>
+              </licenseSet>
+            </licenseSets>
             <mapping>
               <!-- Default mapping located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/document/DocumentType.java -->
               <xml.vm>XML_STYLE</xml.vm>
