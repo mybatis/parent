@@ -315,7 +315,7 @@
     <checkstyle.version>10.9.2</checkstyle.version>
     <extra-enforcer-rules.version>1.6.1</extra-enforcer-rules.version>
     <fluido.version>1.11.2</fluido.version>
-    <license.version>4.2.rc3</license.version>
+    <license.version>4.2</license.version>
     <wagon-git.version note="Do not upgrade to 2.0.4 as it does not work with ssh properly">2.0.3</wagon-git.version>
     <wagon.version>3.5.3</wagon.version>
 
