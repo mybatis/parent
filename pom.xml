@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2022 the original author or authors.
+       Copyright 2010-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -261,10 +261,10 @@
 
   <properties>
     <!-- Copyright -->
-    <copyright>2022</copyright>
+    <copyright>2023</copyright>
 
     <!-- General configuration -->
-    <allowed.build.jdks>[11,12),[17,18),[19,20),[20,21),[21,22)</allowed.build.jdks>
+    <allowed.build.jdks>[11,12),[17,18),[20,21),[21,22)</allowed.build.jdks>
     <checkstyle.config>checkstyle.xml</checkstyle.config>
     <clirr.comparisonVersion>36</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
@@ -358,7 +358,7 @@
     <surefire.plugin>3.0.0</surefire.plugin>
     <taglist.plugin>3.0.0</taglist.plugin>
     <versions.plugin>2.15.0</versions.plugin>
-    <whitespace.plugin>1.0.4</whitespace.plugin>
+    <whitespace.plugin>1.2.0</whitespace.plugin>
 
     <!-- Surefire Argline -->
     <argLine>-Djdk.attach.allowAttachSelf</argLine>
@@ -380,7 +380,7 @@
       <plugins>
 
         <plugin>
-          <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+          <groupId>com.github.hazendaz.maven</groupId>
           <artifactId>whitespace-maven-plugin</artifactId>
           <version>${whitespace.plugin}</version>
         </plugin>
@@ -430,21 +430,25 @@
           <artifactId>license-maven-plugin</artifactId>
           <version>${license.plugin}</version>
           <configuration>
-            <header>${project.basedir}/LICENSE_HEADER</header>
-            <excludes>
-              <!-- Default excludes located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/Default.java -->
+            <licenseSets>
+              <licenseSet>
+                <header>${project.basedir}/LICENSE_HEADER</header>
+                <excludes>
+                  <!-- Default excludes located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/Default.java -->
 
-              <!-- Exclude extra items used throughout mybatis -->
-              <exclude>**/*.ctrl</exclude>
-              <exclude>**/*.dat</exclude>
-              <exclude>ICLA</exclude>
-              <exclude>KEYS</exclude>
-              <exclude>NOTICE</exclude>
+                  <!-- Exclude extra items used throughout mybatis -->
+                  <exclude>**/*.ctrl</exclude>
+                  <exclude>**/*.dat</exclude>
+                  <exclude>ICLA</exclude>
+                  <exclude>KEYS</exclude>
+                  <exclude>NOTICE</exclude>
 
-              <!-- Exclude special folder to ignore license -->
-              <exclude>**/unlicensed/**</exclude>
-              <exclude>**/ibderby/**</exclude>
-            </excludes>
+                  <!-- Exclude special folder to ignore license -->
+                  <exclude>**/unlicensed/**</exclude>
+                  <exclude>**/ibderby/**</exclude>
+                </excludes>
+              </licenseSet>
+            </licenseSets>
             <mapping>
               <!-- Default mapping located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/document/DocumentType.java -->
               <xml.vm>XML_STYLE</xml.vm>
@@ -517,7 +521,7 @@
               <!-- stops the "uses" clauses being added to "Export-Package" manifest entry -->
               <_nouses>true</_nouses>
               <!-- Stop the JAVA_1_n_HOME / JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml (obsolete versions removed, if found, cleanup settings.xml) -->
-              <_removeheaders>JAVA_1_8_HOME,JAVA_8_HOME,JAVA_11_HOME,JAVA_17_HOME,JAVA_18_HOME,JAVA_19_HOME,JAVA_20_HOME,JAVA_21_HOME</_removeheaders>
+              <_removeheaders>JAVA_1_8_HOME,JAVA_8_HOME,JAVA_11_HOME,JAVA_17_HOME,JAVA_20_HOME,JAVA_21_HOME</_removeheaders>
               <Bundle-SymbolicName>${osgi.symbolicName}</Bundle-SymbolicName>
               <Export-Package>${osgi.export}</Export-Package>
               <Private-Package>${osgi.private}</Private-Package>
@@ -952,7 +956,7 @@
       </plugin>
 
       <plugin>
-        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+        <groupId>com.github.hazendaz.maven</groupId>
         <artifactId>whitespace-maven-plugin</artifactId>
         <executions>
           <execution>
@@ -1340,23 +1344,6 @@
                         <versionRange>[${impsort.plugin},)</versionRange>
                         <goals>
                           <goal>sort</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <execute>
-                          <runOnConfiguration>true</runOnConfiguration>
-                          <runOnIncremental>true</runOnIncremental>
-                        </execute>
-                      </action>
-                    </pluginExecution>
-                    <!-- whitespace m2e not in plugin, add processing for it -->
-                    <pluginExecution>
-                      <pluginExecutionFilter>
-                        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
-                        <artifactId>whitespace-maven-plugin</artifactId>
-                        <versionRange>[${whitespace.plugin},)</versionRange>
-                        <goals>
-                          <goal>trim</goal>
                         </goals>
                       </pluginExecutionFilter>
                       <action>
