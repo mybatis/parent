@@ -324,7 +324,7 @@
     <assembly.plugin>3.5.0</assembly.plugin>
     <bundle.plugin>5.1.8</bundle.plugin>
     <changes.plugin>2.12.1</changes.plugin>
-    <checkstyle.plugin>3.2.1</checkstyle.plugin>
+    <checkstyle.plugin>3.2.2</checkstyle.plugin>
     <clean.plugin>3.2.0</clean.plugin>
     <clirr.plugin>2.8</clirr.plugin>
     <compiler.plugin>3.11.0</compiler.plugin>
