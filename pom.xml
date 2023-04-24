@@ -306,6 +306,9 @@
     <!-- Due to maven bug, fix timestamp -->
     <timestamp>${maven.build.timestamp}</timestamp>
 
+    <!-- Parent Tracking on site -->
+    <mybatis-parent.version>38-SNAPSHOT</mybatis-parent.version>
+
     <!-- Dependency versions -->
     <asm.version>9.5</asm.version>
     <base-bundle.version>10</base-bundle.version>
@@ -801,6 +804,12 @@
               <groupId>org.apache.maven.skins</groupId>
               <artifactId>maven-fluido-skin</artifactId>
               <version>${fluido.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.mybatis</groupId>
+              <artifactId>mybatis-parent</artifactId>
+              <version>${mybatis-parent.version}</version>
+              <type>pom</type>
             </dependency>
           </dependencies>
         </plugin>
