@@ -361,9 +361,6 @@
     <versions.plugin>2.15.0</versions.plugin>
     <whitespace.plugin>1.2.0</whitespace.plugin>
 
-    <!-- Surefire Argline -->
-    <argLine>-Djdk.attach.allowAttachSelf</argLine>
-
     <!-- OSGi configuration properties -->
     <osgi.symbolicName>${project.groupId}.${project.artifactId}</osgi.symbolicName>
     <osgi.export>${project.groupId}.*;version=${project.version};-noimport:=true</osgi.export>
