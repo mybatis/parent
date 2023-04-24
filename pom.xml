@@ -245,9 +245,9 @@
   </ciManagement>
   <distributionManagement>
     <site>
-      <id>gh-pages</id>
+      <id>gh-pages-scm</id>
       <name>Mybatis GitHub Pages</name>
-      <url>github:ssh://mybatis.github.io/parent/</url>
+      <url>scm:git:ssh://github.com/mybatis/parent.git</url>
     </site>
     <snapshotRepository>
       <id>ossrh</id>
@@ -266,7 +266,7 @@
     <!-- General configuration -->
     <allowed.build.jdks>[11,12),[17,18),[20,21),[21,22)</allowed.build.jdks>
     <checkstyle.config>checkstyle.xml</checkstyle.config>
-    <clirr.comparisonVersion>36</clirr.comparisonVersion>
+    <clirr.comparisonVersion>37</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
     <html.javadocType>-html5</html.javadocType>
@@ -293,7 +293,7 @@
     <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
 
     <!-- Maven minimum version -->
-    <maven.min-version>3.3.9</maven.min-version>
+    <maven.min-version>3.5.0</maven.min-version>
 
     <!-- Project Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -306,6 +306,9 @@
     <!-- Due to maven bug, fix timestamp -->
     <timestamp>${maven.build.timestamp}</timestamp>
 
+    <!-- Parent Tracking on site -->
+    <mybatis-parent.version>38-SNAPSHOT</mybatis-parent.version>
+
     <!-- Dependency versions -->
     <asm.version>9.5</asm.version>
     <base-bundle.version>10</base-bundle.version>
@@ -316,14 +319,11 @@
     <extra-enforcer-rules.version>1.6.2</extra-enforcer-rules.version>
     <fluido.version>1.11.2</fluido.version>
     <license.version>4.2</license.version>
-    <wagon-git.version note="Do not upgrade to 2.0.4 as it does not work with ssh properly">2.0.3</wagon-git.version>
-    <wagon.version>3.5.3</wagon.version>
 
     <!-- Plugins versions -->
     <antrun.plugin>3.1.0</antrun.plugin>
     <assembly.plugin>3.5.0</assembly.plugin>
     <bundle.plugin>5.1.8</bundle.plugin>
-    <changes.plugin>2.12.1</changes.plugin>
     <checkstyle.plugin>3.2.2</checkstyle.plugin>
     <clean.plugin>3.2.0</clean.plugin>
     <clirr.plugin>2.8</clirr.plugin>
@@ -349,7 +349,7 @@
     <project-info.plugin>3.4.3</project-info.plugin>
     <release.plugin>3.0.0</release.plugin>
     <resources.plugin>3.3.1</resources.plugin>
-    <scm.plugin>1.12.2</scm.plugin>
+    <scm-publish.plugin>3.2.1</scm-publish.plugin>
     <shade.plugin>3.4.1</shade.plugin>
     <site.plugin>3.12.1</site.plugin>
     <sortpom.plugin>3.2.1</sortpom.plugin>
@@ -359,9 +359,6 @@
     <taglist.plugin>3.0.0</taglist.plugin>
     <versions.plugin>2.15.0</versions.plugin>
     <whitespace.plugin>1.2.0</whitespace.plugin>
-
-    <!-- Surefire Argline -->
-    <argLine>-Djdk.attach.allowAttachSelf</argLine>
 
     <!-- OSGi configuration properties -->
     <osgi.symbolicName>${project.groupId}.${project.artifactId}</osgi.symbolicName>
@@ -558,12 +555,6 @@
               <version>${base-bundle.version}</version>
             </dependency>
           </dependencies>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-changes-plugin</artifactId>
-          <version>${changes.plugin}</version>
         </plugin>
 
         <plugin>
@@ -768,6 +759,19 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-scm-publish-plugin</artifactId>
+          <version>${scm-publish.plugin}</version>
+          <configuration>
+            <checkoutDirectory>${user.home}/maven-sites/${project.name}</checkoutDirectory>
+            <!-- Single module project has no need for site:stage, use target/site or target/checkout/target/site on release. -->
+            <content>${project.reporting.outputDirectory}</content>
+            <scmBranch>gh-pages</scmBranch>
+            <tryUpdate>true</tryUpdate>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
           <version>${shade.plugin}</version>
         </plugin>
@@ -776,6 +780,10 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>${site.plugin}</version>
+          <configuration>
+            <!-- don't deploy site with maven-site-plugin (instead use scm publish during release) -->
+            <skipDeploy>true</skipDeploy>
+          </configuration>
           <!-- Execution like this will pick up in the normal site cycle -->
           <executions>
             <execution>
@@ -786,21 +794,17 @@
             </execution>
           </executions>
           <dependencies>
-            <dependency>
-              <groupId>net.trajano.wagon</groupId>
-              <artifactId>wagon-git</artifactId>
-              <version>${wagon-git.version}</version>
-            </dependency>
-            <dependency>
-              <groupId>org.apache.maven.wagon</groupId>
-              <artifactId>wagon-ssh</artifactId>
-              <version>${wagon.version}</version>
-            </dependency>
             <!-- Additional entries for version site tracking only -->
             <dependency>
               <groupId>org.apache.maven.skins</groupId>
               <artifactId>maven-fluido-skin</artifactId>
               <version>${fluido.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.mybatis</groupId>
+              <artifactId>mybatis-parent</artifactId>
+              <version>${mybatis-parent.version}</version>
+              <type>pom</type>
             </dependency>
           </dependencies>
         </plugin>
@@ -1050,21 +1054,6 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-changes-plugin</artifactId>
-        <configuration>
-          <issueLinkTemplate>%URL%/issues/%ISSUE%</issueLinkTemplate>
-        </configuration>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>changes-report</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <configuration>
             <configLocation>${checkstyle.config}</configLocation>
@@ -1217,6 +1206,21 @@
             <configuration>
               <skip>true</skip>
             </configuration>
+          </plugin>
+
+          <!-- deploy site with maven-scm-publish-plugin -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-scm-publish-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>scm-publish</id>
+                <goals>
+                  <goal>publish-scm</goal>
+                </goals>
+                <phase>site-deploy</phase>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>
