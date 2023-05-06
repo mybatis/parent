@@ -1167,6 +1167,7 @@
               </configuration>
               <executions>
               <execution>
+                <phase>process-sources</phase>
                 <goals>
                   <goal>run</goal>
                 </goals>
