@@ -349,6 +349,7 @@
     <project-info.plugin>3.4.3</project-info.plugin>
     <release.plugin>3.0.0</release.plugin>
     <resources.plugin>3.3.1</resources.plugin>
+    <rewrite.plugin>4.45.0</rewrite.plugin>
     <scm-publish.plugin>3.2.1</scm-publish.plugin>
     <shade.plugin>3.4.1</shade.plugin>
     <site.plugin>3.12.1</site.plugin>
@@ -890,6 +891,11 @@
           </dependencies>
         </plugin>
 
+        <plugin>
+          <groupId>org.openrewrite.maven</groupId>
+          <artifactId>rewrite-maven-plugin</artifactId>
+          <version>${rewrite.plugin}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -1147,6 +1153,23 @@
               <execution>
                 <goals>
                   <goal>sort</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.openrewrite.maven</groupId>
+            <artifactId>rewrite-maven-plugin</artifactId>
+              <configuration>
+                <activeRecipes>
+                  <recipe>org.openrewrite.java.RemoveUnusedImports</recipe>
+                </activeRecipes>
+              </configuration>
+              <executions>
+              <execution>
+                <phase>process-sources</phase>
+                <goals>
+                  <goal>run</goal>
                 </goals>
               </execution>
             </executions>
