@@ -1165,6 +1165,13 @@
                   <recipe>org.openrewrite.java.RemoveUnusedImports</recipe>
                 </activeRecipes>
               </configuration>
+              <executions>
+              <execution>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+            </executions>
             </plugin>
         </plugins>
       </build>
