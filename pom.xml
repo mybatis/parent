@@ -322,7 +322,7 @@
 
     <!-- Plugins versions -->
     <antrun.plugin>3.1.0</antrun.plugin>
-    <assembly.plugin>3.5.0</assembly.plugin>
+    <assembly.plugin>3.6.0</assembly.plugin>
     <bundle.plugin>5.1.8</bundle.plugin>
     <checkstyle.plugin>3.2.2</checkstyle.plugin>
     <clean.plugin>3.2.0</clean.plugin>
