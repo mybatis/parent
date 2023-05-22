@@ -76,10 +76,10 @@
       <id>christianpoitras</id>
       <name>Christian Poitras</name>
       <email>christian.poitras@ircm.qc.ca</email>
-      <timezone>-5</timezone>
       <roles>
         <role>Committer</role>
       </roles>
+      <timezone>-5</timezone>
     </developer>
 
     <developer>
@@ -159,10 +159,10 @@
       <id>marcosperanza</id>
       <name>Marco Speranza</name>
       <email>marco.speranza79@gmail.com</email>
-      <timezone>+1</timezone>
       <roles>
         <role>Committer</role>
       </roles>
+      <timezone>+1</timezone>
     </developer>
 
     <developer>
@@ -187,10 +187,10 @@
       <id>simonetripodi</id>
       <name>Simone Tripodi</name>
       <email>simone.tripodi@gmail.com</email>
-      <timezone>+1</timezone>
       <roles>
         <role>Committer</role>
       </roles>
+      <timezone>+1</timezone>
     </developer>
 
     <developer>
@@ -206,34 +206,34 @@
   <mailingLists>
     <mailingList>
       <name>mybatis-dev</name>
-      <archive>https://groups.google.com/forum/#!forum/mybatis-dev</archive>
       <subscribe>https://groups.google.com/forum/#!forum/mybatis-dev/join</subscribe>
       <unsubscribe>https://groups.google.com/forum/#!forum/mybatis-dev/join</unsubscribe>
       <post>mybatis-dev@googlegroups.com</post>
+      <archive>https://groups.google.com/forum/#!forum/mybatis-dev</archive>
     </mailingList>
 
     <mailingList>
       <name>mybatis-user</name>
-      <archive>https://groups.google.com/forum/#!forum/mybatis-user</archive>
       <subscribe>https://groups.google.com/forum/#!forum/mybatis-user/join</subscribe>
       <unsubscribe>https://groups.google.com/forum/#!forum/mybatis-user/join</unsubscribe>
       <post>mybatis-user@googlegroups.com</post>
+      <archive>https://groups.google.com/forum/#!forum/mybatis-user</archive>
     </mailingList>
 
     <mailingList>
       <name>mybatis-commits</name>
-      <archive>https://groups.google.com/forum/#!forum/mybatis-commits</archive>
       <subscribe>https://groups.google.com/forum/#!forum/mybatis-commits/join</subscribe>
       <unsubscribe>https://groups.google.com/forum/#!forum/mybatis-commits/join</unsubscribe>
       <post>mybatis-commits@googlegroups.com</post>
+      <archive>https://groups.google.com/forum/#!forum/mybatis-commits</archive>
     </mailingList>
   </mailingLists>
 
   <scm>
-    <url>https://github.com/mybatis/parent</url>
     <connection>scm:git:ssh://github.com/mybatis/parent.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/mybatis/parent.git</developerConnection>
     <tag>HEAD</tag>
+    <url>https://github.com/mybatis/parent</url>
   </scm>
   <issueManagement>
     <system>GitHub Issue Management</system>
@@ -244,19 +244,19 @@
     <url>https://github.com/mybatis/parent/actions</url>
   </ciManagement>
   <distributionManagement>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
     <site>
       <id>gh-pages-scm</id>
       <name>Mybatis GitHub Pages</name>
       <url>scm:git:ssh://github.com/mybatis/parent.git</url>
     </site>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
   </distributionManagement>
 
   <properties>
@@ -272,7 +272,7 @@
     <html.javadocType>-html5</html.javadocType>
     <impsortGroups>au,ch,com,de,io,jakarta,java,javassist,javax,lombok,mockit,net,nl,ognl,org</impsortGroups>
     <module.name>org.mybatis.parent</module.name>
-    <spotbugs.onlyAnalyze />
+    <spotbugs.onlyAnalyze/>
 
     <!-- Maven date configuration -->
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
@@ -324,12 +324,12 @@
     <antrun.plugin>3.1.0</antrun.plugin>
     <assembly.plugin>3.6.0</assembly.plugin>
     <bundle.plugin>5.1.9</bundle.plugin>
-    <checkstyle.plugin>3.2.2</checkstyle.plugin>
+    <checkstyle.plugin>3.3.0</checkstyle.plugin>
     <clean.plugin>3.2.0</clean.plugin>
     <clirr.plugin>2.8</clirr.plugin>
     <compiler.plugin>3.11.0</compiler.plugin>
     <coveralls.plugin>4.4.1</coveralls.plugin>
-    <dependency.plugin>3.5.0</dependency.plugin>
+    <dependency.plugin>3.6.0</dependency.plugin>
     <deploy.plugin>3.1.1</deploy.plugin>
     <enforcer.plugin>3.3.0</enforcer.plugin>
     <formatter.plugin>2.22.0</formatter.plugin>
@@ -365,15 +365,30 @@
     <osgi.symbolicName>${project.groupId}.${project.artifactId}</osgi.symbolicName>
     <osgi.export>${project.groupId}.*;version=${project.version};-noimport:=true</osgi.export>
     <osgi.import>*</osgi.import>
-    <osgi.dynamicImport />
-    <osgi.private />
+    <osgi.dynamicImport/>
+    <osgi.private/>
 
     <!-- Add slow test groups here and annotate classes similar to @Tag('groupName'). -->
     <!-- Excluded groups are ran on github ci, to force here, pass -D"excludedGroups=" -->
-    <excludedGroups />
+    <excludedGroups/>
   </properties>
 
   <build>
+
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>${project.basedir}/src/main/resources</directory>
+      </resource>
+      <resource>
+        <targetPath>META-INF</targetPath>
+        <directory>${project.basedir}</directory>
+        <includes>
+          <include>LICENSE</include>
+          <include>NOTICE</include>
+        </includes>
+      </resource>
+    </resources>
     <pluginManagement>
       <plugins>
 
@@ -490,9 +505,9 @@
           <artifactId>formatter-maven-plugin</artifactId>
           <version>${formatter.plugin}</version>
           <configuration>
-              <configFile>${formatter.config}</configFile>
-              <skipXmlFormatting>true</skipXmlFormatting>
-            </configuration>
+            <configFile>${formatter.config}</configFile>
+            <skipXmlFormatting>true</skipXmlFormatting>
+          </configuration>
           <dependencies>
             <dependency>
               <groupId>com.github.hazendaz</groupId>
@@ -671,7 +686,7 @@
           <version>${javadoc.plugin}</version>
           <configuration>
             <additionalOptions>
-                <option>${html.javadocType}</option>
+              <option>${html.javadocType}</option>
             </additionalOptions>
             <archive>
               <manifest>
@@ -688,7 +703,6 @@
                 <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
               </manifestEntries>
             </archive>
-            <additionalparam>-Xdoclint:-missing</additionalparam>
             <notimestamp>true</notimestamp>
             <quiet>true</quiet>
           </configuration>
@@ -708,10 +722,10 @@
           <executions>
             <execution>
               <id>pdf</id>
-              <phase>prepare-package</phase>
               <goals>
                 <goal>pdf</goal>
               </goals>
+              <phase>prepare-package</phase>
               <configuration>
                 <includeReports>false</includeReports>
               </configuration>
@@ -785,15 +799,6 @@
             <!-- don't deploy site with maven-site-plugin (instead use scm publish during release) -->
             <skipDeploy>true</skipDeploy>
           </configuration>
-          <!-- Execution like this will pick up in the normal site cycle -->
-          <executions>
-            <execution>
-              <id>attach-descriptor</id>
-              <goals>
-                <goal>attach-descriptor</goal>
-              </goals>
-            </execution>
-          </executions>
           <dependencies>
             <!-- Additional entries for version site tracking only -->
             <dependency>
@@ -808,6 +813,15 @@
               <type>pom</type>
             </dependency>
           </dependencies>
+          <!-- Execution like this will pick up in the normal site cycle -->
+          <executions>
+            <execution>
+              <id>attach-descriptor</id>
+              <goals>
+                <goal>attach-descriptor</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
 
         <plugin>
@@ -924,10 +938,10 @@
         <executions>
           <execution>
             <id>enforce-java</id>
-            <phase>validate</phase>
             <goals>
               <goal>enforce</goal>
             </goals>
+            <phase>validate</phase>
           </execution>
         </executions>
       </plugin>
@@ -938,10 +952,10 @@
         <executions>
           <execution>
             <id>bundle-manifest</id>
-            <phase>process-classes</phase>
             <goals>
               <goal>manifest</goal>
             </goals>
+            <phase>process-classes</phase>
           </execution>
         </executions>
       </plugin>
@@ -970,10 +984,10 @@
         <artifactId>whitespace-maven-plugin</artifactId>
         <executions>
           <execution>
-            <phase>process-sources</phase>
             <goals>
               <goal>trim</goal>
             </goals>
+            <phase>process-sources</phase>
           </execution>
         </executions>
       </plugin>
@@ -998,29 +1012,14 @@
         <executions>
           <execution>
             <id>modernizer</id>
-            <phase>verify</phase>
             <goals>
               <goal>modernizer</goal>
             </goals>
+            <phase>verify</phase>
           </execution>
         </executions>
       </plugin>
     </plugins>
-
-    <resources>
-      <resource>
-        <directory>${project.basedir}/src/main/resources</directory>
-        <filtering>true</filtering>
-      </resource>
-      <resource>
-        <directory>${project.basedir}</directory>
-        <targetPath>META-INF</targetPath>
-        <includes>
-          <include>LICENSE</include>
-          <include>NOTICE</include>
-        </includes>
-      </resource>
-    </resources>
   </build>
 
   <reporting>
@@ -1062,7 +1061,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <configuration>
-            <configLocation>${checkstyle.config}</configLocation>
+          <configLocation>${checkstyle.config}</configLocation>
         </configuration>
       </plugin>
 
@@ -1160,17 +1159,17 @@
           <plugin>
             <groupId>org.openrewrite.maven</groupId>
             <artifactId>rewrite-maven-plugin</artifactId>
-              <configuration>
-                <activeRecipes>
-                  <recipe>org.openrewrite.java.RemoveUnusedImports</recipe>
-                </activeRecipes>
-              </configuration>
-              <executions>
+            <configuration>
+              <activeRecipes>
+                <recipe>org.openrewrite.java.RemoveUnusedImports</recipe>
+              </activeRecipes>
+            </configuration>
+            <executions>
               <execution>
-                <phase>process-sources</phase>
                 <goals>
                   <goal>run</goal>
                 </goals>
+                <phase>process-sources</phase>
               </execution>
             </executions>
           </plugin>
@@ -1214,10 +1213,10 @@
             <executions>
               <execution>
                 <id>sign-artifacts</id>
-                <phase>verify</phase>
                 <goals>
                   <goal>sign</goal>
                 </goals>
+                <phase>verify</phase>
               </execution>
             </executions>
           </plugin>
@@ -1261,10 +1260,10 @@
             <artifactId>maven-assembly-plugin</artifactId>
             <executions>
               <execution>
-                <phase>package</phase>
                 <goals>
                   <goal>single</goal>
                 </goals>
+                <phase>package</phase>
                 <configuration>
                   <attach>true</attach>
                   <appendAssemblyId>false</appendAssemblyId>
@@ -1314,10 +1313,10 @@
             <artifactId>license-maven-plugin</artifactId>
             <executions>
               <execution>
-                <phase>process-sources</phase>
                 <goals>
                   <goal>format</goal>
                 </goals>
+                <phase>process-sources</phase>
               </execution>
             </executions>
           </plugin>
@@ -1360,7 +1359,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore />
+                        <ignore/>
                       </action>
                     </pluginExecution>
                     <!-- impsort m2e in plugin states to ignore, we will process -->
