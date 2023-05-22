@@ -688,7 +688,6 @@
                 <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
               </manifestEntries>
             </archive>
-            <additionalparam>-Xdoclint:-missing</additionalparam>
             <notimestamp>true</notimestamp>
             <quiet>true</quiet>
           </configuration>
