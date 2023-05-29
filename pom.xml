@@ -230,7 +230,7 @@
   </mailingLists>
 
   <scm>
-    <connection>scm:git:ssh://github.com/mybatis/parent.git</connection>
+    <connection>scm:git:ssh://git@github.com/mybatis/parent.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/mybatis/parent.git</developerConnection>
     <tag>HEAD</tag>
     <url>https://github.com/mybatis/parent</url>
@@ -255,7 +255,7 @@
     <site>
       <id>gh-pages-scm</id>
       <name>Mybatis GitHub Pages</name>
-      <url>scm:git:ssh://github.com/mybatis/parent.git</url>
+      <url>scm:git:ssh://git@github.com/mybatis/parent.git</url>
     </site>
   </distributionManagement>
 
