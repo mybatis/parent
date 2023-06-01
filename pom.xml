@@ -332,7 +332,7 @@
     <dependency.plugin>3.6.0</dependency.plugin>
     <deploy.plugin>3.1.1</deploy.plugin>
     <enforcer.plugin>3.3.0</enforcer.plugin>
-    <formatter.plugin>2.22.0</formatter.plugin>
+    <formatter.plugin>2.23.0</formatter.plugin>
     <git-commit.plugin>6.0.0</git-commit.plugin>
     <gpg.plugin>3.1.0</gpg.plugin>
     <impsort.plugin>1.9.0</impsort.plugin>
