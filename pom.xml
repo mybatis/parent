@@ -351,7 +351,7 @@
     <resources.plugin>3.3.1</resources.plugin>
     <rewrite.plugin>5.2.1</rewrite.plugin>
     <scm-publish.plugin>3.2.1</scm-publish.plugin>
-    <shade.plugin>3.4.1</shade.plugin>
+    <shade.plugin>3.5.0</shade.plugin>
     <site.plugin>3.12.1</site.plugin>
     <sortpom.plugin>3.2.1</sortpom.plugin>
     <source.plugin>3.3.0</source.plugin>
