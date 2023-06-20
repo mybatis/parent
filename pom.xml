@@ -355,7 +355,7 @@
     <site.plugin>3.12.1</site.plugin>
     <sortpom.plugin>3.2.1</sortpom.plugin>
     <source.plugin>3.3.0</source.plugin>
-    <spotbugs.plugin>4.7.3.4</spotbugs.plugin>
+    <spotbugs.plugin>4.7.3.5</spotbugs.plugin>
     <surefire.plugin>3.1.2</surefire.plugin>
     <taglist.plugin>3.0.0</taglist.plugin>
     <versions.plugin>2.16.0</versions.plugin>
