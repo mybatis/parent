@@ -353,7 +353,7 @@
     <scm-publish.plugin>3.2.1</scm-publish.plugin>
     <shade.plugin>3.5.0</shade.plugin>
     <site.plugin>3.12.1</site.plugin>
-    <sortpom.plugin>3.2.1</sortpom.plugin>
+    <sortpom.plugin>3.3.0</sortpom.plugin>
     <source.plugin>3.3.0</source.plugin>
     <spotbugs.plugin>4.7.3.5</spotbugs.plugin>
     <surefire.plugin>3.1.2</surefire.plugin>
