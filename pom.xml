@@ -318,7 +318,7 @@
     <checkstyle.version>10.12.3</checkstyle.version>
     <extra-enforcer-rules.version>1.7.0</extra-enforcer-rules.version>
     <fluido.version>1.12.0</fluido.version>
-    <license.version>4.2</license.version>
+    <license.version>4.3</license.version>
 
     <!-- Plugins versions -->
     <antrun.plugin>3.1.0</antrun.plugin>
