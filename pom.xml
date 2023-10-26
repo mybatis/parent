@@ -324,7 +324,7 @@
     <antrun.plugin>3.1.0</antrun.plugin>
     <assembly.plugin>3.6.0</assembly.plugin>
     <bundle.plugin>5.1.9</bundle.plugin>
-    <checkstyle.plugin>3.3.0</checkstyle.plugin>
+    <checkstyle.plugin>3.3.1</checkstyle.plugin>
     <clean.plugin>3.3.1</clean.plugin>
     <clirr.plugin>2.8</clirr.plugin>
     <compiler.plugin>3.11.0</compiler.plugin>
