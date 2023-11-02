@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2022 the original author or authors.
+       Copyright 2010-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -23,9 +23,9 @@
 
   <bannerRight>
     <name>MyBatis</name>
-    <src>http://www.mybatis.org/images/mybatis-logo.png</src>
+    <src>https://www.mybatis.org/images/mybatis-logo.png</src>
     <alt>MyBatis logo</alt>
-    <href>http://www.mybatis.org/</href>
+    <href>https://blog.mybatis.org/</href>
   </bannerRight>
 
   <publishDate format="dd MMMM yyyy" position="left" />
