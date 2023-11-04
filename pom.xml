@@ -703,6 +703,7 @@
                 <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
               </manifestEntries>
             </archive>
+            <legacyMode>true</legacyMode>
             <notimestamp>true</notimestamp>
             <quiet>true</quiet>
           </configuration>
