@@ -1348,20 +1348,6 @@
               <configuration>
                 <lifecycleMappingMetadata>
                   <pluginExecutions>
-                    <!-- license m2e not in plugin, add ignore here (while possible to run this, its too slow) -->
-                    <pluginExecution>
-                      <pluginExecutionFilter>
-                        <groupId>com.mycila</groupId>
-                        <artifactId>license-maven-plugin</artifactId>
-                        <versionRange>[${license.version},)</versionRange>
-                        <goals>
-                          <goal>format</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <ignore />
-                      </action>
-                    </pluginExecution>
                     <!-- impsort m2e in plugin states to ignore, we will process -->
                     <pluginExecution>
                       <pluginExecutionFilter>
