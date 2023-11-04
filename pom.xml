@@ -1333,8 +1333,9 @@
       </activation>
       <properties>
         <!-- Make m2e use java at test revision level -->
-        <java.version>${java.test.version}</java.version>
-        <java.release.version>${java.test.release.version}</java.release.version>
+        <maven.compiler.source>${java.test.version}</maven.compiler.source>
+        <maven.compiler.target>${java.test.release.version}</maven.compiler.target>
+        <maven.compiler.release>${java.test.release.version}</maven.compiler.release>
       </properties>
       <build>
         <pluginManagement>
