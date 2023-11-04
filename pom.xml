@@ -293,7 +293,7 @@
     <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
 
     <!-- Maven minimum version -->
-    <maven.min-version>3.5.0</maven.min-version>
+    <maven.min-version>3.9.5</maven.min-version>
 
     <!-- Project Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -1128,8 +1128,7 @@
       <id>format</id>
       <activation>
         <file>
-          <!-- project.basedir is invalid in this location as not resolved by this point, use basedir -->
-          <exists>${basedir}/format.xml</exists>
+          <exists>${project.basedir}/format.xml</exists>
         </file>
       </activation>
       <build>
@@ -1302,8 +1301,7 @@
       <id>license</id>
       <activation>
         <file>
-          <!-- project.basedir is invalid in this location as not resolved by this point, use basedir -->
-          <exists>${basedir}/LICENSE_HEADER</exists>
+          <exists>${project.basedir}/LICENSE_HEADER</exists>
         </file>
       </activation>
       <build>
