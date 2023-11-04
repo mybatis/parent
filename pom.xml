@@ -272,7 +272,7 @@
     <html.javadocType>-html5</html.javadocType>
     <impsortGroups>au,ch,com,de,io,jakarta,java,javassist,javax,lombok,mockit,net,nl,ognl,org</impsortGroups>
     <module.name>org.mybatis.parent</module.name>
-    <spotbugs.onlyAnalyze />
+    <spotbugs.onlyAnalyze/>
 
     <!-- Maven date configuration -->
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
@@ -365,12 +365,12 @@
     <osgi.symbolicName>${project.groupId}.${project.artifactId}</osgi.symbolicName>
     <osgi.export>${project.groupId}.*;version=${project.version};-noimport:=true</osgi.export>
     <osgi.import>*</osgi.import>
-    <osgi.dynamicImport />
-    <osgi.private />
+    <osgi.dynamicImport/>
+    <osgi.private/>
 
     <!-- Add slow test groups here and annotate classes similar to @Tag('groupName'). -->
     <!-- Excluded groups are ran on github ci, to force here, pass -D"excludedGroups=" -->
-    <excludedGroups />
+    <excludedGroups/>
   </properties>
 
   <build>
@@ -876,6 +876,13 @@
             <failOnError>false</failOnError>
             <failOnWarning>false</failOnWarning>
           </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.bcel</groupId>
+              <artifactId>bcel</artifactId>
+              <version>6.7.0</version>
+            </dependency>
+          </dependencies>
         </plugin>
 
         <plugin>
