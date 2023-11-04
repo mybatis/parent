@@ -462,6 +462,7 @@
                 </excludes>
               </licenseSet>
             </licenseSets>
+            <prohibitLegacyUse>true</prohibitLegacyUse>
             <mapping>
               <!-- Default mapping located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/document/DocumentType.java -->
               <xml.vm>XML_STYLE</xml.vm>
