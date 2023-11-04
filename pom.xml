@@ -293,7 +293,7 @@
     <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
 
     <!-- Maven minimum version -->
-    <maven.min-version>3.5.0</maven.min-version>
+    <maven.min-version>3.9.5</maven.min-version>
 
     <!-- Project Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -466,6 +466,7 @@
               <!-- Default mapping located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/document/DocumentType.java -->
               <xml.vm>XML_STYLE</xml.vm>
             </mapping>
+            <prohibitLegacyUse>true</prohibitLegacyUse>
           </configuration>
           <dependencies>
             <dependency>
@@ -534,7 +535,7 @@
               <!-- stops the "uses" clauses being added to "Export-Package" manifest entry -->
               <_nouses>true</_nouses>
               <!-- Stop the JAVA_1_n_HOME / JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml (obsolete versions removed, if found, cleanup settings.xml) -->
-              <_removeheaders>JAVA_1_8_HOME,JAVA_8_HOME,JAVA_11_HOME,JAVA_17_HOME,JAVA_20_HOME,JAVA_21_HOME</_removeheaders>
+              <_removeheaders>JAVA_1_8_HOME,JAVA_8_HOME,JAVA_11_HOME,JAVA_17_HOME,JAVA_21_HOME,JAVA_22_HOME</_removeheaders>
               <Bundle-SymbolicName>${osgi.symbolicName}</Bundle-SymbolicName>
               <Export-Package>${osgi.export}</Export-Package>
               <Private-Package>${osgi.private}</Private-Package>
@@ -686,7 +687,7 @@
           <version>${javadoc.plugin}</version>
           <configuration>
             <additionalOptions>
-              <option>${html.javadocType}</option>
+              <additionalOption>${html.javadocType}</additionalOption>
             </additionalOptions>
             <archive>
               <manifest>
@@ -703,6 +704,7 @@
                 <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
               </manifestEntries>
             </archive>
+            <legacyMode>true</legacyMode>
             <notimestamp>true</notimestamp>
             <quiet>true</quiet>
           </configuration>
@@ -1077,14 +1079,36 @@
           <tagListOptions>
             <tagClasses>
               <tagClass>
-                <displayName>Todo Work</displayName>
+                <displayName>FIXME Work</displayName>
                 <tags>
                   <tag>
-                    <matchString>TODO</matchString>
+                    <matchString>fixme</matchString>
                     <matchType>ignoreCase</matchType>
                   </tag>
                   <tag>
-                    <matchString>FIXME</matchString>
+                    <matchString>@fixme</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                </tags>
+              </tagClass>
+              <tagClass>
+                <displayName>Todo Work</displayName>
+                <tags>
+                  <tag>
+                    <matchString>todo</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                  <tag>
+                    <matchString>@todo</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                </tags>
+              </tagClass>
+              <tagClass>
+                <displayName>Deprecated Work</displayName>
+                <tags>
+                  <tag>
+                    <matchString>@deprecated</matchString>
                     <matchType>ignoreCase</matchType>
                   </tag>
                 </tags>
@@ -1128,8 +1152,7 @@
       <id>format</id>
       <activation>
         <file>
-          <!-- project.basedir is invalid in this location as not resolved by this point, use basedir -->
-          <exists>${basedir}/format.xml</exists>
+          <exists>${project.basedir}/format.xml</exists>
         </file>
       </activation>
       <build>
@@ -1302,8 +1325,7 @@
       <id>license</id>
       <activation>
         <file>
-          <!-- project.basedir is invalid in this location as not resolved by this point, use basedir -->
-          <exists>${basedir}/LICENSE_HEADER</exists>
+          <exists>${project.basedir}/LICENSE_HEADER</exists>
         </file>
       </activation>
       <build>
@@ -1333,8 +1355,9 @@
       </activation>
       <properties>
         <!-- Make m2e use java at test revision level -->
-        <java.version>${java.test.version}</java.version>
-        <java.release.version>${java.test.release.version}</java.release.version>
+        <maven.compiler.source>${java.test.version}</maven.compiler.source>
+        <maven.compiler.target>${java.test.release.version}</maven.compiler.target>
+        <maven.compiler.release>${java.test.release.version}</maven.compiler.release>
       </properties>
       <build>
         <pluginManagement>
@@ -1348,20 +1371,6 @@
               <configuration>
                 <lifecycleMappingMetadata>
                   <pluginExecutions>
-                    <!-- license m2e not in plugin, add ignore here (while possible to run this, its too slow) -->
-                    <pluginExecution>
-                      <pluginExecutionFilter>
-                        <groupId>com.mycila</groupId>
-                        <artifactId>license-maven-plugin</artifactId>
-                        <versionRange>[${license.version},)</versionRange>
-                        <goals>
-                          <goal>format</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <ignore />
-                      </action>
-                    </pluginExecution>
                     <!-- impsort m2e in plugin states to ignore, we will process -->
                     <pluginExecution>
                       <pluginExecutionFilter>
