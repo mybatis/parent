@@ -686,7 +686,7 @@
           <version>${javadoc.plugin}</version>
           <configuration>
             <additionalOptions>
-              <option>${html.javadocType}</option>
+              <additionalOption>${html.javadocType}</additionalOption>
             </additionalOptions>
             <archive>
               <manifest>
