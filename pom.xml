@@ -22,7 +22,7 @@
 
   <groupId>org.mybatis</groupId>
   <artifactId>mybatis-parent</artifactId>
-  <version>40-SNAPSHOT</version>
+  <version>40</version>
   <packaging>pom</packaging>
 
   <name>mybatis-parent</name>
@@ -232,7 +232,7 @@
   <scm>
     <connection>scm:git:ssh://git@github.com/mybatis/parent.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/mybatis/parent.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>mybatis-parent-40</tag>
     <url>https://github.com/mybatis/parent</url>
   </scm>
   <issueManagement>
@@ -272,7 +272,7 @@
     <html.javadocType>-html5</html.javadocType>
     <impsortGroups>au,ch,com,de,io,jakarta,java,javassist,javax,lombok,mockit,net,nl,ognl,org</impsortGroups>
     <module.name>org.mybatis.parent</module.name>
-    <spotbugs.onlyAnalyze/>
+    <spotbugs.onlyAnalyze />
 
     <!-- Maven date configuration -->
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
@@ -301,13 +301,13 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!-- Reproducible Builds -->
-    <project.build.outputTimestamp>1695508686</project.build.outputTimestamp>
+    <project.build.outputTimestamp>1699330977</project.build.outputTimestamp>
 
     <!-- Due to maven bug, fix timestamp -->
     <timestamp>${maven.build.timestamp}</timestamp>
 
     <!-- Parent Tracking on site -->
-    <mybatis-parent.version>40-SNAPSHOT</mybatis-parent.version>
+    <mybatis-parent.version>40</mybatis-parent.version>
 
     <!-- Dependency versions -->
     <asm.version>9.6</asm.version>
@@ -365,12 +365,12 @@
     <osgi.symbolicName>${project.groupId}.${project.artifactId}</osgi.symbolicName>
     <osgi.export>${project.groupId}.*;version=${project.version};-noimport:=true</osgi.export>
     <osgi.import>*</osgi.import>
-    <osgi.dynamicImport/>
-    <osgi.private/>
+    <osgi.dynamicImport />
+    <osgi.private />
 
     <!-- Add slow test groups here and annotate classes similar to @Tag('groupName'). -->
     <!-- Excluded groups are ran on github ci, to force here, pass -D"excludedGroups=" -->
-    <excludedGroups/>
+    <excludedGroups />
   </properties>
 
   <build>
