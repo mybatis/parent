@@ -676,6 +676,7 @@
               <manifestEntries>
                 <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
                 <Copyright>${copyright}</Copyright>
+                <Git-Revision>${git.commit.id}</Git-Revision>
                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
                 <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
                 <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
