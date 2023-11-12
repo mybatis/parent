@@ -403,9 +403,12 @@
           <artifactId>sortpom-maven-plugin</artifactId>
           <version>${sortpom.plugin}</version>
           <configuration>
+            <predefinedSortOrder>recommended_2008_06</predefinedSortOrder>
             <createBackupFile>false</createBackupFile>
             <expandEmptyElements>false</expandEmptyElements>
+            <keepBlankLines>true</keepBlankLines>
             <nrOfIndentSpace>2</nrOfIndentSpace>
+            <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
           </configuration>
         </plugin>
 
@@ -673,6 +676,7 @@
               <manifestEntries>
                 <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
                 <Copyright>${copyright}</Copyright>
+                <Git-Revision>${git.commit.id}</Git-Revision>
                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
                 <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
                 <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
