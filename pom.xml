@@ -1393,9 +1393,9 @@
     </profile>
 
     <profile>
-      <id>pre11</id>
+      <id>pre17</id>
       <activation>
-        <jdk>(,11)</jdk>
+        <jdk>(,17)</jdk>
       </activation>
       <properties>
           <bnd.version>6.4.1</bnd.version>
