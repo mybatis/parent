@@ -16,16 +16,13 @@
        limitations under the License.
 
 -->
-<project name="${project.name}" xmlns="http://maven.apache.org/DECORATION/1.8.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 https://maven.apache.org/xsd/decoration-1.8.0.xsd">
+<site name="${project.name}" xmlns="http://maven.apache.org/SITE/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/SITE/2.0.0 https://maven.apache.org/xsd/site-2.0.0.xsd">
 
 <!-- N.B. all non-body elements are automatically inherited -->
 
-  <bannerRight>
-    <name>MyBatis</name>
-    <src>https://www.mybatis.org/images/mybatis-logo.png</src>
-    <alt>MyBatis logo</alt>
-    <href>https://blog.mybatis.org/</href>
+  <bannerRight name="MyBatis" href="https://blog.mybatis.org/">
+    <image src="https://www.mybatis.org/images/mybatis-logo.png" alt="MyBatis logo" />
   </bannerRight>
 
   <publishDate format="dd MMMM yyyy" position="left" />
@@ -41,4 +38,4 @@
   <body>
     <menu ref="reports" />
   </body>
-</project>
+</site>
