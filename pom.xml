@@ -354,7 +354,7 @@
     <site.plugin>4.0.0-M12</site.plugin>
     <sortpom.plugin>3.3.0</sortpom.plugin>
     <source.plugin>3.3.0</source.plugin>
-    <spotbugs.plugin>4.8.1.0</spotbugs.plugin>
+    <spotbugs.plugin>4.8.2.0</spotbugs.plugin>
     <surefire.plugin>3.2.2</surefire.plugin>
     <taglist.plugin>3.0.0</taglist.plugin>
     <versions.plugin>2.16.2</versions.plugin>
