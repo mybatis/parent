@@ -327,7 +327,7 @@
     <clean.plugin>3.3.2</clean.plugin>
     <clirr.plugin>2.8</clirr.plugin>
     <compiler.plugin>3.12.1</compiler.plugin>
-    <coveralls.plugin>4.5.0-M2</coveralls.plugin>
+    <coveralls.plugin>4.5.0-M3</coveralls.plugin>
     <dependency.plugin>3.6.1</dependency.plugin>
     <deploy.plugin>3.1.1</deploy.plugin>
     <enforcer.plugin>3.4.1</enforcer.plugin>
