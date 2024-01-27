@@ -27,7 +27,7 @@
 
   <name>mybatis-parent</name>
   <description>The MyBatis parent POM.</description>
-  <url>https://www.mybatis.org/</url>
+  <url>https://github.com/mybatis/parent</url>
   <inceptionYear>2010</inceptionYear>
   <organization>
     <name>MyBatis.org</name>
