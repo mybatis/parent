@@ -27,7 +27,7 @@
 
   <name>mybatis-parent</name>
   <description>The MyBatis parent POM.</description>
-  <url>https://github.com/mybatis/parent</url>
+  <url>https://www.mybatis.org/parent/</url>
   <inceptionYear>2010</inceptionYear>
   <organization>
     <name>MyBatis.org</name>
@@ -233,7 +233,7 @@
     <connection>scm:git:ssh://git@github.com/mybatis/parent.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/mybatis/parent.git</developerConnection>
     <tag>HEAD</tag>
-    <url>https://github.com/mybatis/parent</url>
+    <url>https://github.com/mybatis/parent/</url>
   </scm>
   <issueManagement>
     <system>GitHub Issue Management</system>
