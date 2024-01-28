@@ -14,77 +14,80 @@ Building
 ========
 
 - Builds require JDK 11 or better to build with and will continue to target JDK 8 runtimes.
-- Allowable JDKs to build with include 11, 17, 18, 19-ea, or 20-ea
-- Minimum maven version to build projects is 3.3.9
+- Allowable JDKs to build with include 11, 17, 21, or 22-ea
+- Minimum maven version to build projects is 3.9.6
 - Uses reproducable builds
 
 Configurations
 ==============
 
-- ```checkstyle``` - Uses ```<checkstyle.config>``` property which can be independently overridden as needed
-- ```formatter``` - Uses ```<formatter.config>``` property which can be independently overridden as needed.  Default spacing is 2 character spacing.
-- ```JPMS``` - Uses ```<module.name>``` property which needs overridden in every downstream module.
-- ```encoding``` - Uses UTF-8 by default which can be overridden through ```<project.build.sourceEncoding>```, ```<project.build.resourceEncoding>```, and ```<project.reporting.outputEncoding>```.
+- ```buildJdks``` - Uses ```<allowed.build.jdks>``` property for allowed jdks to build with.  Defaults to 11, 17, 21, or 22-ea.
+- ```checkstyle``` - Uses ```<checkstyle.config>``` property for checkstyle configuration.
+- ```clirr``` - Uses ```<clirr.comparisonVersion>``` property version to compare prior releases against.
+- ```formatter``` - Uses ```<formatter.config>``` property for formatting configuration.  Default spacing is 2 character spacing.
+- ```htmlJavadocs``` - Uses ```<html.javadocType>``` property for html type for javadocs.  Default to -html5.
+- ```importsOrder``` - Uses ```<impsortGroups>``` property for import sort order.  Defaults to au,ch,com,config,de,examples,io,jakarta,java,javassist,javax,lombok,mockit,net,nl,ognl,org.
+- ```JPMS``` - Uses ```<module.name>``` property required to override in every downstream module for automatic modular name.
+- ```spotbugs``` - Uses ```<spotbugs.onlyAnalyze>``` property to control spotbugs analyzation.  Defaults to not set.
+
 - ```compiler``` - Controlled through ```<java.version>``` and ```<java.release.version>``` setting source, target, and release with possibilty for split tests.
-- ```reproducable``` - Set ```<project.build.outputTimestamp``` to controll reproducable build timestamp, this will auto update during releases, it not overridden, it will use value from last parent release.
+- ```encoding``` - Uses UTF-8 by default which can be overridden through ```<project.build.sourceEncoding>```, ```<project.build.resourceEncoding>```, and ```<project.reporting.outputEncoding>```.
+- ```reproducable``` - Set ```<project.build.outputTimestamp>``` to controll reproducable build timestamp, this will auto update during releases; if not overridden, it will use value from last parent release.
 
 Depedencies
 ===========
 
-- Asm 9.3
-- Mybatis Base Bundle 9
-- Bind api 2.3.3
-- Bnd 6.3.1
-- Build Tools 1.3.0
-- Checkstyle 10.3.1
-- Extra Enforcer Rules 1.6.1
-- Fluido 1.11.1
-- License 4.2.rc3
-- Wagon Git 2.0.3
-- Wagon 3.5.2
+- Asm 9.6
+- Mybatis Base Bundle 11
+- Bnd 7.0.0
+- Build Tools 1.3.1
+- Checkstyle 10.13.0
+- Extra Enforcer Rules 1.7.0
+- Fluido 2.0.0-M8
+- License 4.3
 
 Plugins
 =======
 
 - Antrun 3.1.0
-- Assembly 3.4.2
-- Bundle 5.1.7
-- Changes 2.12.1
-- Checkstyle 3.1.2
-- Clean 3.2.0
+- Assembly 3.6.0
+- Bnd 7.0.0
+- Checkstyle 3.3.1
+- Clean 3.3.2
 - Clirr 2.8
-- Compiler 3.10.1
-- Coveralls 4.4.1
-- Dependency 3.3.0
-- Deploy 3.0.0
-- Enforcer 3.1.0
-- Formatter 2.20.0
-- Git Commit 5.0.0
-- Gpgp 3.0.1
-- Impsort 1.7.0
-- Install 3.0.1
-- Jacoco 0.8.8
-- Jar 3.2.2
-- Javadoc 3.4.0
-- Jxr 3.2.0
-- License 4.2.rc3
+- Compiler 3.12.1
+- Coveralls 4.5.0-M3
+- Dependency 3.6.1
+- Deploy 3.1.1
+- Enforcer 3.4.1
+- Formatter 2.23.0
+- Git Commit 7.0.0
+- Gpgp 3.1.0
+- Impsort 1.9.0
+- Install 3.1.1
+- Jacoco 0.8.11
+- Jar 3.3.0
+- Javadoc 3.6.3
+- Jxr 3.3.2
+- License 4.3
 - Lifecycle 1.0.0
-- Modernizer 2.4.0
-- Pdf 1.6.0
-- Pmd 3.17.0
-- Project Info Reports 3.4.0
-- Release 3.0.0-M6
-- Resources 3.3.0
-- Scm 1.12.2
-- Shade 3.3.0
-- Site 3.12.0
-- Sortpom 3.2.0
-- Source 3.2.1
-- Spotbugs 4.7.1.1
-- Surefire 3.0.0-M7
+- Modernizer 2.7.0
+- Pdf 1.6.1
+- Pmd 3.21.2
+- Project Info Reports 3.5.0
+- Release 3.0.1
+- Resources 3.3.1
+- Rewrite 5.21.0
+- Scm Publish 3.2.1
+- Shade 3.5.1
+- Site 4.0.0-M13
+- Sortpom 3.3.0
+- Source 3.3.0
+- Spotbugs 4.8.3.0
+- Surefire 3.2.5
 - Taglist 3.0.0
-- Versions 2.11.0
-- Whitespace 1.0.4
+- Versions 2.16.2
+- Whitespace 1.3.1
 
 OSGI
 ====
@@ -97,5 +100,9 @@ OSGI
 Tests
 =====
 - ```<excludedGroups>``` add slow test groups here and annotate classes similar to ```@Tag('groupName')``` whcih will auto enable on CI only
+
+Site
+====
+- ```<topSiteURL>``` is set back upon itself as a hack to fix defect in maven site for single module builds to avoid maven detecting as 'projectname.git' and placing one folder up from staging.  Set this to empty for multi module builds.
 
 See more details in [pom](pom.xml)
