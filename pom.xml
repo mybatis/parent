@@ -370,6 +370,10 @@
     <!-- Add slow test groups here and annotate classes similar to @Tag('groupName'). -->
     <!-- Excluded groups are ran on github ci, to force here, pass -D"excludedGroups=" -->
     <excludedGroups />
+
+    <!-- Hack for single site builds so site:staging works as expected. Do not use with multi module!
+         Instead adjust for fact that maven bug causes staging to be up one directory with 'reponame.git' -->
+    <topSiteURL>${project.distributionManagement.site.url}</topSiteURL>
   </properties>
 
   <build>
