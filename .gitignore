@@ -4,7 +4,8 @@
 /.idea
 /.settings
 /.project
-target
+.github/keys/
 .mvn/wrapper/maven-wrapper.jar
+target
 pom.xml.releaseBackup
 release.properties
