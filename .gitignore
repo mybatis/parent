@@ -1,9 +1,10 @@
-/*.iml
-/*.ipr
-/*.iws
-/.idea
-/.settings
-/.project
+*.iml
+*.ipr
+*.iws
+.idea
+.classpath
+.project
+.settings
 .github/keys/
 .mvn/wrapper/maven-wrapper.jar
 target
