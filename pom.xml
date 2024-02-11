@@ -349,6 +349,7 @@
     <scm-publish.plugin>3.2.1</scm-publish.plugin>
     <shade.plugin>3.5.1</shade.plugin>
     <site.plugin>4.0.0-M13</site.plugin>
+    <sonar.plugin>3.10.0.2594</sonar.plugin>
     <sortpom.plugin>3.3.0</sortpom.plugin>
     <source.plugin>3.3.0</source.plugin>
     <spotbugs.plugin>4.8.3.1</spotbugs.plugin>
@@ -735,6 +736,12 @@
             <linkXRef>true</linkXRef>
             <minimumTokens>100</minimumTokens>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.sonarsource.scanner.maven</groupId>
+          <artifactId>sonar-maven-plugin</artifactId>
+          <version>${sonar.plugin}</version>
         </plugin>
 
         <plugin>
