@@ -339,7 +339,7 @@
     <jxr.plugin>3.3.2</jxr.plugin>
     <license.plugin>4.3</license.plugin>
     <lifecycle.plugin>1.0.0</lifecycle.plugin>
-    <modernizer.plugin>2.7.0</modernizer.plugin>
+    <modernizer.plugin>2.8.0</modernizer.plugin>
     <pdf.plugin>1.6.1</pdf.plugin>
     <pmd.plugin>3.21.2</pmd.plugin>
     <project-info.plugin>3.5.0</project-info.plugin>
