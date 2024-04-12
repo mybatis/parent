@@ -352,7 +352,7 @@
     <sonar.plugin>3.11.0.3922</sonar.plugin>
     <sortpom.plugin>3.4.1</sortpom.plugin>
     <source.plugin>3.3.1</source.plugin>
-    <spotbugs.plugin>4.8.3.1</spotbugs.plugin>
+    <spotbugs.plugin>4.8.4.0</spotbugs.plugin>
     <surefire.plugin>3.2.5</surefire.plugin>
     <taglist.plugin>3.0.0</taglist.plugin>
     <versions.plugin>2.16.2</versions.plugin>
