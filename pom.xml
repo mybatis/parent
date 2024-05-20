@@ -350,7 +350,7 @@
     <shade.plugin>3.5.3</shade.plugin>
     <site.plugin>4.0.0-M14</site.plugin>
     <sonar.plugin>3.11.0.3922</sonar.plugin>
-    <sortpom.plugin>3.4.1</sortpom.plugin>
+    <sortpom.plugin>4.0.0</sortpom.plugin>
     <source.plugin>3.3.1</source.plugin>
     <spotbugs.plugin>4.8.5.0</spotbugs.plugin>
     <surefire.plugin>3.2.5</surefire.plugin>
