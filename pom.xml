@@ -461,7 +461,6 @@
                   <exclude>NOTICE</exclude>
 
                   <!-- Exclude special folder to ignore license -->
-                  <exclude>**/unlicensed/**</exclude>
                   <exclude>**/ibderby/**</exclude>
                 </excludes>
               </licenseSet>
