@@ -270,7 +270,7 @@
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
     <html.javadocType>-html5</html.javadocType>
-    <impsortGroups>au,ch,com,config,de,examples,io,jakarta,java,javassist,javax,lombok,mockit,net,nl,ognl,org</impsortGroups>
+    <impsortGroups>au,ch,com,config,de,edu,examples,io,jakarta,java,javassist,javax,lombok,mockit,net,nl,ognl,org</impsortGroups>
     <module.name>org.mybatis.parent</module.name>
     <spotbugs.onlyAnalyze />
 
