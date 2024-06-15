@@ -264,7 +264,7 @@
     <copyright>2024</copyright>
 
     <!-- General configuration -->
-    <allowed.build.jdks>[11,12),[17,18),[21,22),[22,23),[23,24),[24,25)</allowed.build.jdks>
+    <allowed.build.jdks>[17,18),[21,22),[22,23),[23,24),[24,25)</allowed.build.jdks>
     <checkstyle.config>checkstyle.xml</checkstyle.config>
     <clirr.comparisonVersion>43</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
@@ -524,8 +524,8 @@
             <bnd><![CDATA[
               // 'nouses' stops the "uses" clauses being added to "Export-Package" manifest entry
               -nouses: true
-              // 'removeheaders' Stop the JAVA_1_n_HOME / JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml (obsolete versions removed, if found, cleanup settings.xml)
-              -removeheaders: JAVA_1_8_HOME,JAVA_8_HOME,JAVA_11_HOME,JAVA_17_HOME,JAVA_21_HOME,JAVA_22_HOME
+              // 'removeheaders' Stop the JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml (obsolete versions removed, if found, cleanup settings.xml)
+              -removeheaders: JAVA_11_HOME,JAVA_17_HOME,JAVA_21_HOME,JAVA_22_HOME,JAVA_23_HOME,JAVA_24_HOME
               Bundle-Developers:
               Bundle-DocURL: ${project.url}
               Bundle-SymbolicName: ${osgi.symbolicName}
