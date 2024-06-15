@@ -524,8 +524,8 @@
             <bnd><![CDATA[
               // 'nouses' stops the "uses" clauses being added to "Export-Package" manifest entry
               -nouses: true
-              // 'removeheaders' Stop the JAVA_1_n_HOME / JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml (obsolete versions removed, if found, cleanup settings.xml)
-              -removeheaders: JAVA_1_8_HOME,JAVA_8_HOME,JAVA_11_HOME,JAVA_17_HOME,JAVA_21_HOME,JAVA_22_HOME
+              // 'removeheaders' Stop the JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml (obsolete versions removed, if found, cleanup settings.xml)
+              -removeheaders: JAVA_11_HOME,JAVA_17_HOME,JAVA_21_HOME,JAVA_22_HOME,JAVA_23_HOME,JAVA_24_HOME
               Bundle-Developers:
               Bundle-DocURL: ${project.url}
               Bundle-SymbolicName: ${osgi.symbolicName}
