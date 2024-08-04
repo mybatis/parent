@@ -1387,17 +1387,4 @@
       </build>
     </profile>
 
-    <!-- Keeping for now for future split when bnd plugin supports 7.0.0 -->
-    <profile>
-      <id>pre17</id>
-      <activation>
-        <jdk>(,17)</jdk>
-      </activation>
-      <properties>
-        <bnd.plugin>6.4.0</bnd.plugin>
-        <bnd.version>6.4.1</bnd.version>
-      </properties>
-    </profile>
-  </profiles>
-
 </project>
