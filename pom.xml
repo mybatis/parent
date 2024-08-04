@@ -266,7 +266,7 @@
     <!-- General configuration -->
     <allowed.build.jdks>[17,18),[21,22),[22,23),[23,24),[24,25)</allowed.build.jdks>
     <checkstyle.config>checkstyle.xml</checkstyle.config>
-    <clirr.comparisonVersion>43</clirr.comparisonVersion>
+    <clirr.comparisonVersion>44</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
     <html.javadocType>-html5</html.javadocType>
@@ -293,7 +293,7 @@
     <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
 
     <!-- Maven minimum version -->
-    <maven.min-version>3.9.7</maven.min-version>
+    <maven.min-version>3.9.8</maven.min-version>
 
     <!-- Project Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -1385,18 +1385,6 @@
           </plugins>
         </pluginManagement>
       </build>
-    </profile>
-
-    <!-- Keeping for now for future split when bnd plugin supports 7.0.0 -->
-    <profile>
-      <id>pre17</id>
-      <activation>
-        <jdk>(,17)</jdk>
-      </activation>
-      <properties>
-        <bnd.plugin>6.4.0</bnd.plugin>
-        <bnd.version>6.4.1</bnd.version>
-      </properties>
     </profile>
   </profiles>
 

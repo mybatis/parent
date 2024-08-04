@@ -21,7 +21,7 @@ Building
 Configurations
 ==============
 
-- ```buildJdks``` - Uses ```<allowed.build.jdks>``` property for allowed jdks to build with.  Defaults to 11, 17, 21, or 22-ea.
+- ```buildJdks``` - Uses ```<allowed.build.jdks>``` property for allowed jdks to build with.  Defaults to 17, 21, 22, 23-ea, or 24-ea.
 - ```checkstyle``` - Uses ```<checkstyle.config>``` property for checkstyle configuration.
 - ```clirr``` - Uses ```<clirr.comparisonVersion>``` property version to compare prior releases against.
 - ```formatter``` - Uses ```<formatter.config>``` property for formatting configuration.  Default spacing is 2 character spacing.
@@ -37,57 +37,58 @@ Configurations
 Depedencies
 ===========
 
-- Asm 9.6
+- Asm 9.7
 - Mybatis Base Bundle 11
 - Bnd 7.0.0
 - Build Tools 1.3.1
-- Checkstyle 10.13.0
-- Extra Enforcer Rules 1.7.0
-- Fluido 2.0.0-M8
-- License 4.3
+- Checkstyle 10.17.0
+- Extra Enforcer Rules 1.8.0
+- Fluido 2.0.0-M9
+- License 4.5
 
 Plugins
 =======
 
 - Antrun 3.1.0
-- Assembly 3.6.0
+- Assembly 3.7.1
 - Bnd 7.0.0
-- Checkstyle 3.3.1
+- Checkstyle 3.4.0
 - Clean 3.3.2
 - Clirr 2.8
-- Compiler 3.12.1
+- Compiler 3.13.0
 - Coveralls 4.5.0-M3
-- Dependency 3.6.1
-- Deploy 3.1.1
-- Enforcer 3.4.1
-- Formatter 2.23.0
-- Git Commit 7.0.0
-- Gpgp 3.1.0
-- Impsort 1.9.0
-- Install 3.1.1
-- Jacoco 0.8.11
-- Jar 3.3.0
-- Javadoc 3.6.3
-- Jxr 3.3.2
-- License 4.3
+- Dependency 3.7.1
+- Deploy 3.1.2
+- Enforcer 3.5.0
+- Formatter 2.24.1
+- Git Commit 9.0.1
+- Gpgp 3.2.4
+- Impsort 1.11.0
+- Install 3.1.2
+- Jacoco 0.8.12
+- Jar 3.4.2
+- Javadoc 3.8.0
+- Jxr 3.4.0
+- License 4.5
 - Lifecycle 1.0.0
-- Modernizer 2.7.0
+- Modernizer 2.9.0
 - Pdf 1.6.1
-- Pmd 3.21.2
-- Project Info Reports 3.5.0
-- Release 3.0.1
+- Pmd 3.24.0
+- Project Info Reports 3.6.2
+- Release 3.1.1
 - Resources 3.3.1
-- Rewrite 5.21.0
-- Scm Publish 3.2.1
-- Shade 3.5.1
-- Site 4.0.0-M13
-- Sortpom 3.3.0
-- Source 3.3.0
-- Spotbugs 4.8.3.0
-- Surefire 3.2.5
-- Taglist 3.0.0
-- Versions 2.16.2
-- Whitespace 1.3.1
+- Rewrite 5.37.1
+- Scm Publish 3.3.0
+- Shade 3.6.0
+- Site 4.0.0-M16
+- Sonar 4.0.0.4121
+- Sortpom 4.0.0
+- Source 3.3.1
+- Spotbugs 4.8.6.0
+- Surefire 3.3.1
+- Taglist 3.1.0
+- Versions 2.17.1
+- Whitespace 1.3.2
 
 OSGI
 ====
