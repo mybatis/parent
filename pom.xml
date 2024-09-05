@@ -356,7 +356,7 @@
     <surefire.plugin>3.5.0</surefire.plugin>
     <taglist.plugin>3.1.0</taglist.plugin>
     <versions.plugin>2.17.1</versions.plugin>
-    <whitespace.plugin>1.3.2</whitespace.plugin>
+    <whitespace.plugin>1.4.0</whitespace.plugin>
 
     <!-- OSGi configuration properties -->
     <osgi.symbolicName>${project.groupId}.${project.artifactId}</osgi.symbolicName>
