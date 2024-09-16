@@ -308,7 +308,7 @@
 
     <!-- Dependency versions -->
     <asm.version>9.7</asm.version>
-    <base-bundle.version>11</base-bundle.version>
+    <base-bundle.version>12</base-bundle.version>
     <bnd.version>7.0.0</bnd.version>
     <build-tools.version>1.4.0</build-tools.version>
     <checkstyle.version>10.18.1</checkstyle.version>
