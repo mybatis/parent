@@ -312,7 +312,7 @@
     <bnd.version>7.0.0</bnd.version>
     <build-tools.version>1.4.0</build-tools.version>
     <checkstyle.version>10.18.1</checkstyle.version>
-    <extra-enforcer-rules.version>1.8.0</extra-enforcer-rules.version>
+    <extra-enforcer-rules.version>1.9.0</extra-enforcer-rules.version>
     <fluido.version>2.0.0-M10</fluido.version>
     <license.version>4.5</license.version>
 
