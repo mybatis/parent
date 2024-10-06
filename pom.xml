@@ -307,7 +307,7 @@
     <timestamp>${maven.build.timestamp}</timestamp>
 
     <!-- Dependency versions -->
-    <asm.version>9.7</asm.version>
+    <asm.version>9.7.1</asm.version>
     <base-bundle.version>12</base-bundle.version>
     <bnd.version>7.0.0</bnd.version>
     <build-tools.version>1.4.0</build-tools.version>
