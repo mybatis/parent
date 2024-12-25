@@ -116,10 +116,10 @@
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
 
     <!-- Maven compiler options -->
-    <java.version>11</java.version>
-    <java.release.version>11</java.release.version>
-    <java.test.version>11</java.test.version>
-    <java.test.release.version>11</java.test.release.version>
+    <java.version>17</java.version>
+    <java.release.version>17</java.release.version>
+    <java.test.version>17</java.test.version>
+    <java.test.release.version>17</java.test.release.version>
 
     <!-- source/target are deprecated, remove in future release -->
     <maven.compiler.source>${java.version}</maven.compiler.source>
