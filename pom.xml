@@ -41,168 +41,6 @@
     </license>
   </licenses>
 
-  <developers>
-    <!-- committers are enlisted by name ASC order, except Clinton who is the founder -->
-    <developer>
-      <id>cbegin</id>
-      <name>Clinton Begin</name>
-      <email>clinton.begin@gmail.com</email>
-      <roles>
-        <role>Owner</role>
-        <role>Founder</role>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>agustafson</id>
-      <name>Andrew Gustafson</name>
-      <email>gus4000@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>brandon.goodin</id>
-      <name>Brandon Goodin</name>
-      <email>brandon.goodin@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>christianpoitras</id>
-      <name>Christian Poitras</name>
-      <email>christian.poitras@ircm.qc.ca</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-      <timezone>-5</timezone>
-    </developer>
-
-    <developer>
-      <id>emacarron</id>
-      <name>Eduardo Macarron</name>
-      <email>eduardo.macarron@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>mnesarco</id>
-      <name>Frank Martinez</name>
-      <email>mnesarco@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>hpresnall</id>
-      <name>Hunter Presnall</name>
-      <email>hpresnall@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>harawata</id>
-      <name>Iwao Ave</name>
-      <email>harawata@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>jeffgbutler</id>
-      <name>Jeff Butler</name>
-      <email>jeffgbutler@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>hazendaz</id>
-      <name>Jeremy Landis</name>
-      <email>jeremylandis@hotmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-      <timezone>-5</timezone>
-    </developer>
-
-    <developer>
-      <id>nospam@kaigrabfelder.de</id>
-      <name>Kai Grabfelder</name>
-      <email>nospam@kaigrabfelder.de</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>lmeadors</id>
-      <name>Larry Meadors</name>
-      <email>larry.meadors@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>marcosperanza</id>
-      <name>Marco Speranza</name>
-      <email>marco.speranza79@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-      <timezone>+1</timezone>
-    </developer>
-
-    <developer>
-      <id>nmaves</id>
-      <name>Nathan Maves</name>
-      <email>nathan.maves@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>pboonphong</id>
-      <name>Putthiphong Boonphong</name>
-      <email>putthiphong.boonphong@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-
-    <developer>
-      <id>simonetripodi</id>
-      <name>Simone Tripodi</name>
-      <email>simone.tripodi@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-      <timezone>+1</timezone>
-    </developer>
-
-    <developer>
-      <id>h3adache</id>
-      <name>Tim Chen</name>
-      <email>chengt@gmail.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-  </developers>
-
   <mailingLists>
     <mailingList>
       <name>mybatis-dev</name>
@@ -264,9 +102,9 @@
     <copyright>2024</copyright>
 
     <!-- General configuration -->
-    <allowed.build.jdks>[17,18),[21,22),[22,23),[23,24),[24,25)</allowed.build.jdks>
+    <allowed.build.jdks note="Any 17, 21, 23, 24, 25">[17,18),[21,22),[23,24),[24,25),[25,26)</allowed.build.jdks>
     <checkstyle.config>checkstyle.xml</checkstyle.config>
-    <clirr.comparisonVersion>44</clirr.comparisonVersion>
+    <clirr.comparisonVersion>46</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
     <html.javadocType>-html5</html.javadocType>
@@ -278,10 +116,10 @@
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
 
     <!-- Maven compiler options -->
-    <java.version>11</java.version>
-    <java.release.version>11</java.release.version>
-    <java.test.version>11</java.test.version>
-    <java.test.release.version>11</java.test.release.version>
+    <java.version>17</java.version>
+    <java.release.version>17</java.release.version>
+    <java.test.version>17</java.test.version>
+    <java.test.release.version>17</java.test.release.version>
 
     <!-- source/target are deprecated, remove in future release -->
     <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -293,7 +131,7 @@
     <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
 
     <!-- Maven minimum version -->
-    <maven.min-version>3.9.8</maven.min-version>
+    <maven.min-version>3.9.9</maven.min-version>
 
     <!-- Project Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -309,6 +147,7 @@
     <!-- Dependency versions -->
     <asm.version>9.7.1</asm.version>
     <base-bundle.version>12</base-bundle.version>
+    <bcel.version>6.10.0</bcel.version>
     <bnd.version>7.1.0</bnd.version>
     <build-tools.version>1.4.0</build-tools.version>
     <checkstyle.version>10.21.0</checkstyle.version>
@@ -525,7 +364,7 @@
               // 'nouses' stops the "uses" clauses being added to "Export-Package" manifest entry
               -nouses: true
               // 'removeheaders' Stop the JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml (obsolete versions removed, if found, cleanup settings.xml)
-              -removeheaders: JAVA_11_HOME,JAVA_17_HOME,JAVA_21_HOME,JAVA_22_HOME,JAVA_23_HOME,JAVA_24_HOME
+              -removeheaders: JAVA_17_HOME,JAVA_21_HOME,JAVA_23_HOME,JAVA_24_HOME,JAVA_25_HOME
               Bundle-Developers:
               Bundle-DocURL: ${project.url}
               Bundle-SymbolicName: ${osgi.symbolicName}
@@ -871,7 +710,7 @@
             <dependency>
               <groupId>org.apache.bcel</groupId>
               <artifactId>bcel</artifactId>
-              <version>6.10.0</version>
+              <version>${bcel.version}</version>
             </dependency>
           </dependencies>
         </plugin>
