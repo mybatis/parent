@@ -22,7 +22,7 @@
 
   <groupId>org.mybatis</groupId>
   <artifactId>mybatis-parent</artifactId>
-  <version>47</version>
+  <version>48-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>mybatis-parent</name>
@@ -70,7 +70,7 @@
   <scm>
     <connection>scm:git:ssh://git@github.com/mybatis/parent.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/mybatis/parent.git</developerConnection>
-    <tag>mybatis-parent-47</tag>
+    <tag>HEAD</tag>
     <url>https://github.com/mybatis/parent/</url>
   </scm>
   <issueManagement>
@@ -139,7 +139,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!-- Reproducible Builds -->
-    <project.build.outputTimestamp>1735243609</project.build.outputTimestamp>
+    <project.build.outputTimestamp>1735243625</project.build.outputTimestamp>
 
     <!-- Due to maven bug, fix timestamp -->
     <timestamp>${maven.build.timestamp}</timestamp>
