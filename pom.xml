@@ -41,6 +41,7 @@
     </license>
   </licenses>
 
+  <!-- Maven central still requires developer block to exist, otherwise this would be removed.  Review data of this to drop those not directly involved any longer. -->
   <developers>
     <!-- committers are enlisted by name ASC order, except Clinton who is the founder -->
     <developer>
