@@ -344,7 +344,7 @@
     <jxr.plugin>3.6.0</jxr.plugin>
     <license.plugin>4.6</license.plugin>
     <lifecycle.plugin>1.0.0</lifecycle.plugin>
-    <modernizer.plugin>2.9.0</modernizer.plugin>
+    <modernizer.plugin>3.0.0</modernizer.plugin>
     <pdf.plugin>1.6.1</pdf.plugin>
     <pmd.plugin>3.26.0</pmd.plugin>
     <project-info.plugin>3.8.0</project-info.plugin>
