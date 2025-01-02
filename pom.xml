@@ -898,7 +898,6 @@
           <artifactId>modernizer-maven-plugin</artifactId>
           <version>${modernizer.plugin}</version>
           <configuration>
-            <failOnViolations>false</failOnViolations>
             <javaVersion>${maven.compiler.target}</javaVersion>
           </configuration>
           <dependencies>
