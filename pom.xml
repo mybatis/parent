@@ -316,7 +316,7 @@
     <bcel.version>6.10.0</bcel.version>
     <bnd.version>7.1.0</bnd.version>
     <build-tools.version>1.4.0</build-tools.version>
-    <checkstyle.version>10.21.1</checkstyle.version>
+    <checkstyle.version>10.21.2</checkstyle.version>
     <extra-enforcer-rules.version>1.9.0</extra-enforcer-rules.version>
     <fluido.version>2.0.1</fluido.version>
     <license.version>4.6</license.version>
