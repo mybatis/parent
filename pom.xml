@@ -345,7 +345,6 @@
     <license.plugin>5.0.0</license.plugin>
     <lifecycle.plugin>1.0.0</lifecycle.plugin>
     <modernizer.plugin>3.1.0</modernizer.plugin>
-    <pdf.plugin>1.6.2</pdf.plugin>
     <pmd.plugin>3.26.0</pmd.plugin>
     <project-info.plugin>3.9.0</project-info.plugin>
     <release.plugin>3.1.1</release.plugin>
@@ -710,25 +709,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jxr-plugin</artifactId>
           <version>${jxr.plugin}</version>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-pdf-plugin</artifactId>
-          <version>${pdf.plugin}</version>
-          <!-- Execution such as this in plugin management requires plugin definition in build to work -->
-          <executions>
-            <execution>
-              <id>pdf</id>
-              <goals>
-                <goal>pdf</goal>
-              </goals>
-              <phase>prepare-package</phase>
-              <configuration>
-                <includeReports>false</includeReports>
-              </configuration>
-            </execution>
-          </executions>
         </plugin>
 
         <plugin>
