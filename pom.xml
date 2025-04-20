@@ -329,7 +329,7 @@
     <clean.plugin>3.4.1</clean.plugin>
     <clirr.plugin>2.8</clirr.plugin>
     <compiler.plugin>3.14.0</compiler.plugin>
-    <coveralls.plugin>4.6.0</coveralls.plugin>
+    <coveralls.plugin>4.7.0</coveralls.plugin>
     <dependency.plugin>3.8.1</dependency.plugin>
     <deploy.plugin>3.1.4</deploy.plugin>
     <enforcer.plugin>3.5.0</enforcer.plugin>
