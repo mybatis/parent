@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2024 the original author or authors.
+       Copyright 2010-2025 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
 
   <groupId>org.mybatis</groupId>
   <artifactId>mybatis-parent</artifactId>
-  <version>49-SNAPSHOT</version>
+  <version>49</version>
   <packaging>pom</packaging>
 
   <name>mybatis-parent</name>
@@ -233,7 +233,7 @@
   <scm>
     <connection>scm:git:ssh://git@github.com/mybatis/parent.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/mybatis/parent.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>mybatis-parent-49</tag>
     <url>https://github.com/mybatis/parent/</url>
   </scm>
   <issueManagement>
@@ -301,7 +301,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!-- Reproducible Builds -->
-    <project.build.outputTimestamp>1735244718</project.build.outputTimestamp>
+    <project.build.outputTimestamp>1746065302</project.build.outputTimestamp>
 
     <!-- Due to maven bug, fix timestamp -->
     <timestamp>${maven.build.timestamp}</timestamp>
