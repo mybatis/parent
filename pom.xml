@@ -245,13 +245,9 @@
     <url>https://github.com/mybatis/parent/actions</url>
   </ciManagement>
   <distributionManagement>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
     <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <id>central</id>
+      <url>https://central.sonatype.com/repository/maven-snapshots/</url>
     </snapshotRepository>
     <site>
       <id>gh-pages-scm</id>
@@ -345,7 +341,6 @@
     <license.plugin>5.0.0</license.plugin>
     <lifecycle.plugin>1.0.0</lifecycle.plugin>
     <modernizer.plugin>3.1.0</modernizer.plugin>
-    <pdf.plugin>1.6.2</pdf.plugin>
     <pmd.plugin>3.26.0</pmd.plugin>
     <project-info.plugin>3.9.0</project-info.plugin>
     <release.plugin>3.1.1</release.plugin>
@@ -714,25 +709,6 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-pdf-plugin</artifactId>
-          <version>${pdf.plugin}</version>
-          <!-- Execution such as this in plugin management requires plugin definition in build to work -->
-          <executions>
-            <execution>
-              <id>pdf</id>
-              <goals>
-                <goal>pdf</goal>
-              </goals>
-              <phase>prepare-package</phase>
-              <configuration>
-                <includeReports>false</includeReports>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
           <version>${pmd.plugin}</version>
           <configuration>
@@ -898,7 +874,6 @@
           <artifactId>modernizer-maven-plugin</artifactId>
           <version>${modernizer.plugin}</version>
           <configuration>
-            <failOnViolations>false</failOnViolations>
             <javaVersion>${maven.compiler.target}</javaVersion>
           </configuration>
           <dependencies>
@@ -914,6 +889,17 @@
           <groupId>org.openrewrite.maven</groupId>
           <artifactId>rewrite-maven-plugin</artifactId>
           <version>${rewrite.plugin}</version>
+        </plugin>
+
+        <!-- Sonatype Provided Plugins -->
+        <plugin>
+          <groupId>org.sonatype.central</groupId>
+          <artifactId>central-publishing-maven-plugin</artifactId>
+          <version>0.7.0</version>
+          <extensions>true</extensions>
+          <configuration>
+            <publishingServerId>central</publishingServerId>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -1023,6 +1009,16 @@
             <phase>verify</phase>
           </execution>
         </executions>
+      </plugin>
+
+      <!-- Sonatype Provided Plugins -->
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
+        </configuration>
       </plugin>
     </plugins>
   </build>
