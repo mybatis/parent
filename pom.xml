@@ -347,7 +347,7 @@
     <resources.plugin>3.3.1</resources.plugin>
     <rewrite.plugin>6.18.0</rewrite.plugin>
     <scm-publish.plugin>3.3.0</scm-publish.plugin>
-    <shade.plugin>3.6.0</shade.plugin>
+    <shade.plugin>3.6.1</shade.plugin>
     <site.plugin>3.21.0</site.plugin>
     <sonar.plugin>5.2.0.4988</sonar.plugin>
     <sortpom.plugin>4.0.0</sortpom.plugin>
