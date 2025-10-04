@@ -263,7 +263,7 @@
     <!-- General configuration -->
     <allowed.build.jdks note="Any 17, 21, 24, 25, 26">[17,18),[21,22),[24,25),[25,26),[26,27)</allowed.build.jdks>
     <checkstyle.config>checkstyle.xml</checkstyle.config>
-    <clirr.comparisonVersion>46</clirr.comparisonVersion>
+    <clirr.comparisonVersion>50</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
     <html.javadocType>-html5</html.javadocType>
