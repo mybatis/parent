@@ -321,6 +321,7 @@
     <antrun.plugin>3.1.0</antrun.plugin>
     <assembly.plugin>3.7.1</assembly.plugin>
     <bnd.plugin>7.1.0</bnd.plugin>
+    <central-publishing.plugin>0.9.0</central-publishing.plugin>
     <checkstyle.plugin>3.6.0</checkstyle.plugin>
     <clean.plugin>3.5.0</clean.plugin>
     <clirr.plugin>2.8</clirr.plugin>
@@ -898,7 +899,7 @@
         <plugin>
           <groupId>org.sonatype.central</groupId>
           <artifactId>central-publishing-maven-plugin</artifactId>
-          <version>0.9.0</version>
+          <version>${central-publishing.plugin}</version>
           <extensions>true</extensions>
           <configuration>
             <publishingServerId>central</publishingServerId>
