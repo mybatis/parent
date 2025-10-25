@@ -261,7 +261,7 @@
     <copyright>2025</copyright>
 
     <!-- General configuration -->
-    <allowed.build.jdks note="Any 17, 21, 24, 25, 26">[17,18),[21,22),[24,25),[25,26),[26,27)</allowed.build.jdks>
+    <allowed.build.jdks note="Any 17, 21, 25, 26">[17,18),[21,22),[25,26),[26,27)</allowed.build.jdks>
     <checkstyle.config>checkstyle.xml</checkstyle.config>
     <clirr.comparisonVersion>50</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
