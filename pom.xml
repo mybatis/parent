@@ -505,6 +505,7 @@
           <configuration>
             <configFile>${formatter.config}</configFile>
             <skipXmlFormatting>true</skipXmlFormatting>
+            <lineEnding>KEEP</lineEnding>
           </configuration>
           <dependencies>
             <dependency>
