@@ -355,7 +355,7 @@
     <source.plugin>3.3.1</source.plugin>
     <spotbugs.plugin>4.9.8.2</spotbugs.plugin>
     <surefire.plugin>3.5.4</surefire.plugin>
-    <taglist.plugin>3.2.1</taglist.plugin>
+    <taglist.plugin>3.2.2</taglist.plugin>
     <versions.plugin>2.20.0</versions.plugin>
     <whitespace.plugin>1.5.0</whitespace.plugin>
 
