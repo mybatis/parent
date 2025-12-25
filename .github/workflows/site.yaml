@@ -16,7 +16,7 @@ jobs:
   build:
     if: github.repository_owner == 'mybatis' && ! contains(toJSON(github.event.head_commit.message), '[maven-release-plugin]')
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
       - name: Setup Java
@@ -24,7 +24,7 @@ jobs:
         with:
           cache: maven
           distribution: temurin
-          java-version: 21
+          java-version: 25
       - name: Build site
         run: ./mvnw site site:stage --batch-mode --no-transfer-progress --settings ./.mvn/settings.xml --show-version -Dlicense.skip=true -DskipTests
         env:
