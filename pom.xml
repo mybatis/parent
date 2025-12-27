@@ -310,7 +310,7 @@
     <asm.version>9.9.1</asm.version>
     <base-bundle.version>13</base-bundle.version>
     <bcel.version>6.11.0</bcel.version>
-    <bnd.version>7.1.0</bnd.version>
+    <bnd.version>7.2.0</bnd.version>
     <build-tools.version>1.5.0</build-tools.version>
     <checkstyle.version>12.3.0</checkstyle.version>
     <extra-enforcer-rules.version>1.11.0</extra-enforcer-rules.version>
