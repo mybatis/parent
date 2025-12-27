@@ -320,7 +320,7 @@
     <!-- Plugins versions -->
     <antrun.plugin>3.2.0</antrun.plugin>
     <assembly.plugin>3.8.0</assembly.plugin>
-    <bnd.plugin>7.1.0</bnd.plugin>
+    <bnd.plugin>7.2.0</bnd.plugin>
     <central-publishing.plugin>0.9.0</central-publishing.plugin>
     <checkstyle.plugin>3.6.0</checkstyle.plugin>
     <clean.plugin>3.5.0</clean.plugin>
