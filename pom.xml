@@ -356,7 +356,7 @@
     <spotbugs.plugin>4.9.8.2</spotbugs.plugin>
     <surefire.plugin>3.5.4</surefire.plugin>
     <taglist.plugin>3.2.2</taglist.plugin>
-    <versions.plugin>2.20.1</versions.plugin>
+    <versions.plugin>2.21.0</versions.plugin>
     <whitespace.plugin>1.6.0</whitespace.plugin>
 
     <!-- OSGi configuration properties -->
