@@ -309,7 +309,7 @@
     <!-- Dependency versions -->
     <asm.version>9.9.1</asm.version>
     <base-bundle.version>13</base-bundle.version>
-    <bcel.version>6.11.0</bcel.version>
+    <bcel.version>6.12.0</bcel.version>
     <bnd.version>7.2.1</bnd.version>
     <build-tools.version>1.5.0</build-tools.version>
     <checkstyle.version>13.0.0</checkstyle.version>
