@@ -36,58 +36,60 @@ Configurations
 Depedencies
 ===========
 
-- Asm 9.7
-- Mybatis Base Bundle 11
-- Bnd 7.0.0
-- Build Tools 1.3.1
-- Checkstyle 10.17.0
-- Extra Enforcer Rules 1.8.0
-- Fluido 2.0.0-M9
-- License 4.5
+- Asm 9.9.1
+- Base Bundle (mybatis) 13
+- Bcel 6.12.0
+- Bnd 7.2.1
+- Build Tools (hazendaz) 1.5.0
+- Caffeine 3.2.3
+- Checkstyle 13.0.0
+- Extra Enforcer Rules 1.11.0
+- Fluido 2.1.0
+- License 5.0.0
 
 Plugins
 =======
 
-- Antrun 3.1.0
-- Assembly 3.7.1
-- Bnd 7.0.0
-- Checkstyle 3.4.0
-- Clean 3.3.2
+- Antrun 3.2.0
+- Assembly 3.8.0
+- Bnd 7.2.1
+- Central Publishing 0.10.0
+- Checkstyle 3.6.0
+- Clean 3.5.0
 - Clirr 2.8
-- Compiler 3.13.0
-- Coveralls 4.5.0-M3
-- Dependency 3.7.1
-- Deploy 3.1.2
-- Enforcer 3.5.0
-- Formatter 2.24.1
-- Git Commit 9.0.1
-- Gpgp 3.2.4
-- Impsort 1.11.0
-- Install 3.1.2
-- Jacoco 0.8.12
-- Jar 3.4.2
-- Javadoc 3.8.0
-- Jxr 3.4.0
-- License 4.5
+- Compiler 3.14.1
+- Coveralls 5.0.0
+- Dependency 3.9.0
+- Deploy 3.1.4
+- Enforcer 3.6.2
+- Formatter 2.29.0
+- Git Commit 9.0.2
+- Gpgp 3.2.8
+- Impsort 1.13.0
+- Install 3.1.4
+- Jacoco 0.8.14
+- Jar 3.5.0
+- Javadoc 3.12.0
+- Jxr 3.6.0
+- License 5.0.0
 - Lifecycle 1.0.0
-- Modernizer 2.9.0
-- Pdf 1.6.1
-- Pmd 3.24.0
-- Project Info Reports 3.6.2
-- Release 3.1.1
-- Resources 3.3.1
-- Rewrite 5.37.1
+- Modernizer 3.2.0
+- Pmd 3.28.0
+- Project Info Reports 3.9.0
+- Release 3.3.1
+- Resources 3.4.0
+- Rewrite 6.28.0
 - Scm Publish 3.3.0
-- Shade 3.6.0
-- Site 4.0.0-M16
-- Sonar 4.0.0.4121
+- Shade 3.6.1
+- Site 3.21.0
+- Sonar 5.5.0.6356
 - Sortpom 4.0.0
-- Source 3.3.1
-- Spotbugs 4.8.6.0
-- Surefire 3.3.1
-- Taglist 3.1.0
-- Versions 2.17.1
-- Whitespace 1.3.2
+- Source 3.4.0
+- Spotbugs 4.9.8.2
+- Surefire 3.5.4
+- Taglist 3.2.2
+- Versions 2.21.0
+- Whitespace 1.6.0
 
 OSGI
 ====
