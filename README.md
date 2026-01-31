@@ -12,15 +12,15 @@ MyBatis-Parent is the MyBatis parent POM which has to be inherited by all MyBati
 Building
 ========
 
-- Builds require JDK 11 or better to build with and will continue to target JDK 8 runtimes.
-- Allowable JDKs to build with include 11, 17, 21, or 22-ea
-- Minimum maven version to build projects is 3.9.6
+- Builds require JDK 17 or better to build with and will continue to target JDK 17 runtimes.
+- Allowable JDKs to build with include 17, 21, 25, 26-ea, or 27-ea
+- Minimum maven version to build projects is 3.9.12
 - Uses reproducable builds
 
 Configurations
 ==============
 
-- ```buildJdks``` - Uses ```<allowed.build.jdks>``` property for allowed jdks to build with.  Defaults to 17, 21, 22, 23-ea, or 24-ea.
+- ```buildJdks``` - Uses ```<allowed.build.jdks>``` property for allowed jdks to build with.  Defaults to 21, 25, 26-ea, and 27-ea.
 - ```checkstyle``` - Uses ```<checkstyle.config>``` property for checkstyle configuration.
 - ```clirr``` - Uses ```<clirr.comparisonVersion>``` property version to compare prior releases against.
 - ```formatter``` - Uses ```<formatter.config>``` property for formatting configuration.  Default spacing is 2 character spacing.
