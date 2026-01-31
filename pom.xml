@@ -35,7 +35,7 @@
   </organization>
   <licenses>
     <license>
-      <name>The Apache Software License, Version 2.0</name>
+      <name>Apache License, Version 2.0</name>
       <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
@@ -261,9 +261,9 @@
     <copyright>2025</copyright>
 
     <!-- General configuration -->
-    <allowed.build.jdks note="Any 17, 21, 25, 26">[17,18),[21,22),[25,26),[26,27)</allowed.build.jdks>
+    <allowed.build.jdks note="Any 21, 25, 26, 27">[21,22),[25,26),[26,27),[27,28)</allowed.build.jdks>
     <checkstyle.config>checkstyle.xml</checkstyle.config>
-    <clirr.comparisonVersion>50</clirr.comparisonVersion>
+    <clirr.comparisonVersion>51</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
     <html.javadocType>-html5</html.javadocType>
@@ -293,7 +293,7 @@
     <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
 
     <!-- Maven minimum version -->
-    <maven.min-version>3.9.11</maven.min-version>
+    <maven.min-version>3.9.12</maven.min-version>
 
     <!-- Project Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -312,6 +312,7 @@
     <bcel.version>6.12.0</bcel.version>
     <bnd.version>7.2.1</bnd.version>
     <build-tools.version>1.5.0</build-tools.version>
+    <caffeine.version>3.2.3</caffeine.version>
     <checkstyle.version>13.0.0</checkstyle.version>
     <extra-enforcer-rules.version>1.11.0</extra-enforcer-rules.version>
     <fluido.version>2.1.0</fluido.version>
@@ -893,6 +894,13 @@
           <groupId>org.openrewrite.maven</groupId>
           <artifactId>rewrite-maven-plugin</artifactId>
           <version>${rewrite.plugin}</version>
+          <dependencies>
+            <dependency>
+              <groupId>com.github.ben-manes.caffeine</groupId>
+              <artifactId>caffeine</artifactId>
+              <version>${caffeine.version}</version>
+            </dependency>
+          </dependencies>
         </plugin>
 
         <!-- Sonatype Provided Plugins -->
