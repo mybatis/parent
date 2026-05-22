@@ -36,6 +36,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@7211b7c8077ea37d8641b6271f6a365a22a5fbfa # v4
         with:
+          build-mode: none
           queries: +security-and-quality
 
       - name: Autobuild
