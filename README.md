@@ -13,8 +13,8 @@ Building
 ========
 
 - Builds require JDK 17 or better to build with and will continue to target JDK 17 runtimes.
-- Allowable JDKs to build with include 17, 21, 25, 26-ea, or 27-ea
-- Minimum maven version to build projects is 3.9.12
+- Allowable JDKs to build with include 21, 25, 26, or 27-ea
+- Minimum maven version to build projects is 3.9.16
 - Uses reproducable builds
 
 Configurations
@@ -36,14 +36,14 @@ Configurations
 Depedencies
 ===========
 
-- Asm 9.9.1
+- Asm 9.10.1
 - Base Bundle (mybatis) 13
 - Bcel 6.12.0
-- Bnd 7.2.1
-- Build Tools (hazendaz) 1.5.0
-- Caffeine 3.2.3
-- Checkstyle 13.0.0
-- Extra Enforcer Rules 1.11.0
+- Bnd 7.2.3
+- Build Tools (hazendaz) 1.6.0
+- Caffeine 3.2.4
+- Checkstyle 13.5.0
+- Extra Enforcer Rules 1.12.0
 - Fluido 2.1.0
 - License 5.0.0
 
@@ -52,18 +52,18 @@ Plugins
 
 - Antrun 3.2.0
 - Assembly 3.8.0
-- Bnd 7.2.1
+- Bnd 7.2.3
 - Central Publishing 0.10.0
 - Checkstyle 3.6.0
 - Clean 3.5.0
 - Clirr 2.8
-- Compiler 3.14.1
-- Coveralls 5.0.0
-- Dependency 3.9.0
+- Compiler 3.15.0
+- Coveralls 5.1.0
+- Dependency 3.11.0
 - Deploy 3.1.4
-- Enforcer 3.6.2
+- Enforcer 3.6.3
 - Formatter 2.29.0
-- Git Commit 9.0.2
+- Git Commit 10.0.0
 - Gpgp 3.2.8
 - Impsort 1.13.0
 - Install 3.1.4
@@ -73,20 +73,20 @@ Plugins
 - Jxr 3.6.0
 - License 5.0.0
 - Lifecycle 1.0.0
-- Modernizer 3.2.0
+- Modernizer 3.4.0
 - Pmd 3.28.0
 - Project Info Reports 3.9.0
 - Release 3.3.1
-- Resources 3.4.0
-- Rewrite 6.28.0
+- Resources 3.5.0
+- Rewrite 6.40.0
 - Scm Publish 3.3.0
-- Shade 3.6.1
-- Site 3.21.0
-- Sonar 5.5.0.6356
+- Shade 3.6.2
+- Site 3.22.0
+- Sonar 5.7.0.6970
 - Sortpom 4.0.0
 - Source 3.4.0
-- Spotbugs 4.9.8.2
-- Surefire 3.5.4
+- Spotbugs 4.9.8.3
+- Surefire 3.5.6
 - Taglist 3.2.2
 - Versions 2.21.0
 - Whitespace 1.6.0
