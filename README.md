@@ -20,7 +20,7 @@ Building
 Configurations
 ==============
 
-- ```buildJdks``` - Uses ```<allowed.build.jdks>``` property for allowed jdks to build with.  Defaults to 21, 25, 26-ea, and 27-ea.
+- ```buildJdks``` - Uses ```<allowed.build.jdks>``` property for allowed jdks to build with.  Defaults to 21, 25, 26, and 27-ea.
 - ```checkstyle``` - Uses ```<checkstyle.config>``` property for checkstyle configuration.
 - ```clirr``` - Uses ```<clirr.comparisonVersion>``` property version to compare prior releases against.
 - ```formatter``` - Uses ```<formatter.config>``` property for formatting configuration.  Default spacing is 2 character spacing.
