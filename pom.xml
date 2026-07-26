@@ -380,6 +380,17 @@
     <topSiteURL>${project.distributionManagement.site.url}</topSiteURL>
   </properties>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.gaul</groupId>
+        <artifactId>modernizer-maven-annotations</artifactId>
+        <version>${modernizer.plugin}</version>
+        <scope>provided</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <build>
 
     <resources>
