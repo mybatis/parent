@@ -542,7 +542,7 @@
               // 'nouses' stops the "uses" clauses being added to "Export-Package" manifest entry
               -nouses: true
               // 'removeheaders' Stop the JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml (obsolete versions removed, if found, cleanup settings.xml)
-              -removeheaders: JAVA_17_HOME,JAVA_21_HOME,JAVA_23_HOME,JAVA_24_HOME,JAVA_25_HOME
+              -removeheaders: JAVA_21_HOME,JAVA_25_HOME,JAVA_26_HOME,JAVA_27_HOME,JAVA_28_HOME
               Bundle-Developers:
               Bundle-DocURL: ${project.url}
               Bundle-SymbolicName: ${osgi.symbolicName}
