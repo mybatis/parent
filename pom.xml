@@ -261,9 +261,9 @@
     <copyright>2025</copyright>
 
     <!-- General configuration -->
-    <allowed.build.jdks note="Any 21, 25, 26, 27">[21,22),[25,26),[26,27),[27,28)</allowed.build.jdks>
+    <allowed.build.jdks note="Any 21, 25, 26, 27">[21,22),[25,26),[26,27),[27,28),[28,29)</allowed.build.jdks>
     <checkstyle.config>checkstyle.xml</checkstyle.config>
-    <clirr.comparisonVersion>51</clirr.comparisonVersion>
+    <clirr.comparisonVersion>52</clirr.comparisonVersion>
     <formatter.config>eclipse-formatter-config-2space.xml</formatter.config>
     <gcu.product>${project.name}</gcu.product>
     <html.javadocType>-html5</html.javadocType>
@@ -379,6 +379,17 @@
          Instead adjust for fact that maven bug causes staging to be up one directory with 'reponame.git' -->
     <topSiteURL>${project.distributionManagement.site.url}</topSiteURL>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.gaul</groupId>
+        <artifactId>modernizer-maven-annotations</artifactId>
+        <version>${modernizer.plugin}</version>
+        <scope>provided</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <build>
 
@@ -531,7 +542,7 @@
               // 'nouses' stops the "uses" clauses being added to "Export-Package" manifest entry
               -nouses: true
               // 'removeheaders' Stop the JAVA_n_HOME variables from being treated as headers by Bnd if found in settings.xml (obsolete versions removed, if found, cleanup settings.xml)
-              -removeheaders: JAVA_17_HOME,JAVA_21_HOME,JAVA_23_HOME,JAVA_24_HOME,JAVA_25_HOME
+              -removeheaders: JAVA_21_HOME,JAVA_25_HOME,JAVA_26_HOME,JAVA_27_HOME,JAVA_28_HOME
               Bundle-Developers:
               Bundle-DocURL: ${project.url}
               Bundle-SymbolicName: ${osgi.symbolicName}
