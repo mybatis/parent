@@ -310,7 +310,7 @@
     <asm.version>9.10.1</asm.version>
     <base-bundle.version>14</base-bundle.version>
     <bcel.version>6.12.0</bcel.version>
-    <bnd.version>7.3.0</bnd.version>
+    <bnd.version>7.4.0</bnd.version>
     <build-tools.version>1.6.0</build-tools.version>
     <caffeine.version>3.2.4</caffeine.version>
     <checkstyle.version>13.11.0</checkstyle.version>
