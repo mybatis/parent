@@ -21,7 +21,7 @@
 
 <!-- N.B. all non-body elements are automatically inherited -->
 
-  <bannerRight name="MyBatis" href="https://blog.mybatis.org/">
+  <bannerRight name="MyBatis" href="https://github.com/mybatis">
     <image src="https://www.mybatis.org/images/mybatis-logo.png" alt="MyBatis logo" />
   </bannerRight>
 
